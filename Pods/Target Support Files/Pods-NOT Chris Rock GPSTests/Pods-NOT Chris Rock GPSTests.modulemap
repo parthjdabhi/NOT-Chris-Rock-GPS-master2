@@ -1,0 +1,6 @@
+framework module Pods_NOT_Chris_Rock_GPSTests {
+  umbrella header "Pods-NOT Chris Rock GPSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

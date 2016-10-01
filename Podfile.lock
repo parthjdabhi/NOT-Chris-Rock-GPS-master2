@@ -1,0 +1,97 @@
+PODS:
+  - Alamofire (3.5.0)
+  - AlamofireNetworkActivityIndicator (1.1.0):
+    - Alamofire (~> 3.3)
+  - AlamofireSwiftyJSON (0.1.1):
+    - Alamofire (~> 3.4)
+    - SwiftyJSON (~> 2.3)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.15.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.15.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.15.1):
+    - FBSDKCoreKit
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - GooglePlacePicker (2.0.1):
+    - GoogleMaps (= 2.0.1)
+    - GooglePlaces (= 2.0.1)
+  - GooglePlaces (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - GTMOAuth2 (1.1.2):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.6):
+    - GTMSessionFetcher/Full (= 1.1.6)
+  - GTMSessionFetcher/Core (1.1.6)
+  - GTMSessionFetcher/Full (1.1.6):
+    - GTMSessionFetcher/Core (= 1.1.6)
+  - IQDropDownTextField (1.1.0)
+  - IQKeyboardManagerSwift (4.0.5)
+  - Mixpanel (3.0.3):
+    - Mixpanel/Mixpanel (= 3.0.3)
+  - Mixpanel/Mixpanel (3.0.3)
+  - OAuthSwift (0.5.2)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SVProgressHUD (2.0.3)
+  - SwiftyJSON (2.3.2)
+  - SWRevealViewController (2.3.0)
+  - UIActivityIndicator-for-SDWebImage (1.2):
+    - SDWebImage (~> 3.7)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4)
+  - AlamofireNetworkActivityIndicator (~> 1.0)
+  - AlamofireSwiftyJSON (~> 0.1)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - GooglePlacePicker
+  - GooglePlaces
+  - GTMOAuth2 (~> 1.1.0)
+  - IQDropDownTextField (~> 1.0)
+  - IQKeyboardManagerSwift
+  - Mixpanel
+  - OAuthSwift (~> 0.5.0)
+  - SDWebImage (~> 3.8)
+  - SVProgressHUD (~> 2.0)
+  - SwiftyJSON (~> 2.3)
+  - SWRevealViewController (~> 2.3)
+  - UIActivityIndicator-for-SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
+  AlamofireNetworkActivityIndicator: 36340ebf8d70241b2ebadc3dea38e8fbb95f5127
+  AlamofireSwiftyJSON: 4787ff07c7e6687b787f1723229e729653e3359f
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
+  FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
+  FBSDKShareKit: 11cbb5a4d7b5fda8143cc95b76188147e6725736
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
+  GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
+  GTMOAuth2: 1707e2f7fe3a6d7240223c23c473ba5a2d104474
+  GTMSessionFetcher: 6aacd0ab48ddf0c3633ab2642d792abfcad1b08a
+  IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
+  IQKeyboardManagerSwift: 41fd3a45a2cdb2a0e031af697708a95b865068a1
+  Mixpanel: 45867daeaa3c60f88072a3cb1b44e0b6c5cec009
+  OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
+
+PODFILE CHECKSUM: 88e78d948b981b36f1eaa69c6ce97546b8c09824
+
+COCOAPODS: 1.1.0.rc.2
