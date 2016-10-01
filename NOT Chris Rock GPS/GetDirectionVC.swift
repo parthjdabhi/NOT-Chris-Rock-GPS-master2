@@ -14,6 +14,7 @@ import GooglePlaces
 import SWRevealViewController
 import SwiftyJSON
 import SVProgressHUD
+import AVFoundation
 
 class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, LocateOnTheMap {
     
@@ -23,6 +24,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     var mapManager = DirectionManager()
     var tableData = NSDictionary()
     var polyline: MKPolyline = MKPolyline()
+    
+    var player:AVPlayer?
     
     @IBOutlet var btnMenu: UIButton?
     //@IBOutlet weak var drawMap: MKMapView!
@@ -153,6 +156,29 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             //self.DirectionDetailTableViewCell.hidden = false;
         }
     }
+    
+    
+    @IBAction func actionPlayVoice(sender: AnyObject) {
+        //http: //www.notchrisrock.com/gps/sounds/turnleft.mp3
+        
+        let mp3Url = NSURL(string: "http://www.wavsource.com/snds_2016-09-25_6739387469794827/sfx/cuckoo_clock2_x.wav")
+        print("playing \(mp3Url)")
+        
+        do {
+            let playerItem = AVPlayerItem(URL: mp3Url!)
+            
+            self.player = try AVPlayer(playerItem:playerItem)
+            player!.volume = 1.0
+            player!.play()
+        } catch let error as NSError {
+            self.player = nil
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
+    }
+    
+    
     @IBAction func ClickToGo(sender: AnyObject) {
         if isValidPincode()
         {

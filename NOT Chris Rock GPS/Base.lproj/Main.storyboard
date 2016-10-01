@@ -1916,7 +1916,27 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmo-hg-SXI" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="148" width="375" height="481"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGW-3G-L0T">
+                                        <rect key="frame" x="8" y="435" width="130" height="38"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="GWj-ei-4y6"/>
+                                            <constraint firstAttribute="height" constant="38" id="R45-Sz-qTg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <state key="normal" title="Play Test Sound">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionPlayVoice:" destination="muY-e6-MjW" eventType="touchUpInside" id="ZaC-Ev-9Cn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pGW-3G-L0T" firstAttribute="leading" secondItem="Gmo-hg-SXI" secondAttribute="leading" constant="8" id="jS9-cV-9hK"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s65-0p-RMU">
                                 <rect key="frame" x="0.0" y="629" width="375" height="38"/>
@@ -1945,6 +1965,7 @@
                             <constraint firstItem="Gmo-hg-SXI" firstAttribute="leading" secondItem="lYi-q0-RoV" secondAttribute="leading" id="aWj-Hf-ykY"/>
                             <constraint firstAttribute="trailing" secondItem="eeV-NE-Q0s" secondAttribute="trailing" id="fNH-Ii-2hA"/>
                             <constraint firstItem="Gmo-hg-SXI" firstAttribute="top" secondItem="nX2-J1-kfs" secondAttribute="bottom" id="gD3-NF-R4O"/>
+                            <constraint firstItem="s65-0p-RMU" firstAttribute="top" secondItem="pGW-3G-L0T" secondAttribute="bottom" constant="8" id="jZl-qJ-5Pc"/>
                             <constraint firstItem="eeV-NE-Q0s" firstAttribute="top" secondItem="lYi-q0-RoV" secondAttribute="top" id="ksZ-wS-gAc"/>
                             <constraint firstItem="s65-0p-RMU" firstAttribute="top" secondItem="Gmo-hg-SXI" secondAttribute="bottom" id="odB-dg-k2W"/>
                             <constraint firstItem="s65-0p-RMU" firstAttribute="leading" secondItem="lYi-q0-RoV" secondAttribute="leading" id="yiL-kl-TkP"/>
