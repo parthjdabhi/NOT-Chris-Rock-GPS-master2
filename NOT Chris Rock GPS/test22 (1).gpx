@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.0" creator="http://gpx.geotags.com/cgi-bin/gpx.cgi" xmlns="http://www.topografix.com/GPX/1/0">
+    <metadata>
+        <link href="">
+            <text>Sverrir Sigmundarson</text>
+        </link>
+        <time>2016-10-01T21:20:40Z</time>
+    </metadata>
+    <wpt lat="40.6727880" lon="-73.9692029">
+        <name>New York</name>
+        <desc>New York, NY, USA</desc>
+    </wpt>
+    <wpt lat="40.7510885" lon="-73.9935063">
+        <name>Brooklyn</name>
+        <desc>Brooklyn, NY, USA</desc>
+    </wpt>
+    
+    <rte>
+    <name>newyork to borrklyn ny</name>
+    <rtept lat="40.6727880" lon="-73.9692029">
+      <name>Continue onto Eastern Pkwy</name>
+    </rtept>
+    <rtept lat="40.6726396" lon="-73.9700125">
+      <name>Slight left onto Grand Army Plaza/Plaza St W</name>
+    </rtept>
+    <rtept lat="40.6743430" lon="-73.9706415">
+      <name>Continue straight onto Grand Army Plaza</name>
+    </rtept>
+    <rtept lat="40.6889453" lon="-73.9810767">
+      <name>Continue straight onto Flatbush Ave</name>
+    </rtept>
+    <rtept lat="40.6959467" lon="-73.9845715">
+      <name>Turn right onto Flatbush Ave Ext</name>
+    </rtept>
+    <rtept lat="40.6962731" lon="-73.9888347">
+      <name>Turn left onto Tillary St</name>
+    </rtept>
+    <rtept lat="40.7111369" lon="-74.0033323">
+      <name>Continue onto Brooklyn Bridge</name>
+    </rtept>
+    <rtept lat="40.7119354" lon="-74.0059280">
+      <name>Take the Brooklyn Bridge ramp on the left to Kennedy Airport/LaGuardia Airport</name>
+    </rtept>
+    <rtept lat="40.7113811" lon="-74.0086509">
+      <name>Sharp left onto Park Row</name>
+    </rtept>
+    <rtept lat="40.7130673" lon="-74.0072247">
+      <name>Continue onto Murray Street</name>
+    </rtept>
+    <rtept lat="40.7127243" lon="-74.0065046">
+      <name>Head northwest on Steve Flanders Square toward Broadway/Canyon of Heroes</name>
+    </rtept>
+    <rtept lat="40.6727880" lon="-73.9692029">
+      <name>Continue onto Eastern Pkwy</name>
+    </rtept>
+    <rtept lat="40.6726396" lon="-73.9700125">
+      <name>Slight left onto Grand Army Plaza/Plaza St W</name>
+    </rtept>
+    <rtept lat="40.6727150" lon="-73.9708395">
+      <name>Turn left to stay on Plaza St W</name>
+    </rtept>
+    <rtept lat="40.6727871" lon="-73.9709124">
+      <name>Turn right onto Plaza St W</name>
+    </rtept>
+    <rtept lat="40.6734880" lon="-73.9729550">
+      <name>Turn right onto Union St</name>
+    </rtept>
+    <rtept lat="40.6590481" lon="-73.9850564">
+      <name>Turn right onto 8th Ave</name>
+    </rtept>
+    <rtept lat="40.6576859" lon="-73.9828387">
+      <name>Turn left onto 18th St</name>
+    </rtept>
+    <rtept lat="40.6565920" lon="-73.9840240">
+      <name>Turn right onto Prospect Park West</name>
+    </rtept>
+    <rtept lat="40.6552599" lon="-73.9818168">
+      <name>Turn right onto 20th St</name>
+    </rtept>
+    <rtept lat="40.6558318" lon="-73.9812172">
+      <name>Turn right onto 10th Ave</name>
+    </rtept>
+    <rtept lat="40.6572242" lon="-73.9829851">
+      <name>Take exit 4 for 10 Ave toward 11 Ave/NY-27</name>
+    </rtept>
+    <rtept lat="40.6657897" lon="-73.9938131">
+      <name>Continue onto NY-27/Prospect Expy</name>
+    </rtept>
+    <rtept lat="40.6674956" lon="-73.9961922">
+      <name>Take exit 24 on the left for Prospect Expy/NY-27 E</name>
+    </rtept>
+    <rtept lat="40.6752889" lon="-74.0008875">
+      <name>Merge onto I-278 W</name>
+    </rtept>
+    <rtept lat="40.6802919" lon="-74.0046923">
+      <name>Keep left to stay on I-478</name>
+    </rtept>
+    <rtept lat="40.7056656" lon="-74.0151192">
+      <name>Continue onto I-478</name>
+    </rtept>
+    <rtept lat="40.7097093" lon="-74.0150881">
+      <name>Take the Battery Tunnel/Brooklyn ramp on the left to Interstate 278</name>
+    </rtept>
+    <rtept lat="40.7152191" lon="-74.0132070">
+      <name>Turn left onto West St</name>
+    </rtept>
+    <rtept lat="40.7130673" lon="-74.0072247">
+      <name>Continue onto Murray Street</name>
+    </rtept>
+    <rtept lat="40.7127243" lon="-74.0065046">
+      <name>Head northwest on Steve Flanders Square toward Broadway/Canyon of Heroes</name>
+    </rtept>
+    <rtept lat="40.6718003" lon="-73.9638706">
+      <name>Turn right</name>
+    </rtept>
+    <rtept lat="40.6718464" lon="-73.9640629">
+      <name>Turn right</name>
+    </rtept>
+    <rtept lat="40.6717890" lon="-73.9643010">
+      <name>Head northeast</name>
+    </rtept>
+    <rtept lat="40.6718003" lon="-73.9643202">
+      <name>Take exit</name>
+    </rtept>
+    <rtept lat="40.7510560" lon="-73.9903102">
+      <name>Flatbush Av - Brooklyn College </name>
+    </rtept>
+    <rtept lat="40.7504760" lon="-73.9912540">
+      <name>Take entrance</name>
+    </rtept>
+    <rtept lat="40.7500609" lon="-73.9913001">
+      <name>Turn left onto 7th Ave/Fashion Ave</name>
+    </rtept>
+    <rtept lat="40.7499842" lon="-73.9917598">
+      <name>Turn left toward 7th Ave/Fashion Ave</name>
+    </rtept>
+    <rtept lat="40.7502346" lon="-73.9924340">
+      <name>Head southeast</name>
+    </rtept>
+    <rtept lat="40.7510735" lon="-73.9935958">
+      <name>Walk for 482 ft</name>
+    </rtept>
+    <rtept lat="40.7510726" lon="-73.9936018">
+      <name>Take the elevator up to the 2nd floor (Arena-Lobby Level)</name>
+    </rtept>
+    <rtept lat="40.7510749" lon="-73.9935105">
+      <name>Walk for 30 ft</name>
+    </rtept>
+    <rtept lat="40.7510885" lon="-73.9935063">
+      <name>Head south</name>
+    </rtept>
+  </rte>
+</gpx>

@@ -54,7 +54,7 @@ class MySlideMenuController : UIViewController {
         btnLogout.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2).CGColor
         
         
-        self.lblName?.text = "asd asd asd asd"
+        self.lblName?.text = "Welcome"
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MySlideMenuController.MyProfile))
         lblName?.addGestureRecognizer(tap)
         lblName?.userInteractionEnabled = true
@@ -110,8 +110,8 @@ class MySlideMenuController : UIViewController {
         //self.performSegueWithIdentifier("segueAboutApp", sender: self)
     }
     
-    @IBAction func actionHelp(sender: AnyObject) {
-        //self.performSegueWithIdentifier("segueHelp", sender: self)
+    @IBAction func actionSetting(sender: AnyObject) {
+        self.performSegueWithIdentifier("segueFilterScreen", sender: self)
     }
     
     @IBAction func actionLogout(sender: AnyObject) {

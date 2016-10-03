@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PlaceMarker: GMSMarker {
-  let place: MyPlace
+class BizMarker: GMSMarker {
+  let biz: Business
   
-  init(place: MyPlace) {
-    self.place = place
+  init(biz: Business) {
+    self.biz = biz
     super.init()
     
     groundAnchor = CGPoint(x: 0.5, y: 1)
@@ -21,10 +21,10 @@ class PlaceMarker: GMSMarker {
     //icon = UIImage(named: place.placeType+"_pin")
     icon = UIImage(named: "default_marker.png")
     
-    position = place.coordinate
+    position = biz.coordinate!
     
-    title = place.json["name"].string
-    snippet = place.json["snippet_text"].string
+    title = biz.name
+    snippet = biz.address
     
   }
 }

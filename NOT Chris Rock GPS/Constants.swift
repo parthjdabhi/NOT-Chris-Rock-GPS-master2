@@ -43,4 +43,8 @@ var CLocationPlace:String = String()
 
 //YELP Api
 let apiConsoleInfo = YelpAPIConsole()
-let client = YelpAPIClient()
+//let client = YelpAPIClient()
+
+var businessArr: [Business]? = nil
+var searchString = ""
+var Myfilters = Filters()

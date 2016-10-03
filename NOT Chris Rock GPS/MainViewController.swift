@@ -17,6 +17,7 @@ import SWRevealViewController
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SVProgressHUD
 
 class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
@@ -27,15 +28,17 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     @IBOutlet weak var btnRefreshNearByPlace: UIButton!
     @IBOutlet weak var btnDirection: UIButton!
     @IBOutlet var btnMenu: UIButton?
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    //var searchBar: UISearchBar!
+    var myTimer = NSTimer()
     
     var googleMapsView: GMSMapView!
     var searchResultController: SearchResultsController!
-    var resultsArray = [String]()
     //var locationManager = CLLocationManager()
     
     //To Store Food places
-    var places:[MyPlace] = []
-    var placesDetail:[JSON] = []
+    var currentBizMarker:[BizMarker] = []
     
     // MARK: -
     // MARK: Lifecycle
@@ -77,18 +80,28 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
                 CLocation = CLLocation(latitude: latitude, longitude: longitude)
                 self.googleMapsView.animateToCameraPosition(GMSCameraPosition(target: CLocation!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
                 //For Search Via Yelp
-                self.showNearByPlace(["food"])
+                self.doSearch()
             }
         } else {
             self.googleMapsView.animateToCameraPosition(GMSCameraPosition(target: CLocation!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
             //For Search Via Yelp
-            showNearByPlace(["food"])
+            doSearch()
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueFilter" {
+            let navController = segue.destinationViewController as! UINavigationController
+            let filtersVC = navController.topViewController as! FiltersViewController
+            filtersVC.delegate = self
+            filtersVC.filterObject = Myfilters
+        }
     }
     
     // MARK: -
@@ -147,14 +160,30 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         //showNearByPlaceByGoogleAPI(["food"])
         
         //For Search Via Yelp
-        showNearByPlace(["food"])
+        //showNearByPlace(["food"])
+        doSearch()
     }
     
     //Searcing by yelp api
-    func showNearByPlace(ofCategory:[String])
+    func showNearByPlace1(ofCategory:[String])
     {
-        
-        client.searchPlacesWithParameters(["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"], successSearch: { (data, response) -> Void in
+        //["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"]
+        SVProgressHUD.showWithStatus("Searching..")
+        guard let client = YelpClient.sharedInstance else { return}
+        client.location = "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)"
+        client.searchWithTerm(searchString, sort: Myfilters.sortBy, categories: Myfilters.categories, deals: Myfilters.hasDeal, completion: { (business, error) in
+            businessArr = business
+            for biz: Business in businessArr! {
+                let marker = BizMarker(biz: biz)
+                marker.map = self.googleMapsView
+            }
+            
+           SVProgressHUD.dismiss()
+        })
+
+
+        /*
+        client.sharedInstance?.searchPlacesWithParameters(["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"], successSearch: { (data, response) -> Void in
             
             //print(data.stringValue)
             
@@ -180,7 +209,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         }) { (error) -> Void in
             print(error)
         }
-        
+        */
     }
     // MARK: - GMSMapViewDelegate
     
@@ -195,18 +224,19 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     }
     
     func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
-        let placeMarker = marker as! PlaceMarker
+        let placeMarker = marker as! BizMarker
         
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
-            infoView.nameLabel.text = placeMarker.place.name
+            infoView.nameLabel.text = placeMarker.biz.name
+            infoView.lblReviewCount.text = placeMarker.biz.reviewCount?.stringValue ?? ""
             
-            if let photo = placeMarker.place.photo {
+            if let photo = placeMarker.biz.photo {
                 infoView.placePhoto.image = photo
             } else {
                 infoView.placePhoto.image = UIImage(named: "button_compass_night.png")
             }
             
-            if let ratingPhoto = placeMarker.place.ratingPhoto {
+            if let ratingPhoto = placeMarker.biz.ratingPhoto {
                 infoView.ratingPhoto.image = ratingPhoto
             } else {
                 infoView.ratingPhoto.image = UIImage(named: "button_compass_night.png")
@@ -222,10 +252,86 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         return false
     }
     
-    func didTapMyLocationButtonForMapView(mapView: GMSMapView!) -> Bool {
+    func didTapMyLocationButtonForMapView(mapView: GMSMapView) -> Bool {
         mapView.selectedMarker = nil
         return false
     }
+    
+    // Perform the search.
+    private func doSearch() {
+        SVProgressHUD.showWithStatus("Searching..")
+        // Perform request to Yelp API to get the list of businessees
+        guard let client = YelpClient.sharedInstance else { return }
+        client.location = "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)"
+        client.searchWithTerm(searchString, sort: Myfilters.sortBy, categories: Myfilters.categories, deals: Myfilters.hasDeal, completion: { (business, error) in
+            self.removeMarkers(self.currentBizMarker)
+            businessArr = business
+            for biz: Business in businessArr! {
+                let marker = BizMarker(biz: biz)
+                self.currentBizMarker.append(marker)
+                marker.map = self.googleMapsView
+            }
+            
+            SVProgressHUD.dismiss()
+        })
+    }
+    
+    func removeMarkers(marker:[GMSMarker]) {
+        for cBizMarker in self.currentBizMarker {
+            cBizMarker.map = nil
+        }
+        self.currentBizMarker.removeAll()
+    }
 }
 
+
+extension MainViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true;
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        return true;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchString = ""
+        searchBar.resignFirstResponder()
+        doSearch()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchString = searchBar.text!
+        searchBar.resignFirstResponder()
+        doSearch()
+    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        myTimer.invalidate()
+        searchString = searchText
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainViewController.searchInTime), userInfo: nil, repeats: false)
+    }
+    func searchInTime(){
+        doSearch()
+    }
+    
+}
+
+extension MainViewController: FiltersViewControllerDelegate {
+    func filtersViewControllerDelegate(filtersViewController: FiltersViewController, didSet filters: Filters) {
+        Myfilters = filters
+        doSearch()
+    }
+}
+// Model class that represents the user's search settings
+@objc class YelpSearchInfo: NSObject {
+    var searchString: String?
+    override init() {
+        searchString = ""
+    }
+    
+}
 

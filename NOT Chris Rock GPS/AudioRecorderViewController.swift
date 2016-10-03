@@ -91,15 +91,15 @@ class AudioRecorderViewController: UINavigationController {
         }
 
         override func viewDidLoad() {
-            title = "Audio Recorder"
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "dismiss:")
-            edgesForExtendedLayout = .None
-            
-            self.view.backgroundColor = UIColor.clearColor()
-            
-            saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveAudio:")
-            navigationItem.rightBarButtonItem = saveButton
-            saveButton.enabled = false
+//            title = "Audio Recorder"
+//            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "dismiss:")
+//            edgesForExtendedLayout = .None
+//            
+//            self.view.backgroundColor = UIColor.clearColor()
+//            
+//            saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveAudio:")
+//            navigationItem.rightBarButtonItem = saveButton
+//            saveButton.enabled = false
 
             let settings = [AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC), AVSampleRateKey: NSNumber(integer: 44100), AVNumberOfChannelsKey: NSNumber(integer: 2)]
             try! recorder = AVAudioRecorder(URL: outputURL, settings: settings)
@@ -131,7 +131,8 @@ class AudioRecorderViewController: UINavigationController {
             NSNotificationCenter.defaultCenter().removeObserver(self)
         }
 
-        func dismiss(sender: AnyObject) {
+        
+        @IBAction func dismiss(sender: AnyObject) {
             cleanup()
             if audioRecorderDelegate != nil {
                 audioRecorderDelegate?.audioRecorderViewControllerDismissed(withFileURL: nil)
@@ -139,8 +140,8 @@ class AudioRecorderViewController: UINavigationController {
                 dismissViewControllerAnimated(true, completion: nil)
             }
         }
-
-        func saveAudio(sender: AnyObject) {
+        
+        @IBAction func actionSaveAudio(sender: AnyObject) {
             cleanup()
             saveRecording()
             

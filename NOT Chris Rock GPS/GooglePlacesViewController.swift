@@ -250,102 +250,112 @@ class GooglePlacesViewController: UIViewController, UISearchBarDelegate, LocateO
     func showNearByPlace(ofCategory:[String])
     {
         
-        client.searchPlacesWithParameters(["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"], successSearch: { (data, response) -> Void in
-            
-            //print(data.stringValue)
-            
-            let json = JSON(data.stringValue?.convertToDictionary ?? [:])
-            print(json)
-            
-            if let businesses = json["businesses"].array {
-                for business in businesses {
-                    
-                    //print(business)
-                    let place = MyPlace(json: business, Types: ["food"])
-                    
-                    self.places.append(place)
-                    self.placesDetail.append(business)
-                }
-                
-                for place: MyPlace in self.places {
-                    let marker = PlaceMarker(place: place)
-                    marker.map = self.googleMapsView
-                }
+        guard let client = YelpClient.sharedInstance else { return }
+        client.location = "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)"
+        client.searchWithTerm(searchString, sort: Myfilters.sortBy, categories: Myfilters.categories, deals: Myfilters.hasDeal, completion: { (business, error) in
+            businessArr = business
+            for biz: Business in businessArr! {
+                let marker = BizMarker(biz: biz)
+                marker.map = self.googleMapsView
             }
             
-            //            self.burgerLabel.text = String(client.searchPlacesWithParameters(["ll": "37.788022,-122.399797", "category_filter": "burgers", "radius_filter": "3000", "sort": "0"], successSearch: { (data, response) -> Void in
-            //            }) { (error) -> Void in
-            //                print(error)
-            //                })
-            
-        }) { (error) -> Void in
-            print(error)
-        }
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        })
         
+//        client.searchPlacesWithParameters(["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"], successSearch: { (data, response) -> Void in
+//            
+//            //print(data.stringValue)
+//            
+//            let json = JSON(data.stringValue?.convertToDictionary ?? [:])
+//            print(json)
+//            
+//            if let businesses = json["businesses"].array {
+//                for business in businesses {
+//                    
+//                    //print(business)
+//                    let place = MyPlace(json: business, Types: ["food"])
+//                    
+//                    self.places.append(place)
+//                    self.placesDetail.append(business)
+//                }
+//                
+//                for place: MyPlace in self.places {
+//                    let marker = PlaceMarker(place: place)
+//                    marker.map = self.googleMapsView
+//                }
+//            }
+//            
+//            //            self.burgerLabel.text = String(client.searchPlacesWithParameters(["ll": "37.788022,-122.399797", "category_filter": "burgers", "radius_filter": "3000", "sort": "0"], successSearch: { (data, response) -> Void in
+//            //            }) { (error) -> Void in
+//            //                print(error)
+//            //                })
+//            
+//        }) { (error) -> Void in
+//            print(error)
+//        }
     }
     
     //Searcing by google api
-    func showNearByPlaceByGoogleAPI(ofCategory:[String])
-    {
-        
-        let directionURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=\(googleMapsApiKey)&sensor=false&location=\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)&radius=10000&types=store&hasNextPage=true&nextPage()=true&types=\(ofCategory.joinWithSeparator(","))"
-        //"https://maps.googleapis.com/maps/api/directions/json?origin=\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)&destination=\(CLocationSelected.coordinate.latitude),\(CLocationSelected.coordinate.longitude)&key=\(googleMapsApiKey)&mode=walking"
-        //mode:driving,walking,bicycling,transit
-        
-        //https ://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB5jzZt5pc9-WVIEvfaBIZAIvQOYLhVu94&sensor=false&location=51.52864165,-0.10179430&radius=10000&types=store&hasNextPage=true&nextPage()=true&&pagetoken=CqQDmgEAAKT5-i-8iY5K4SPtMicW7Z2cUkGpM1kWiUIXSogohSio3vdw1bdSanD-mad_KgnSzk34KrXEfrTi6ABLxQidFTub6ilmoxRJx6bNhGSYdqkaJfW5h4Srw-7vkBToqto_NboFDMWzCAEzCqK1RgRGjRkWgPaHLi0gQ7wSTg9gecVVB-FAJ55QJO8w5lFrV5sAR-OF7yQ0Xqr9b2b4FyLoTBl-onaNNTqbycZXBFY28ychJywlQP3HbyfNVyU0sb5GODMbwZrQqP1JuolO_fhMnXyBYP3dwnFJVmdL25ms3b3DFwzTEII-3XeJWmPceSZnTIsLXn9-05JOWyTbaj0gI38G-1DeUUxthp7KDq47rTrNW5ogEfAO9pcfsIT7eSCzex5RhIvz1ohqpVYKT_Lr09MPQ6pYaEJ4ZY3_658aIi6GjcM4HkH2VDmfk-6DzF_hK3GFCbNeo1MjVlnPIt7Kp_6IvY-8aO0Xy8S3CAjtGLWXy0uxsADEMnC_mynFP0JhJJnbTu8RWuhPQbX0qdijx26fGXz1SlevkG2plENfnn2HEhBj-lJuu6Ua5-sngBrCzLXvGhRd_ubAQ4408c9YSShDc0RmhC5ogQ
-        print(directionURL)
-        
-        Alamofire.request(.GET, directionURL, parameters: nil).responseJSON { response in
-            
-            switch response.result {
-                
-            case .Success(let data):
-                
-                let json = JSON(data)
-                let errornum = json["error"]
-                print(json)
-                
-                if (errornum == true) {
-                    print("Error",errornum)
-                } else {
-                    
-                    //var places:[GMSMarker] = []
-                    
-                    if let results = json["results"].array
-                        where results.count > 0
-                    {
-                        //name
-                        
-                        for result in results {
-                            let marker = GMSMarker()
-                            marker.groundAnchor = CGPoint(x: 0.5, y: 1)
-                            marker.appearAnimation = kGMSMarkerAnimationPop
-                            marker.icon = UIImage(named: "default_marker.png")
-                            
-                            marker.title = result["name"].string
-                            marker.snippet = result["vicinity"].string
-                            
-                            marker.position = CLLocation(latitude: (result["geometry"]["location"]["lat"].double ?? 0), longitude: result["geometry"]["location"]["lng"].double ?? 0).coordinate
-                            
-                            let place = MyPlace(json: result, Types: ["food"])
-                            self.places.append(place)
-                        }
-                        
-                        for place: MyPlace in self.places {
-                            let marker = PlaceMarker(place: place)
-                            marker.map = self.googleMapsView
-                        }
-                        
-                    } else {
-                        self.googleMapsView.clear()
-                    }
-                }
-                
-            case .Failure(let error):
-                print("Request failed with error: \(error)")
-            }
-        }
-    }
+//    func showNearByPlaceByGoogleAPI(ofCategory:[String])
+//    {
+//        
+//        let directionURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=\(googleMapsApiKey)&sensor=false&location=\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)&radius=10000&types=store&hasNextPage=true&nextPage()=true&types=\(ofCategory.joinWithSeparator(","))"
+//        //"https://maps.googleapis.com/maps/api/directions/json?origin=\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)&destination=\(CLocationSelected.coordinate.latitude),\(CLocationSelected.coordinate.longitude)&key=\(googleMapsApiKey)&mode=walking"
+//        //mode:driving,walking,bicycling,transit
+//        
+//        //https ://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB5jzZt5pc9-WVIEvfaBIZAIvQOYLhVu94&sensor=false&location=51.52864165,-0.10179430&radius=10000&types=store&hasNextPage=true&nextPage()=true&&pagetoken=CqQDmgEAAKT5-i-8iY5K4SPtMicW7Z2cUkGpM1kWiUIXSogohSio3vdw1bdSanD-mad_KgnSzk34KrXEfrTi6ABLxQidFTub6ilmoxRJx6bNhGSYdqkaJfW5h4Srw-7vkBToqto_NboFDMWzCAEzCqK1RgRGjRkWgPaHLi0gQ7wSTg9gecVVB-FAJ55QJO8w5lFrV5sAR-OF7yQ0Xqr9b2b4FyLoTBl-onaNNTqbycZXBFY28ychJywlQP3HbyfNVyU0sb5GODMbwZrQqP1JuolO_fhMnXyBYP3dwnFJVmdL25ms3b3DFwzTEII-3XeJWmPceSZnTIsLXn9-05JOWyTbaj0gI38G-1DeUUxthp7KDq47rTrNW5ogEfAO9pcfsIT7eSCzex5RhIvz1ohqpVYKT_Lr09MPQ6pYaEJ4ZY3_658aIi6GjcM4HkH2VDmfk-6DzF_hK3GFCbNeo1MjVlnPIt7Kp_6IvY-8aO0Xy8S3CAjtGLWXy0uxsADEMnC_mynFP0JhJJnbTu8RWuhPQbX0qdijx26fGXz1SlevkG2plENfnn2HEhBj-lJuu6Ua5-sngBrCzLXvGhRd_ubAQ4408c9YSShDc0RmhC5ogQ
+//        print(directionURL)
+//        
+//        Alamofire.request(.GET, directionURL, parameters: nil).responseJSON { response in
+//            
+//            switch response.result {
+//                
+//            case .Success(let data):
+//                
+//                let json = JSON(data)
+//                let errornum = json["error"]
+//                print(json)
+//                
+//                if (errornum == true) {
+//                    print("Error",errornum)
+//                } else {
+//                    
+//                    //var places:[GMSMarker] = []
+//                    
+//                    if let results = json["results"].array
+//                        where results.count > 0
+//                    {
+//                        //name
+//                        
+//                        for result in results {
+//                            let marker = GMSMarker()
+//                            marker.groundAnchor = CGPoint(x: 0.5, y: 1)
+//                            marker.appearAnimation = kGMSMarkerAnimationPop
+//                            marker.icon = UIImage(named: "default_marker.png")
+//                            
+//                            marker.title = result["name"].string
+//                            marker.snippet = result["vicinity"].string
+//                            
+//                            marker.position = CLLocation(latitude: (result["geometry"]["location"]["lat"].double ?? 0), longitude: result["geometry"]["location"]["lng"].double ?? 0).coordinate
+//                            
+//                            let place = MyPlace(json: result, Types: ["food"])
+//                            self.places.append(place)
+//                        }
+//                        
+//                        for place: MyPlace in self.places {
+//                            let marker = PlaceMarker(place: place)
+//                            marker.map = self.googleMapsView
+//                        }
+//                        
+//                    } else {
+//                        self.googleMapsView.clear()
+//                    }
+//                }
+//            case .Failure(let error):
+//                print("Request failed with error: \(error)")
+//            }
+//        }
+//    }
     
     // MARK: - GMSMapViewDelegate
     
@@ -360,18 +370,19 @@ class GooglePlacesViewController: UIViewController, UISearchBarDelegate, LocateO
     }
     
     func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
-        let placeMarker = marker as! PlaceMarker
+        let placeMarker = marker as! BizMarker
         
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
-            infoView.nameLabel.text = placeMarker.place.name
+            infoView.nameLabel.text = placeMarker.biz.name
+            infoView.lblReviewCount.text = placeMarker.biz.reviewCount?.stringValue ?? ""
             
-            if let photo = placeMarker.place.photo {
+            if let photo = placeMarker.biz.photo {
                 infoView.placePhoto.image = photo
             } else {
                 infoView.placePhoto.image = UIImage(named: "button_compass_night.png")
             }
             
-            if let ratingPhoto = placeMarker.place.ratingPhoto {
+            if let ratingPhoto = placeMarker.biz.ratingPhoto {
                 infoView.ratingPhoto.image = ratingPhoto
             } else {
                 infoView.ratingPhoto.image = UIImage(named: "button_compass_night.png")

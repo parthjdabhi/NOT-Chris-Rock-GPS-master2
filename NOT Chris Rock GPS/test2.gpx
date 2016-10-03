@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<gpx version="1.0" creator="http://gpx.geotags.com/cgi-bin/gpx.cgi" xmlns="http://www.topografix.com/GPX/1/0">
+  <trk>
+    <name>newyork to borrklyn ny (test2 1)</name>
+    <trkseg>
+      <trkpt lat="40.7127243" lon="-74.0065046">
+        <desc>Head northwest on Steve Flanders Square toward Broadway/Canyon of Heroes</desc>
+      </trkpt>
+      <trkpt lat="40.7129539" lon="-74.0069600"/>
+      <trkpt lat="40.7130673" lon="-74.0072247">
+        <desc>Continue onto Murray Street</desc>
+      </trkpt>
+      <trkpt lat="40.7138064" lon="-74.0088415"/>
+      <trkpt lat="40.7143859" lon="-74.0101409"/>
+      <trkpt lat="40.7148210" lon="-74.0111241"/>
+      <trkpt lat="40.7150284" lon="-74.0120724"/>
+      <trkpt lat="40.7151917" lon="-74.0130382"/>
+      <trkpt lat="40.7152191" lon="-74.0132070">
+        <desc>Turn left onto West St</desc>
+      </trkpt>
+      <trkpt lat="40.7144926" lon="-74.0137255"/>
+      <trkpt lat="40.7139389" lon="-74.0138884"/>
+      <trkpt lat="40.7132608" lon="-74.0140939"/>
+      <trkpt lat="40.7127567" lon="-74.0142541"/>
+      <trkpt lat="40.7116564" lon="-74.0145399"/>
+      <trkpt lat="40.7111332" lon="-74.0146739"/>
+      <trkpt lat="40.7105900" lon="-74.0148269"/>
+      <trkpt lat="40.7100587" lon="-74.0149784"/>
+      <trkpt lat="40.7097093" lon="-74.0150881">
+        <desc>Take the Battery Tunnel/Brooklyn ramp on the left to Interstate 278</desc>
+      </trkpt>
+      <trkpt lat="40.7091478" lon="-74.0151236"/>
+      <trkpt lat="40.7082803" lon="-74.0154330"/>
+      <trkpt lat="40.7077690" lon="-74.0156409"/>
+      <trkpt lat="40.7072647" lon="-74.0154853"/>
+      <trkpt lat="40.7070594" lon="-74.0149824"/>
+      <trkpt lat="40.7066120" lon="-74.0147437"/>
+      <trkpt lat="40.7059329" lon="-74.0149288"/>
+      <trkpt lat="40.7056656" lon="-74.0151192">
+        <desc>Continue onto I-478</desc>
+      </trkpt>
+      <trkpt lat="40.7047211" lon="-74.0154934"/>
+      <trkpt lat="40.7039362" lon="-74.0157241"/>
+      <trkpt lat="40.7034228" lon="-74.0158198"/>
+      <trkpt lat="40.7026145" lon="-74.0158727"/>
+      <trkpt lat="40.7020945" lon="-74.0158706"/>
+      <trkpt lat="40.7015734" lon="-74.0158153"/>
+      <trkpt lat="40.7010517" lon="-74.0156677"/>
+      <trkpt lat="40.7002573" lon="-74.0154096"/>
+      <trkpt lat="40.6995796" lon="-74.0151474"/>
+      <trkpt lat="40.6989019" lon="-74.0148852"/>
+      <trkpt lat="40.6940663" lon="-74.0130587"/>
+      <trkpt lat="40.6891043" lon="-74.0099880"/>
+      <trkpt lat="40.6882832" lon="-74.0094799"/>
+      <trkpt lat="40.6855521" lon="-74.0077901"/>
+      <trkpt lat="40.6836728" lon="-74.0066743"/>
+      <trkpt lat="40.6830094" lon="-74.0063556"/>
+      <trkpt lat="40.6821432" lon="-74.0059394"/>
+      <trkpt lat="40.6812593" lon="-74.0054035"/>
+      <trkpt lat="40.6802919" lon="-74.0046923">
+        <desc>Keep left to stay on I-478</desc>
+      </trkpt>
+      <trkpt lat="40.6798566" lon="-74.0042846"/>
+      <trkpt lat="40.6793806" lon="-74.0038129"/>
+      <trkpt lat="40.6786982" lon="-74.0032059"/>
+      <trkpt lat="40.6782892" lon="-74.0028875"/>
+      <trkpt lat="40.6778416" lon="-74.0025552"/>
+      <trkpt lat="40.6770860" lon="-74.0020228"/>
+      <trkpt lat="40.6766256" lon="-74.0017091"/>
+      <trkpt lat="40.6762108" lon="-74.0014218"/>
+      <trkpt lat="40.6756990" lon="-74.0011015"/>
+      <trkpt lat="40.6752889" lon="-74.0008875">
+        <desc>Merge onto I-278 W</desc>
+      </trkpt>
+      <trkpt lat="40.6744279" lon="-74.0003157"/>
+      <trkpt lat="40.6738634" lon="-73.9999342"/>
+      <trkpt lat="40.6729041" lon="-73.9993096"/>
+      <trkpt lat="40.6721748" lon="-73.9988476"/>
+      <trkpt lat="40.6710235" lon="-73.9981492"/>
+      <trkpt lat="40.6686883" lon="-73.9967247"/>
+      <trkpt lat="40.6682007" lon="-73.9964474"/>
+      <trkpt lat="40.6676857" lon="-73.9962467"/>
+      <trkpt lat="40.6674956" lon="-73.9961922">
+        <desc>Take exit 24 on the left for Prospect Expy/NY-27 E</desc>
+      </trkpt>
+      <trkpt lat="40.6670723" lon="-73.9959095"/>
+      <trkpt lat="40.6664642" lon="-73.9949155"/>
+      <trkpt lat="40.6662032" lon="-73.9944629"/>
+      <trkpt lat="40.6657897" lon="-73.9938131">
+        <desc>Continue onto NY-27/Prospect Expy</desc>
+      </trkpt>
+      <trkpt lat="40.6654367" lon="-73.9932270"/>
+      <trkpt lat="40.6651468" lon="-73.9927429"/>
+      <trkpt lat="40.6645710" lon="-73.9917451"/>
+      <trkpt lat="40.6641601" lon="-73.9910558"/>
+      <trkpt lat="40.6637595" lon="-73.9904273"/>
+      <trkpt lat="40.6634632" lon="-73.9899665"/>
+      <trkpt lat="40.6631515" lon="-73.9895650"/>
+      <trkpt lat="40.6627725" lon="-73.9891528"/>
+      <trkpt lat="40.6621903" lon="-73.9886505"/>
+      <trkpt lat="40.6613002" lon="-73.9880119"/>
+      <trkpt lat="40.6605222" lon="-73.9874532"/>
+      <trkpt lat="40.6600317" lon="-73.9870721"/>
+      <trkpt lat="40.6596516" lon="-73.9867040"/>
+      <trkpt lat="40.6592375" lon="-73.9862090"/>
+      <trkpt lat="40.6588685" lon="-73.9856611"/>
+      <trkpt lat="40.6586021" lon="-73.9852237"/>
+      <trkpt lat="40.6582082" lon="-73.9845756"/>
+      <trkpt lat="40.6576708" lon="-73.9836834"/>
+      <trkpt lat="40.6573676" lon="-73.9832027"/>
+      <trkpt lat="40.6572242" lon="-73.9829851">
+        <desc>Take exit 4 for 10 Ave toward 11 Ave/NY-27</desc>
+      </trkpt>
+      <trkpt lat="40.6566991" lon="-73.9823642"/>
+      <trkpt lat="40.6559530" lon="-73.9813114"/>
+      <trkpt lat="40.6558318" lon="-73.9812172">
+        <desc>Turn right onto 10th Ave</desc>
+      </trkpt>
+      <trkpt lat="40.6552599" lon="-73.9818168">
+        <desc>Turn right onto 20th St</desc>
+      </trkpt>
+      <trkpt lat="40.6563677" lon="-73.9836550"/>
+      <trkpt lat="40.6565920" lon="-73.9840240">
+        <desc>Turn right onto Prospect Park West</desc>
+      </trkpt>
+      <trkpt lat="40.6571500" lon="-73.9834390"/>
+      <trkpt lat="40.6575035" lon="-73.9830544"/>
+      <trkpt lat="40.6576859" lon="-73.9828387">
+        <desc>Turn left onto 18th St</desc>
+      </trkpt>
+      <trkpt lat="40.6580719" lon="-73.9834448"/>
+      <trkpt lat="40.6590481" lon="-73.9850564">
+        <desc>Turn right onto 8th Ave</desc>
+      </trkpt>
+      <trkpt lat="40.6595980" lon="-73.9844800"/>
+      <trkpt lat="40.6601370" lon="-73.9839180"/>
+      <trkpt lat="40.6609370" lon="-73.9832339"/>
+      <trkpt lat="40.6615390" lon="-73.9827320"/>
+      <trkpt lat="40.6621420" lon="-73.9822310"/>
+      <trkpt lat="40.6627440" lon="-73.9817280"/>
+      <trkpt lat="40.6633470" lon="-73.9812250"/>
+      <trkpt lat="40.6639500" lon="-73.9807240"/>
+      <trkpt lat="40.6645520" lon="-73.9802220"/>
+      <trkpt lat="40.6651550" lon="-73.9797200"/>
+      <trkpt lat="40.6657490" lon="-73.9792240"/>
+      <trkpt lat="40.6663610" lon="-73.9787150"/>
+      <trkpt lat="40.6669630" lon="-73.9782120"/>
+      <trkpt lat="40.6675700" lon="-73.9777170"/>
+      <trkpt lat="40.6681715" lon="-73.9772148"/>
+      <trkpt lat="40.6687724" lon="-73.9767104"/>
+      <trkpt lat="40.6693786" lon="-73.9761970"/>
+      <trkpt lat="40.6699796" lon="-73.9757015"/>
+      <trkpt lat="40.6705796" lon="-73.9752023"/>
+      <trkpt lat="40.6711720" lon="-73.9747017"/>
+      <trkpt lat="40.6717840" lon="-73.9741880"/>
+      <trkpt lat="40.6722220" lon="-73.9738200"/>
+      <trkpt lat="40.6728534" lon="-73.9733738"/>
+      <trkpt lat="40.6734880" lon="-73.9729550">
+        <desc>Turn right onto Union St</desc>
+      </trkpt>
+      <trkpt lat="40.6728698" lon="-73.9713504"/>
+      <trkpt lat="40.6727871" lon="-73.9709124">
+        <desc>Turn right onto Plaza St W</desc>
+      </trkpt>
+      <trkpt lat="40.6727150" lon="-73.9708395">
+        <desc>Turn left to stay on Plaza St W</desc>
+      </trkpt>
+      <trkpt lat="40.6726335" lon="-73.9702955"/>
+      <trkpt lat="40.6726396" lon="-73.9700125">
+        <desc>Slight left onto Grand Army Plaza/Plaza St W</desc>
+      </trkpt>
+      <trkpt lat="40.6727880" lon="-73.9692029">
+        <desc>Continue onto Eastern Pkwy</desc>
+      </trkpt>
+      <trkpt lat="40.6729000" lon="-73.9686446"/>
+      <trkpt lat="40.6728786" lon="-73.9680304"/>
+      <trkpt lat="40.6728096" lon="-73.9674690"/>
+      <trkpt lat="40.6726511" lon="-73.9666443"/>
+      <trkpt lat="40.6724894" lon="-73.9659825"/>
+      <trkpt lat="40.6723443" lon="-73.9654774"/>
+      <trkpt lat="40.6721785" lon="-73.9649281"/>
+      <trkpt lat="40.6720068" lon="-73.9643646"/>
+    </trkseg>
+  </trk>
+</gpx>

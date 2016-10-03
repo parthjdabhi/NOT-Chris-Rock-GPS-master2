@@ -71,6 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LocationManagerDelegate {
         locationManager.delegate = self
         locationManager.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
             CLocation = CLLocation(latitude: latitude, longitude: longitude)
+            print("startUpdatingLocationWithCompletionHandler",self.locationManager.latitude," - ",self.locationManager.longitude)
         }
         
         CLocation = CLLocation(latitude: locationManager.latitude, longitude: locationManager.longitude)
