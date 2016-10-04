@@ -22,6 +22,7 @@ var currentProgress:Float = 0.0
 var recordTimer: NSTimer?
 var stopRecordTimer: NSTimer?
 var isRecordingVoice: Bool = false
+var lastRecordedURL: NSURL?
 
 class MyVCdata {
     var isEnableFivetapGesture = true
@@ -79,10 +80,11 @@ extension UIViewController
     }
     
     // If the tpas reaches the limit as defined in tapInSeconds, post this notification.
-    func DetectedFiveTaps() {
+    func DetectedFiveTaps()
+    {
         print("DetectedFiveTaps")
-        //        NSNotificationCenter.defaultCenter().postNotificationName(ApplicationDidFiveTapsNotification, object: nil)
-        //        topViewController()?.ShowRecodringScreen()
+        //NSNotificationCenter.defaultCenter().postNotificationName(ApplicationDidFiveTapsNotification, object: nil)
+        //topViewController()?.ShowRecodringScreen()
         
         /*
         topViewController()?.view.setCornerRadious(12)
@@ -99,10 +101,21 @@ extension UIViewController
         startRecording()
         */
         
-        let controller = AudioRecorderViewController()
-        //controller.audioRecorderDelegate = self
-        controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        presentViewController(controller, animated: true, completion: nil)
+        print("Class name : ",self,"  - ",NSStringFromClass(self.dynamicType))
+        print("is recording - isRecordingVoice",isRecordingVoice)
+        
+        if self.isKindOfClass(AudioRecorderViewController) {
+            self.dismissViewControllerAnimated(true, completion: {
+                print("Recording view dismissed")
+            })
+        } else {
+            let controller = AudioRecorderViewController()
+            //controller.audioRecorderDelegate = self
+            controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            presentViewController(controller, animated: true, completion: nil)
+        }
+        
+        
         
         //Present VoiceHelpVC
 //        let viewController = topViewController()?.storyboard?.instantiateViewControllerWithIdentifier("VoiceHelpVC") as! VoiceHelpVC

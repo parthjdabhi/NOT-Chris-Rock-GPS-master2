@@ -84,7 +84,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../NOT Chris Rock GPS/test22.gpx"
+         identifier = "../NOT Chris Rock GPS/sfo2ggb.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

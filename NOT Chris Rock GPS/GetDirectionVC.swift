@@ -33,6 +33,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     @IBOutlet weak var txtTo: UITextField!
     @IBOutlet weak var txtFrom: UITextField!
     @IBOutlet weak var btnGetDirection: UIButton!
+    @IBOutlet weak var btnStartRoute: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,11 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
         btnGetDirection.enabled = false
         btnGetDirection.backgroundColor = UIColor.darkGrayColor()
+        btnStartRoute.enabled = false
+        btnStartRoute.backgroundColor = UIColor.darkGrayColor()
+        self.btnStartRoute.tag == 1
+        
+        txtFrom.text = "Current Location"
         
         // Init menu button action for menu
         if let revealVC = self.revealViewController() {
@@ -86,8 +92,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             if self.fromClicked {
                 self.txtFrom.text = title
                 self.navigationItem.prompt = String(format: "From :%f,%f",lat,lon)
-            }else
-            {
+            } else {
                 self.txtTo.text = title
                 self.navigationItem.title = String(format: "TO :%f,%f",lat,lon)
             }
@@ -103,7 +108,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 return
             }
             for result in results!{
-                if let result = result as? GMSAutocompletePrediction{
+                if let result = result as? GMSAutocompletePrediction {
                     self.resultsArray.append(result.attributedFullText.string)
                 }
             }
@@ -157,12 +162,42 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
     }
     
+    @IBAction func actionStartRoute(sender: AnyObject)
+    {
+        if self.btnStartRoute.enabled
+            && self.btnStartRoute.tag == 1
+        {
+            self.btnStartRoute.setTitle("Stop Route", forState: .Normal)
+            self.btnStartRoute.backgroundColor = clrGreen
+            self.btnStartRoute.tag = 2;
+            
+            print("Start monitoring route")
+            startObservingRoute()
+        } else if self.btnStartRoute.enabled
+            && self.btnStartRoute.tag == 2
+        {
+            self.btnStartRoute.setTitle("Start Route", forState: .Normal)
+            self.btnStartRoute.backgroundColor = clrRed
+            self.btnStartRoute.tag = 1;
+            
+            print("stop monitoring route")
+            stopObservingRoute()
+        }
+    }
     
-    @IBAction func actionPlayVoice(sender: AnyObject) {
-        //http: //www.notchrisrock.com/gps/sounds/turnleft.mp3
+    func startObservingRoute() {
+        //self.tableData = directionInformation!
+        //self.directionDetail = directionInfo.objectForKey("steps") as! NSArray
+    }
+    
+    func stopObservingRoute() {
         
-        let mp3Url = NSURL(string: "http://www.wavsource.com/snds_2016-09-25_6739387469794827/sfx/cuckoo_clock2_x.wav")
-        print("playing \(mp3Url)")
+    }
+    
+    func playSound(ofUrl url:String)
+    {
+        let mp3Url = NSURL(string: url)
+        print("playing soung for url : \(mp3Url)")
         
         do {
             let playerItem = AVPlayerItem(URL: mp3Url!)
@@ -178,8 +213,26 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
     }
     
+    @IBAction func actionPlayVoice(sender: AnyObject) {
+        //http: //www.notchrisrock.com/gps/sounds/turnleft.mp3
+        playSound(ofUrl: "http://www.wavsource.com/snds_2016-09-25_6739387469794827/sfx/cuckoo_clock2_x.wav")
+        
+    }
     
-    @IBAction func ClickToGo(sender: AnyObject) {
+    
+    @IBAction func ClickToGo(sender: AnyObject)
+    {
+        if self.btnStartRoute.enabled
+            && self.btnStartRoute.tag == 2
+        {
+            self.btnStartRoute.setTitle("Start Route", forState: .Normal)
+            self.btnStartRoute.backgroundColor = clrRed
+            self.btnStartRoute.tag = 1;
+            
+            print("stop monitoring route")
+            stopObservingRoute()
+        }
+        
         if isValidPincode()
         {
             //(from: txtFrom.text!, to: txtTo.text!)
@@ -196,6 +249,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                     {
                         self.btnGetDirection.enabled = true
                         self.btnGetDirection.backgroundColor = clrRed
+                        self.btnStartRoute.enabled = true
+                        self.btnStartRoute.backgroundColor = clrRed
+                        self.btnStartRoute.tag = 1;
                         
                         let start_location = directionInformation?.objectForKey("start_location") as! NSDictionary
                         let originLat = start_location.objectForKey("lat")?.doubleValue
