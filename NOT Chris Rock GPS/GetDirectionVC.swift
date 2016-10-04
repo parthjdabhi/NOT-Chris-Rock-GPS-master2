@@ -23,7 +23,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     var fromClicked = Bool()
     var mapManager = DirectionManager()
     var tableData = NSDictionary()
+    var directionDetail = NSArray()
     var polyline: MKPolyline = MKPolyline()
+    let markerNextTurn = GMSMarker()
     
     var player:AVPlayer?
     
@@ -185,13 +187,57 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
     }
     
-    func startObservingRoute() {
-        //self.tableData = directionInformation!
-        //self.directionDetail = directionInfo.objectForKey("steps") as! NSArray
+    func startObservingRoute()
+    {
+        self.directionDetail = self.tableData.objectForKey("steps") as! NSArray
+        print("",self.directionDetail)
+        var routePos = 0
+        let dictTable:NSDictionary = self.directionDetail[0] as! NSDictionary
+        print("\n\n\n",dictTable)
+        
+        //cell.directionDetail.text =  dictTable["instructions"] as? String
+        //let distance = dictTable["distance"] as! NSString
+        let nextTurn = dictTable["end_location"] as! NSDictionary
+        var nextTurnLocation = CLLocation(latitude: nextTurn["lat"] as? CLLocationDegrees ?? 0, longitude: nextTurn["lng"] as? CLLocationDegrees ?? 0)
+        
+        markerNextTurn.groundAnchor = CGPoint(x: 0.5, y: 1)
+        markerNextTurn.appearAnimation = kGMSMarkerAnimationPop
+        markerNextTurn.icon = UIImage(named: "pin_blue")
+        markerNextTurn.title = dictTable.objectForKey("instructions") as! NSString as String
+        markerNextTurn.position = nextTurnLocation.coordinate
+        markerNextTurn.map = self.googleMapsView
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
+        self.googleMapsView.animateToCameraPosition(camera)
+        
+        
+        LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
+            CLocation = CLLocation(latitude: latitude, longitude: longitude)
+            print("Updating Location To Detect Turns : ",LocationManager.sharedInstance.latitude," - ",LocationManager.sharedInstance.longitude)
+            
+            print("Distance : ",nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!))
+            if nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!) < 10
+                && self.directionDetail.count > routePos
+            {
+                routePos += 1
+                let dictTable:NSDictionary = self.directionDetail[routePos] as! NSDictionary
+                print("\n\n\n",dictTable)
+                let nextTurn = dictTable["end_location"] as! NSDictionary
+                nextTurnLocation = CLLocation(latitude: nextTurn["lat"] as? CLLocationDegrees ?? 0, longitude: nextTurn["lng"] as? CLLocationDegrees ?? 0)
+                self.markerNextTurn.position = nextTurnLocation.coordinate
+                self.markerNextTurn.title = dictTable.objectForKey("instructions") as! NSString as String
+                
+                let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
+                self.googleMapsView.animateToCameraPosition(camera)
+                
+                self.playSound(ofUrl: "http://www.wavsource.com/snds_2016-09-25_6739387469794827/sfx/cuckoo_clock2_x.wav")
+            }
+        }
     }
     
     func stopObservingRoute() {
-        
+        LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler(nil)
+        markerNextTurn.map = nil
     }
     
     func playSound(ofUrl url:String)

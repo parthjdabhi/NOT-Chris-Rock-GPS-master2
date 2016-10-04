@@ -44,6 +44,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     
     var delegate:LocationManagerDelegate? = nil
     
+    var CLocation:CLLocation?
     var latitude:Double = 0.0
     var longitude:Double = 0.0
     
@@ -66,7 +67,6 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     var showVerboseMessage = false
     
     var isRunning = false
-    
     
     class var sharedInstance : LocationManager {
         struct Static {
@@ -224,6 +224,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         let arrayOfLocation = locations as NSArray
         let location = arrayOfLocation.lastObject as! CLLocation
         let coordLatLon = location.coordinate
+        
+        CLocation = location
         
         latitude  = coordLatLon.latitude
         longitude = coordLatLon.longitude

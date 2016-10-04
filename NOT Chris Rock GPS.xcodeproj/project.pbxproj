@@ -25,6 +25,7 @@
 		5E8D29041DA28A6F00EFAC9C /* UISwitch+MyYelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28FF1DA28A6F00EFAC9C /* UISwitch+MyYelp.swift */; };
 		5E8D29071DA28A9400EFAC9C /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D29061DA28A9400EFAC9C /* YelpClient.swift */; };
 		5EB0BCD21DA407CA005102CB /* sfo2ggb.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0BCD11DA407CA005102CB /* sfo2ggb.gpx */; };
+		5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */; };
 		A52D1CA082BFB1D95A2BFEAF /* Pods_NOT_Chris_Rock_GPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42050BA16180614E68FFE74 /* Pods_NOT_Chris_Rock_GPS.framework */; };
 		DA0320FD1D93099600BE0698 /* AudioRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0320FB1D93099600BE0698 /* AudioRecorderViewController.swift */; };
 		DA0320FE1D93099600BE0698 /* AudioRecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0320FC1D93099600BE0698 /* AudioRecorderViewController.xib */; };
@@ -108,6 +109,7 @@
 		5E8D28FF1DA28A6F00EFAC9C /* UISwitch+MyYelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISwitch+MyYelp.swift"; sourceTree = "<group>"; };
 		5E8D29061DA28A9400EFAC9C /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		5EB0BCD11DA407CA005102CB /* sfo2ggb.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sfo2ggb.gpx; sourceTree = "<group>"; };
+		5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_blue@2x.png"; sourceTree = "<group>"; };
 		641E7EB4FC3A22ED1FC64B5A /* Pods-NOT Chris Rock GPS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOT Chris Rock GPS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NOT Chris Rock GPS/Pods-NOT Chris Rock GPS.release.xcconfig"; sourceTree = "<group>"; };
 		6E13FF8CBB2E2CA41801F059 /* Pods-NOT Chris Rock GPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOT Chris Rock GPSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NOT Chris Rock GPSTests/Pods-NOT Chris Rock GPSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F3C75CA7185B611948C2232 /* Pods-NOT Chris Rock GPSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOT Chris Rock GPSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NOT Chris Rock GPSUITests/Pods-NOT Chris Rock GPSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		DA334BF01D8A7CE5002E4E1F /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */,
 				DA334BEC1D8A7CE0002E4E1F /* StopButton@2x.png */,
 				DA334BED1D8A7CE0002E4E1F /* PlayButton@2x.png */,
 			);
@@ -556,6 +559,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */,
 				5E3426EB1DA0134300DFF2F9 /* NY2Brooklyn_route.gpx in Resources */,
 				5E86E4471DA26CB800BBBF99 /* test22 (1).gpx in Resources */,
 				5E3426E51D9FC44600DFF2F9 /* Main.storyboard in Resources */,
