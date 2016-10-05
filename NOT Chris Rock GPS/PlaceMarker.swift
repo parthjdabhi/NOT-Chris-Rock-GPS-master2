@@ -27,4 +27,9 @@ class BizMarker: GMSMarker {
     snippet = biz.address
     
   }
+    
+    func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        //view.endEditing(true)
+        //super.touchesBegan(touches, withEvent: event)
+    }
 }

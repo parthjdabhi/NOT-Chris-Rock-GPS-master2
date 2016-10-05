@@ -28,6 +28,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     let markerNextTurn = GMSMarker()
     
     var player:AVPlayer?
+    var bizForRoute: Business?
     
     @IBOutlet var btnMenu: UIButton?
     //@IBOutlet weak var drawMap: MKMapView!
@@ -51,12 +52,21 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
         txtFrom.text = "Current Location"
         
-        // Init menu button action for menu
-        if let revealVC = self.revealViewController() {
-            self.btnMenu?.addTarget(revealVC, action: #selector(revealVC.revealToggle(_:)), forControlEvents: .TouchUpInside)
-            //self.view.addGestureRecognizer(revealVC.panGestureRecognizer());
-            //self.navigationController?.navigationBar.addGestureRecognizer(revealVC.panGestureRecognizer())
+        if bizForRoute != nil {
+            self.btnMenu?.setTitle("Back", forState: .Normal)
+            self.btnMenu?.addTarget(self, action: #selector(GetDirectionVC.actionGoToBack(_:)), forControlEvents: .TouchUpInside)
+            self.txtTo.text = "\(bizForRoute?.coordinate?.latitude ?? 0),\(bizForRoute?.coordinate?.longitude ?? 0)"
+            self.ClickToGo(nil)
+        } else {
+            // Init menu button action for menu
+            if let revealVC = self.revealViewController() {
+                self.btnMenu?.addTarget(revealVC, action: #selector(revealVC.revealToggle(_:)), forControlEvents: .TouchUpInside)
+                //self.view.addGestureRecognizer(revealVC.panGestureRecognizer());
+                //self.navigationController?.navigationBar.addGestureRecognizer(revealVC.panGestureRecognizer())
+            }
         }
+        
+        
         
         let camera = GMSCameraPosition.cameraWithLatitude(53.9,longitude: 27.5667, zoom: 6)
         self.googleMapsView.animateToCameraPosition(camera)
@@ -157,6 +167,10 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
     }
     
+    @IBAction func actionGoToBack(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBAction func clickToGetDirection(sender: AnyObject) {
         if self.tableData.count > 0 {
             self .performSegueWithIdentifier("direction", sender: self)
@@ -230,7 +244,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
                 self.googleMapsView.animateToCameraPosition(camera)
                 
-                self.playSound(ofUrl: "http://www.wavsource.com/snds_2016-09-25_6739387469794827/sfx/cuckoo_clock2_x.wav")
+                self.playSound(ofUrl: "http://www.notchrisrock.com/gps/api/sounds/Route/route.wav")
             }
         }
     }
@@ -266,7 +280,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     }
     
     
-    @IBAction func ClickToGo(sender: AnyObject)
+    @IBAction func ClickToGo(sender: AnyObject?)
     {
         if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 2

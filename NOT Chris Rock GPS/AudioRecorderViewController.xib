@@ -29,11 +29,11 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOT Chris Rock GPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xng-qe-Hwe">
                             <rect key="frame" x="107" y="31" width="162" height="24"/>
                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="xng-qe-Hwe" firstAttribute="centerX" secondItem="cQo-0D-KyZ" secondAttribute="centerX" id="fTo-iZ-E85"/>
                         <constraint firstItem="xng-qe-Hwe" firstAttribute="top" secondItem="cQo-0D-KyZ" secondAttribute="top" constant="31" id="fb6-xf-Fjd"/>
@@ -47,14 +47,16 @@
                         <constraint firstAttribute="width" secondItem="eJT-iS-J70" secondAttribute="height" multiplier="60:13" id="1P2-3I-GMw"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-HS-1S2">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-HS-1S2">
                     <rect key="frame" x="150" y="407" width="75" height="50"/>
-                    <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="FNb-uq-SI7"/>
                         <constraint firstAttribute="width" constant="75" id="yWK-Tl-FkO"/>
                     </constraints>
-                    <state key="normal" title="Close"/>
+                    <state key="normal" title="Close">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="toggleRecord:" destination="-1" eventType="touchUpInside" id="Vct-ga-hkO"/>
                     </connections>

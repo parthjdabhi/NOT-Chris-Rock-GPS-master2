@@ -39,6 +39,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     
     //To Store Food places
     var currentBizMarker:[BizMarker] = []
+    var selectedBizMarker:BizMarker?
     
     // MARK: -
     // MARK: Lifecycle
@@ -48,6 +49,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         
         isEnableFivetapGesture = true
         startFiveTapGesture()
+        self.btnDirection.hidden = true
         
         btnRefreshNearByPlace.setCornerRadious()
         btnRefreshNearByPlace.setBorder(1.0, color: clrGreen)
@@ -154,63 +156,23 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         presentViewController(actionSheetController, animated: true, completion: nil)
     }
     
+    @IBAction func actionDoRouteForBiz(sender: AnyObject) {
+        guard let myBizMarker = selectedBizMarker else {
+            return
+        }
+        print("\(myBizMarker.biz.address)")
+        let getDirectionVC = self.storyboard?.instantiateViewControllerWithIdentifier("GetDirectionVC") as! GetDirectionVC
+        getDirectionVC.bizForRoute = myBizMarker.biz
+        self.navigationController?.pushViewController(getDirectionVC, animated: true)
+    }
+    
     @IBAction func actionRefreshNearByPlace(sender: AnyObject)
     {
-        //For Search Via Google Maps Api
-        //showNearByPlaceByGoogleAPI(["food"])
-        
         //For Search Via Yelp
         //showNearByPlace(["food"])
         doSearch()
     }
     
-    //Searcing by yelp api
-    func showNearByPlace1(ofCategory:[String])
-    {
-        //["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"]
-        SVProgressHUD.showWithStatus("Searching..")
-        guard let client = YelpClient.sharedInstance else { return}
-        client.location = "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)"
-        client.searchWithTerm(searchString, sort: Myfilters.sortBy, categories: Myfilters.categories, deals: Myfilters.hasDeal, completion: { (business, error) in
-            businessArr = business
-            for biz: Business in businessArr! {
-                let marker = BizMarker(biz: biz)
-                marker.map = self.googleMapsView
-            }
-            
-           SVProgressHUD.dismiss()
-        })
-
-
-        /*
-        client.sharedInstance?.searchPlacesWithParameters(["ll": "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)", "category_filter": "burgers", "radius_filter": "3000","term": "food", "sort": "0"], successSearch: { (data, response) -> Void in
-            
-            //print(data.stringValue)
-            
-            let json = JSON(data.stringValue?.convertToDictionary ?? [:])
-            print(json)
-            
-            if let businesses = json["businesses"].array {
-                for business in businesses {
-                    
-                    //print(business)
-                    let place = MyPlace(json: business, Types: ["food"])
-                    
-                    self.places.append(place)
-                    self.placesDetail.append(business)
-                }
-                
-                for place: MyPlace in self.places {
-                    let marker = PlaceMarker(place: place)
-                    marker.map = self.googleMapsView
-                }
-            }
-            
-        }) { (error) -> Void in
-            print(error)
-        }
-        */
-    }
     // MARK: - GMSMapViewDelegate
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
@@ -220,11 +182,14 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
         if (gesture) {
             mapView.selectedMarker = nil
+            self.btnDirection.hidden = true
         }
     }
     
     func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         let placeMarker = marker as! BizMarker
+        selectedBizMarker = placeMarker
+        self.btnDirection.hidden = false
         
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
             infoView.nameLabel.text = placeMarker.biz.name
@@ -242,6 +207,9 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
                 infoView.ratingPhoto.image = UIImage(named: "button_compass_night.png")
             }
             
+            infoView.btnGetRoute.addTarget(self, action: #selector(MainViewController.doRouteForBiz), forControlEvents: .TouchUpInside)
+            //let biz: Business
+            
             return infoView
         } else {
             return nil
@@ -254,15 +222,20 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     
     func didTapMyLocationButtonForMapView(mapView: GMSMapView) -> Bool {
         mapView.selectedMarker = nil
+        self.btnDirection.hidden = true
         return false
+    }
+    
+    func doRouteForBiz() {
+        print("Draw route")
     }
     
     // Perform the search.
     private func doSearch() {
-        SVProgressHUD.showWithStatus("Searching..")
         // Perform request to Yelp API to get the list of businessees
         guard let client = YelpClient.sharedInstance else { return }
-        client.location = "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)"
+        SVProgressHUD.showWithStatus("Searching..")
+        client.location = "\(LocationManager.sharedInstance.latitude),\(LocationManager.sharedInstance.longitude)"
         client.searchWithTerm(searchString, sort: Myfilters.sortBy, categories: Myfilters.categories, deals: Myfilters.hasDeal, completion: { (business, error) in
             self.removeMarkers(self.currentBizMarker)
             businessArr = business

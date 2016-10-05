@@ -276,11 +276,11 @@
                                     <constraint firstAttribute="height" constant="32" id="uQL-LD-ypQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="Get Direction">
+                                <state key="normal" title="Get Route">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="googlePlaces:" destination="7Jx-kG-j6d" eventType="touchUpInside" id="aQ7-Q9-AlS"/>
+                                    <action selector="actionDoRouteForBiz:" destination="7Jx-kG-j6d" eventType="touchUpInside" id="xOG-YB-88h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-2N-Oqj">
@@ -1715,7 +1715,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7Jx-kG-j6d" kind="relationship" relationship="rootViewController" id="Ins-hG-yUg"/>
+                        <segue destination="muY-e6-MjW" kind="relationship" relationship="rootViewController" id="jo8-OD-WM7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rw-2Z-X7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1780,7 +1780,7 @@
         <!--Get DirectionVC-->
         <scene sceneID="H2Z-1q-MPa">
             <objects>
-                <viewController id="muY-e6-MjW" customClass="GetDirectionVC" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GetDirectionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="muY-e6-MjW" customClass="GetDirectionVC" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lMy-3c-RJd"/>
                         <viewControllerLayoutGuide type="bottom" id="IkT-gY-RcV"/>
@@ -2294,11 +2294,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AaH-9u-6TQ">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nVa-oU-7nK">
-                            <connections>
-                                <action selector="onCancel:" destination="qii-pk-60f" id="Lth-Rc-dDj"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nVa-oU-7nK"/>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="fzq-kP-9mx">
                             <connections>
                                 <action selector="onSearch:" destination="qii-pk-60f" id="SGr-l7-JJc"/>
@@ -2307,6 +2303,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="btnBarCancel" destination="nVa-oU-7nK" id="i8a-dt-dCx"/>
                         <outlet property="tableView" destination="jz6-dU-5et" id="aAy-jA-sx9"/>
                     </connections>
                 </viewController>
@@ -2338,9 +2335,9 @@
         <image name="expand_arrow" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CFZ-Z2-Uqx"/>
-        <segue reference="3lR-8u-WO3"/>
-        <segue reference="Yva-if-GGz"/>
+        <segue reference="3Iv-MN-8Ek"/>
+        <segue reference="YT0-Qo-OY6"/>
         <segue reference="vcn-un-Sr8"/>
+        <segue reference="jo8-OD-WM7"/>
     </inferredMetricsTieBreakers>
 </document>

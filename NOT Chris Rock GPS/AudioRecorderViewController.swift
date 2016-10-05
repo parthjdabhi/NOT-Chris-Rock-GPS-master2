@@ -71,7 +71,7 @@ class AudioRecorderViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.view.setCornerRadious(12)
+        //self.view.setCornerRadious(12)
         self.view.setBorder(4, color: UIColor.blueColor())
         
         statusBarStyle = UIApplication.sharedApplication().statusBarStyle

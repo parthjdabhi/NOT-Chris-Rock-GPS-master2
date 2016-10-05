@@ -14,4 +14,5 @@ class MarkerInfoView: UIView {
     @IBOutlet weak var ratingPhoto: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var lblReviewCount: UILabel!
+    @IBOutlet weak var btnGetRoute: UIButton!
 }

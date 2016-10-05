@@ -46,7 +46,7 @@ class DirectionDetailVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         if indexPath.section == 0 {
             cell.directionDescription.text = NSString(format:"Total Distance = %@ \nTotal Duration = %@",directionInfo.valueForKey("distance")as! NSString,directionInfo.valueForKey("duration")as! NSString) as String
             cell.directionDetail.text = NSString(format:"Driving Directions \nfrom \n%@ \nto \n%@",directionInfo.valueForKey("start_address")as! NSString,directionInfo.valueForKey("end_address")as! NSString) as String
-        }else{
+        } else {
             let idx:Int = indexPath.row
             let dictTable:NSDictionary = self.directionDetail[idx] as! NSDictionary
             cell.directionDetail.text =  dictTable["instructions"] as? String

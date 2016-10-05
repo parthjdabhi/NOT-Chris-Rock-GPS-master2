@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 @objc protocol FiltersViewControllerDelegate {
     optional func filtersViewControllerDelegate( filtersViewController: FiltersViewController, didSet filters: Filters)
@@ -14,6 +15,7 @@ import UIKit
 class FiltersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnBarCancel: UIBarButtonItem!
     
     var delegate: FiltersViewControllerDelegate?
     
@@ -33,6 +35,15 @@ class FiltersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categories = getCategories()
+        
+        if let revealVC = self.revealViewController() {
+            btnBarCancel.title = "Menu"
+            btnBarCancel.target = revealVC
+            btnBarCancel.action = #selector(revealVC.revealToggle(_:))
+        } else {
+            btnBarCancel.target = self
+            btnBarCancel.action = #selector(FiltersViewController.onCancel(_:))
+        }
     }
     
     override func didReceiveMemoryWarning() {

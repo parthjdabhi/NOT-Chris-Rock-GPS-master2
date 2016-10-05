@@ -115,8 +115,6 @@ extension UIViewController
             presentViewController(controller, animated: true, completion: nil)
         }
         
-        
-        
         //Present VoiceHelpVC
 //        let viewController = topViewController()?.storyboard?.instantiateViewControllerWithIdentifier("VoiceHelpVC") as! VoiceHelpVC
 //        viewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext

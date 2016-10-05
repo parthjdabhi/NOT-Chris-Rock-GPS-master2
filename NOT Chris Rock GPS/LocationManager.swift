@@ -243,6 +243,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
         if(firstLocationUpdateBlock != nil && hasLastKnownLocation == false)
         {
+            CLocation = CLLocation(latitude: latitude, longitude: longitude)
             firstLocationUpdateBlock?(latitude: latitude, longitude: longitude, status: locationStatus as String,verboseMessage:verbose, error: nil)
         }
         
