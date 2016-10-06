@@ -244,7 +244,13 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
                 self.googleMapsView.animateToCameraPosition(camera)
                 
-                self.playSound(ofUrl: "http://www.notchrisrock.com/gps/api/sounds/Route/route.wav")
+                //Turn right - /Directional/to-the-right.wav
+                //Turn left - /Directional/to-the-left.wav
+                //Keep right to - /Directional/to-the-right.wav
+                //Keep left to - /Directional/to-the-left.wav
+                
+                self.playSoundForInstruction(dictTable.objectForKey("instructions") as? NSString as? String)
+                
             }
         }
     }
@@ -252,6 +258,30 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     func stopObservingRoute() {
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler(nil)
         markerNextTurn.map = nil
+    }
+    
+    func playSoundForInstruction(instruction:String?) {
+        guard let inst = instruction else {
+            print("Instruction not found")
+            return
+        }
+        
+        print("Playing Sound for instruction : \(inst)")
+        //self.playSound(ofUrl: "http://www.notchrisrock.com/gps/api/sounds/Route/route.wav")
+        
+        if inst.containsString("Turn right") || inst.containsString("turns left") {
+            self.playSound(ofUrl: "\(BaseUrlSounds)Directional/to-the-right.wav")
+        } else if inst.containsString("Turn left") || inst.containsString("turns right") {
+            self.playSound(ofUrl: "\(BaseUrlSounds)Directional/to-the-left.wav")
+        } else if inst.containsString("Turn right onto") {
+            self.playSound(ofUrl: "\(BaseUrlSounds)Directional/to-the-right2.wav")
+        } else if inst.containsString("Turn left onto") {
+            self.playSound(ofUrl: "\(BaseUrlSounds)Directional/to-the-left2.wav")
+        }
+        
+        if inst.containsString("highway") {
+            self.playSound(ofUrl: "\(BaseUrlSounds)Highway/highway.wav")
+        }
     }
     
     func playSound(ofUrl url:String)
@@ -263,8 +293,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             let playerItem = AVPlayerItem(URL: mp3Url!)
             
             self.player = try AVPlayer(playerItem:playerItem)
-            player!.volume = 1.0
-            player!.play()
+            player?.volume = 1.0
+            player?.play()
         } catch let error as NSError {
             self.player = nil
             print(error.localizedDescription)

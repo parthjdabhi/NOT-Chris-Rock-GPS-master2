@@ -156,7 +156,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         presentViewController(actionSheetController, animated: true, completion: nil)
     }
     
-    @IBAction func actionDoRouteForBiz(sender: AnyObject) {
+    @IBAction func actionDoRouteForBiz(sender: AnyObject?) {
         guard let myBizMarker = selectedBizMarker else {
             return
         }
@@ -195,11 +195,13 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
             infoView.nameLabel.text = placeMarker.biz.name
             infoView.lblReviewCount.text = placeMarker.biz.reviewCount?.stringValue ?? ""
             
+            infoView.placePhoto.setCornerRadious(infoView.placePhoto.frame.width/2)
             if let photo = placeMarker.biz.photo {
                 infoView.placePhoto.image = photo
             } else {
                 infoView.placePhoto.image = UIImage(named: "button_compass_night.png")
             }
+            
             
             if let ratingPhoto = placeMarker.biz.ratingPhoto {
                 infoView.ratingPhoto.image = ratingPhoto
@@ -220,9 +222,16 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         return false
     }
     
-    func didTapMyLocationButtonForMapView(mapView: GMSMapView) -> Bool {
-        mapView.selectedMarker = nil
+    func mapView(mapView: GMSMapView, didLongPressInfoWindowOfMarker marker: GMSMarker) {
+        self.actionDoRouteForBiz(nil)
+    }
+    
+    func mapView(mapView: GMSMapView, didCloseInfoWindowOfMarker marker: GMSMarker) {
+        //mapView.selectedMarker = nil
         self.btnDirection.hidden = true
+    }
+    
+    func didTapMyLocationButtonForMapView(mapView: GMSMapView) -> Bool {
         return false
     }
     
