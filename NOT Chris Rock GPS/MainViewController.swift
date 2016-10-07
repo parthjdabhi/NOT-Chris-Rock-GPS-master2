@@ -187,30 +187,30 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     }
     
     func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+        
         let placeMarker = marker as! BizMarker
         selectedBizMarker = placeMarker
         self.btnDirection.hidden = false
         
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
-            infoView.nameLabel.text = placeMarker.biz.name
+            infoView.lblName.text = placeMarker.biz.name
             infoView.lblReviewCount.text = placeMarker.biz.reviewCount?.stringValue ?? ""
+            infoView.lblAddress.text = placeMarker.biz.address ?? ""
+            infoView.lblDistance.text = placeMarker.biz.distance ?? ""
+            infoView.lblCategory.text = placeMarker.biz.categories ?? ""
             
-            infoView.placePhoto.setCornerRadious(infoView.placePhoto.frame.width/2)
+            infoView.imgBiz.setCornerRadious(infoView.imgBiz.frame.width/2)
             if let photo = placeMarker.biz.photo {
-                infoView.placePhoto.image = photo
+                infoView.imgBiz.image = photo
             } else {
-                infoView.placePhoto.image = UIImage(named: "button_compass_night.png")
+                infoView.imgBiz.image = UIImage(named: "button_compass_night.png")
             }
-            
             
             if let ratingPhoto = placeMarker.biz.ratingPhoto {
-                infoView.ratingPhoto.image = ratingPhoto
+                infoView.imgRating.image = ratingPhoto
             } else {
-                infoView.ratingPhoto.image = UIImage(named: "button_compass_night.png")
+                infoView.imgRating.image = UIImage(named: "button_compass_night.png")
             }
-            
-            infoView.btnGetRoute.addTarget(self, action: #selector(MainViewController.doRouteForBiz), forControlEvents: .TouchUpInside)
-            //let biz: Business
             
             return infoView
         } else {

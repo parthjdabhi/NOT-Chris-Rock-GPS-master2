@@ -10,9 +10,11 @@ import UIKit
 
 class MarkerInfoView: UIView {
   
-    @IBOutlet weak var placePhoto: UIImageView!
-    @IBOutlet weak var ratingPhoto: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imgBiz: UIImageView!
+    @IBOutlet weak var imgRating: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblReviewCount: UILabel!
-    @IBOutlet weak var btnGetRoute: UIButton!
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var lblDistance: UILabel!
 }

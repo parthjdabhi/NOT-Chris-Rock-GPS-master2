@@ -173,7 +173,8 @@ class DirectionManager: NSObject {
 //        //mode:driving,walking,bicycling,transit
 //        print(directionURL)
         
-        let urlEncoded = urlString.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        //var urlEncoded = urlString.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        let urlEncoded = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let url:NSURL? = NSURL(string:urlEncoded)
         let request:NSURLRequest = NSURLRequest(URL:url!)
         let queue:NSOperationQueue = NSOperationQueue()

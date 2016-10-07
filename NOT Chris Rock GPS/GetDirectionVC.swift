@@ -51,6 +51,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         self.btnStartRoute.tag == 1
         
         txtFrom.text = "Current Location"
+        //txtFrom.text = "Santo Domingo"
+        
+        self.startFiveTapGesture()
         
         if bizForRoute != nil {
             self.btnMenu?.setTitle("Back", forState: .Normal)
@@ -249,6 +252,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 //Keep right to - /Directional/to-the-right.wav
                 //Keep left to - /Directional/to-the-left.wav
                 
+                // To play sound on base of instruction
                 self.playSoundForInstruction(dictTable.objectForKey("instructions") as? NSString as? String)
                 
             }
@@ -301,12 +305,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         } catch {
             print("AVAudioPlayer init failed")
         }
-    }
-    
-    @IBAction func actionPlayVoice(sender: AnyObject) {
-        //http: //www.notchrisrock.com/gps/sounds/turnleft.mp3
-        playSound(ofUrl: "http://www.wavsource.com/snds_2016-09-25_6739387469794827/sfx/cuckoo_clock2_x.wav")
-        
     }
     
     
