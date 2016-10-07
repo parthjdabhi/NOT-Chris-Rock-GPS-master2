@@ -299,7 +299,6 @@ extension MainViewController: UISearchBarDelegate {
     func searchInTime(){
         doSearch()
     }
-    
 }
 
 extension MainViewController: FiltersViewControllerDelegate {

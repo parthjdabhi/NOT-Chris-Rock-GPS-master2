@@ -36,6 +36,7 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.6)
   - IQDropDownTextField (1.1.0)
   - IQKeyboardManagerSwift (4.0.5)
+  - KDEAudioPlayer (0.9.1)
   - Mixpanel (3.0.3):
     - Mixpanel/Mixpanel (= 3.0.3)
   - Mixpanel/Mixpanel (3.0.3)
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - GTMOAuth2 (~> 1.1.0)
   - IQDropDownTextField (~> 1.0)
   - IQKeyboardManagerSwift
+  - KDEAudioPlayer
   - Mixpanel
   - OAuthSwift (~> 0.5.0)
   - SDWebImage (~> 3.8)
@@ -84,6 +86,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6aacd0ab48ddf0c3633ab2642d792abfcad1b08a
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManagerSwift: 41fd3a45a2cdb2a0e031af697708a95b865068a1
+  KDEAudioPlayer: c052553e051974a39fd2e5e07d7f575ea3f557c2
   Mixpanel: 45867daeaa3c60f88072a3cb1b44e0b6c5cec009
   OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
@@ -92,6 +95,6 @@ SPEC CHECKSUMS:
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
 
-PODFILE CHECKSUM: 88e78d948b981b36f1eaa69c6ce97546b8c09824
+PODFILE CHECKSUM: 4896546c2fdb870909b1c72e0154bcf21599a9ea
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.1

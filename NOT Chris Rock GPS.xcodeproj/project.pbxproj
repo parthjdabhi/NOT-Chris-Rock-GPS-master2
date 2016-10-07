@@ -108,6 +108,7 @@
 		5EA9ECD91DA556E2007B6688 /* route@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "route@2x.png"; sourceTree = "<group>"; };
 		5EB0BCD11DA407CA005102CB /* sfo2ggb.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sfo2ggb.gpx; sourceTree = "<group>"; };
 		5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_blue@2x.png"; sourceTree = "<group>"; };
+		5EDD29531DA7B68C000CBFDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5EE5B0571DA68F00001A19EC /* NYC2SDiago.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NYC2SDiago.gpx; sourceTree = "<group>"; };
 		5EE5B0581DA68F00001A19EC /* SeattleW2Florida.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SeattleW2Florida.gpx; sourceTree = "<group>"; };
 		641E7EB4FC3A22ED1FC64B5A /* Pods-NOT Chris Rock GPS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOT Chris Rock GPS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NOT Chris Rock GPS/Pods-NOT Chris Rock GPS.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 		42FAA18C482C53206AECF017 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EDD29531DA7B68C000CBFDC /* AVFoundation.framework */,
 				D42050BA16180614E68FFE74 /* Pods_NOT_Chris_Rock_GPS.framework */,
 				B6F1743DFB3D8155A3062F18 /* Pods_NOT_Chris_Rock_GPSTests.framework */,
 				914FA718946FFE1DCF785FC5 /* Pods_NOT_Chris_Rock_GPSUITests.framework */,
@@ -620,7 +622,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		79896C1CC1D7CDB1590E66AD /* [CP] Copy Pods Resources */ = {
@@ -650,7 +652,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AC7BA011D57FD46A7664C2D2 /* [CP] Copy Pods Resources */ = {
@@ -725,7 +727,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -926,6 +928,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NOT",
+					Chris,
+					Rock,
+					GPS,
+				);
 				INFOPLIST_FILE = "NOT Chris Rock GPS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.harloch.NOT-Chris-Rock-GPS";
@@ -942,6 +951,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NOT",
+					Chris,
+					Rock,
+					GPS,
+				);
 				INFOPLIST_FILE = "NOT Chris Rock GPS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.harloch.NOT-Chris-Rock-GPS";

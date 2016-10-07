@@ -6,118 +6,123 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AlamofireNetworkActivityIndicator.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AlamofireSwiftyJSON.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FBSDKShareKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>IQDropDownTextField.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KDEAudioPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Mixpanel.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>OAuthSwift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-NOT Chris Rock GPS.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-NOT Chris Rock GPSTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-NOT Chris Rock GPSUITests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>16</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>17</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>18</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SWRevealViewController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>20</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>UIActivityIndicator-for-SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DD3FACBC155253A21EB66467361B0BA</key>
+		<key>1520003FEBEC114D6C84F832AFEDB994</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1520003FEBEC114D6C84F832AFEDB994</key>
+		<key>16369E59EE412C97FBC8D9C14F535BFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,17 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2F5E062A17243DA5A80CBF870C497F51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>30D7FCF8072F5D59AE1C98D94F9A6EC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3511258FF1DED3401C4B456024D5FA41</key>
+		<key>3381D8A601070487CB7550C41BEF43F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3A2FC5ADB254AD941692982467B45045</key>
+		<key>3511258FF1DED3401C4B456024D5FA41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +167,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65BE61867A6250D08665ED405A25EFC8</key>
+		<key>541E9AD8F0209976F59A780F49A3F069</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,7 +182,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>765A5244847E2D7A9CABC249E14F6236</key>
+		<key>7863FF278BCCED797329C713E87A1DED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -207,12 +217,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8B487B075BEB08A73A8C12ADAA19E0F</key>
+		<key>D468777BEC2DE5127A16239373FFD11F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D468777BEC2DE5127A16239373FFD11F</key>
+		<key>E988B982C9D50B2AF3C23FBF9E36EBF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
