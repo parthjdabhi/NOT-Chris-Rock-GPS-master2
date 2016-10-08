@@ -664,15 +664,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muF-ku-A3a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Road-Map" translatesAutoresizingMaskIntoConstraints="NO" id="zGp-Ij-Qf4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muF-ku-A3a">
                                 <rect key="frame" x="188" y="122" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOT Chris Rock GPS" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bua-yc-s5Z">
-                                <rect key="frame" x="33" y="70" width="310" height="44"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -802,17 +799,27 @@
                                     <constraint firstItem="d8T-kV-ix9" firstAttribute="width" secondItem="d8T-kV-ix9" secondAttribute="height" multiplier="81:20" id="zIc-Uo-Lbi"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ncr-gps" translatesAutoresizingMaskIntoConstraints="NO" id="fgw-cR-BBV">
+                                <rect key="frame" x="67" y="62" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fgw-cR-BBV" secondAttribute="height" multiplier="15:8" id="t2e-Gw-zDL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93816089629999999" green="0.96413189170000002" blue="0.98151248690000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bua-yc-s5Z" firstAttribute="top" secondItem="ilb-Pq-lqf" secondAttribute="bottom" constant="50" id="8ME-vQ-SsI"/>
+                            <constraint firstAttribute="trailing" secondItem="zGp-Ij-Qf4" secondAttribute="trailing" id="5mM-WF-WsA"/>
+                            <constraint firstItem="fgw-cR-BBV" firstAttribute="width" secondItem="zGp-Ij-Qf4" secondAttribute="height" multiplier="240:667" id="9vO-FE-4dE"/>
+                            <constraint firstItem="zGp-Ij-Qf4" firstAttribute="leading" secondItem="TBC-vf-Z5C" secondAttribute="leading" id="A0Y-yt-V7h"/>
                             <constraint firstItem="QJh-wq-rbL" firstAttribute="centerX" secondItem="TBC-vf-Z5C" secondAttribute="centerX" id="EzX-kY-5id"/>
-                            <constraint firstItem="muF-ku-A3a" firstAttribute="top" secondItem="Bua-yc-s5Z" secondAttribute="bottom" constant="8" id="ILu-N6-Kef"/>
                             <constraint firstItem="QJh-wq-rbL" firstAttribute="leading" secondItem="TBC-vf-Z5C" secondAttribute="leading" constant="18" id="Klm-we-V2J"/>
                             <constraint firstItem="muF-ku-A3a" firstAttribute="centerX" secondItem="TBC-vf-Z5C" secondAttribute="centerX" id="Uan-Fy-RL5"/>
-                            <constraint firstItem="Bua-yc-s5Z" firstAttribute="centerX" secondItem="TBC-vf-Z5C" secondAttribute="centerX" id="Vsc-Ks-dpA"/>
+                            <constraint firstItem="QJh-wq-rbL" firstAttribute="top" secondItem="fgw-cR-BBV" secondAttribute="bottom" constant="8" id="Zcn-EI-xVb"/>
+                            <constraint firstItem="fgw-cR-BBV" firstAttribute="centerX" secondItem="zGp-Ij-Qf4" secondAttribute="centerX" id="ay4-Jh-dBK"/>
+                            <constraint firstItem="zGp-Ij-Qf4" firstAttribute="top" secondItem="TBC-vf-Z5C" secondAttribute="top" id="dfA-FC-1kl"/>
                             <constraint firstAttribute="trailing" secondItem="QJh-wq-rbL" secondAttribute="trailing" constant="18" id="kW9-zZ-Q9X"/>
                             <constraint firstItem="QJh-wq-rbL" firstAttribute="centerY" secondItem="TBC-vf-Z5C" secondAttribute="centerY" constant="36" id="njZ-S2-bfo"/>
+                            <constraint firstItem="HDB-S5-dSh" firstAttribute="top" secondItem="zGp-Ij-Qf4" secondAttribute="bottom" id="uiI-Hp-71x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i94-6z-ylI"/>
@@ -2145,9 +2152,82 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-dU-5et">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="jpn-Np-2bi">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPv-n8-lXv" customClass="PDSwitch" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target">
+                                            <rect key="frame" x="149" y="18" width="195" height="28"/>
+                                            <color key="backgroundColor" red="0.47843137250000001" green="0.79607843140000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="164" id="5rk-Ou-Xiy"/>
+                                                <constraint firstAttribute="height" constant="28" id="Z0l-43-95f"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                    <color key="value" red="0.47843137250000001" green="0.79607843140000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleFontFamily" value="Avenir Book"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
+                                                    <real key="value" value="14"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-Kr-vHc" customClass="PDSwitch" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target">
+                                            <rect key="frame" x="30" y="54" width="314" height="28"/>
+                                            <color key="backgroundColor" red="0.47843137250000001" green="0.79607843140000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="QHe-vh-gi2"/>
+                                                <constraint firstAttribute="width" constant="164" id="jwS-dQ-Ut3"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                    <color key="value" red="0.47843137250000001" green="0.79607843140000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleFontFamily" value="Avenir Book"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
+                                                    <real key="value" value="14"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTM-57-uqT">
+                                            <rect key="frame" x="30" y="21" width="97" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="97" id="Xee-JI-LnY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="WKb-Kr-vHc" firstAttribute="leading" secondItem="jpn-Np-2bi" secondAttribute="leading" constant="30" id="0N7-qa-6u8"/>
+                                        <constraint firstItem="kPv-n8-lXv" firstAttribute="leading" secondItem="VTM-57-uqT" secondAttribute="trailing" constant="22" id="2OF-bU-Ypp"/>
+                                        <constraint firstAttribute="trailing" secondItem="WKb-Kr-vHc" secondAttribute="trailing" constant="31" id="6Uz-3S-Rqo"/>
+                                        <constraint firstItem="VTM-57-uqT" firstAttribute="top" secondItem="jpn-Np-2bi" secondAttribute="top" constant="21" id="NDS-fD-IQQ"/>
+                                        <constraint firstItem="WKb-Kr-vHc" firstAttribute="top" secondItem="kPv-n8-lXv" secondAttribute="bottom" constant="8" id="Ol4-Zd-Rvb"/>
+                                        <constraint firstItem="VTM-57-uqT" firstAttribute="leading" secondItem="jpn-Np-2bi" secondAttribute="leading" constant="30" id="oeC-0B-V0o"/>
+                                        <constraint firstItem="kPv-n8-lXv" firstAttribute="top" secondItem="jpn-Np-2bi" secondAttribute="top" constant="18" id="tGc-QY-dXk"/>
+                                        <constraint firstAttribute="trailing" secondItem="kPv-n8-lXv" secondAttribute="trailing" constant="31" id="wXF-OD-bZR"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SwitchCell" id="wES-ke-aOp" customClass="FiltersSwitchTableViewCell" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="192" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wES-ke-aOp" id="7cV-Jy-X5e">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -2179,7 +2259,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DropdownCell" id="eOU-Wb-qRI" customClass="FiltersDropdownTableViewCell" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="236" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eOU-Wb-qRI" id="HN9-h2-Reo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -2213,7 +2293,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SeeAllCell" id="WhT-92-7b7" customClass="FiltersSeeAllTableViewCell" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="180" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="280" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WhT-92-7b7" id="Pxn-jI-VW8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -2246,7 +2326,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="[String]()" id="SP8-Uh-0FP" customClass="FiltersSeeAllTableViewCell" customModule="NOT_Chris_Rock_GPS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="224" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="324" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SP8-Uh-0FP" id="mvO-eF-O3e">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -2304,7 +2384,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="btnBarCancel" destination="nVa-oU-7nK" id="i8a-dt-dCx"/>
+                        <outlet property="swSettingMain" destination="kPv-n8-lXv" id="vdQ-9h-QcL"/>
+                        <outlet property="swSettingSub" destination="WKb-Kr-vHc" id="LMs-Op-XOs"/>
                         <outlet property="tableView" destination="jz6-dU-5et" id="aAy-jA-sx9"/>
+                        <outlet property="vwSetting" destination="jpn-Np-2bi" id="lm7-jJ-erN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPv-Ot-veV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2332,10 +2415,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Road-Map" width="1054" height="712"/>
         <image name="expand_arrow" width="24" height="24"/>
+        <image name="ncr-gps" width="626" height="418"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Iv-MN-8Ek"/>
+        <segue reference="3lR-8u-WO3"/>
         <segue reference="YT0-Qo-OY6"/>
         <segue reference="vcn-un-Sr8"/>
         <segue reference="jo8-OD-WM7"/>

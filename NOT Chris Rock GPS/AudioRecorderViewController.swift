@@ -191,12 +191,15 @@ class AudioRecorderViewController: UIViewController {
         print(Parameters)
         SVProgressHUD.showWithStatus("Uploading..")
         
+        let fName = "\(userDetail["name"] as? String ?? "")-NCR-COPSTOP-\(NSDate().strDateInUTC)"
+        print(fName)
+        
         Alamofire.upload(.POST, url_saveRecording, multipartFormData: { (multipartFormData) -> Void in
-            multipartFormData.appendBodyPart(data: data, name: "file", fileName: self.fileName, mimeType: "audio/mp4")
+            multipartFormData.appendBodyPart(data: data, name: "file", fileName: fName, mimeType: "audio/mp4")
             for (key, value) in Parameters {
                 multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
             }
-            })
+        })
         { (encodingResult) -> Void in
             switch encodingResult {
                 

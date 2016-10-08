@@ -10,6 +10,11 @@ import Foundation
 
 // Model class that represents the user's search filterring
 class Filters: NSObject {
+    
+    //Voice Setting
+    var SettingMain = "Family Mode"
+    var SettingSub = "Medium"
+    
     var hasDeal = false
     var distance: Float? = 0.0
     var sortBy: Int? = 0

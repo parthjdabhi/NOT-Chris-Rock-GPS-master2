@@ -17,6 +17,10 @@ class FiltersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnBarCancel: UIBarButtonItem!
     
+    @IBOutlet weak var vwSetting: UIView!
+    @IBOutlet weak var swSettingMain: PDSwitch?
+    @IBOutlet weak var swSettingSub: PDSwitch?
+    
     var delegate: FiltersViewControllerDelegate?
     
     var distanceImg = ["expand_arrow", "check-circle-outline-blank","check-circle-outline-blank","check-circle-outline-blank","check-circle-outline-blank"]
@@ -27,14 +31,22 @@ class FiltersViewController: UIViewController {
     
     var filters = [String : AnyObject]()
     var filterObject = Filters()
+    //Myfilters
     
     var isExpandedDistance = false
     var isExpandedSort = false
     var isSeeAll = false
     
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         categories = getCategories()
+        
+        swSettingMain?.titles = MainSetting
+        swSettingSub?.titles = SubSetting
+        
+        swSettingMain?.setSelectedIndex(MainSetting.indexOf(Myfilters.SettingMain) ?? 0, animated: true)
+        swSettingSub?.setSelectedIndex(SubSetting.indexOf(Myfilters.SettingSub) ?? 0, animated: true)
         
         if let revealVC = self.revealViewController() {
             btnBarCancel.title = "Menu"
@@ -44,6 +56,11 @@ class FiltersViewController: UIViewController {
             btnBarCancel.target = self
             btnBarCancel.action = #selector(FiltersViewController.onCancel(_:))
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        Myfilters.SettingMain = MainSetting[swSettingMain?.selectedIndex ?? 0]
+        Myfilters.SettingSub = SubSetting[swSettingSub?.selectedIndex ?? 0]
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,16 +79,19 @@ class FiltersViewController: UIViewController {
                 filterObject.categories.append(categories[k]["code"]!)
             }
         }
+        filterObject.SettingMain = MainSetting[swSettingMain?.selectedIndex ?? 0]
+        filterObject.SettingSub = SubSetting[swSettingSub?.selectedIndex ?? 0]
         self.delegate?.filtersViewControllerDelegate!(self, didSet: filterObject)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func getDefaultFilters() {
-        var defaulFilters = Filters()
+        let defaulFilters = Filters()
         filterObject = defaulFilters
         switchValues = [Int:Bool]()
         tableView.reloadData()
     }
+    
     /*
      // MARK: - Navigation
      

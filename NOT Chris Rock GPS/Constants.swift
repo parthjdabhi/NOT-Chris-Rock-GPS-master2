@@ -27,6 +27,8 @@ let googleMapsApiKey    = "AIzaSyB5jzZt5pc9-WVIEvfaBIZAIvQOYLhVu94"
 
 let foodTypes           = ["American", "Mexican", "Italian", "Chinese", "Asian", "Indian", "Mediterranean", "BBQ", "Fast Food", "Steak", "Soups", "Salads", "Pizza", "Southern", "Cajun"]
 let genderType          = ["Male", "Female"]
+let MainSetting         = ["Family Mode", "Explicit"]
+let SubSetting          = ["Light", "Medium" , "A Lot"]
 
 
 let clrGreen = UIColor.init(rgb: 0x1abc9c)

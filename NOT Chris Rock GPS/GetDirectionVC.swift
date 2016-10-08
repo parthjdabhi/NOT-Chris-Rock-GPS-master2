@@ -211,6 +211,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             self.btnStartRoute.backgroundColor = clrGreen
             self.btnStartRoute.tag = 2;
             
+            let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 1)
+            self.googleMapsView.animateToCameraPosition(camera)
+            
             print("Start monitoring route")
             startObservingRoute()
         } else if self.btnStartRoute.enabled
@@ -248,7 +251,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
         self.googleMapsView.animateToCameraPosition(camera)
         
-        
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
             CLocation = CLLocation(latitude: latitude, longitude: longitude)
             print("Updating Location To Detect Turns : ",LocationManager.sharedInstance.latitude," - ",LocationManager.sharedInstance.longitude)
@@ -275,7 +277,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 
                 // To play sound on base of instruction
                 self.playSoundForInstruction(dictTable.objectForKey("instructions") as? NSString as? String)
-                
             }
         }
     }
@@ -291,9 +292,10 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             return
         }
         
-        
         print("Playing Sound for instruction : \(inst)")
         //self.AddAudioToQueue(ofUrl: "http://www.notchrisrock.com/gps/api/sounds/Route/route.wav")
+        
+        print(">>> >> > > Select Sound based on SettingMain & SettingSub : \(Myfilters.SettingMain)  \(Myfilters.SettingSub)")
         
         AudioItems = []
         
@@ -1970,8 +1972,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 AudioItems?.append(AudioIdem)
             }
         }
-        
-        
     }
     
     func StartPlaying() {
