@@ -28,7 +28,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     var polyline: MKPolyline = MKPolyline()
     let markerNextTurn = GMSMarker()
     
-    //var player:AVPlayer? = AVPlayer()
+    var audioPlayer:AVPlayer? = AVPlayer()
     var mp3Urls = [NSURL]()
     var player = AudioPlayer()
     var AudioItems:[AudioItem]? = [AudioItem]()
@@ -42,6 +42,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     @IBOutlet weak var txtFrom: UITextField!
     @IBOutlet weak var btnGetDirection: UIButton!
     @IBOutlet weak var btnStartRoute: UIButton!
+    @IBOutlet weak var btnRefresh: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,6 +208,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 1
         {
+            self.btnRefresh.hidden = true
             self.btnStartRoute.setTitle("Stop Route", forState: .Normal)
             self.btnStartRoute.backgroundColor = clrGreen
             self.btnStartRoute.tag = 2;
@@ -219,6 +221,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         } else if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 2
         {
+            self.btnRefresh.hidden = false
             self.btnStartRoute.setTitle("Start Route", forState: .Normal)
             self.btnStartRoute.backgroundColor = clrRed
             self.btnStartRoute.tag = 1;
@@ -282,6 +285,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     }
     
     func stopObservingRoute() {
+        self.btnRefresh.hidden = false
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler(nil)
         markerNextTurn.map = nil
     }
@@ -1975,6 +1979,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     }
     
     func StartPlaying() {
+        //AudioItems to play multiple audio in queue
         guard let AudioItems1 = AudioItems where AudioItems1.count > 0 else {
             return
         }
@@ -1982,19 +1987,20 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         player.mode = .NoRepeat
         player.playItems(AudioItems1, startAtIndex: 0)
         
-//        guard let mp3Url = mp3Urls.first else {
+        //AVPlayer to play single audio 
+//        guard let mp3Url = AudioItems1.first else {
 //            return
 //        }
 //        print("playing soung for url : \(mp3Url)")
 //        do {
 //            
-//            let playerItem = AVPlayerItem(URL: mp3Url)
+//            let playerItem = AVPlayerItem(URL: mp3Url.mediumQualityURL.URL)
 //            
-//            self.player = try AVPlayer(playerItem:playerItem)
-//            player?.volume = 1.0
-//            player?.play()
+//            self.audioPlayer = try AVPlayer(playerItem:playerItem)
+//            audioPlayer?.volume = 1.0
+//            audioPlayer?.play()
 //        } catch let error as NSError {
-//            self.player = nil
+//            self.audioPlayer = nil
 //            print(error.localizedDescription)
 //        } catch {
 //            print("AVAudioPlayer init failed")

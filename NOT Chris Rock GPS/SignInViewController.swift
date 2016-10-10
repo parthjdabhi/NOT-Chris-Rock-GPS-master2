@@ -43,6 +43,12 @@ class SignInViewController: UIViewController {
     }
     
     // MARK: -
+    @IBAction func didTapForgotPwd(sender: AnyObject)
+    {
+        let vcForgotPwd = self.storyboard?.instantiateViewControllerWithIdentifier("ForgotPwdVC") as! ForgotPwdVC
+        self.navigationController?.pushViewController(vcForgotPwd, animated: true)
+    }
+    
     @IBAction func didTapSignIn(sender: AnyObject)
     {
         //self.performSegueWithIdentifier("segueHome", sender: self)

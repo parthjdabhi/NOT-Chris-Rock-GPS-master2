@@ -15,6 +15,7 @@ let url_login           = BaseURL + "login.php"
 let url_register        = BaseURL + "register.php"
 let url_fb_register     = BaseURL + "facebook_register.php"
 let url_updateProfile   = BaseURL + "update.php"
+let url_ResetPassword   = BaseURL + "reset_password_operation.php"
 
 let url_setProfilePic   = BaseURL + "profile.php"
 let url_soundFiles      = BaseURL + "sounds.php"

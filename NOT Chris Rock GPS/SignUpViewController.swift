@@ -197,7 +197,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                             else if let msg = json["msg"].string {
                                 print(msg)
                                 SVProgressHUD.showErrorWithStatus(msg)
-                                self.navigationController?.popViewControllerAnimated(true)
+                                //self.navigationController?.popViewControllerAnimated(true)
                             } else {
                                 SVProgressHUD.showErrorWithStatus("Unable to register!")    // error?.localizedDescription
                             }

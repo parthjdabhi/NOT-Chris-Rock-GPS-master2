@@ -30,11 +30,12 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     @IBOutlet var btnMenu: UIButton?
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
+    var searchResultController:BizSearchController!
     //var searchBar: UISearchBar!
     var myTimer = NSTimer()
     
     var googleMapsView: GMSMapView!
-    var searchResultController: SearchResultsController!
     //var locationManager = CLLocationManager()
     
     //To Store Food places
@@ -50,6 +51,9 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         isEnableFivetapGesture = true
         startFiveTapGesture()
         self.btnDirection.hidden = true
+        
+        searchResultController = BizSearchController()
+        //searchResultController.delegate = self
         
         btnRefreshNearByPlace.setCornerRadious()
         btnRefreshNearByPlace.setBorder(1.0, color: clrGreen)
@@ -258,6 +262,25 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         })
     }
     
+    private func doSearchSuggestion() {
+        // Perform request to Yelp API to get the list of businessees
+        guard let client = YelpClient.sharedInstance else { return }
+        SVProgressHUD.showWithStatus("Searching..")
+        client.location = "\(LocationManager.sharedInstance.latitude),\(LocationManager.sharedInstance.longitude)"
+        client.searchWithTerm(searchString, completion: { (business, error) in
+            //self.removeMarkers(self.currentBizMarker)
+            //businessArr = business
+//            for biz: Business in businessArr! {
+//                let marker = BizMarker(biz: biz)
+//                self.currentBizMarker.append(marker)
+//                marker.map = self.googleMapsView
+//            }
+            
+            self.searchResultController.reloadDataWithArray(business)
+            SVProgressHUD.dismiss()
+        })
+    }
+    
     func removeMarkers(marker:[GMSMarker]) {
         for cBizMarker in self.currentBizMarker {
             cBizMarker.map = nil
@@ -269,6 +292,13 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
 
 extension MainViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        if searchBar == self.searchBar {
+            let searchController = UISearchController(searchResultsController: searchResultController)
+            searchController.searchBar.delegate = self
+            searchController.searchBar.showsSearchResultsButton = true
+            self.presentViewController(searchController, animated: true, completion: nil)
+            return false;
+        }
         searchBar.setShowsCancelButton(true, animated: true)
         return true;
     }
@@ -297,7 +327,7 @@ extension MainViewController: UISearchBarDelegate {
         myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainViewController.searchInTime), userInfo: nil, repeats: false)
     }
     func searchInTime(){
-        doSearch()
+        doSearchSuggestion()
     }
 }
 
