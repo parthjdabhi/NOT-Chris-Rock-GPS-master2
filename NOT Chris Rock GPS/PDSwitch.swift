@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias PDSwitchSelectionHandler = ((index:Int,item:String?)->Void)?
+
 // MARK: -
 // MARK: PDSwitchRoundedLayer
 
@@ -28,6 +30,7 @@ public class PDSwitch: UIControl {
     
     // MARK: -
     // MARK: Public vars
+    var completionHandler:PDSwitchSelectionHandler?
     
     public var titles: [String] {
         set {
@@ -225,6 +228,9 @@ public class PDSwitch: UIControl {
         }
         
         self.selectedIndex = selectedIndex
+        print("switchselected index :",selectedIndex)
+        //self.completionHandler!(selectedIndex,"")
+        
         if animated {
             if (!catchHalfSwitch) {
                 self.sendActionsForControlEvents(.ValueChanged)

@@ -1,13 +1,14 @@
 //
-//  SetDataViewController.swift
+//  EditProfileVC.swift
 //  NOT Chris Rock GPS
 //
-//  Created by iParth on 9/23/16.
+//  Created by iParth on 10/11/16.
 //  Copyright © 2016 Harloch. All rights reserved.
 //
 
 import UIKit
 
+import SWRevealViewController
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
@@ -15,11 +16,12 @@ import SDWebImage
 import IQKeyboardManagerSwift
 import IQDropDownTextField
 
-class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, IQDropDownTextFieldDelegate {
+class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, IQDropDownTextFieldDelegate {
     
+    @IBOutlet var btnMenu: UIButton?
     @IBOutlet var imgBackGProfile: UIImageView!
     @IBOutlet var imgProfile: UIImageView!
-    //@IBOutlet var btnProfileImg: UIButton!
+    @IBOutlet var btnProfileImg: UIButton!
     
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtEmail: UITextField!
@@ -41,9 +43,18 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     override func viewDidLoad() {
         
+        // Init menu button action for menu
+        if let revealVC = self.revealViewController() {
+            self.btnMenu?.addTarget(revealVC, action: #selector(revealVC.revealToggle(_:)), forControlEvents: .TouchUpInside)
+            //            self.view.addGestureRecognizer(revealVC.panGestureRecognizer());
+            //            self.navigationController?.navigationBar.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+        
         imgProfile.setCornerRadious(imgProfile.frame.width/2)
         //imgProfile.setBorder(1, color: clrGreen)
         imgBackGProfile.setCornerRadious(imgBackGProfile.frame.width/2)
+        //imgProfile.image = UIImage(named: "stamp-red")
+        //imgProfile.contentMode = .ScaleAspectFit
         
         txtName.setCornerRadious()
         txtEmail.setCornerRadious()
@@ -65,8 +76,8 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         txtBirthDate?.isOptionalDropDown = false
         txtBirthDate?.dropDownMode = IQDropDownMode.DatePicker
-        txtBirthDate?.setDate(NSDate.changeYearsBy(-12), animated: true)
-        txtBirthDate?.maximumDate = NSDate.changeYearsBy(-12)
+        txtBirthDate?.setDate(NSDate.changeYearsBy(-13), animated: true)
+        txtBirthDate?.maximumDate = NSDate.changeYearsBy(-13)
         
         tblFavFood.allowsMultipleSelection = true
         tblFavFood.delegate = self
@@ -75,20 +86,32 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
         txtFoodType.inputView = tblFavFood
         
         swGender?.titles = genderType
-        //        swGender?.backgroundColor = UIColor(red: 122/255.0, green: 203/255.0, blue: 108/255.0, alpha: 1.0)
-        //        swGender?.selectedBackgroundColor = UIColor.whiteColor()
-        //        swGender?.titleColor = UIColor.whiteColor()
-        //        swGender?.selectedTitleColor = UIColor(red: 135/255.0, green: 227/255.0, blue: 120/255.0, alpha: 1.0)
-        //        swGender?.titleFont = UIFont(name: "HelveticaNeue-Light", size: 17.0)
+        //swGender?.backgroundColor = UIColor(red: 122/255.0, green: 203/255.0, blue: 108/255.0, alpha: 1.0)
+        //swGender?.selectedBackgroundColor = UIColor.whiteColor()
+        //swGender?.titleColor = UIColor.whiteColor()
+        //swGender?.selectedTitleColor = UIColor(red: 135/255.0, green: 227/255.0, blue: 120/255.0, alpha: 1.0)
+        //swGender?.titleFont = UIFont(name: "HelveticaNeue-Light", size: 17.0)
         
-        print(userDetail)
-        txtName.text = userDetail["name"] as? String ?? ""
-        imgProfile.sd_setImageWithURL(NSURL(string: userDetail["profile_pic"] as? String ?? ""), placeholderImage: UIImage(named: "stamp-red"))
-        txtEmail.text = userDetail["email"] as? String ?? ""
-        swGender?.setSelectedIndex((((userDetail["gender"] as? String ?? "") == "Female") ? 1 : 0), animated: true)
         
-        //birthdate
-        //gender
+        if let user = NSUserDefaults.standardUserDefaults().objectForKey("userDetail") as? NSDictionary {
+            
+            print(user)
+            
+            txtName?.text = user["name"] as? String ?? ""
+            imgProfile?.sd_setImageWithURL(NSURL(string: user["profile_pic"] as? String ?? ""), placeholderImage: UIImage(named: "stamp-red"))
+            txtEmail?.text = user["email"] as? String ?? ""
+            swGender?.setSelectedIndex((((user["gender"] as? String ?? "") == genderType[0]) ? 0 : 1), animated: true)
+            //txtBirthDate?.text = user["birthday"] as? String ?? ""
+            txtFoodType?.text = user["favfood"] as? String ?? ""
+            
+            selectedFood = (user["favfood"] as? String ?? "").componentsSeparatedByString(", ")
+            for food in (user["favfood"] as? String ?? "").componentsSeparatedByString(", ") {
+                if let index = foodTypes.indexOf(food) {
+                    let indexPath:NSIndexPath = NSIndexPath(forRow: index, inSection: 0)
+                    self.tblFavFood.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+                }
+            }
+        }
     }
     
     // MARK: -
@@ -112,7 +135,7 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func createProfile(sender: AnyObject)
+    @IBAction func doUpdateProfile(sender: AnyObject)
     {
         /*
          1.	First Name
@@ -128,22 +151,15 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
             SVProgressHUD.showInfoWithStatus("Please add your name!")
             txtName.animateShakeEffect()
         }
-            //        else if self.txtEmail.text!.isEmpty {
-            //            SVProgressHUD.showInfoWithStatus("Please add your email!")
-            //            txtEmail.animateShakeEffect()
-            //        }
-            //        else if imgTaken == false {
-            //            SVProgressHUD.showInfoWithStatus("Select you profile picture!")
-            //            imgProfile.animateShakeEffect()
-            //            imgBackGProfile.animateShakeEffect()
-            //        }
         else
         {
-            let Parameters = ["user_id": user_id,
+            let Parameters = ["submitted": "1",
+                              "user_id" : user_id,
                               "name" : self.txtName.text ?? "",
-                              "email" : self.txtEmail.text ?? "",
+                              //"email" : self.txtEmail.text ?? "",
+                              //"password" : self.txtPassword.text ?? "",
                               "gender" : genderType[swGender?.selectedIndex ?? 0],
-                              "birthday" : txtBirthDate.date?.strDateInUTC ?? "",
+                              "birthday" : NSDate().strDateInUTC,
                               "favfood" : txtFoodType.text ?? ""]
             //photo
             
@@ -151,13 +167,17 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
             SVProgressHUD.showWithStatus("Updating..")
             
             Alamofire.upload(.POST, url_updateProfile, multipartFormData: { (multipartFormData) -> Void in
-                if let imageData = UIImageJPEGRepresentation(self.imgProfile.image!, 0.8) where self.imgTaken == true {
-                    multipartFormData.appendBodyPart(data: imageData, name: "photo", fileName: "file.png", mimeType: "image/png")
+                
+                if self.imgTaken == true {
+                    if let imageData = UIImageJPEGRepresentation(self.imgProfile.image!, 0.8) {
+                        multipartFormData.appendBodyPart(data: imageData, name: "photo", fileName: "file.png", mimeType: "image/png")
+                    }
                 }
+                
                 for (key, value) in Parameters {
                     multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
                 }
-                })
+            })
             { (encodingResult) -> Void in
                 switch encodingResult {
                     
@@ -172,35 +192,29 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
                             print(json.dictionary)
                             //print(json.dictionaryObject)
                             
-                            //self.performSegueWithIdentifier("segueHome", sender: self)
-                            //return
-                            
                             if let status = json["status"].string,
                                 result = json["result"].dictionaryObject
                                 where status == "1"
                             {
                                 print(json["msg"].string )
-                                SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Changes saved successfully")
+                                SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Profile Updated successfully")
                                 
                                 userDetail = result
                                 NSUserDefaults.standardUserDefaults().setObject(result, forKey: "userDetail")
                                 NSUserDefaults.standardUserDefaults().synchronize()
                                 
-                                self.performSegueWithIdentifier("segueHome", sender: self)
+                                //self.performSegueWithIdentifier("segueHome", sender: self)
                             }
                             else if let msg = json["msg"].string {
                                 print(msg)
                                 SVProgressHUD.showErrorWithStatus(msg)
-                                self.navigationController?.popViewControllerAnimated(true)
+                                //self.navigationController?.popViewControllerAnimated(true)
                             } else {
-                                SVProgressHUD.showErrorWithStatus("Unable to save!")    // error?.localizedDescription
+                                SVProgressHUD.showErrorWithStatus("Unable to update profile!")    // error?.localizedDescription
                             }
                             //"status": 1, "result": , "msg": Registraion success! Please check your email for activation key.
                             
                         case .Failure(let error):
-                            //SVProgressHUD.dismiss()
-                            //self.performSegueWithIdentifier("segueHome", sender: self)
-                            //return
                             print("Request failed with error: \(error)")
                             SVProgressHUD.dismiss()
                             self.showAlert("Error", message: error.description)
@@ -208,12 +222,9 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
                     }
                 //break
                 case .Failure(let errorType):
-                    //SVProgressHUD.dismiss()
-                    //self.performSegueWithIdentifier("segueHome", sender: self)
-                    //return
                     print("Request failed with error: \(errorType)")
                     SVProgressHUD.dismiss()
-                    self.showAlert("Error", message: "Unable to save!")
+                    self.showAlert("Error", message: "Request failed!")
                 }
             }
         }
@@ -228,6 +239,13 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40
     }
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if selectedFood.contains(foodTypes[indexPath.row]) {
+//            cell.setSelected(true, animated: true)
+//        }
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
@@ -251,13 +269,18 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        if selectedFood.count >= 4 {
+        if selectedFood.count >= 4
+            && (selectedFood.contains(foodTypes[indexPath.row]) == false)
+        {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             SVProgressHUD.showInfoWithStatus("You can't select  more than four diffrent food!")
             return
         }
-        selectedFood.append(foodTypes[indexPath.row])
-        txtFoodType.text = selectedFood.joinWithSeparator(", ")
+        
+        if selectedFood.contains(foodTypes[indexPath.row]) == false {
+            selectedFood.append(foodTypes[indexPath.row])
+            txtFoodType.text = selectedFood.joinWithSeparator(", ")
+        }
         
         //        let cell = tableView.cellForRowAtIndexPath(indexPath)
         //        if cell!.selected == true {

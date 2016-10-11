@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/AppDelegate.swift"
-            timestampString = "497182771.911322"
+            timestampString = "497886308.27338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "configureApp()"
             landmarkType = "5">
          </BreakpointContent>
@@ -761,46 +761,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NOT Chris Rock GPS/MySlideMenuController.swift"
-            timestampString = "497818856.296077"
+            filePath = "NOT Chris Rock GPS/EditProfileVC.swift"
+            timestampString = "497901380.54328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "doUpdateProfile(_:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NOT_Chris_Rock_GPS.MySlideMenuController.viewDidLoad () -&gt; ()"
-                  moduleName = "NOT Chris Rock GPS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/NOT%20Chris%20Rock%20GPS/MySlideMenuController.swift"
-                  timestampString = "497819492.242311"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "3231">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NOT_Chris_Rock_GPS.MySlideMenuController.viewDidLoad () -&gt; ()"
-                  moduleName = "NOT Chris Rock GPS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/NOT%20Chris%20Rock%20GPS/MySlideMenuController.swift"
-                  timestampString = "497819492.242464"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "3630">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -809,13 +777,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NOT Chris Rock GPS/MySlideMenuController.swift"
-            timestampString = "497818906.353409"
+            filePath = "NOT Chris Rock GPS/EditProfileVC.swift"
+            timestampString = "497901380.54328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

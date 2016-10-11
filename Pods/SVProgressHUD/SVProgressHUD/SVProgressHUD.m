@@ -276,6 +276,11 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     [[self sharedView] showImage:image status:status duration:displayInterval];
 }
 
++ (void)showImage:(UIImage*)image status:(NSString*)status displayInterval:(NSTimeInterval)displayInterval {
+    //NSTimeInterval displayInterval = [self displayDurationForString:status];
+    [[self sharedView] showImage:image status:status duration:displayInterval];
+}
+
 + (void)showImage:(UIImage*)image status:(NSString*)status maskType:(SVProgressHUDMaskType)maskType {
     SVProgressHUDMaskType existingMaskType = [self sharedView].defaultMaskType;
     [self setDefaultMaskType:maskType];
@@ -1191,7 +1196,7 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
 #pragma mark - Getters
 
 + (NSTimeInterval)displayDurationForString:(NSString*)string {
-    return MAX((float)string.length * 0.06 + 0.5, [self sharedView].minimumDismissTimeInterval);
+    return MAX((float)string.length * 0.04 + 0.5, [self sharedView].minimumDismissTimeInterval);
 }
 
 - (UIColor*)foregroundColorForStyle {

@@ -46,6 +46,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         imgProfile.setCornerRadious(imgProfile.frame.width/2)
         //imgProfile.setBorder(1, color: clrGreen)
         imgBackGProfile.setCornerRadious(imgBackGProfile.frame.width/2)
+        imgProfile.image = UIImage(named: "stamp-red")
+        imgProfile.contentMode = .ScaleAspectFit
         
         txtName.setCornerRadious()
         txtEmail.setCornerRadious()
@@ -73,8 +75,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         
         txtBirthDate?.isOptionalDropDown = false
         txtBirthDate?.dropDownMode = IQDropDownMode.DatePicker
-        txtBirthDate?.setDate(NSDate.changeYearsBy(-12), animated: true)
-        txtBirthDate?.maximumDate = NSDate.changeYearsBy(-12)
+        txtBirthDate?.setDate(NSDate.changeYearsBy(-13), animated: true)
+        txtBirthDate?.maximumDate = NSDate.changeYearsBy(-13)
         
         tblFavFood.allowsMultipleSelection = true
         tblFavFood.delegate = self
@@ -83,11 +85,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         txtFoodType.inputView = tblFavFood
         
         swGender?.titles = genderType
-        //        swGender?.backgroundColor = UIColor(red: 122/255.0, green: 203/255.0, blue: 108/255.0, alpha: 1.0)
-        //        swGender?.selectedBackgroundColor = UIColor.whiteColor()
-        //        swGender?.titleColor = UIColor.whiteColor()
-        //        swGender?.selectedTitleColor = UIColor(red: 135/255.0, green: 227/255.0, blue: 120/255.0, alpha: 1.0)
-        //        swGender?.titleFont = UIFont(name: "HelveticaNeue-Light", size: 17.0)
+        //swGender?.backgroundColor = UIColor(red: 122/255.0, green: 203/255.0, blue: 108/255.0, alpha: 1.0)
+        //swGender?.selectedBackgroundColor = UIColor.whiteColor()
+        //swGender?.titleColor = UIColor.whiteColor()
+        //swGender?.selectedTitleColor = UIColor(red: 135/255.0, green: 227/255.0, blue: 120/255.0, alpha: 1.0)
+        //swGender?.titleFont = UIFont(name: "HelveticaNeue-Light", size: 17.0)
         
     }
     

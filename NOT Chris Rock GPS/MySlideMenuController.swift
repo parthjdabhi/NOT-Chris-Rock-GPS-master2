@@ -53,18 +53,11 @@ class MySlideMenuController : UIViewController {
         btnLogout.layer.borderWidth = 1
         btnLogout.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2).CGColor
         
-        
         self.lblName?.text = "Welcome"
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MySlideMenuController.MyProfile))
         lblName?.addGestureRecognizer(tap)
         lblName?.userInteractionEnabled = true
         
-        imgProfile?.setCornerRadious(imgProfile!.frame.width/2)
-        if let user = NSUserDefaults.standardUserDefaults().objectForKey("userDetail") as? NSDictionary {
-            print(user)
-            lblName?.text = "Hello, \(user["name"] as? String ?? "")"
-            imgProfile?.sd_setImageWithURL(NSURL(string: user["profile_pic"] as? String ?? ""), placeholderImage: UIImage(named: "user.png"))
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -87,11 +80,16 @@ class MySlideMenuController : UIViewController {
     
     func RefreshProfiledata()
     {
-        
+        imgProfile?.setCornerRadious(imgProfile!.frame.width/2)
+        if let user = NSUserDefaults.standardUserDefaults().objectForKey("userDetail") as? NSDictionary {
+            print(user)
+            lblName?.text = "Hello, \(user["name"] as? String ?? "")"
+            imgProfile?.sd_setImageWithURL(NSURL(string: user["profile_pic"] as? String ?? ""), placeholderImage: UIImage(named: "stamp-red"))
+        }
     }
     
     @IBAction func actionMyProfile(sender: AnyObject?) {
-        //self.performSegueWithIdentifier("segueMyProfile", sender: self)
+        self.performSegueWithIdentifier("segueEditProfile", sender: self)
     }
     
     @IBAction func actionFindPlace(sender: AnyObject) {

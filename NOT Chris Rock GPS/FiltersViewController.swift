@@ -56,6 +56,8 @@ class FiltersViewController: UIViewController {
             btnBarCancel.target = self
             btnBarCancel.action = #selector(FiltersViewController.onCancel(_:))
         }
+        
+        //swSettingSub?.sendActionsForControlEvents(UIControlEvents)
     }
     
     override func viewWillDisappear(animated: Bool) {

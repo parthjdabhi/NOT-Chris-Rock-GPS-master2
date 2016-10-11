@@ -69,6 +69,7 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDAnimationType) {
 @property (assign, nonatomic) NSTimeInterval fadeInAnimationDuration;  // default is 0.15
 @property (assign, nonatomic) NSTimeInterval fadeOutAnimationDuration; // default is 0.15
 
++ (SVProgressHUD*)sharedView;
 
 + (void)setDefaultStyle:(SVProgressHUDStyle)style;                  // default is SVProgressHUDStyleLight
 + (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType;         // default is SVProgressHUDMaskTypeNone
@@ -115,6 +116,7 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDAnimationType) {
 // shows a image + status, use 28x28 white PNGs
 + (void)showImage:(UIImage*)image status:(NSString*)status;
 + (void)showImage:(UIImage*)image status:(NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showImage:status: and setDefaultMaskType: instead.")));
++ (void)showImage:(UIImage*)image status:(NSString*)status displayInterval:(NSTimeInterval)displayInterval;
 
 + (void)setOffsetFromCenter:(UIOffset)offset;
 + (void)resetOffsetFromCenter;

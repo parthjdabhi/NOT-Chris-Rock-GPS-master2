@@ -15,6 +15,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import IQKeyboardManagerSwift
 import SVProgressHUD
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, LocationManagerDelegate {
@@ -39,7 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LocationManagerDelegate {
         
         configureApp()
         
-
+        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+            if granted == true {
+                print("Permission granted")
+            } else {
+                print("Permission denied")
+                SVProgressHUD.showInfoWithStatus("We require microphone permission to record audio!")
+            }
+        }
+        
         if let user = NSUserDefaults.standardUserDefaults().objectForKey("userDetail") as? [String : AnyObject]
         {
             //navHomeUser

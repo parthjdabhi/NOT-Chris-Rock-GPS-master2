@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4BE97498B3E6BD9E0D06CF25 /* Pods_NOT_Chris_Rock_GPSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 914FA718946FFE1DCF785FC5 /* Pods_NOT_Chris_Rock_GPSUITests.framework */; };
+		5E1174CD1DAD285F0047A304 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */; };
 		5E3426E51D9FC44600DFF2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E31D9FC44600DFF2F9 /* Main.storyboard */; };
 		5E3426E71D9FD55300DFF2F9 /* VoiceHelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */; };
 		5E3426EA1DA0134300DFF2F9 /* NY2Brooklyn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E81DA0134300DFF2F9 /* NY2Brooklyn.gpx */; };
@@ -94,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		5E3426E41D9FC44600DFF2F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelpVC.swift; sourceTree = "<group>"; };
 		5E3426E81DA0134300DFF2F9 /* NY2Brooklyn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NY2Brooklyn.gpx; sourceTree = "<group>"; };
@@ -223,6 +225,9 @@
 				DA6AE8131D8A24AE001E5B65 /* MainViewController.swift */,
 				5EB437631DABDA5600EB6BA8 /* BizSearchController.swift */,
 				5E8D28F31DA289FC00EFAC9C /* FiltersViewController.swift */,
+				5E8D28FC1DA28A6F00EFAC9C /* FiltersDropdownTableViewCell.swift */,
+				5E8D28FD1DA28A6F00EFAC9C /* FiltersSeeAllTableViewCell.swift */,
+				5E8D28FE1DA28A6F00EFAC9C /* FiltersSwitchTableViewCell.swift */,
 			);
 			name = Food;
 			sourceTree = "<group>";
@@ -242,9 +247,6 @@
 				DAFB87AB1D9DF625004DE008 /* MyPlace.swift */,
 				DAFB87AC1D9DF625004DE008 /* PlaceMarker.swift */,
 				5E8D28FB1DA28A6F00EFAC9C /* BusinessesTableViewCell.swift */,
-				5E8D28FC1DA28A6F00EFAC9C /* FiltersDropdownTableViewCell.swift */,
-				5E8D28FD1DA28A6F00EFAC9C /* FiltersSeeAllTableViewCell.swift */,
-				5E8D28FE1DA28A6F00EFAC9C /* FiltersSwitchTableViewCell.swift */,
 				5E8D28FF1DA28A6F00EFAC9C /* UISwitch+MyYelp.swift */,
 			);
 			name = "Custom Views";
@@ -328,6 +330,7 @@
 				5E8D28FA1DA28A5900EFAC9C /* Models */,
 				5E8D29051DA28A7500EFAC9C /* Custom Views */,
 				DA8B38651D8B8B9E009A6812 /* Login/Registration/Settings */,
+				5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */,
 				5E8D28F51DA28A0500EFAC9C /* Food */,
 				DAFB88101D9F0F3C004DE008 /* Direction */,
 				DA6AE8121D89E446001E5B65 /* GooglePlaces & Maps */,
@@ -775,6 +778,7 @@
 				DA6AE80D1D89B169001E5B65 /* Weather.swift in Sources */,
 				DAFB88081D9F0C42004DE008 /* PlaceViewController.swift in Sources */,
 				DAFB87B51D9DF625004DE008 /* MySlideMenuController.swift in Sources */,
+				5E1174CD1DAD285F0047A304 /* EditProfileVC.swift in Sources */,
 				5EB437621DABA2D300EB6BA8 /* ForgotPwdVC.swift in Sources */,
 				5E8D29021DA28A6F00EFAC9C /* FiltersSeeAllTableViewCell.swift in Sources */,
 				DA6AE8011D88C907001E5B65 /* AEXML.swift in Sources */,
