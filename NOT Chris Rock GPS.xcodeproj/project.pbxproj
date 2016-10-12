@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4BE97498B3E6BD9E0D06CF25 /* Pods_NOT_Chris_Rock_GPSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 914FA718946FFE1DCF785FC5 /* Pods_NOT_Chris_Rock_GPSUITests.framework */; };
+		5E10DBF41DAE63F100B6BD4C /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */; };
+		5E10DBF51DAE63F100B6BD4C /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */; };
 		5E1174CD1DAD285F0047A304 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */; };
 		5E3426E51D9FC44600DFF2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E31D9FC44600DFF2F9 /* Main.storyboard */; };
 		5E3426E71D9FD55300DFF2F9 /* VoiceHelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */; };
@@ -95,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
 		5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		5E3426E41D9FC44600DFF2F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelpVC.swift; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 				5E8D29051DA28A7500EFAC9C /* Custom Views */,
 				DA8B38651D8B8B9E009A6812 /* Login/Registration/Settings */,
 				5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */,
+				5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */,
+				5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */,
 				5E8D28F51DA28A0500EFAC9C /* Food */,
 				DAFB88101D9F0F3C004DE008 /* Direction */,
 				DA6AE8121D89E446001E5B65 /* GooglePlaces & Maps */,
@@ -577,6 +583,7 @@
 				DA334BEF1D8A7CE0002E4E1F /* PlayButton@2x.png in Resources */,
 				DA0320FE1D93099600BE0698 /* AudioRecorderViewController.xib in Resources */,
 				DA334BEE1D8A7CE0002E4E1F /* StopButton@2x.png in Resources */,
+				5E10DBF51DAE63F100B6BD4C /* BusinessTableViewCell.xib in Resources */,
 				5EE5B0591DA68F00001A19EC /* NYC2SDiago.gpx in Resources */,
 				DA6AE7CF1D88C782001E5B65 /* LaunchScreen.storyboard in Resources */,
 				5E3426EA1DA0134300DFF2F9 /* NY2Brooklyn.gpx in Resources */,
@@ -791,6 +798,7 @@
 				DA6AE8111D89E442001E5B65 /* SearchResultsController.swift in Sources */,
 				DA8B38751D930550009A6812 /* testViewController.swift in Sources */,
 				DAFB87B11D9DF625004DE008 /* MyPlace.swift in Sources */,
+				5E10DBF41DAE63F100B6BD4C /* BusinessTableViewCell.swift in Sources */,
 				DAFB87B71D9DF636004DE008 /* SetDataViewController.swift in Sources */,
 				DAFB87B31D9DF625004DE008 /* MarkerInfoView.swift in Sources */,
 				DAFB88171D9F0F4A004DE008 /* DirectionDetailTableViewCell.swift in Sources */,

@@ -22,7 +22,7 @@ class SignInViewController: UIViewController {
     // MARK: Vars
     @IBOutlet var txtPassword: UITextField!
     @IBOutlet var txtEmail: UITextField!
-    @IBOutlet var btnRememberMe: UIButton!
+    //@IBOutlet var btnRememberMe: UIButton!
     
     var isRememberMe:String = "0"
     
@@ -39,26 +39,24 @@ class SignInViewController: UIViewController {
         txtEmail.setLeftMargin(8)
         txtPassword.setLeftMargin(8)
         
-        btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Normal)
-        btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Highlighted)
-        btnRememberMe.tag = 0
-//        btnRememberMe.contentHorizontalAlignment = .Left
-//        btnRememberMe.contentVerticalAlignment = .Center
-        btnRememberMe.imageView?.contentMode = .ScaleAspectFit
-        
-        if let isRemembers = NSUserDefaults.standardUserDefaults().objectForKey("isRememberMe") as? String
-            where isRemembers == "1"
-        {
-            didTapRememberMe(btnRememberMe)
-            if let RememberEmail = NSUserDefaults.standardUserDefaults().objectForKey("RememberEmail") as? String
-            {
-                self.txtEmail.text = RememberEmail
-            }
-            if let RememberPwd = NSUserDefaults.standardUserDefaults().objectForKey("RememberPwd") as? String
-            {
-                self.txtPassword.text = RememberPwd
-            }
-        }
+//        btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Normal)
+//        btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Highlighted)
+//        btnRememberMe.tag = 0
+//        btnRememberMe.imageView?.contentMode = .ScaleAspectFit
+//        
+//        if let isRemembers = NSUserDefaults.standardUserDefaults().objectForKey("isRememberMe") as? String
+//            where isRemembers == "1"
+//        {
+//            didTapRememberMe(btnRememberMe)
+//            if let RememberEmail = NSUserDefaults.standardUserDefaults().objectForKey("RememberEmail") as? String
+//            {
+//                self.txtEmail.text = RememberEmail
+//            }
+//            if let RememberPwd = NSUserDefaults.standardUserDefaults().objectForKey("RememberPwd") as? String
+//            {
+//                self.txtPassword.text = RememberPwd
+//            }
+//        }
     }
     
     override func  preferredStatusBarStyle()-> UIStatusBarStyle {
@@ -72,24 +70,24 @@ class SignInViewController: UIViewController {
         self.navigationController?.pushViewController(vcForgotPwd, animated: true)
     }
     
-    @IBAction func didTapRememberMe(sender: AnyObject)
-    {
-        if btnRememberMe.tag == 1 {
-            btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Normal)
-            btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Highlighted)
-            btnRememberMe.tag = 0
-            
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("isRememberMe")
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("RememberEmail")
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("RememberPwd")
-        }
-        else
-        {
-            btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Normal)
-            btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Highlighted)
-            btnRememberMe.tag = 1
-        }
-    }
+//    @IBAction func didTapRememberMe(sender: AnyObject)
+//    {
+//        if btnRememberMe.tag == 1 {
+//            btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Normal)
+//            btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Highlighted)
+//            btnRememberMe.tag = 0
+//            
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("isRememberMe")
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("RememberEmail")
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("RememberPwd")
+//        }
+//        else
+//        {
+//            btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Normal)
+//            btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Highlighted)
+//            btnRememberMe.tag = 1
+//        }
+//    }
     
     @IBAction func didTapSignIn(sender: AnyObject)
     {
@@ -138,12 +136,12 @@ class SignInViewController: UIViewController {
                             print(json["msg"].string )
                             SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Register successfully")
                             
-                            if self.btnRememberMe.tag == 1
-                            {
-                                NSUserDefaults.standardUserDefaults().setObject("1", forKey: "isRememberMe")
-                                NSUserDefaults.standardUserDefaults().setObject(self.txtEmail?.text ?? "", forKey: "RememberEmail")
-                                NSUserDefaults.standardUserDefaults().setObject(self.txtPassword?.text ?? "", forKey: "RememberPwd")
-                            }
+//                            if self.btnRememberMe.tag == 1
+//                            {
+//                                NSUserDefaults.standardUserDefaults().setObject("1", forKey: "isRememberMe")
+//                                NSUserDefaults.standardUserDefaults().setObject(self.txtEmail?.text ?? "", forKey: "RememberEmail")
+//                                NSUserDefaults.standardUserDefaults().setObject(self.txtPassword?.text ?? "", forKey: "RememberPwd")
+//                            }
                             
                             userDetail = result
                             NSUserDefaults.standardUserDefaults().setObject(result, forKey: "userDetail")

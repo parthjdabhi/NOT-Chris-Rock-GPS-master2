@@ -34,6 +34,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     var AudioItems:[AudioItem]? = [AudioItem]()
     
     var bizForRoute: Business?
+    var isObservingRoute = false
     
     @IBOutlet var btnMenu: UIButton?
     //@IBOutlet weak var drawMap: MKMapView!
@@ -55,6 +56,11 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         btnStartRoute.enabled = false
         btnStartRoute.backgroundColor = UIColor.darkGrayColor()
         self.btnStartRoute.tag == 1
+        
+        self.googleMapsView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.googleMapsView.myLocationEnabled = true;
+        });
         
         txtFrom.text = "Current Location"
         //txtFrom.text = "Santo Domingo"
@@ -80,8 +86,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
 //                                                         name: AVPlayerItemDidPlayToEndTimeNotification, object: player!.currentItem)
         
         
-        let camera = GMSCameraPosition.cameraWithLatitude(53.9,longitude: 27.5667, zoom: 6)
-        self.googleMapsView.animateToCameraPosition(camera)
+        //let camera = GMSCameraPosition.cameraWithLatitude(53.9,longitude: 27.5667, zoom: 6)
+        //self.googleMapsView.animateToCameraPosition(camera)
         
         if LocationManager.sharedInstance.hasLastKnownLocation == false {
             LocationManager.sharedInstance.onFirstLocationUpdateWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
@@ -89,7 +95,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 CLocation = CLLocation(latitude: latitude, longitude: longitude)
                 self.googleMapsView.camera = GMSCameraPosition(target: CLocation!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             }
-        } else {
+        } else {g
             self.googleMapsView.camera = GMSCameraPosition(target: CLocation!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         }
         
@@ -181,6 +187,17 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: -
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+    {
+        if change![NSKeyValueChangeOldKey] == nil
+        {
+            if let location = change?[NSKeyValueChangeNewKey] as? CLLocation {
+                self.googleMapsView.animateToCameraPosition(GMSCameraPosition(target: location.coordinate, zoom: self.googleMapsView.camera.zoom, bearing: 0, viewingAngle: 0))
+            }
+        }
+    }
+    
     @IBAction func actinoSetFromCurrentLocation(sender: AnyObject) {
         if let curLocation = CLocation
             where curLocation.coordinate.latitude != 0
@@ -208,6 +225,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 1
         {
+            isObservingRoute = true
             self.btnRefresh.hidden = true
             self.btnStartRoute.setTitle("Stop Route", forState: .Normal)
             self.btnStartRoute.backgroundColor = clrGreen
@@ -221,6 +239,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         } else if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 2
         {
+            isObservingRoute = false
             self.btnRefresh.hidden = false
             self.btnStartRoute.setTitle("Start Route", forState: .Normal)
             self.btnStartRoute.backgroundColor = clrRed

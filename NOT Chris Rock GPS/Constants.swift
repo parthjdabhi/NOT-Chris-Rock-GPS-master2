@@ -43,6 +43,7 @@ let clrPurple = UIColor(red: 154/255.0, green: 88/255.0, blue: 186/255.0, alpha:
 
 //Global Data
 var CLocation:CLLocation?// = CLLocation()
+var LastSearchLocation:CLLocation?
 var CLocationSelected:CLLocation = CLLocation()
 var CLocationPlace:String = String()
 

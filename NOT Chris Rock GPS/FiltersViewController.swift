@@ -12,6 +12,7 @@ import SWRevealViewController
 @objc protocol FiltersViewControllerDelegate {
     optional func filtersViewControllerDelegate( filtersViewController: FiltersViewController, didSet filters: Filters)
 }
+
 class FiltersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -104,6 +105,7 @@ class FiltersViewController: UIViewController {
      }
      */
 }
+
 extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 6
@@ -227,6 +229,7 @@ extension FiltersViewController: FiltersSwitchDelegate, FiltersDropdownDelegate,
             }
          }
     }
+    
     func filtersDropdownDelegate(filtersDropdownTableViewCell: FiltersDropdownTableViewCell, didSet dropdownImg: UIImage) {
         let indexPath = tableView.indexPathForCell(filtersDropdownTableViewCell)
         if indexPath != nil {

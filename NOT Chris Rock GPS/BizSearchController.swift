@@ -21,8 +21,10 @@ class BizSearchController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResults = Array()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
-
+        
+        //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
+        self.tableView.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+        self.tableView.rowHeight = 94
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +45,15 @@ class BizSearchController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath)
+//        let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath)
+//        
+//        cell.textLabel?.text = self.searchResults[indexPath.row].name ?? ""
+//        return cell
         
-        cell.textLabel?.text = self.searchResults[indexPath.row].name ?? ""
+        let cell = tableView.dequeueReusableCellWithIdentifier("BusinessTableViewCell", forIndexPath: indexPath) as! BusinessTableViewCell
+        
+        cell.business = self.searchResults[indexPath.row]
+        
         return cell
     }
 
