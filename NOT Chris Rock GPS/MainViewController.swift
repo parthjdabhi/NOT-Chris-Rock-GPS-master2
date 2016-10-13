@@ -19,7 +19,7 @@ import SwiftyJSON
 import SDWebImage
 import SVProgressHUD
 
-class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegate , GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: -
     // MARK: Vars
@@ -416,6 +416,7 @@ extension MainViewController: UISearchBarDelegate {
         //searchBar.setShowsCancelButton(false, animated: true)
         return true;
     }
+    
     func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
         print("Bookmark")
     }

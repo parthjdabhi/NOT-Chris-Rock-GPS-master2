@@ -24,6 +24,11 @@
 		5E8D29031DA28A6F00EFAC9C /* FiltersSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28FE1DA28A6F00EFAC9C /* FiltersSwitchTableViewCell.swift */; };
 		5E8D29041DA28A6F00EFAC9C /* UISwitch+MyYelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28FF1DA28A6F00EFAC9C /* UISwitch+MyYelp.swift */; };
 		5E8D29071DA28A9400EFAC9C /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D29061DA28A9400EFAC9C /* YelpClient.swift */; };
+		5EA32C771DAF7C310090482B /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA32C751DAF7C310090482B /* PulleyPassthroughScrollView.swift */; };
+		5EA32C781DAF7C310090482B /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA32C761DAF7C310090482B /* PulleyViewController.swift */; };
+		5EA32C7C1DAF7C3D0090482B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA32C791DAF7C3D0090482B /* DrawerContentViewController.swift */; };
+		5EA32C7D1DAF7C3D0090482B /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA32C7A1DAF7C3D0090482B /* PrimaryContentViewController.swift */; };
+		5EA32C7E1DAF7C3D0090482B /* PrimaryTransitionTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA32C7B1DAF7C3D0090482B /* PrimaryTransitionTargetViewController.swift */; };
 		5EA9ECDA1DA556E2007B6688 /* route@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA9ECD91DA556E2007B6688 /* route@2x.png */; };
 		5EB0BCD21DA407CA005102CB /* sfo2ggb.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0BCD11DA407CA005102CB /* sfo2ggb.gpx */; };
 		5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */; };
@@ -113,6 +118,11 @@
 		5E8D28FE1DA28A6F00EFAC9C /* FiltersSwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		5E8D28FF1DA28A6F00EFAC9C /* UISwitch+MyYelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISwitch+MyYelp.swift"; sourceTree = "<group>"; };
 		5E8D29061DA28A9400EFAC9C /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
+		5EA32C751DAF7C310090482B /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
+		5EA32C761DAF7C310090482B /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyViewController.swift; sourceTree = "<group>"; };
+		5EA32C791DAF7C3D0090482B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
+		5EA32C7A1DAF7C3D0090482B /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryContentViewController.swift; sourceTree = "<group>"; };
+		5EA32C7B1DAF7C3D0090482B /* PrimaryTransitionTargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTransitionTargetViewController.swift; sourceTree = "<group>"; };
 		5EA9ECD91DA556E2007B6688 /* route@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "route@2x.png"; sourceTree = "<group>"; };
 		5EB0BCD11DA407CA005102CB /* sfo2ggb.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sfo2ggb.gpx; sourceTree = "<group>"; };
 		5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_blue@2x.png"; sourceTree = "<group>"; };
@@ -277,6 +287,27 @@
 			name = "Mock Location Files";
 			sourceTree = "<group>";
 		};
+		5EA32C741DAF7C310090482B /* BottomDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				5EA32C751DAF7C310090482B /* PulleyPassthroughScrollView.swift */,
+				5EA32C761DAF7C310090482B /* PulleyViewController.swift */,
+			);
+			name = BottomDrawer;
+			path = PulleyLib;
+			sourceTree = "<group>";
+		};
+		5EDB5CF21DAF8EC90039CDD4 /* BottomDrawerVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EA32C791DAF7C3D0090482B /* DrawerContentViewController.swift */,
+				5EA32C7A1DAF7C3D0090482B /* PrimaryContentViewController.swift */,
+				5EA32C7B1DAF7C3D0090482B /* PrimaryTransitionTargetViewController.swift */,
+			);
+			name = BottomDrawerVC;
+			path = PulleyLib;
+			sourceTree = "<group>";
+		};
 		DA334BEB1D8A7CC3002E4E1F /* Audio & Recording */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				DA6AE7FB1D88C867001E5B65 /* Bridging-Header.h */,
+				5EA32C741DAF7C310090482B /* BottomDrawer */,
+				5EDB5CF21DAF8EC90039CDD4 /* BottomDrawerVC */,
 				DA6AE7C01D88C782001E5B65 /* NOT Chris Rock GPS */,
 				DA6AE7D81D88C782001E5B65 /* NOT Chris Rock GPSTests */,
 				DA6AE7E31D88C782001E5B65 /* NOT Chris Rock GPSUITests */,
@@ -770,7 +803,9 @@
 				DA334BF61D8A81AE002E4E1F /* MultipleTapViewController.swift in Sources */,
 				5E3426E71D9FD55300DFF2F9 /* VoiceHelpVC.swift in Sources */,
 				DA8B38791D930567009A6812 /* MyExtention.swift in Sources */,
+				5EA32C7D1DAF7C3D0090482B /* PrimaryContentViewController.swift in Sources */,
 				DA8B38671D8B8BBE009A6812 /* SignUpViewController.swift in Sources */,
+				5EA32C7E1DAF7C3D0090482B /* PrimaryTransitionTargetViewController.swift in Sources */,
 				DA6AE8031D88D035001E5B65 /* MapViewController.swift in Sources */,
 				DAFB87B21D9DF625004DE008 /* PlaceMarker.swift in Sources */,
 				DA6AE80F1D89E403001E5B65 /* GooglePlacesViewController.swift in Sources */,
@@ -780,8 +815,10 @@
 				DAFB880D1D9F0DAD004DE008 /* UIViewControllerExt.swift in Sources */,
 				DA6AE8081D89124C001E5B65 /* OpenWeatherViewController.swift in Sources */,
 				5E8D29041DA28A6F00EFAC9C /* UISwitch+MyYelp.swift in Sources */,
+				5EA32C771DAF7C310090482B /* PulleyPassthroughScrollView.swift in Sources */,
 				DA6AE7CA1D88C782001E5B65 /* NOT_Chris_Rock_GPS.xcdatamodeld in Sources */,
 				DA0320FD1D93099600BE0698 /* AudioRecorderViewController.swift in Sources */,
+				5EA32C7C1DAF7C3D0090482B /* DrawerContentViewController.swift in Sources */,
 				DA6AE80D1D89B169001E5B65 /* Weather.swift in Sources */,
 				DAFB88081D9F0C42004DE008 /* PlaceViewController.swift in Sources */,
 				DAFB87B51D9DF625004DE008 /* MySlideMenuController.swift in Sources */,
@@ -803,6 +840,7 @@
 				DAFB87B31D9DF625004DE008 /* MarkerInfoView.swift in Sources */,
 				DAFB88171D9F0F4A004DE008 /* DirectionDetailTableViewCell.swift in Sources */,
 				DA6AE8061D88E1AA001E5B65 /* YelpAPIClient.swift in Sources */,
+				5EA32C781DAF7C310090482B /* PulleyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,7 +984,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A3F369191E0C0EA3CDC0AD6E /* Pods-NOT Chris Rock GPS.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -969,7 +1007,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 641E7EB4FC3A22ED1FC64B5A /* Pods-NOT Chris Rock GPS.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -56,13 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LocationManagerDelegate {
             print(user)
             userDetail = user
             
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let rootViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SWRevealViewController") as? UIViewController
-            let navigationController = UINavigationController(rootViewController: rootViewController!)
-            navigationController.navigationBarHidden = true // or not, your choice.
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window!.rootViewController = navigationController
-            self.window!.makeKeyAndVisible()
+//            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let rootViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SWRevealViewController") as? UIViewController
+//            let navigationController = UINavigationController(rootViewController: rootViewController!)
+//            navigationController.navigationBarHidden = true // or not, your choice.
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//            self.window!.rootViewController = navigationController
+//            self.window!.makeKeyAndVisible()
             
             //            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             //            //let rootViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SWRevealViewController") as? UIViewController
