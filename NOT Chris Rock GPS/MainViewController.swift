@@ -31,7 +31,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
     @IBOutlet var btnFilter: UIButton?
     @IBOutlet var btnBizList: UIButton?
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tblBizList: UITableView!
+    //@IBOutlet weak var tblBizList: UITableView!
     
     var searchResultController:BizSearchController!
     //var searchBar: UISearchBar!
@@ -53,7 +53,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
         
         isEnableFivetapGesture = true
         startFiveTapGesture()
-        self.btnDirection.hidden = true
+        //self.btnDirection.hidden = true
         
         searchResultController = BizSearchController()
         //searchResultController.delegate = self
@@ -72,10 +72,10 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
             //self.navigationController?.navigationBar.addGestureRecognizer(revealVC.panGestureRecognizer())
         }
         
-        tblBizList.alpha = 0
-        tblBizList.hidden = true
-        self.tblBizList.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
-        self.tblBizList.rowHeight = 94
+//        tblBizList.alpha = 0
+//        tblBizList.hidden = true
+//        self.tblBizList.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+//        self.tblBizList.rowHeight = 94
         
         googleMVContainer.layoutIfNeeded()
         var frameMV = googleMVContainer.frame
@@ -196,15 +196,15 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
     //Filter or Show Map Screen
     @IBAction func actionFilter(sender: AnyObject)
     {
-        if self.tblBizList.hidden == false {
-            UIView.animateWithDuration(0.5, animations: {
-                self.tblBizList.alpha = 0
-                }, completion: { (completed) in
-                    self.tblBizList.hidden = true
-                    self.btnFilter?.setTitle("Filter", forState: .Normal)
-            })
-            return
-        }
+//        if self.tblBizList.hidden == false {
+//            UIView.animateWithDuration(0.5, animations: {
+//                self.tblBizList.alpha = 0
+//                }, completion: { (completed) in
+//                    self.tblBizList.hidden = true
+//                    self.btnFilter?.setTitle("Filter", forState: .Normal)
+//            })
+//            return
+//        }
         
         let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navFilter") as! UINavigationController
         let filtersVC = navController.topViewController as! FiltersViewController
@@ -217,18 +217,17 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
     
     @IBAction func actionViewBusinessList(sender: AnyObject)
     {
-        if self.tblBizList.hidden == true {
-            self.tblBizList.reloadData()
-            self.tblBizList.hidden = false
-            UIView.animateWithDuration(0.5, animations: {
-                self.tblBizList.alpha = 1
-            })
-            self.btnFilter?.hidden = false
-            self.btnFilter?.setTitle("Map", forState: .Normal)
-        } else {
-            
-        }
-        
+//        if self.tblBizList.hidden == true {
+//            self.tblBizList.reloadData()
+//            self.tblBizList.hidden = false
+//            UIView.animateWithDuration(0.5, animations: {
+//                self.tblBizList.alpha = 1
+//            })
+//            self.btnFilter?.hidden = false
+//            self.btnFilter?.setTitle("Map", forState: .Normal)
+//        } else {
+//            
+//        }
     }
     @IBAction func actionDoRouteForBiz(sender: AnyObject?) {
         guard let myBizMarker = selectedBizMarker else {
@@ -277,7 +276,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
         if (gesture) {
             mapView.selectedMarker = nil
-            self.btnDirection.hidden = true
+            //self.btnDirection.hidden = true
         }
     }
     
@@ -285,7 +284,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
         
         let placeMarker = marker as! BizMarker
         selectedBizMarker = placeMarker
-        self.btnDirection.hidden = false
+        //self.btnDirection.hidden = false
         
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
             infoView.lblName.text = placeMarker.biz.name
@@ -323,7 +322,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
     
     func mapView(mapView: GMSMapView, didCloseInfoWindowOfMarker marker: GMSMarker) {
         //mapView.selectedMarker = nil
-        self.btnDirection.hidden = true
+        //self.btnDirection.hidden = true
     }
     
     func didTapMyLocationButtonForMapView(mapView: GMSMapView) -> Bool {
@@ -350,7 +349,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
             
             self.removeMarkers(self.currentBizMarker)
             businessArr = business
-            self.tblBizList.reloadData()
+            //self.tblBizList.reloadData()
             
             for biz: Business in businessArr! {
                 let marker = BizMarker(biz: biz)

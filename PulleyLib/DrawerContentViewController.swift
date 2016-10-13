@@ -59,12 +59,12 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if let drawer = self.parentViewController as? PulleyViewController
-        {
-            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("PrimaryTransitionTargetViewController")
-            drawer.setDrawerPosition(.collapsed, animated: true)
-            drawer.setPrimaryContentViewController(primaryContent, animated: false)
-        }
+//        if let drawer = self.parentViewController as? PulleyViewController
+//        {
+//            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("PrimaryTransitionTargetViewController")
+//            drawer.setDrawerPosition(.collapsed, animated: true)
+//            drawer.setPrimaryContentViewController(primaryContent, animated: false)
+//        }
     }
 
     // MARK: Drawer Content View Controller Delegate
@@ -95,17 +95,26 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
     
     // MARK: Search Bar delegate
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar)
+    {
+        searchBar.setShowsCancelButton(true, animated: true)
+        
         if let drawerVC = self.parentViewController as? PulleyViewController
         {
-            drawerVC.setDrawerPosition(.open, animated: true)
+            drawerVC.setDrawerPosition(.open, animated: false)
         }
-        searchBar.setShowsCancelButton(true, animated: true)
+        
+        UIView.animateWithDuration(0.5, delay: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            
+        }) { (cmopleted) in
+                
+        }
+        
     }
     
-    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         //searchBar.setShowsCancelButton(false, animated: true)
-        return true;
     }
     
     func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
@@ -115,10 +124,11 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         if let drawerVC = self.parentViewController as? PulleyViewController
         {
-            drawerVC.setDrawerPosition(.collapsed, animated: true)
+            drawerVC.setDrawerPosition(.open, animated: true)
         }
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hpy-Nw-Mok">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K3P-QR-S3s">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -261,15 +261,8 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <searchBar contentMode="redraw" placeholder="i.e. Burger,cake,etc" translatesAutoresizingMaskIntoConstraints="NO" id="cbW-TY-1dc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7Jx-kG-j6d" id="AOz-38-bKo"/>
-                                </connections>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsW-D0-Jqy">
-                                <rect key="frame" x="255" y="196" width="112" height="32"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsW-D0-Jqy">
+                                <rect key="frame" x="255" y="168" width="112" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="5h1-WP-Vhq"/>
@@ -283,8 +276,8 @@
                                     <action selector="actionViewBusinessList:" destination="7Jx-kG-j6d" eventType="touchUpInside" id="IdK-1V-V4U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26N-AX-aup">
-                                <rect key="frame" x="255" y="116" width="112" height="32"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26N-AX-aup">
+                                <rect key="frame" x="255" y="88" width="112" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="IdI-RD-EUP"/>
@@ -298,8 +291,8 @@
                                     <action selector="actionDoRouteForBiz:" destination="7Jx-kG-j6d" eventType="touchUpInside" id="xOG-YB-88h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-2N-Oqj">
-                                <rect key="frame" x="255" y="156" width="112" height="32"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-2N-Oqj">
+                                <rect key="frame" x="255" y="128" width="112" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="npX-ZS-Wm5"/>
@@ -310,37 +303,22 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i4n-2J-MLp">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="7Jx-kG-j6d" id="rsF-Yt-cv4"/>
-                                    <outlet property="delegate" destination="7Jx-kG-j6d" id="1um-Ac-jbB"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="m2C-vr-GsL" firstAttribute="leading" secondItem="xeh-2z-3dI" secondAttribute="leading" id="34F-2w-xGm"/>
-                            <constraint firstItem="kxu-Zg-41D" firstAttribute="top" secondItem="i4n-2J-MLp" secondAttribute="bottom" id="58d-t7-fs7"/>
                             <constraint firstAttribute="trailing" secondItem="Jzt-2N-Oqj" secondAttribute="trailing" constant="8" id="5NF-S9-qqc"/>
                             <constraint firstAttribute="trailing" secondItem="26N-AX-aup" secondAttribute="trailing" constant="8" id="BkI-9D-Uyw"/>
                             <constraint firstAttribute="trailing" secondItem="H9W-QV-pi9" secondAttribute="trailing" id="J4w-ST-LFy"/>
-                            <constraint firstItem="cbW-TY-1dc" firstAttribute="leading" secondItem="xeh-2z-3dI" secondAttribute="leading" id="J55-AJ-R7g"/>
-                            <constraint firstItem="m2C-vr-GsL" firstAttribute="top" secondItem="cbW-TY-1dc" secondAttribute="bottom" constant="-44" id="QBd-0Z-gIb"/>
                             <constraint firstItem="Jzt-2N-Oqj" firstAttribute="top" secondItem="26N-AX-aup" secondAttribute="bottom" constant="8" id="SXs-qd-0sz"/>
-                            <constraint firstAttribute="trailing" secondItem="cbW-TY-1dc" secondAttribute="trailing" id="WIm-t2-i0C"/>
                             <constraint firstAttribute="trailing" secondItem="m2C-vr-GsL" secondAttribute="trailing" id="ZSm-A7-xkd"/>
                             <constraint firstItem="H9W-QV-pi9" firstAttribute="leading" secondItem="xeh-2z-3dI" secondAttribute="leading" id="e4a-YK-cGi"/>
-                            <constraint firstItem="26N-AX-aup" firstAttribute="top" secondItem="H9W-QV-pi9" secondAttribute="bottom" constant="52" id="jQB-LG-ZSG"/>
-                            <constraint firstItem="i4n-2J-MLp" firstAttribute="top" secondItem="cbW-TY-1dc" secondAttribute="bottom" id="kyO-n5-UWx"/>
-                            <constraint firstAttribute="trailing" secondItem="i4n-2J-MLp" secondAttribute="trailing" id="neQ-ZO-Qgj"/>
+                            <constraint firstItem="26N-AX-aup" firstAttribute="top" secondItem="H9W-QV-pi9" secondAttribute="bottom" constant="24" id="jQB-LG-ZSG"/>
                             <constraint firstItem="VsW-D0-Jqy" firstAttribute="top" secondItem="Jzt-2N-Oqj" secondAttribute="bottom" constant="8" id="oqG-nx-lBi"/>
                             <constraint firstItem="H9W-QV-pi9" firstAttribute="top" secondItem="xeh-2z-3dI" secondAttribute="top" id="qWY-fv-ejf"/>
                             <constraint firstItem="VsW-D0-Jqy" firstAttribute="centerX" secondItem="Jzt-2N-Oqj" secondAttribute="centerX" id="rOI-dT-nON"/>
                             <constraint firstItem="m2C-vr-GsL" firstAttribute="top" secondItem="H9W-QV-pi9" secondAttribute="bottom" id="rW8-3K-4T6"/>
                             <constraint firstItem="kxu-Zg-41D" firstAttribute="top" secondItem="m2C-vr-GsL" secondAttribute="bottom" id="s0x-6m-MpB"/>
-                            <constraint firstItem="i4n-2J-MLp" firstAttribute="leading" secondItem="xeh-2z-3dI" secondAttribute="leading" id="yzY-39-oYf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uW2-4A-C3b"/>
@@ -352,8 +330,6 @@
                         <outlet property="btnMenu" destination="Sli-S3-sOg" id="4Ha-fQ-i7K"/>
                         <outlet property="btnRefreshNearByPlace" destination="Jzt-2N-Oqj" id="Tvr-pD-D98"/>
                         <outlet property="googleMVContainer" destination="m2C-vr-GsL" id="QdI-DY-J0G"/>
-                        <outlet property="searchBar" destination="cbW-TY-1dc" id="uUS-sg-j3X"/>
-                        <outlet property="tblBizList" destination="i4n-2J-MLp" id="stC-WD-Yd8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CM6-uq-Cfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1787,7 +1763,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7Jx-kG-j6d" kind="relationship" relationship="rootViewController" id="CFZ-Z2-Uqx"/>
+                        <segue destination="rJC-QE-eM7" kind="relationship" relationship="rootViewController" id="PHf-Aq-Xb5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8A-0D-rUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3257,9 +3233,9 @@
         <image name="stamp-red" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PHf-Aq-Xb5"/>
         <segue reference="MyO-FZ-FoF"/>
         <segue reference="Yva-if-GGz"/>
         <segue reference="nQD-dA-a9e"/>
-        <segue reference="bQ2-QV-g3k"/>
     </inferredMetricsTieBreakers>
 </document>
