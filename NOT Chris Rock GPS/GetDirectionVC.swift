@@ -231,7 +231,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             self.btnStartRoute.backgroundColor = clrGreen
             self.btnStartRoute.tag = 2;
             
-            let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 1)
+            let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 20)
             self.googleMapsView.animateToCameraPosition(camera)
             
             print("Start monitoring route")
@@ -270,7 +270,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         markerNextTurn.position = nextTurnLocation.coordinate
         markerNextTurn.map = self.googleMapsView
         
-        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
+        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 20)
         self.googleMapsView.animateToCameraPosition(camera)
         
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in

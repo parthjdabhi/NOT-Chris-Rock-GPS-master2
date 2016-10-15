@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LocationManagerDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
+        
         configureApp()
         
         AVAudioSession.sharedInstance().requestRecordPermission { (granted) in

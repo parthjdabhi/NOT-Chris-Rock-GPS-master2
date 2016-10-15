@@ -1503,6 +1503,38 @@ const int FrontViewPositionNone = 0xff;
     {
         if ( [_delegate respondsToSelector:@selector(revealController:willMoveToPosition:)] )
             [_delegate revealController:self willMoveToPosition:newPosition];
+        
+        if (_frontViewPosition <= FrontViewPositionLeft) {
+            //Added
+            //        if (newPosition == FrontViewPositionLeft) {
+            UIView *lockingView = [UIView new];
+            lockingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
+            lockingView.alpha = 0.0;
+            lockingView.frame = [UIScreen mainScreen].bounds; //_frontViewController.view.frame;
+            //lockingView.frame.size.height = _frontViewController.view.frame
+            lockingView.tag = 789;
+            
+            [UIView animateWithDuration:0.4 animations:^{
+                lockingView.alpha = 1.0;
+            }];
+            
+            UITapGestureRecognizer *tapRecognizer =
+            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(revealToggleAnimated:)];
+            
+            //tapRecognizer.delegate = self;
+            [lockingView addGestureRecognizer:tapRecognizer];
+            
+            
+            [_frontViewController.view addSubview:lockingView];
+        } else if ([_frontViewController.view viewWithTag:789]) {
+            
+            [UIView animateWithDuration:0.2 animations:^{
+                [_frontViewController.view viewWithTag:789].alpha = 0.0;
+            } completion:^(BOOL finished) {
+                [[_frontViewController.view viewWithTag:789] removeFromSuperview];
+            }];
+        }
+        
     }
     
     _frontViewPosition = newPosition;

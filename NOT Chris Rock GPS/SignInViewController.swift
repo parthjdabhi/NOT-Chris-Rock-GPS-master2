@@ -22,7 +22,6 @@ class SignInViewController: UIViewController {
     // MARK: Vars
     @IBOutlet var txtPassword: UITextField!
     @IBOutlet var txtEmail: UITextField!
-    //@IBOutlet var btnRememberMe: UIButton!
     
     var isRememberMe:String = "0"
     
@@ -39,29 +38,28 @@ class SignInViewController: UIViewController {
         txtEmail.setLeftMargin(8)
         txtPassword.setLeftMargin(8)
         
-//        btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Normal)
-//        btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Highlighted)
-//        btnRememberMe.tag = 0
-//        btnRememberMe.imageView?.contentMode = .ScaleAspectFit
-//        
-//        if let isRemembers = NSUserDefaults.standardUserDefaults().objectForKey("isRememberMe") as? String
-//            where isRemembers == "1"
-//        {
-//            didTapRememberMe(btnRememberMe)
-//            if let RememberEmail = NSUserDefaults.standardUserDefaults().objectForKey("RememberEmail") as? String
-//            {
-//                self.txtEmail.text = RememberEmail
-//            }
-//            if let RememberPwd = NSUserDefaults.standardUserDefaults().objectForKey("RememberPwd") as? String
-//            {
-//                self.txtPassword.text = RememberPwd
-//            }
-//        }
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
     override func  preferredStatusBarStyle()-> UIStatusBarStyle {
         return UIStatusBarStyle.Default
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+        return UIInterfaceOrientation.Portrait
+    }
+    
+    //override func shouldAutorotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation) -> Bool {
+    //    return false//self.shouldAutorotateToInterfaceOrientation(toInterfaceOrientation)
+    //}
     
     // MARK: -
     @IBAction func didTapForgotPwd(sender: AnyObject)
@@ -70,25 +68,6 @@ class SignInViewController: UIViewController {
         self.navigationController?.pushViewController(vcForgotPwd, animated: true)
     }
     
-//    @IBAction func didTapRememberMe(sender: AnyObject)
-//    {
-//        if btnRememberMe.tag == 1 {
-//            btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Normal)
-//            btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Highlighted)
-//            btnRememberMe.tag = 0
-//            
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("isRememberMe")
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("RememberEmail")
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("RememberPwd")
-//        }
-//        else
-//        {
-//            btnRememberMe.setImage(UIImage(named: "ic_checkbox_check"), forState: .Normal)
-//            btnRememberMe.setImage(UIImage(named: "ic_checkbox"), forState: .Highlighted)
-//            btnRememberMe.tag = 1
-//        }
-//    }
-    
     @IBAction func didTapSignIn(sender: AnyObject)
     {
         //self.performSegueWithIdentifier("segueHome", sender: self)
@@ -96,7 +75,6 @@ class SignInViewController: UIViewController {
         let email = txtEmail.text!
         let password = txtPassword.text!
         if email.isEmpty || password.isEmpty {
-            //SVProgressHUD.showInfoWithStatus("Email or Password is missing!")
             SVProgressHUD.showImage((SVProgressHUD.sharedView().infoImage), status: "Invalid email or password!", displayInterval: 3)
             txtEmail.animateShakeEffect()
             txtPassword.animateShakeEffect()
@@ -136,17 +114,10 @@ class SignInViewController: UIViewController {
                             print(json["msg"].string )
                             SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Login successfully")
                             
-//                            if self.btnRememberMe.tag == 1
-//                            {
-//                                NSUserDefaults.standardUserDefaults().setObject("1", forKey: "isRememberMe")
-//                                NSUserDefaults.standardUserDefaults().setObject(self.txtEmail?.text ?? "", forKey: "RememberEmail")
-//                                NSUserDefaults.standardUserDefaults().setObject(self.txtPassword?.text ?? "", forKey: "RememberPwd")
-//                            }
                             
                             userDetail = result
                             NSUserDefaults.standardUserDefaults().setObject(result, forKey: "userDetail")
                             NSUserDefaults.standardUserDefaults().synchronize()
-                            
                             
                             //Go To Main Screen
                             self.performSegueWithIdentifier("segueHome", sender: nil)
@@ -245,8 +216,6 @@ class SignInViewController: UIViewController {
                                             NSUserDefaults.standardUserDefaults().synchronize()
                                             
                                             //Go To Update Information
-                                            //self.performSegueWithIdentifier("segueSetData", sender: nil)
-                                            
                                             let setDataVC = self.storyboard?.instantiateViewControllerWithIdentifier("SetDataViewController") as! SetDataViewController
                                             self.navigationController?.pushViewController(setDataVC, animated: true)
                                         } else {

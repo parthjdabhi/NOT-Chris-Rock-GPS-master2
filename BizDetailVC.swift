@@ -17,6 +17,7 @@ protocol BusinessViewDelegate: class {
 class BizDetailVC: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
@@ -66,13 +67,15 @@ class BizDetailVC: UIViewController {
         orderNowButton?.setBorder(1.0, color: clrGreen)
         
         // UI Setup
-        nameLabel.text = business.name!
-        distanceLabel.text = business.distance!
-        categoriesLabel.text = business.categories!
-        reviewsLabel.text = "\(business.reviewCount!) Reviews"
-        topImageView.sd_setImageWithURL(business.imageURL!)
-        reviewsImage.sd_setImageWithURL(business.ratingImageURL!)
+        nameLabel.text = business.name
+        addressLabel.text = business.address
+        distanceLabel.text = business.distance
+        categoriesLabel.text = business.categories
+        reviewsLabel.text = "\(business.reviewCount ?? "No") Reviews"
+        topImageView.sd_setImageWithURL(business.imageURL)
+        reviewsImage.sd_setImageWithURL(business.ratingImageURL)
         
+        //address
         setDisabledBackgroundColorForButton(orderNowButton)
         setDisabledBackgroundColorForButton(makeReservationButton)
         
