@@ -3405,13 +3405,14 @@
                     <connections>
                         <outlet property="categoriesLabel" destination="PuX-WC-8b4" id="Frj-W8-4sD"/>
                         <outlet property="distanceLabel" destination="UGV-is-drL" id="845-Zm-hbz"/>
+                        <outlet property="makeReservationButton" destination="dph-PA-k6c" id="555-mz-f3D"/>
                         <outlet property="mapView" destination="6Us-wn-mYa" id="xnG-f9-8jM"/>
                         <outlet property="nameLabel" destination="e2P-q2-GCe" id="UY5-dp-d9c"/>
                         <outlet property="orderNowButton" destination="hyV-A6-goD" id="iwr-WV-M3D"/>
                         <outlet property="reviewsImage" destination="EtU-29-P5k" id="Qqk-Um-wdf"/>
                         <outlet property="reviewsLabel" destination="wDr-Gn-dH1" id="yQ6-Vt-EBt"/>
                         <outlet property="reviewsTable" destination="U3C-du-ha4" id="7Bi-JN-Gyg"/>
-                        <outlet property="topImageView" destination="gqZ-5l-71w" id="pXV-qt-8lJ"/>
+                        <outlet property="topImageView" destination="gqZ-5l-71w" id="MUJ-4T-Eye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9h6-so-Frc" userLabel="First Responder" sceneMemberID="firstResponder"/>

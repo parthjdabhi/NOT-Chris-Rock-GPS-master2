@@ -36,6 +36,7 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    
     // MARK: Tableview data source & delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -66,13 +67,10 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
 //            drawer.setPrimaryContentViewController(primaryContent, animated: false)
 //        }
 
-//        if let drawer = self.parentViewController as? PulleyViewController
-//        {
-//            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("BizDetailVC")
-//            //drawer.setDrawerPosition(.collapsed, animated: true)
-//            drawer.setDrawerContentViewController(primaryContent, animated: false)
-//        }
-        self.performSegueWithIdentifier("segueBizDetail", sender: self)
+        let bizDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("BizDetailVC") as? BizDetailVC
+        bizDetailVC?.business = businessList![indexPath.row]
+        self.navigationController?.pushViewController(bizDetailVC!, animated: true)
+        //self.performSegueWithIdentifier("segueBizDetail", sender: self)
     }
 
     // MARK: Drawer Content View Controller Delegate

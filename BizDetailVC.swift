@@ -26,7 +26,7 @@ class BizDetailVC: UIViewController {
     @IBOutlet weak var makeReservationButton: UIButton!
     @IBOutlet weak var reviewsTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    //@IBOutlet weak var scrollView: UIScrollView!
     
     var business: Business!
     var delegate: BusinessViewDelegate?
@@ -53,11 +53,12 @@ class BizDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topImageView.sd_setImageWithURL(business.imageURL!)
+        //business.imageURL
+        topImageView?.sd_setImageWithURL(business.imageURL!)
         
-        let contentWidth = scrollView.bounds.width
-        let contentHeight = scrollView.bounds.height * 3
-        scrollView.contentSize = CGSizeMake(contentWidth, contentHeight)
+//        let contentWidth = scrollView.bounds.width
+//        let contentHeight = scrollView.bounds.height * 3
+//        scrollView.contentSize = CGSizeMake(contentWidth, contentHeight)
         
         makeReservationButton.setCornerRadious()
         makeReservationButton.setBorder(1.0, color: clrOrange)
