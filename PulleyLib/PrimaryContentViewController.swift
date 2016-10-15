@@ -59,6 +59,13 @@ class PrimaryContentViewController: UIViewController, PulleyPrimaryContentContro
         }
     }
     
+    func PushBusinessDirection(business:Business)
+    {
+        let getDirectionVC = self.storyboard?.instantiateViewControllerWithIdentifier("GetDirectionVC") as! GetDirectionVC
+        getDirectionVC.bizForRoute = business
+        self.navigationController?.pushViewController(getDirectionVC, animated: true)
+    }
+    
     @IBAction func runPrimaryContentTransitionWithoutAnimation(sender: AnyObject) {
         
         if let drawer = self.parentViewController as? PulleyViewController

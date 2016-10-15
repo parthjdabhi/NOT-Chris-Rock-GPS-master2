@@ -29,6 +29,12 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.tableView.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
         self.tableView.rowHeight = 94
+        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector : #selector(DrawerContentViewController.keyboardWillShow(_:)), name : UIKeyboardDidShowNotification, object : nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +42,13 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:- Keyboard
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let drawerVC = self.parentViewController?.parentViewController as? PulleyViewController {
+            drawerVC.setDrawerPosition(.open, animated: true)
+        }
+    }
     
     // MARK: Tableview data source & delegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,15 +79,21 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
 //            drawer.setDrawerPosition(.collapsed, animated: true)
 //            drawer.setPrimaryContentViewController(primaryContent, animated: false)
 //        }
-
+        
+//        if let drawer = self.parentViewController?.parentViewController as? PulleyViewController
+//        {
+//            drawer.onRequestRouteForBusiness(businessList![indexPath.row])
+//            return
+//        }
+        
         let bizDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("BizDetailVC") as? BizDetailVC
         bizDetailVC?.business = businessList![indexPath.row]
         self.navigationController?.pushViewController(bizDetailVC!, animated: true)
         //self.performSegueWithIdentifier("segueBizDetail", sender: self)
+        
     }
 
     // MARK: Drawer Content View Controller Delegate
-    
     func collapsedDrawerHeight() -> CGFloat
     {
         return 68.0
@@ -106,9 +125,9 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
     {
         searchBar.setShowsCancelButton(true, animated: true)
         
-        if let drawerVC = self.parentViewController as? PulleyViewController
+        if let drawerVC = self.parentViewController?.parentViewController as? PulleyViewController
         {
-            drawerVC.setDrawerPosition(.open, animated: false)
+            //drawerVC.setDrawerPosition(.open, animated: false)
         }
         
         UIView.animateWithDuration(0.5, delay: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
@@ -128,16 +147,22 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        if let drawerVC = self.parentViewController as? PulleyViewController
+        if let drawerVC = self.parentViewController?.parentViewController as? PulleyViewController
         {
-            drawerVC.setDrawerPosition(.open, animated: true)
+            //drawerVC.setDrawerPosition(.collapsed, animated: true)
         }
         searchBar.text = ""
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar)
+    {
+        if let drawerVC = self.parentViewController?.parentViewController as? PulleyViewController
+        {
+            drawerVC.setDrawerPosition(.open, animated: true)
+        }
+        
         searchString = searchBar.text!
         searchBar.resignFirstResponder()
         //doSearchSuggestion()
@@ -172,6 +197,11 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
             
             self.businessList = business
             self.tableView.reloadData()
+            
+            if let drawer = self.parentViewController?.parentViewController as? PulleyViewController
+            {
+                drawer.onBusinessSearchResult(self.businessList ?? [])
+            }
             
             SVProgressHUD.dismiss()
         })

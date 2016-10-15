@@ -31,9 +31,11 @@ public protocol PulleyDrawerViewControllerDelegate: PulleyDelegate {
 /**
  *  View controllers that are the main content can implement this to receive changes in state.
  */
-public protocol PulleyPrimaryContentControllerDelegate: PulleyDelegate {
+@objc public protocol PulleyPrimaryContentControllerDelegate: PulleyDelegate {
     
     // Not currently used for anything, but it's here for parity with the hopes that it'll one day be used.
+    @objc optional func onRequestRouteForBusiness(biz: Business)
+    @objc optional func onBusinessSearchResult(bizs: [Business])
 }
 
 /**
@@ -579,6 +581,27 @@ public class PulleyViewController: UIViewController, UIScrollViewDelegate, Pulle
         else
         {
             supportedDrawerPositions = PulleyPosition.all
+        }
+    }
+    
+    
+    /**
+     show route for business by the Pulley Drawer
+     */
+    public func onRequestRouteForBusiness(biz:Business)
+    {
+        //primaryContentViewController
+        if let primaryVCCompliant = primaryContentViewController as? PulleyPrimaryContentControllerDelegate
+        {
+            primaryVCCompliant.onRequestRouteForBusiness?(biz)
+        }
+    }
+    public func onBusinessSearchResult(bizs:[Business])
+    {
+        //primaryContentViewController
+        if let primaryVCCompliant = primaryContentViewController as? PulleyPrimaryContentControllerDelegate
+        {
+            primaryVCCompliant.onBusinessSearchResult?(bizs)
         }
     }
     

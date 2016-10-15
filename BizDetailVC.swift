@@ -25,6 +25,7 @@ class BizDetailVC: UIViewController {
     @IBOutlet weak var reviewsImage: UIImageView!
     @IBOutlet weak var orderNowButton: UIButton!
     @IBOutlet weak var makeReservationButton: UIButton!
+    @IBOutlet weak var getDirectionButton: UIButton!
     @IBOutlet weak var reviewsTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     //@IBOutlet weak var scrollView: UIScrollView!
@@ -35,6 +36,8 @@ class BizDetailVC: UIViewController {
     var locationManager : CLLocationManager!
     var locationIsSet = false
     var zoomIsSet = false
+    
+    // MARK:- Life Cycle
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,13 +68,15 @@ class BizDetailVC: UIViewController {
         makeReservationButton.setBorder(1.0, color: clrOrange)
         orderNowButton?.setCornerRadious()
         orderNowButton?.setBorder(1.0, color: clrGreen)
+        getDirectionButton?.setCornerRadious()
+        getDirectionButton?.setBorder(1.0, color: clrPurple)
         
         // UI Setup
         nameLabel.text = business.name
         addressLabel.text = business.address
         distanceLabel.text = business.distance
         categoriesLabel.text = business.categories
-        reviewsLabel.text = "\(business.reviewCount ?? "No") Reviews"
+        reviewsLabel.text = "\(business.reviewCount!) Reviews"
         topImageView.sd_setImageWithURL(business.imageURL)
         reviewsImage.sd_setImageWithURL(business.ratingImageURL)
         
@@ -115,6 +120,7 @@ class BizDetailVC: UIViewController {
         makeBusinessRequestWithId(business.id!)
     }
     
+    // MARK:-
     @IBAction func goBackButtonPressed(sender: AnyObject)
     {
         self.navigationController?.popViewControllerAnimated(true)
@@ -126,6 +132,13 @@ class BizDetailVC: UIViewController {
     
     @IBAction func onReservationTapped(sender: AnyObject) {
         UIApplication.sharedApplication().openURL(business.reservationURL!)
+    }
+    
+    @IBAction func onDirectionTapped(sender: AnyObject) {
+        if let drawer = self.parentViewController?.parentViewController as? PulleyViewController
+        {
+            drawer.onRequestRouteForBusiness(business)
+        }
     }
     
     func addAnnotationAtCoordination(business:Business) {
@@ -177,6 +190,8 @@ class BizDetailVC: UIViewController {
         }
     }
 }
+
+// MARK:- Extension
 
 extension BizDetailVC: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

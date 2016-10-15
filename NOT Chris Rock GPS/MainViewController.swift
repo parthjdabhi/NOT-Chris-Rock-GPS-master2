@@ -100,12 +100,12 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
                 self.googleMapsView.camera = GMSCameraPosition(target: CLocation!.coordinate, zoom: 16, bearing: 0, viewingAngle: 0)
                 //self.googleMapsView.animateToCameraPosition(GMSCameraPosition(target: CLocation!.coordinate, zoom: 16, bearing: 0, viewingAngle: 0))
                 //For Search Via Yelp
-                self.doSearch()
+                //self.doSearch()
             }
         } else {
             self.googleMapsView.camera = GMSCameraPosition(target: CLocation!.coordinate, zoom: 16, bearing: 0, viewingAngle: 0)
             //For Search Via Yelp
-            doSearch()
+            //doSearch()
         }
     }
     
@@ -124,6 +124,27 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
 //            filtersVC.delegate = self
 //            filtersVC.filterObject = Myfilters
 //        }
+    }
+    
+    
+    // MARK: - PulleyPrimaryContentControllerDelegate
+    func onRequestRouteForBusiness(biz: Business)
+    {
+        let getDirectionVC = self.storyboard?.instantiateViewControllerWithIdentifier("GetDirectionVC") as! GetDirectionVC
+        getDirectionVC.bizForRoute = biz
+        self.navigationController?.pushViewController(getDirectionVC, animated: true)
+    }
+    
+    func onBusinessSearchResult(bizs: [Business])
+    {
+        self.removeMarkers(self.currentBizMarker)
+        businessArr = bizs
+        
+        for biz: Business in businessArr! {
+            let marker = BizMarker(biz: biz)
+            self.currentBizMarker.append(marker)
+            marker.map = self.googleMapsView
+        }
     }
     
     // MARK: -

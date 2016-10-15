@@ -2044,7 +2044,10 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         {
             //(from: txtFrom.text!, to: txtTo.text!)
             let from = (txtFrom.text! == "Current Location") ? "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)" : txtFrom.text!
-            mapManager.directionsUsingGoogle(from: from, to: txtTo.text!) { (route,encodedPolyLine ,directionInformation, boundingRegion, error) -> () in
+            
+            mapManager.directionsUsingGoogle(from: from, to: txtTo.text!)
+            {
+                (route,encodedPolyLine ,directionInformation, boundingRegion, error) -> () in
                 
                 if(error != nil)
                 {
@@ -2087,7 +2090,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                         markerDest.snippet = directionInformation?.objectForKey("distance") as! NSString as String
                         markerDest.position = coordDesitination
                         
-                        let camera = GMSCameraPosition.cameraWithLatitude(coordOrigin.latitude,longitude: coordOrigin.longitude, zoom: 10)
+                        let camera = GMSCameraPosition.cameraWithLatitude(coordOrigin.latitude,longitude: coordOrigin.longitude, zoom: 15)
                         self.googleMapsView.animateToCameraPosition(camera)
                         
                         if let map = self.googleMapsView

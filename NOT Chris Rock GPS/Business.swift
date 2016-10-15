@@ -132,7 +132,7 @@ class Business1: NSObject {
 }
 
 
-class Business: NSObject {
+public class Business: NSObject {
     let id: String?
     let name: String?
     let address: String?
@@ -261,11 +261,27 @@ class Business: NSObject {
     
     class func businesses(array array: [NSDictionary]) -> [Business] {
         var businesses = [Business]()
-        for dictionary in array {
+        for dictionary in array
+        {
             let business = Business(dictionary: dictionary)
+            business.loadImages()
             businesses.append(business)
         }
         return businesses
+    }
+    
+    func loadImages() {
+        SDWebImageManager.sharedManager().downloadImageWithURL(NSURL(string: image_url ?? ""),
+                                                               options: .RetryFailed, progress: nil,
+                                                               completed: { (image, error, catche, flag, url) in
+                                                                self.photo = image
+        })
+        
+        SDWebImageManager.sharedManager().downloadImageWithURL(NSURL(string: rating_img_url ?? ""),
+                                                               options: .RetryFailed, progress: nil,
+                                                               completed: { (image, error, catche, flag, url) in
+                                                                self.ratingPhoto = image
+        })
     }
     
     /*
