@@ -134,7 +134,7 @@ class SignInViewController: UIViewController {
                             where status == "1"
                         {
                             print(json["msg"].string )
-                            SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Register successfully")
+                            SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Login successfully")
                             
 //                            if self.btnRememberMe.tag == 1
 //                            {
