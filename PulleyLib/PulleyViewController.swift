@@ -379,6 +379,14 @@ public class PulleyViewController: UIViewController, UIScrollViewDelegate, Pulle
             assert(primaryContentViewController != nil && drawerContentViewController != nil, "Container views must contain an embedded view controller.")
         }
         
+        if let revealVC = self.revealViewController() ,
+            vcContent = childViewControllers[0] as? MainViewController
+        {
+            vcContent.btnMenu?.addTarget(revealVC, action: #selector(revealVC.revealToggle(_:)), forControlEvents: .TouchUpInside)
+            //self.view.addGestureRecognizer(revealVC.panGestureRecognizer());
+            //self.navigationController?.navigationBar.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+        
         scrollViewDidScroll(drawerScrollView)
     }
     

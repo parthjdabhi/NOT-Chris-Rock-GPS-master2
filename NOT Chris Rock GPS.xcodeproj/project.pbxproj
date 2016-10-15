@@ -15,6 +15,9 @@
 		5E3426E71D9FD55300DFF2F9 /* VoiceHelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */; };
 		5E3426EA1DA0134300DFF2F9 /* NY2Brooklyn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E81DA0134300DFF2F9 /* NY2Brooklyn.gpx */; };
 		5E3426EB1DA0134300DFF2F9 /* NY2Brooklyn_route.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E91DA0134300DFF2F9 /* NY2Brooklyn_route.gpx */; };
+		5E6745B81DB12287002681B2 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6745B71DB12287002681B2 /* Review.swift */; };
+		5E6745BB1DB14374002681B2 /* ReviewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6745B91DB14374002681B2 /* ReviewTableCell.xib */; };
+		5E6745BC1DB14374002681B2 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6745BA1DB14374002681B2 /* ReviewTableCell.swift */; };
 		5E8D28F41DA289FC00EFAC9C /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28F31DA289FC00EFAC9C /* FiltersViewController.swift */; };
 		5E8D28F81DA28A5400EFAC9C /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28F61DA28A5400EFAC9C /* Business.swift */; };
 		5E8D28F91DA28A5400EFAC9C /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28F71DA28A5400EFAC9C /* Filters.swift */; };
@@ -34,6 +37,7 @@
 		5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */; };
 		5EB437621DABA2D300EB6BA8 /* ForgotPwdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB437611DABA2D300EB6BA8 /* ForgotPwdVC.swift */; };
 		5EB437641DABDA5600EB6BA8 /* BizSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB437631DABDA5600EB6BA8 /* BizSearchController.swift */; };
+		5EC8C38C1DB10C7C00D62672 /* BizDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8C38B1DB10C7C00D62672 /* BizDetailVC.swift */; };
 		5EE5B0591DA68F00001A19EC /* NYC2SDiago.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5B0571DA68F00001A19EC /* NYC2SDiago.gpx */; };
 		5EE5B05A1DA68F00001A19EC /* SeattleW2Florida.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5B0581DA68F00001A19EC /* SeattleW2Florida.gpx */; };
 		A52D1CA082BFB1D95A2BFEAF /* Pods_NOT_Chris_Rock_GPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42050BA16180614E68FFE74 /* Pods_NOT_Chris_Rock_GPS.framework */; };
@@ -109,6 +113,9 @@
 		5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelpVC.swift; sourceTree = "<group>"; };
 		5E3426E81DA0134300DFF2F9 /* NY2Brooklyn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NY2Brooklyn.gpx; sourceTree = "<group>"; };
 		5E3426E91DA0134300DFF2F9 /* NY2Brooklyn_route.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NY2Brooklyn_route.gpx; sourceTree = "<group>"; };
+		5E6745B71DB12287002681B2 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		5E6745B91DB14374002681B2 /* ReviewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTableCell.xib; sourceTree = "<group>"; };
+		5E6745BA1DB14374002681B2 /* ReviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		5E8D28F31DA289FC00EFAC9C /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		5E8D28F61DA28A5400EFAC9C /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		5E8D28F71DA28A5400EFAC9C /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -128,6 +135,7 @@
 		5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_blue@2x.png"; sourceTree = "<group>"; };
 		5EB437611DABA2D300EB6BA8 /* ForgotPwdVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPwdVC.swift; sourceTree = "<group>"; };
 		5EB437631DABDA5600EB6BA8 /* BizSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizSearchController.swift; sourceTree = "<group>"; };
+		5EC8C38B1DB10C7C00D62672 /* BizDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizDetailVC.swift; sourceTree = SOURCE_ROOT; };
 		5EDD29531DA7B68C000CBFDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5EE5B0571DA68F00001A19EC /* NYC2SDiago.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NYC2SDiago.gpx; sourceTree = "<group>"; };
 		5EE5B0581DA68F00001A19EC /* SeattleW2Florida.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SeattleW2Florida.gpx; sourceTree = "<group>"; };
@@ -250,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				5E8D28F61DA28A5400EFAC9C /* Business.swift */,
+				5E6745B71DB12287002681B2 /* Review.swift */,
 				5E8D28F71DA28A5400EFAC9C /* Filters.swift */,
 			);
 			name = Models;
@@ -303,6 +312,9 @@
 				5EA32C791DAF7C3D0090482B /* DrawerContentViewController.swift */,
 				5EA32C7A1DAF7C3D0090482B /* PrimaryContentViewController.swift */,
 				5EA32C7B1DAF7C3D0090482B /* PrimaryTransitionTargetViewController.swift */,
+				5EC8C38B1DB10C7C00D62672 /* BizDetailVC.swift */,
+				5E6745B91DB14374002681B2 /* ReviewTableCell.xib */,
+				5E6745BA1DB14374002681B2 /* ReviewTableCell.swift */,
 			);
 			name = BottomDrawerVC;
 			path = PulleyLib;
@@ -623,6 +635,7 @@
 				DA6AE7CC1D88C782001E5B65 /* Assets.xcassets in Resources */,
 				5EA9ECDA1DA556E2007B6688 /* route@2x.png in Resources */,
 				DAFB87B41D9DF625004DE008 /* MarkerInfoView.xib in Resources */,
+				5E6745BB1DB14374002681B2 /* ReviewTableCell.xib in Resources */,
 				5EB0BCD21DA407CA005102CB /* sfo2ggb.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +803,7 @@
 				5E8D28F91DA28A5400EFAC9C /* Filters.swift in Sources */,
 				5E8D29071DA28A9400EFAC9C /* YelpClient.swift in Sources */,
 				5EB437641DABDA5600EB6BA8 /* BizSearchController.swift in Sources */,
+				5E6745BC1DB14374002681B2 /* ReviewTableCell.swift in Sources */,
 				5E8D29001DA28A6F00EFAC9C /* BusinessesTableViewCell.swift in Sources */,
 				DA6AE7C41D88C782001E5B65 /* ViewController.swift in Sources */,
 				DA6AE80A1D89A8BA001E5B65 /* WeatherGetter.swift in Sources */,
@@ -799,6 +813,8 @@
 				DAFB880F1D9F0DE1004DE008 /* LocationManager.swift in Sources */,
 				DAFB88181D9F0F4A004DE008 /* DirectionManager.swift in Sources */,
 				5E8D29031DA28A6F00EFAC9C /* FiltersSwitchTableViewCell.swift in Sources */,
+				5EC8C38C1DB10C7C00D62672 /* BizDetailVC.swift in Sources */,
+				5E6745B81DB12287002681B2 /* Review.swift in Sources */,
 				DA6AE7F61D88C805001E5B65 /* CommonUtils.swift in Sources */,
 				DA334BF61D8A81AE002E4E1F /* MultipleTapViewController.swift in Sources */,
 				5E3426E71D9FD55300DFF2F9 /* VoiceHelpVC.swift in Sources */,

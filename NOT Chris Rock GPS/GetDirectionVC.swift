@@ -190,7 +190,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     // MARK: -
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
     {
-        if change![NSKeyValueChangeOldKey] == nil
+        if change![NSKeyValueChangeOldKey] == nil && isObservingRoute == true
         {
             if let location = change?[NSKeyValueChangeNewKey] as? CLLocation {
                 self.googleMapsView.animateToCameraPosition(GMSCameraPosition(target: location.coordinate, zoom: self.googleMapsView.camera.zoom, bearing: 0, viewingAngle: 0))

@@ -88,7 +88,7 @@ class MainViewController: UIViewController,PulleyPrimaryContentControllerDelegat
         self.googleMapsView.delegate = self
         self.googleMapsView.myLocationEnabled = true
         self.googleMapsView.settings.myLocationButton = true
-        self.googleMapsView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
+        //self.googleMapsView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
         dispatch_async(dispatch_get_main_queue(), {
             self.googleMapsView.myLocationEnabled = true;
         });

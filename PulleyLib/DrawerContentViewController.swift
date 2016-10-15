@@ -65,6 +65,14 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
 //            drawer.setDrawerPosition(.collapsed, animated: true)
 //            drawer.setPrimaryContentViewController(primaryContent, animated: false)
 //        }
+
+//        if let drawer = self.parentViewController as? PulleyViewController
+//        {
+//            let primaryContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("BizDetailVC")
+//            //drawer.setDrawerPosition(.collapsed, animated: true)
+//            drawer.setDrawerContentViewController(primaryContent, animated: false)
+//        }
+        self.performSegueWithIdentifier("segueBizDetail", sender: self)
     }
 
     // MARK: Drawer Content View Controller Delegate
