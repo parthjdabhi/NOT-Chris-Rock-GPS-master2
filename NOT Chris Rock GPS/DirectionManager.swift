@@ -188,6 +188,13 @@ class DirectionManager: NSObject {
                 let jsonResult: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
                 //let json = JSON(data!)
                 
+                //https://roads.googleapis.com/v1/speedLimits?placeId=ChIJ1Wi6I2pNFmsRQL9GbW7qABM&key=AIzaSyB5jzZt5pc9-WVIEvfaBIZAIvQOYLhVu94
+                
+                //https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJn2PA6faAhYARrJbJ4MeKbzc&key=AIzaSyB5jzZt5pc9-WVIEvfaBIZAIvQOYLhVu94
+                
+                //https://maps.googleapis.com/maps/api/place/details/json?reference=CmRYAAAAciqGsTRX1mXRvuXSH2ErwW-jCINE1aLiwP64MCWDN5vkXvXoQGPKldMfmdGyqWSpm7BEYCgDm-iv7Kc2PF7QA7brMAwBbAcqMr5i1f4PwTpaovIZjysCEZTry8Ez30wpEhCNCXpynextCld2EBsDkRKsGhSLayuRyFsex6JA6NPh9dyupoTH3g&key=AIzaSyB5jzZt5pc9-WVIEvfaBIZAIvQOYLhVu94
+                
+                print(jsonResult)
                 print(jsonResult.objectForKey("status"))
                 let routes = jsonResult.objectForKey("routes") as! NSArray
                 let status = jsonResult.objectForKey("status") as! NSString
