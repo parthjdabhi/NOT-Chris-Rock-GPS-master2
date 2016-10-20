@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/GetDirectionVC.swift"
-            timestampString = "497992400.057806"
+            timestampString = "498662609.070079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "startObservingRoute()"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/GetDirectionVC.swift"
-            timestampString = "497992400.057806"
+            timestampString = "498662609.070079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "startObservingRoute()"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/GetDirectionVC.swift"
-            timestampString = "497992400.057806"
+            timestampString = "498662609.070079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "startObservingRoute()"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/GetDirectionVC.swift"
-            timestampString = "497992400.057806"
+            timestampString = "498662609.070079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1995"
-            endingLineNumber = "1995"
+            startingLineNumber = "2003"
+            endingLineNumber = "2003"
             landmarkName = "AddAudioToQueue(ofUrl:)"
             landmarkType = "5">
             <Locations>
@@ -618,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/GetDirectionVC.swift"
-            timestampString = "497992400.057806"
+            timestampString = "498662609.070079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "playSoundForInstruction(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -682,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/GetDirectionVC.swift"
-            timestampString = "497992400.057806"
+            timestampString = "498662609.070079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
             landmarkName = "playSoundForInstruction(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1064,7 +1064,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/PrimaryTransitionTargetViewController.swift"
-                  timestampString = "498252238.881121"
+                  timestampString = "498659100.065049"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -1079,7 +1079,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/PrimaryTransitionTargetViewController.swift"
-                  timestampString = "498252238.881361"
+                  timestampString = "498659100.065339"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -1112,7 +1112,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/PrimaryContentViewController.swift"
-                  timestampString = "498252238.882474"
+                  timestampString = "498659100.067051"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "71"
@@ -1127,7 +1127,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/PrimaryContentViewController.swift"
-                  timestampString = "498252238.88266"
+                  timestampString = "498659100.067541"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "71"
@@ -1160,7 +1160,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/PrimaryContentViewController.swift"
-                  timestampString = "498252238.883862"
+                  timestampString = "498659100.069307"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -1175,7 +1175,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/PrimaryContentViewController.swift"
-                  timestampString = "498252238.884029"
+                  timestampString = "498659100.069567"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -1271,22 +1271,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BizDetailVC.swift"
-            timestampString = "498251330.35927"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NOT Chris Rock GPS/MainViewController.swift"
             timestampString = "498201667.64689"
             startingColumnNumber = "9223372036854775807"
@@ -1368,7 +1352,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/DrawerContentViewController.swift"
-                  timestampString = "498252238.890837"
+                  timestampString = "498659100.076686"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "150"
@@ -1383,7 +1367,7 @@
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/PulleyLib/DrawerContentViewController.swift"
-                  timestampString = "498252238.890983"
+                  timestampString = "498659100.076913"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "150"
@@ -1448,43 +1432,171 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BizDetailVC.swift"
-            timestampString = "498252126.598809"
+            timestampString = "498659098.392229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "onDirectionTapped(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOT Chris Rock GPS/Review.swift"
+            timestampString = "498655495.651231"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(dictionary:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOT Chris Rock GPS/Business.swift"
+            timestampString = "498655504.209606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "init(dictionary:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOT Chris Rock GPS/YelpClient.swift"
+            timestampString = "498655798.556516"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "searchWithTerm(_:sort:categories:deals:completion:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOT Chris Rock GPS/YelpClient.swift"
+            timestampString = "498658257.912225"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "YelpClient"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOT Chris Rock GPS/YelpClient.swift"
+            timestampString = "498657679.822765"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "getBusinessDetail(with:completion:)"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NOT_Chris_Rock_GPS.BizDetailVC.onDirectionTapped (Swift.AnyObject) -&gt; ()"
+                  symbolName = "NOT_Chris_Rock_GPS.YelpClient.(getBusinessDetail (with : Swift.String, completion : (NOT_Chris_Rock_GPS.Business, Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/BizDetailVC.swift"
-                  timestampString = "498252238.892172"
+                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/NOT%20Chris%20Rock%20GPS/YelpClient.swift"
+                  timestampString = "498659100.082768"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "19">
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "552">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NOT_Chris_Rock_GPS.BizDetailVC.onDirectionTapped (Swift.AnyObject) -&gt; ()"
+                  symbolName = "NOT_Chris_Rock_GPS.YelpClient.(getBusinessDetail (with : Swift.String, completion : (NOT_Chris_Rock_GPS.Business, Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "NOT Chris Rock GPS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/BizDetailVC.swift"
-                  timestampString = "498252238.892421"
+                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/NOT%20Chris%20Rock%20GPS/YelpClient.swift"
+                  timestampString = "498659100.082947"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "295">
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "600">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NOT Chris Rock GPS/YelpClient.swift"
+            timestampString = "498658441.185467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "getBusinessDetail(with:completion:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NOT_Chris_Rock_GPS.YelpClient.getBusinessDetail (with : Swift.String, completion : (NOT_Chris_Rock_GPS.Business, Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NOT Chris Rock GPS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/NOT%20Chris%20Rock%20GPS/YelpClient.swift"
+                  timestampString = "498659100.084153"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "286">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NOT_Chris_Rock_GPS.YelpClient.(getBusinessDetail (with : Swift.String, completion : (NOT_Chris_Rock_GPS.Business, Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "NOT Chris Rock GPS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/9%20GPS%20App/NOT-Chris-Rock-GPS-master/NOT%20Chris%20Rock%20GPS/YelpClient.swift"
+                  timestampString = "498659100.084339"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "27">
                </Location>
             </Locations>
          </BreakpointContent>

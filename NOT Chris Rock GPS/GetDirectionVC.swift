@@ -252,6 +252,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     
     func startObservingRoute()
     {
+        
+        playSoundForInstruction("StartRoute")
+        
         self.directionDetail = self.tableData.objectForKey("steps") as! NSArray
         print("",self.directionDetail)
         var routePos = 0
@@ -321,6 +324,11 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         print(">>> >> > > Select Sound based on SettingMain & SettingSub : \(Myfilters.SettingMain)  \(Myfilters.SettingSub)")
         
         AudioItems = []
+        
+        // Start Route
+        if inst.containsString("StartRoute") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Directional/lets-go.wav")
+        }
         
         // General Statements
         if inst.containsString("Airport") {

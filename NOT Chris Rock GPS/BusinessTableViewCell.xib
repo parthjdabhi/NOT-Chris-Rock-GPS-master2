@@ -22,7 +22,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_deal" translatesAutoresizingMaskIntoConstraints="NO" id="lQS-Qp-cSx">
-                        <rect key="frame" x="577" y="28" width="16" height="16"/>
+                        <rect key="frame" x="575" y="28" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="Cg0-2w-Ph9"/>
                             <constraint firstAttribute="height" constant="16" id="dN0-Eq-WVu"/>
@@ -66,6 +66,13 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yelp" translatesAutoresizingMaskIntoConstraints="NO" id="OQg-be-uwK">
+                        <rect key="frame" x="577" y="71" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="ZPM-vf-Nfs"/>
+                            <constraint firstAttribute="height" constant="16" id="bxP-Gg-9th"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="lQS-Qp-cSx" firstAttribute="top" secondItem="BlA-9w-5cc" secondAttribute="bottom" constant="4" id="5Lg-dM-jhE"/>
@@ -73,10 +80,11 @@
                     <constraint firstItem="rY5-Qk-PI8" firstAttribute="width" secondItem="rY5-Qk-PI8" secondAttribute="height" multiplier="1:1" id="7L2-tL-q2h"/>
                     <constraint firstItem="wAO-MH-eKI" firstAttribute="leading" secondItem="92C-pO-kUD" secondAttribute="trailing" constant="8" id="BEq-bi-Kd4"/>
                     <constraint firstItem="qPH-ey-sD8" firstAttribute="leading" secondItem="rY5-Qk-PI8" secondAttribute="trailing" constant="8" id="BNj-SS-i38"/>
+                    <constraint firstAttribute="trailing" secondItem="OQg-be-uwK" secondAttribute="trailing" constant="8" id="D8S-8K-Vce"/>
                     <constraint firstItem="92C-pO-kUD" firstAttribute="top" secondItem="qPH-ey-sD8" secondAttribute="bottom" constant="5" id="Eb8-Kf-AGP"/>
                     <constraint firstItem="qPH-ey-sD8" firstAttribute="top" secondItem="rY5-Qk-PI8" secondAttribute="top" id="Hei-nW-h9J"/>
-                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="EsD-eI-qGM" secondAttribute="trailing" constant="8" id="JZe-RZ-JJe"/>
-                    <constraint firstItem="lQS-Qp-cSx" firstAttribute="trailing" secondItem="BlA-9w-5cc" secondAttribute="trailing" id="Lfz-KA-S4h"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="EsD-eI-qGM" secondAttribute="trailing" constant="48" id="JZe-RZ-JJe"/>
+                    <constraint firstItem="lQS-Qp-cSx" firstAttribute="trailing" secondItem="BlA-9w-5cc" secondAttribute="trailing" constant="-2" id="Lfz-KA-S4h"/>
                     <constraint firstItem="92C-pO-kUD" firstAttribute="leading" secondItem="rY5-Qk-PI8" secondAttribute="trailing" constant="8" id="P8y-ds-1cc"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0uV-W1-sr0" secondAttribute="trailing" constant="8" id="SUa-Qh-Qy2"/>
                     <constraint firstItem="EsD-eI-qGM" firstAttribute="leading" secondItem="rY5-Qk-PI8" secondAttribute="trailing" constant="8" id="Y1Q-5m-CgE"/>
@@ -86,6 +94,7 @@
                     <constraint firstAttribute="leadingMargin" secondItem="rY5-Qk-PI8" secondAttribute="leading" constant="4" id="eKt-5l-nDo"/>
                     <constraint firstItem="BlA-9w-5cc" firstAttribute="top" secondItem="qPH-ey-sD8" secondAttribute="top" constant="3" id="hga-XT-cEa"/>
                     <constraint firstItem="wAO-MH-eKI" firstAttribute="centerY" secondItem="92C-pO-kUD" secondAttribute="centerY" id="jHI-2U-ZbD"/>
+                    <constraint firstAttribute="bottom" secondItem="OQg-be-uwK" secondAttribute="bottom" constant="6" id="kwx-w2-Qmm"/>
                     <constraint firstItem="0uV-W1-sr0" firstAttribute="leading" secondItem="rY5-Qk-PI8" secondAttribute="trailing" constant="8" id="lmo-64-G6b"/>
                     <constraint firstItem="BlA-9w-5cc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qPH-ey-sD8" secondAttribute="trailing" constant="8" id="sZG-pX-CYV"/>
                     <constraint firstItem="lQS-Qp-cSx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wAO-MH-eKI" secondAttribute="trailing" constant="8" id="zAG-WT-hha"/>
@@ -106,5 +115,6 @@
     </objects>
     <resources>
         <image name="ic_deal" width="32" height="32"/>
+        <image name="yelp" width="32" height="32"/>
     </resources>
 </document>

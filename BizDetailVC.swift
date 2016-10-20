@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SVProgressHUD
 
 protocol BusinessViewDelegate: class {
     func businessView(onBackTapped businessViewController:BizDetailVC)
@@ -42,6 +43,8 @@ class BizDetailVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.mapView.userLocation.addObserver(self, forKeyPath: "location", options: NSKeyValueObservingOptions.init(rawValue: 0), context: nil)
+        
+        refreshBusinessData(true)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -57,12 +60,30 @@ class BizDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //business.imageURL
-        topImageView?.sd_setImageWithURL(business.imageURL!)
-        
 //        let contentWidth = scrollView.bounds.width
 //        let contentHeight = scrollView.bounds.height * 3
 //        scrollView.contentSize = CGSizeMake(contentWidth, contentHeight)
+        
+        // Review Table setup
+        let nib = UINib(nibName: "ReviewTableCell", bundle: nil)
+        self.reviewsTable.registerNib(nib, forCellReuseIdentifier: "reviewCell")
+        self.reviewsTable.estimatedRowHeight = 104
+        self.reviewsTable.rowHeight = UITableViewAutomaticDimension
+        
+        reviewsTable.dataSource = self
+
+        showBusinessData()
+        refreshBusinessData()
+    }
+    
+    func showBusinessData()
+    {
+        //business.imageURL
+        if let imageURL = business.imageURL {
+            topImageView?.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "food-placeholder"))
+        } else {
+            topImageView.image = UIImage(named: "food-placeholder")
+        }
         
         makeReservationButton.setCornerRadious()
         makeReservationButton.setBorder(1.0, color: clrOrange)
@@ -97,9 +118,9 @@ class BizDetailVC: UIViewController {
         }
         
         // Nav setup
-//        let backButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(BusinessViewController.backTapped))
-//        backButton.tintColor = UIColor.whiteColor()
-//        navigationItem.leftBarButtonItem = backButton
+        //let backButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(BusinessViewController.backTapped))
+        //backButton.tintColor = UIColor.whiteColor()
+        //navigationItem.leftBarButtonItem = backButton
         
         // Map setup
         locationManager = CLLocationManager()
@@ -108,16 +129,39 @@ class BizDetailVC: UIViewController {
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
         
+        mapView.removeAnnotations(mapView.annotations)
         addAnnotationAtCoordination(self.business)
         
-        // Review Table setup
-        let nib = UINib(nibName: "ReviewTableCell", bundle: nil)
-        self.reviewsTable.registerNib(nib, forCellReuseIdentifier: "reviewCell")
-        self.reviewsTable.estimatedRowHeight = 104
-        self.reviewsTable.rowHeight = UITableViewAutomaticDimension
+        reviewsTable.reloadData()
+    }
+    
+    // MARK: Search.
+    func makeBusinessRequestWithId(id:String) {
+        Business.businessWithId(id) { (business: Business!, error: NSError!) in
+            self.business.reviews = business.reviews
+            self.reviewsTable.reloadData()
+        }
+    }
+    
+    private func refreshBusinessData(showLoader:Bool = true)
+    {
+        // Perform request to Yelp API to get the list of businessees
+        guard let client = YelpClient.sharedInstance else { return }
         
-        reviewsTable.dataSource = self
-        makeBusinessRequestWithId(business.id!)
+        if showLoader == true {
+            SVProgressHUD.showWithStatus("Searching..")
+        }
+        
+        LastSearchLocation = LocationManager.sharedInstance.CLocation
+        client.location = "\(LocationManager.sharedInstance.latitude),\(LocationManager.sharedInstance.longitude)"
+        client.getBusinessDetail(with: self.business.id ?? "") { (biz, error) in
+            
+            if error == nil {
+                self.business = biz
+            }
+            self.showBusinessData()
+            SVProgressHUD.dismiss()
+        }
     }
     
     // MARK:-
@@ -146,17 +190,14 @@ class BizDetailVC: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegionMake(coordinate, span)
+        mapView.setRegion(region, animated: true)
     }
     
     func backTapped() {
         //delegate?.businessView(onBackTapped: self)
-    }
-    
-    func makeBusinessRequestWithId(id:String) {
-        Business.businessWithId(id) { (business: Business!, error: NSError!) in
-            self.business.reviews = business.reviews
-            self.reviewsTable.reloadData()
-        }
     }
     
     func goToLocation(location: CLLocation) {
