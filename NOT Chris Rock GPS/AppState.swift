@@ -11,6 +11,10 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
+import SVProgressHUD
+import AVFoundation
+import KDEAudioPlayer
+
 class AppState: NSObject {
     
     static let sharedInstance = AppState()
@@ -35,3 +39,10 @@ var user_id:String = {
 //var myTimeline:Array<JSON> = []
 //var searchTimeline:Array<JSON> = []
 //var selectedPhoto:JSON = []
+
+// Sounds
+var audioPlayer:AVPlayer? = AVPlayer()
+var mp3Urls = [NSURL]()
+var player = AudioPlayer()
+var AudioItems:[AudioItem]? = [AudioItem]()
+

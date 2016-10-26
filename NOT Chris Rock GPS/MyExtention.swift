@@ -309,6 +309,17 @@ extension NSData {
 
 extension String {
     
+    func contains(find: String) -> Bool{
+        return self.rangeOfString(find) != nil
+    }
+    
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.rangeOfString(find, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil
+    }
+}
+
+extension String {
+    
     var convertToDictionary: [String:AnyObject]? {
         if let data = self.dataUsingEncoding(NSUTF8StringEncoding) {
             do {

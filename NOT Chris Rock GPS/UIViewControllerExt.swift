@@ -218,7 +218,6 @@ extension String {
     }
 }
 
-var audioPlayer : AVAudioPlayer!
 var audioRecorder : AVAudioRecorder!
 var outputURL: String!
 
@@ -242,36 +241,7 @@ extension UIViewController : AVAudioPlayerDelegate, AVAudioRecorderDelegate
     
     //MARK: UIButton action methods
     
-    @IBAction func playButtonClicked(sender : AnyObject){
-        
-        let dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        dispatch_async(dispatchQueue, {
-            
-            if let data = NSData(contentsOfFile: self.audioFilePath())
-            {
-                do{
-                    let session = AVAudioSession.sharedInstance()
-                    
-                    try session.setCategory(AVAudioSessionCategoryPlayback)
-                    try session.setActive(true)
-                    
-                    audioPlayer = try AVAudioPlayer(data: data)
-                    audioPlayer.delegate = self
-                    audioPlayer.prepareToPlay()
-                    audioPlayer.play()
-                }
-                catch{
-                    print("\(error)")
-                }
-            }
-        });
-    }
-    
     @IBAction func stopButtonClicked(sender : AnyObject){
-        
-        if let player = audioPlayer{
-            player.stop()
-        }
         
         if let record = audioRecorder{
             
