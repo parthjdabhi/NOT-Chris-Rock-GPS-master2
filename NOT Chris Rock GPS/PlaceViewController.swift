@@ -1,9 +1,8 @@
 //
 //  SelectLocationViewController.swift
-//  MLM
 //
 //  Created by Parth Dabhi on 12/01/16.
-//  Copyright © 2016 IBL Infotech (Parth Dabhi). All rights reserved.
+//  Copyright © Parth Dabhi. All rights reserved.
 //
 
 import UIKit

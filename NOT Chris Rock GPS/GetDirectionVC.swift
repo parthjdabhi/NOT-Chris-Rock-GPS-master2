@@ -6,8 +6,8 @@
 //  Copyright © 2016 VividInfotech. All rights reserved.
 //
 
-import UIKit
 
+import UIKit
 import MapKit
 import GoogleMaps
 import GooglePlaces
@@ -34,7 +34,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     var AudioItems:[AudioItem]? = [AudioItem]()
     
     var bizForRoute: Business?
-    var isObservingRoute = false
+    var routeTimer:NSTimer?
     
     @IBOutlet var btnMenu: UIButton?
     //@IBOutlet weak var drawMap: MKMapView!
@@ -57,11 +57,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         btnStartRoute.backgroundColor = UIColor.darkGrayColor()
         self.btnStartRoute.tag == 1
         
-        self.googleMapsView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
-        dispatch_async(dispatch_get_main_queue(), {
-            self.googleMapsView.myLocationEnabled = true;
-        });
-        
         txtFrom.text = "Current Location"
         //txtFrom.text = "Santo Domingo"
         
@@ -81,13 +76,13 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             }
         }
         
-//        player = AVPlayer(URL: NSURL(string: "\(BaseUrlSounds)Directional/to-the-left2.wav")!)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GetDirectionVC.playerDidFinishPlaying(_:)),
-//                                                         name: AVPlayerItemDidPlayToEndTimeNotification, object: player!.currentItem)
+        //        player = AVPlayer(URL: NSURL(string: "\(BaseUrlSounds)Directional/to-the-left2.wav")!)
+        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GetDirectionVC.playerDidFinishPlaying(_:)),
+        //                                                         name: AVPlayerItemDidPlayToEndTimeNotification, object: player!.currentItem)
         
         
-        //let camera = GMSCameraPosition.cameraWithLatitude(53.9,longitude: 27.5667, zoom: 6)
-        //self.googleMapsView.animateToCameraPosition(camera)
+        let camera = GMSCameraPosition.cameraWithLatitude(53.9,longitude: 27.5667, zoom: 6)
+        self.googleMapsView.animateToCameraPosition(camera)
         
         if LocationManager.sharedInstance.hasLastKnownLocation == false {
             LocationManager.sharedInstance.onFirstLocationUpdateWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
@@ -102,7 +97,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         //self.googleMapsView.delegate = self
         self.googleMapsView.myLocationEnabled = true
         self.googleMapsView.settings.myLocationButton = true
-
+        
         
 //        AudioItems?.append(AudioItem(soundURLs: [AudioQuality.Medium : NSURL(string: "\(BaseUrlSounds)Directional/to-the-left2.wav")!])!)
 //        AudioItems?.append(AudioItem(soundURLs: [AudioQuality.Medium : NSURL(string: "\(BaseUrlSounds)Directional/to-the-right.wav")!])!)
@@ -158,7 +153,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             self.searchResultController.reloadDataWithArray(self.resultsArray)
         }
     }
-
+    
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolyline {
@@ -169,39 +164,30 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
         return MKOverlayRenderer()
     }
+    
     func removeAllPlacemarkFromMap(shouldRemoveUserLocation shouldRemoveUserLocation:Bool){
-//        if let mapView = self.googleMapsView {
-//            for annotation in mapView.annotations{
-//                if shouldRemoveUserLocation {
-//                    if annotation as? MKUserLocation !=  mapView.userLocation {
-//                        mapView.removeAnnotation(annotation as MKAnnotation)
-//                    }
-//                }
-//                let overlays = mapView.overlays
-//                mapView.removeOverlays(overlays)
-//            }
-//        }
+        //        if let mapView = self.googleMapsView {
+        //            for annotation in mapView.annotations{
+        //                if shouldRemoveUserLocation {
+        //                    if annotation as? MKUserLocation !=  mapView.userLocation {
+        //                        mapView.removeAnnotation(annotation as MKAnnotation)
+        //                    }
+        //                }
+        //                let overlays = mapView.overlays
+        //                mapView.removeOverlays(overlays)
+        //            }
+        //        }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: -
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
-    {
-        if change![NSKeyValueChangeOldKey] == nil && isObservingRoute == true
-        {
-            if let location = change?[NSKeyValueChangeNewKey] as? CLLocation {
-                self.googleMapsView.animateToCameraPosition(GMSCameraPosition(target: location.coordinate, zoom: self.googleMapsView.camera.zoom, bearing: 0, viewingAngle: 0))
-            }
-        }
     }
     
     @IBAction func actinoSetFromCurrentLocation(sender: AnyObject) {
         if let curLocation = CLocation
             where curLocation.coordinate.latitude != 0
-            && curLocation.coordinate.longitude != 0
+                && curLocation.coordinate.longitude != 0
         {
             txtFrom.text = "Current Location"
         } else {
@@ -225,13 +211,12 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 1
         {
-            isObservingRoute = true
             self.btnRefresh.hidden = true
             self.btnStartRoute.setTitle("Stop Route", forState: .Normal)
             self.btnStartRoute.backgroundColor = clrGreen
             self.btnStartRoute.tag = 2;
             
-            let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 20)
+            let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 1)
             self.googleMapsView.animateToCameraPosition(camera)
             
             print("Start monitoring route")
@@ -239,7 +224,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         } else if self.btnStartRoute.enabled
             && self.btnStartRoute.tag == 2
         {
-            isObservingRoute = false
             self.btnRefresh.hidden = false
             self.btnStartRoute.setTitle("Start Route", forState: .Normal)
             self.btnStartRoute.backgroundColor = clrRed
@@ -250,10 +234,25 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
     }
     
+    
+    func onEveryTwentyMinutesOfRoute()
+    {
+        //recordTimer?.invalidate()
+        print("onEveryTwentyMinutesOfRoute \(routeTimer)")
+        
+        if let mp3Url = NSURL(string: "\(BaseUrlSounds)General-Categories/home-and-office-stores.wav") {
+            //            mp3Urls.append(mp3Url)
+            if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : mp3Url]) {
+                player.mode = .NoRepeat
+                player.playItem(AudioIdem)
+            }
+        }
+    }
+    
     func startObservingRoute()
     {
-        
-        playSoundForInstruction("StartRoute")
+        //Start 20 Minute timer
+        routeTimer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: #selector(GetDirectionVC.onEveryTwentyMinutesOfRoute), userInfo: nil, repeats: true)
         
         self.directionDetail = self.tableData.objectForKey("steps") as! NSArray
         print("",self.directionDetail)
@@ -273,7 +272,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         markerNextTurn.position = nextTurnLocation.coordinate
         markerNextTurn.map = self.googleMapsView
         
-        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 20)
+        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
         self.googleMapsView.animateToCameraPosition(camera)
         
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
@@ -310,6 +309,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         self.btnRefresh.hidden = false
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler(nil)
         markerNextTurn.map = nil
+        
+        //Stop 20 Minute timer
+        routeTimer?.invalidate()
     }
     
     func playSoundForInstruction(instruction:String?) {
@@ -326,9 +328,38 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         AudioItems = []
         
         // Start Route
-        if inst.containsString("StartRoute") {
-            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Directional/lets-go.wav")
-        }
+//        if inst.containsString("StartRoute") {
+//            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Directional/lets-go.wav")
+//        }
+        
+//        "And" = "&"
+//        "A" = "a"
+//        "B" = "b"
+//        "C" = "c"
+//        "D" = "d"
+//        "E" = "e"
+//        "F" = "f"
+//        "G" = "g"
+//        "H" = "h"
+//        "I" = "i"
+//        "J" = "j"
+//        "K" = "k"
+//        "L" = "l"
+//        "M" = "m"
+//        "N" = "n"
+//        "O" = "o"
+//        "P" = "p"
+//        "Q" = "q"
+//        "R" = "r"
+//        "S" = "s"
+//        "T" = "t"
+//        "U" = "u"
+//        "V" = "v"
+//        "W" = "w"
+//        "X" = "x"
+//        "Y" = "y"
+//        "Z" = "z"
+//        " " = "-"
         
         // General Statements
         if inst.containsString("Airport") {
@@ -358,6 +389,102 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         if inst.containsString("Beer") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/beer.wav")
         }
+        if inst.containsString("Bus Stops") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/bus-stops.wav")
+        }
+        if inst.containsString("Car Rental") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/car-rental.wav")
+        }
+        if inst.containsString("Clothing Store") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/clothing-stores.wav")
+        }
+        if inst.containsString("Coffee Shops") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/coffeeshops.wav")
+        }
+        if inst.containsString("Convenience Stores") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/conv-stores.wav")
+        }
+        if inst.containsString("Department Stores") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/department-stores.wav")
+        }
+        if inst.containsString("Desserts") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/desserts.wav")
+        }
+        if inst.containsString("Drugstores") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/drugstores.wav")
+        }
+        if inst.containsString("Dry Cleaners") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/dry-cleaners.wav")
+        }
+        if inst.containsString("Fast Food") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/fast-food.wav")
+        }
+        if inst.containsString("Fitness Centers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/fitness-centers.wav")
+        }
+        if inst.containsString("Gas Stations") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/gas-stations.wav")
+        }
+        if inst.containsString("Grocery Stores") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/groceries-stores.wav")
+        }
+        if inst.containsString("Home & Office Stores") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/home-and-office-stores.wav")
+        }
+        if inst.containsString("Home Services") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/home-services.wav")
+        }
+        if inst.containsString("Hospitals") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/hospitals.wav")
+        }
+        if inst.containsString("Hotels") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/hotels.wav")
+        }
+        if inst.containsString("Landmarks") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/landmarks.wav")
+        }
+        if inst.containsString("Laundry") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/laundry.wav")
+        }
+        if inst.containsString("Movies") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/movies.wav")
+        }
+        if inst.containsString("Museums") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/museums.wav")
+        }
+        if inst.containsString("Nightclubs") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/nightclubs.wav")
+        }
+        if inst.containsString("Parking") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/parking.wav")
+        }
+        if inst.containsString("Parks") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/parks.wav")
+        }
+        if inst.containsString("Pet Stores") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/pet-stores.wav")
+        }
+        if inst.containsString("Pharmacies") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/pharmacies.wav")
+        }
+        if inst.containsString("Post Offices") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/post-offices.wav")
+        }
+        if inst.containsString("Restaurants") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/restaurants.wav")
+        }
+        if inst.containsString("Sporting Goods") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/sporting-goods.wav")
+        }
+        if inst.containsString("Tea & Juice") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/tea-and-juice.wav")
+        }
+        if inst.containsString("Transit Stations") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/transit-stations.wav")
+        }
+        if inst.containsString("Wine") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/wine.wav")
+        }
         
         // Directional Statements
         if inst.containsString("Turn right") || inst.containsString("turns left") {
@@ -374,6 +501,376 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         if inst.containsString("highway") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Highway/highway.wav")
         }
+        
+        // Food
+        if inst.containsString("5 Guys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/5-guys.wav")
+        }
+        if inst.containsString("7/11") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/7-11.wav")
+        }
+        if inst.containsString("A&W") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/a&w.wav")
+        }
+        if inst.containsString("Applebees") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/applebees.wav")
+        }
+        if inst.containsString("Arbys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/arbys.wav")
+        }
+        if inst.containsString("Backyard Burgers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/backyardburgers.wav")
+        }
+        if inst.containsString("Bakers Dozen Donuts") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/bakers-dozen-donuts.wav")
+        }
+        if inst.containsString("Bar-B-Cutie") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/bar-b-cutie.wav")
+        }
+        if inst.containsString("Bar Burrito") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/barburrito.wav")
+        }
+        if inst.containsString("Baskin Robbins") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/baskin-robbins.wav")
+        }
+        if inst.containsString("Beaver Tails") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/beavertails.wav")
+        }
+        if inst.containsString("Ben & Florentine") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/ben-and-florentine.wav")
+        }
+        if inst.containsString("Ben & Jerrys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/ben-and-jerrys.wav")
+        }
+        if inst.containsString("Benjys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/benjys.wav")
+        }
+        if inst.containsString("Big Boy") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/big-boy.wav")
+        }
+        if inst.containsString("BJs") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/bjs.wav")
+        }
+        if inst.containsString("Blimpie") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/blimpie3.wav")
+        }
+        if inst.containsString("Bob Evans") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/bob-evans.wav")
+        }
+        if inst.containsString("Bojangles") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/bojangles.wav")
+        }
+        if inst.containsString("Bonefish Grill") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/bonefish-grill.wav")
+        }
+        if inst.containsString("Booster-Juice") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/booster-juice.wav")
+        }
+        if inst.containsString("Boston Market") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/boston-market.wav")
+        }
+        if inst.containsString("Boston Pizza") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/boston-pizza.wav")
+        }
+        if inst.containsString("Burger Baron") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/burger-baron.wav")
+        }
+        if inst.containsString("Burger King") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/burger-king.wav")
+        }
+        if inst.containsString("BW3") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/BW3.wav")
+        }
+        if inst.containsString("C Lovers Fish-N-Chips") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/c-lovers-fish-n-chips.wav")
+        }
+        if inst.containsString("Captain Ds Seafood") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/Capt-Ds-Seafood.wav")
+        }
+        if inst.containsString("Captain Submarine") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/captain-submarine.wav")
+        }
+        if inst.containsString("Captains Sub") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/capts-sub.wav")
+        }
+        if inst.containsString("Carls Jr") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/carls-jr.wav")
+        }
+        if inst.containsString("Carrabbas") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/carrabbas.wav")
+        }
+        if inst.containsString("Checkers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/checkers.wav")
+        }
+        if inst.containsString("Cheddars") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cheddars.wav")
+        }
+        if inst.containsString("Cheesecake Factory") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cheesecake-factory.wav")
+        }
+        if inst.containsString("Chez Ashton") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chez-aston.wav")
+        }
+        if inst.containsString("Chic-Fil-A") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chic-fil-a.wav")
+        }
+        if inst.containsString("Chicken Cottage") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chicken-cottage.wav")
+        }
+        if inst.containsString("Chicken Delight") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chicken-delight.wav")
+        }
+        if inst.containsString("Chilis") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chilis.wav")
+        }
+        if inst.containsString("Chipotle") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chipotle.wav")
+        }
+        if inst.containsString("Chuck-E-Cheese") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/chuck-e-cheese.wav")
+        }
+        if inst.containsString("Churchs Chicken") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/churchs-chicken.wav")
+        }
+        if inst.containsString("Cicis Pizza") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cicis-pizza.wav")
+        }
+        if inst.containsString("Cinnabun") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cinnabun.wav")
+        }
+        if inst.containsString("Circle K") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/circle-k.wav")
+        }
+        if inst.containsString("Coffee Time") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/coffeetime.wav")
+        }
+        if inst.containsString("Cora") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cora.wav")
+        }
+        if inst.containsString("Country Style") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/countrystyle.wav")
+        }
+        if inst.containsString("Cows Ice Cream") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cows-ice-cream.wav")
+        }
+        if inst.containsString("CPK") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cpk.wav")
+        }
+        if inst.containsString("Cracker Barrel") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/cracker-barrel.wav")
+        }
+        if inst.containsString("Culvers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/culvers.wav")
+        }
+        if inst.containsString("Dairy Queen") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dairy-queen.wav")
+        }
+        if inst.containsString("Del Taco") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/del-taco")
+        }
+        if inst.containsString("Dennys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dennys.wav")
+        }
+        if inst.containsString("Dic Anns Hamburgers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dic-ann-hamburgers.wav")
+        }
+        if inst.containsString("Dixie Chicken") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dixie-chicken.wav")
+        }
+        if inst.containsString("Dixie Lee Fried Chicken") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dixie-lee-fried-chicken.wav")
+        }
+        if inst.containsString("Dominos") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dominos.wav")
+        }
+        if inst.containsString("Donut Diner") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/donut-diner.wav")
+        }
+        if inst.containsString("Dunkin Donuts") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/dunkin-donuts.wav")
+        }
+        if inst.containsString("East Side Marios") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/east-side-marios.wav")
+        }
+        if inst.containsString("Eat Restaurant") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/eat-restaurant.wav")
+        }
+        if inst.containsString("Edo Japan") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/edo-japan.wav")
+        }
+        if inst.containsString("Eds Easy Diner") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/applebees.wav")
+        }
+        if inst.containsString("eds-easy-diner") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/applebees.wav")
+        }
+        if inst.containsString("Einstein Brothers Bagels") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/einstein-bros-bagels.wav")
+        }
+        if inst.containsString("Extreme Pita") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/extreme-pita.wav")
+        }
+        if inst.containsString("Famous Daves") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/famous-daves.wav")
+        }
+        if inst.containsString("Fast Eddies") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/fast-eddies.wav")
+        }
+        if inst.containsString("Firehouse Subs") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/firehouse-subs.wav")
+        }
+        if inst.containsString("Friendlys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/friendlys.wav")
+        }
+        if inst.containsString("Fryers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/fryers.wav")
+        }
+        if inst.containsString("Gojis") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/gojis.wav")
+        }
+        if inst.containsString("Golden Corral") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/golden-corral.wav")
+        }
+        if inst.containsString("Greco Pizza") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/greco-pizza.wav")
+        }
+        if inst.containsString("Hardees") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/hardees.wav")
+        }
+        if inst.containsString("Harveys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/harveys.wav")
+        }
+        if inst.containsString("Heros Cert Burgers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/heros-cert-burgers.wav")
+        }
+        if inst.containsString("Ho Lee Chow") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/ho-lee-chow.wav")
+        }
+        if inst.containsString("Hooters") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/hooters.wav")
+        }
+        if inst.containsString("Humptys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/humptys.wav")
+        }
+        if inst.containsString("IHOP") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/ihop.wav")
+        }
+        if inst.containsString("In-And-Out-Burger") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/in-and-out-burger.wav")
+        }
+        if inst.containsString("Jack In The Box") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/jack-in-the-box.wav")
+        }
+        if inst.containsString("Jamba Juice") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/jamba-juice.wav")
+        }
+        if inst.containsString("Jasons Deli") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/jasons-deli.wav")
+        }
+        if inst.containsString("Jimmy Johns") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/jimmy-johns.wav")
+        }
+        if inst.containsString("Jimmy The Greek") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/jimmy-the-greek.wav")
+        }
+        if inst.containsString("Jugo Juice") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/jugo-juice.wav")
+        }
+        if inst.containsString("Kaspas") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/kaspas.wav")
+        }
+        if inst.containsString("KFC") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/kfc.wav")
+        }
+        if inst.containsString("Krispy Kreme Doughnuts") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/krispy-kreme-dougnuts.wav")
+        }
+        if inst.containsString("Krystal") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/krystal.wav")
+        }
+        if inst.containsString("Labelle Prov") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/labelle-prov.wav")
+        }
+        if inst.containsString("Licks Homeburgers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/licks-homeburgers.wav")
+        }
+        if inst.containsString("Little Caesars") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/little-caesars.wav")
+        }
+        if inst.containsString("Little Chef") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/little-chef.wav")
+        }
+        if inst.containsString("Logans Roadhouse") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/logans-roadhouse.wav")
+        }
+        if inst.containsString("Long John Silvers") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/long-john-silvers.wav")
+        }
+        if inst.containsString("Longhorn Steakhouse") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/longhorn-steakhouse.wav")
+        }
+        if inst.containsString("Macaroni") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/macaroni-grill.wav")
+        }
+        if inst.containsString("Manchu Wok") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/manchu-wok.wav")
+        }
+        if inst.containsString("Mary Browns") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/mary-browns.wav")
+        }
+        if inst.containsString("McDonalds") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/mcdonalds.wav")
+        }
+        if inst.containsString("Millies Cookies") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/millies-cookies.wav")
+        }
+        if inst.containsString("Moes") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/moes.wav")
+        }
+        if inst.containsString("Morleys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/morleys.wav")
+        }
+        if inst.containsString("Mr. Greek") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/mr-greek.wav")
+        }
+        if inst.containsString("Mr. Mikes") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/mr-mikes.wav")
+        }
+        if inst.containsString("Mr. Sub") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/mr-sub.wav")
+        }
+        if inst.containsString("NY Fries") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/ny-fries.wav")
+        }
+        if inst.containsString("Ocharleys") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/Ocharleys.wav")
+        }
+        if inst.containsString("Olive Garden") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/olive-garden.wav")
+        }
+        if inst.containsString("On The Border") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/on-the-border.wav")
+        }
+        if inst.containsString("Orange Julius") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/orange-julius.wav")
+        }
+        if inst.containsString("Outback") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/outback.wav")
+        }
+        if inst.containsString("Panago") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/panago.wav")
+        }
+        if inst.containsString("Panda Express") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/panda-express.wav")
+        }
+        if inst.containsString("Panera Bread") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/panera-bread.wav")
+        }
+        if inst.containsString("Papa Johns") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/papa-johns.wav")
+        }
+        
+        
         
         // Interstate
         if inst.containsString("I-10") {
@@ -1989,6 +2486,1924 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         if inst.containsString("400") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/400.wav")
         }
+        if inst.containsString("401") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/401.wav")
+        }
+        if inst.containsString("402") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/402.wav")
+        }
+        if inst.containsString("403") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/403.wav")
+        }
+        if inst.containsString("404") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/404.wav")
+        }
+        if inst.containsString("405") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/405.wav")
+        }
+        if inst.containsString("406") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/406.wav")
+        }
+        if inst.containsString("407") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/407.wav")
+        }
+        if inst.containsString("408") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/408.wav")
+        }
+        if inst.containsString("409") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/409.wav")
+        }
+        if inst.containsString("410") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/410.wav")
+        }
+        if inst.containsString("411") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/411.wav")
+        }
+        if inst.containsString("412") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/412.wav")
+        }
+        if inst.containsString("413") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/413.wav")
+        }
+        if inst.containsString("414") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/414.wav")
+        }
+        if inst.containsString("415") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/415.wav")
+        }
+        if inst.containsString("416") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/416.wav")
+        }
+        if inst.containsString("417") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/417.wav")
+        }
+        if inst.containsString("418") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/418.wav")
+        }
+        if inst.containsString("419") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/419.wav")
+        }
+        if inst.containsString("42") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/42.wav")
+        }
+        if inst.containsString("421") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/421.wav")
+        }
+        if inst.containsString("422") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/422.wav")
+        }
+        if inst.containsString("423") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/423.wav")
+        }
+        if inst.containsString("424") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/424.wav")
+        }
+        if inst.containsString("425") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/425.wav")
+        }
+        if inst.containsString("426") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/426.wav")
+        }
+        if inst.containsString("427") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/427.wav")
+        }
+        if inst.containsString("428") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/428.wav")
+        }
+        if inst.containsString("429") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/429.wav")
+        }
+        if inst.containsString("430") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/430.wav")
+        }
+        if inst.containsString("43") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/43.wav")
+        }
+        if inst.containsString("431") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/431.wav")
+        }
+        if inst.containsString("432") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/432.wav")
+        }
+        if inst.containsString("433") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/433.wav")
+        }
+        if inst.containsString("434") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/434.wav")
+        }
+        if inst.containsString("435") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/435.wav")
+        }
+        if inst.containsString("436") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/436.wav")
+        }
+        if inst.containsString("437") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/437.wav")
+        }
+        if inst.containsString("438") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/438.wav")
+        }
+        if inst.containsString("439") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/439.wav")
+        }
+        if inst.containsString("44") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/44.wav")
+        }
+        if inst.containsString("440") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/440.wav")
+        }
+        if inst.containsString("441") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/441.wav")
+        }
+        if inst.containsString("442") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/442.wav")
+        }
+        if inst.containsString("443") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/443.wav")
+        }
+        if inst.containsString("444") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/444.wav")
+        }
+        if inst.containsString("445") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/445.wav")
+        }
+        if inst.containsString("446") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/446.wav")
+        }
+        if inst.containsString("447") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/447.wav")
+        }
+        if inst.containsString("448") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/448.wav")
+        }
+        if inst.containsString("449") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/449.wav")
+        }
+        if inst.containsString("450") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/450.wav")
+        }
+        if inst.containsString("45") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/45.wav")
+        }
+        if inst.containsString("451") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/451.wav")
+        }
+        if inst.containsString("452") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/452.wav")
+        }
+        if inst.containsString("453") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/433.wav")
+        }
+        if inst.containsString("454") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/454.wav")
+        }
+        if inst.containsString("455") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/455.wav")
+        }
+        if inst.containsString("456") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/456.wav")
+        }
+        if inst.containsString("457") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/457.wav")
+        }
+        if inst.containsString("458") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/458.wav")
+        }
+        if inst.containsString("459") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/459.wav")
+        }
+        if inst.containsString("46") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/46.wav")
+        }
+        if inst.containsString("461") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/461.wav")
+        }
+        if inst.containsString("462") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/462.wav")
+        }
+        if inst.containsString("463") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/463.wav")
+        }
+        if inst.containsString("464") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/464.wav")
+        }
+        if inst.containsString("465") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/465.wav")
+        }
+        if inst.containsString("466") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/466.wav")
+        }
+        if inst.containsString("467") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/467.wav")
+        }
+        if inst.containsString("468") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/468.wav")
+        }
+        if inst.containsString("469") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/469.wav")
+        }
+        if inst.containsString("47") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/47.wav")
+        }
+        if inst.containsString("471") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/471.wav")
+        }
+        if inst.containsString("472") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/472.wav")
+        }
+        if inst.containsString("473") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/473.wav")
+        }
+        if inst.containsString("474") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/474.wav")
+        }
+        if inst.containsString("475") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/475.wav")
+        }
+        if inst.containsString("476") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/476.wav")
+        }
+        if inst.containsString("477") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/477.wav")
+        }
+        if inst.containsString("478") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/478.wav")
+        }
+        if inst.containsString("479") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/479.wav")
+        }
+        if inst.containsString("48") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/48.wav")
+        }
+        if inst.containsString("481") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/481.wav")
+        }
+        if inst.containsString("482") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/482.wav")
+        }
+        if inst.containsString("483") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/483.wav")
+        }
+        if inst.containsString("484") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/484.wav")
+        }
+        if inst.containsString("485") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/485.wav")
+        }
+        if inst.containsString("486") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/486.wav")
+        }
+        if inst.containsString("487") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/487.wav")
+        }
+        if inst.containsString("488") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/488.wav")
+        }
+        if inst.containsString("489") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/489.wav")
+        }
+        if inst.containsString("490") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/490.wav")
+        }
+        if inst.containsString("49") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/49.wav")
+        }
+        if inst.containsString("491") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/491.wav")
+        }
+        if inst.containsString("492") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/492.wav")
+        }
+        if inst.containsString("493") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/493.wav")
+        }
+        if inst.containsString("494") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/494.wav")
+        }
+        if inst.containsString("495") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/495.wav")
+        }
+        if inst.containsString("496") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/496.wav")
+        }
+        if inst.containsString("497") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/497.wav")
+        }
+        if inst.containsString("498") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/498.wav")
+        }
+        if inst.containsString("499") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/499.wav")
+        }
+        if inst.containsString("50") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/50.wav")
+        }
+        if inst.containsString("500") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/500.wav")
+        }
+        if inst.containsString("501") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/501.wav")
+        }
+        if inst.containsString("502") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/502.wav")
+        }
+        if inst.containsString("503") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/503.wav")
+        }
+        if inst.containsString("504") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/504.wav")
+        }
+        if inst.containsString("505") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/505.wav")
+        }
+        if inst.containsString("506") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/506.wav")
+        }
+        if inst.containsString("507") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/507.wav")
+        }
+        if inst.containsString("508") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/508.wav")
+        }
+        if inst.containsString("509") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/509.wav")
+        }
+        if inst.containsString("510") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/510.wav")
+        }
+        if inst.containsString("511") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/511.wav")
+        }
+        if inst.containsString("512") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/512.wav")
+        }
+        if inst.containsString("513") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/513.wav")
+        }
+        if inst.containsString("514") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/514.wav")
+        }
+        if inst.containsString("515") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/515.wav")
+        }
+        if inst.containsString("516") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/516.wav")
+        }
+        if inst.containsString("517") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/517.wav")
+        }
+        if inst.containsString("518") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/518.wav")
+        }
+        if inst.containsString("519") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/519.wav")
+        }
+        if inst.containsString("52") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/52.wav")
+        }
+        if inst.containsString("521") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/521.wav")
+        }
+        if inst.containsString("522") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/522.wav")
+        }
+        if inst.containsString("523") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/523.wav")
+        }
+        if inst.containsString("524") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/524.wav")
+        }
+        if inst.containsString("525") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/525.wav")
+        }
+        if inst.containsString("526") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/526.wav")
+        }
+        if inst.containsString("527") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/527.wav")
+        }
+        if inst.containsString("528") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/528.wav")
+        }
+        if inst.containsString("529") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/529.wav")
+        }
+        if inst.containsString("530") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/530.wav")
+        }
+        if inst.containsString("53") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/53.wav")
+        }
+        if inst.containsString("531") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/531.wav")
+        }
+        if inst.containsString("532") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/532.wav")
+        }
+        if inst.containsString("533") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/533.wav")
+        }
+        if inst.containsString("534") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/534.wav")
+        }
+        if inst.containsString("535") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/535.wav")
+        }
+        if inst.containsString("536") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/536.wav")
+        }
+        if inst.containsString("537") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/537.wav")
+        }
+        if inst.containsString("538") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/538.wav")
+        }
+        if inst.containsString("539") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/539.wav")
+        }
+        if inst.containsString("54") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/54.wav")
+        }
+        if inst.containsString("540") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/540.wav")
+        }
+        if inst.containsString("541") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/541.wav")
+        }
+        if inst.containsString("542") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/542.wav")
+        }
+        if inst.containsString("543") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/543.wav")
+        }
+        if inst.containsString("544") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/544.wav")
+        }
+        if inst.containsString("545") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/545.wav")
+        }
+        if inst.containsString("546") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/546.wav")
+        }
+        if inst.containsString("547") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/547.wav")
+        }
+        if inst.containsString("548") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/548.wav")
+        }
+        if inst.containsString("549") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/549.wav")
+        }
+        if inst.containsString("550") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/550.wav")
+        }
+        if inst.containsString("55") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/55.wav")
+        }
+        if inst.containsString("551") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/551.wav")
+        }
+        if inst.containsString("552") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/552.wav")
+        }
+        if inst.containsString("553") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/533.wav")
+        }
+        if inst.containsString("554") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/554.wav")
+        }
+        if inst.containsString("555") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/555.wav")
+        }
+        if inst.containsString("556") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/556.wav")
+        }
+        if inst.containsString("557") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/557.wav")
+        }
+        if inst.containsString("558") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/558.wav")
+        }
+        if inst.containsString("559") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/559.wav")
+        }
+        if inst.containsString("56") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/56.wav")
+        }
+        if inst.containsString("560") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/66.wav")
+        }
+        if inst.containsString("561") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/561.wav")
+        }
+        if inst.containsString("562") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/562.wav")
+        }
+        if inst.containsString("563") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/563.wav")
+        }
+        if inst.containsString("564") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/564.wav")
+        }
+        if inst.containsString("565") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/565.wav")
+        }
+        if inst.containsString("566") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/566.wav")
+        }
+        if inst.containsString("567") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/567.wav")
+        }
+        if inst.containsString("568") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/568.wav")
+        }
+        if inst.containsString("569") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/569.wav")
+        }
+        if inst.containsString("57") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/57.wav")
+        }
+        if inst.containsString("571") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/571.wav")
+        }
+        if inst.containsString("572") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/572.wav")
+        }
+        if inst.containsString("573") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/573.wav")
+        }
+        if inst.containsString("574") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/574.wav")
+        }
+        if inst.containsString("575") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/575.wav")
+        }
+        if inst.containsString("576") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/576.wav")
+        }
+        if inst.containsString("577") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/577.wav")
+        }
+        if inst.containsString("578") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/578.wav")
+        }
+        if inst.containsString("579") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/579.wav")
+        }
+        if inst.containsString("58") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/58.wav")
+        }
+        if inst.containsString("581") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/581.wav")
+        }
+        if inst.containsString("582") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/582.wav")
+        }
+        if inst.containsString("583") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/583.wav")
+        }
+        if inst.containsString("584") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/584.wav")
+        }
+        if inst.containsString("585") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/585.wav")
+        }
+        if inst.containsString("586") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/586.wav")
+        }
+        if inst.containsString("587") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/587.wav")
+        }
+        if inst.containsString("588") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/588.wav")
+        }
+        if inst.containsString("589") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/589.wav")
+        }
+        if inst.containsString("590") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/590.wav")
+        }
+        if inst.containsString("59") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/59.wav")
+        }
+        if inst.containsString("591") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/591.wav")
+        }
+        if inst.containsString("592") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/592.wav")
+        }
+        if inst.containsString("593") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/593.wav")
+        }
+        if inst.containsString("594") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/594.wav")
+        }
+        if inst.containsString("595") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/595.wav")
+        }
+        if inst.containsString("596") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/596.wav")
+        }
+        if inst.containsString("597") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/597.wav")
+        }
+        if inst.containsString("598") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/598.wav")
+        }
+        if inst.containsString("599") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/599.wav")
+        }
+        if inst.containsString("60") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/60.wav")
+        }
+        if inst.containsString("600") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/600.wav")
+        }
+        if inst.containsString("601") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/601.wav")
+        }
+        if inst.containsString("602") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/602.wav")
+        }
+        if inst.containsString("603") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/603.wav")
+        }
+        if inst.containsString("604") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/604.wav")
+        }
+        if inst.containsString("605") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/606.wav")
+        }
+        if inst.containsString("606") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/606.wav")
+        }
+        if inst.containsString("607") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/607.wav")
+        }
+        if inst.containsString("608") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/608.wav")
+        }
+        if inst.containsString("609") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/609.wav")
+        }
+        if inst.containsString("610") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/610.wav")
+        }
+        if inst.containsString("611") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/611.wav")
+        }
+        if inst.containsString("612") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/612.wav")
+        }
+        if inst.containsString("613") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/613.wav")
+        }
+        if inst.containsString("614") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/614.wav")
+        }
+        if inst.containsString("615") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/616.wav")
+        }
+        if inst.containsString("616") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/616.wav")
+        }
+        if inst.containsString("617") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/617.wav")
+        }
+        if inst.containsString("618") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/618.wav")
+        }
+        if inst.containsString("619") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/619.wav")
+        }
+        if inst.containsString("62") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/62.wav")
+        }
+        if inst.containsString("621") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/621.wav")
+        }
+        if inst.containsString("622") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/622.wav")
+        }
+        if inst.containsString("623") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/623.wav")
+        }
+        if inst.containsString("624") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/624.wav")
+        }
+        if inst.containsString("625") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/626.wav")
+        }
+        if inst.containsString("626") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/626.wav")
+        }
+        if inst.containsString("627") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/627.wav")
+        }
+        if inst.containsString("628") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/628.wav")
+        }
+        if inst.containsString("629") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/629.wav")
+        }
+        if inst.containsString("630") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/630.wav")
+        }
+        if inst.containsString("63") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/63.wav")
+        }
+        if inst.containsString("631") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/631.wav")
+        }
+        if inst.containsString("632") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/632.wav")
+        }
+        if inst.containsString("633") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/633.wav")
+        }
+        if inst.containsString("634") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/634.wav")
+        }
+        if inst.containsString("635") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/636.wav")
+        }
+        if inst.containsString("636") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/636.wav")
+        }
+        if inst.containsString("637") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/637.wav")
+        }
+        if inst.containsString("638") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/638.wav")
+        }
+        if inst.containsString("639") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/639.wav")
+        }
+        if inst.containsString("64") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/64.wav")
+        }
+        if inst.containsString("640") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/640.wav")
+        }
+        if inst.containsString("641") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/641.wav")
+        }
+        if inst.containsString("642") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/642.wav")
+        }
+        if inst.containsString("643") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/643.wav")
+        }
+        if inst.containsString("644") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/644.wav")
+        }
+        if inst.containsString("645") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/646.wav")
+        }
+        if inst.containsString("646") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/646.wav")
+        }
+        if inst.containsString("647") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/647.wav")
+        }
+        if inst.containsString("648") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/648.wav")
+        }
+        if inst.containsString("649") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/649.wav")
+        }
+        if inst.containsString("650") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/660.wav")
+        }
+        if inst.containsString("65") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/66.wav")
+        }
+        if inst.containsString("651") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/661.wav")
+        }
+        if inst.containsString("652") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/662.wav")
+        }
+        if inst.containsString("653") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/633.wav")
+        }
+        if inst.containsString("654") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/664.wav")
+        }
+        if inst.containsString("655") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/666.wav")
+        }
+        if inst.containsString("656") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/666.wav")
+        }
+        if inst.containsString("657") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/667.wav")
+        }
+        if inst.containsString("658") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/668.wav")
+        }
+        if inst.containsString("659") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/669.wav")
+        }
+        if inst.containsString("66") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/66.wav")
+        }
+        if inst.containsString("660") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/66.wav")
+        }
+        if inst.containsString("661") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/661.wav")
+        }
+        if inst.containsString("662") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/662.wav")
+        }
+        if inst.containsString("663") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/663.wav")
+        }
+        if inst.containsString("664") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/664.wav")
+        }
+        if inst.containsString("665") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/666.wav")
+        }
+        if inst.containsString("666") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/666.wav")
+        }
+        if inst.containsString("667") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/667.wav")
+        }
+        if inst.containsString("668") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/668.wav")
+        }
+        if inst.containsString("669") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/669.wav")
+        }
+        if inst.containsString("67") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/67.wav")
+        }
+        if inst.containsString("671") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/671.wav")
+        }
+        if inst.containsString("672") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/672.wav")
+        }
+        if inst.containsString("673") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/673.wav")
+        }
+        if inst.containsString("674") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/674.wav")
+        }
+        if inst.containsString("675") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/676.wav")
+        }
+        if inst.containsString("676") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/676.wav")
+        }
+        if inst.containsString("677") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/677.wav")
+        }
+        if inst.containsString("678") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/678.wav")
+        }
+        if inst.containsString("679") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/679.wav")
+        }
+        if inst.containsString("68") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/68.wav")
+        }
+        if inst.containsString("681") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/681.wav")
+        }
+        if inst.containsString("682") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/682.wav")
+        }
+        if inst.containsString("683") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/683.wav")
+        }
+        if inst.containsString("684") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/684.wav")
+        }
+        if inst.containsString("685") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/686.wav")
+        }
+        if inst.containsString("686") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/686.wav")
+        }
+        if inst.containsString("687") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/687.wav")
+        }
+        if inst.containsString("688") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/688.wav")
+        }
+        if inst.containsString("689") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/689.wav")
+        }
+        if inst.containsString("690") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/690.wav")
+        }
+        if inst.containsString("69") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/69.wav")
+        }
+        if inst.containsString("691") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/691.wav")
+        }
+        if inst.containsString("692") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/692.wav")
+        }
+        if inst.containsString("693") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/693.wav")
+        }
+        if inst.containsString("694") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/694.wav")
+        }
+        if inst.containsString("695") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/696.wav")
+        }
+        if inst.containsString("696") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/696.wav")
+        }
+        if inst.containsString("697") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/697.wav")
+        }
+        if inst.containsString("698") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/698.wav")
+        }
+        if inst.containsString("699") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/699.wav")
+        }
+        if inst.containsString("70") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/70.wav")
+        }
+        if inst.containsString("700") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/700.wav")
+        }
+        if inst.containsString("701") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/701.wav")
+        }
+        if inst.containsString("702") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/702.wav")
+        }
+        if inst.containsString("703") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/703.wav")
+        }
+        if inst.containsString("704") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/704.wav")
+        }
+        if inst.containsString("705") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/707.wav")
+        }
+        if inst.containsString("706") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/707.wav")
+        }
+        if inst.containsString("707") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/707.wav")
+        }
+        if inst.containsString("708") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/708.wav")
+        }
+        if inst.containsString("709") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/709.wav")
+        }
+        if inst.containsString("710") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/710.wav")
+        }
+        if inst.containsString("711") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/711.wav")
+        }
+        if inst.containsString("712") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/712.wav")
+        }
+        if inst.containsString("713") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/713.wav")
+        }
+        if inst.containsString("714") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/714.wav")
+        }
+        if inst.containsString("715") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/717.wav")
+        }
+        if inst.containsString("716") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/717.wav")
+        }
+        if inst.containsString("717") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/717.wav")
+        }
+        if inst.containsString("718") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/718.wav")
+        }
+        if inst.containsString("719") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/719.wav")
+        }
+        if inst.containsString("72") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/72.wav")
+        }
+        if inst.containsString("721") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/721.wav")
+        }
+        if inst.containsString("722") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/722.wav")
+        }
+        if inst.containsString("723") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/723.wav")
+        }
+        if inst.containsString("724") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/724.wav")
+        }
+        if inst.containsString("725") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/727.wav")
+        }
+        if inst.containsString("726") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/727.wav")
+        }
+        if inst.containsString("727") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/727.wav")
+        }
+        if inst.containsString("728") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/728.wav")
+        }
+        if inst.containsString("729") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/729.wav")
+        }
+        if inst.containsString("730") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/730.wav")
+        }
+        if inst.containsString("73") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/73.wav")
+        }
+        if inst.containsString("731") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/731.wav")
+        }
+        if inst.containsString("732") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/732.wav")
+        }
+        if inst.containsString("733") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/733.wav")
+        }
+        if inst.containsString("734") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/734.wav")
+        }
+        if inst.containsString("735") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/737.wav")
+        }
+        if inst.containsString("736") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/737.wav")
+        }
+        if inst.containsString("737") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/737.wav")
+        }
+        if inst.containsString("738") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/738.wav")
+        }
+        if inst.containsString("739") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/739.wav")
+        }
+        if inst.containsString("74") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/74.wav")
+        }
+        if inst.containsString("740") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/740.wav")
+        }
+        if inst.containsString("741") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/741.wav")
+        }
+        if inst.containsString("742") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/742.wav")
+        }
+        if inst.containsString("743") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/743.wav")
+        }
+        if inst.containsString("744") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/744.wav")
+        }
+        if inst.containsString("745") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/747.wav")
+        }
+        if inst.containsString("746") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/747.wav")
+        }
+        if inst.containsString("747") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/747.wav")
+        }
+        if inst.containsString("748") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/748.wav")
+        }
+        if inst.containsString("749") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/749.wav")
+        }
+        if inst.containsString("750") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/770.wav")
+        }
+        if inst.containsString("75") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/77.wav")
+        }
+        if inst.containsString("751") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/771.wav")
+        }
+        if inst.containsString("752") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/772.wav")
+        }
+        if inst.containsString("753") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/733.wav")
+        }
+        if inst.containsString("754") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/774.wav")
+        }
+        if inst.containsString("755") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("756") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("757") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("758") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/778.wav")
+        }
+        if inst.containsString("759") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/779.wav")
+        }
+        if inst.containsString("76") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/77.wav")
+        }
+        if inst.containsString("760") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/77.wav")
+        }
+        if inst.containsString("761") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/771.wav")
+        }
+        if inst.containsString("762") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/772.wav")
+        }
+        if inst.containsString("763") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/773.wav")
+        }
+        if inst.containsString("764") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/774.wav")
+        }
+        if inst.containsString("765") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("766") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("767") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("768") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/778.wav")
+        }
+        if inst.containsString("769") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/779.wav")
+        }
+        if inst.containsString("77") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/77.wav")
+        }
+        if inst.containsString("770") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("771") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/771.wav")
+        }
+        if inst.containsString("772") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/772.wav")
+        }
+        if inst.containsString("773") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/773.wav")
+        }
+        if inst.containsString("774") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/774.wav")
+        }
+        if inst.containsString("775") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("776") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("777") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/777.wav")
+        }
+        if inst.containsString("778") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/778.wav")
+        }
+        if inst.containsString("779") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/779.wav")
+        }
+        if inst.containsString("78") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/78.wav")
+        }
+        if inst.containsString("780") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("781") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/781.wav")
+        }
+        if inst.containsString("782") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/782.wav")
+        }
+        if inst.containsString("783") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/783.wav")
+        }
+        if inst.containsString("784") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/784.wav")
+        }
+        if inst.containsString("785") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/787.wav")
+        }
+        if inst.containsString("786") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/787.wav")
+        }
+        if inst.containsString("787") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/787.wav")
+        }
+        if inst.containsString("788") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/788.wav")
+        }
+        if inst.containsString("789") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/789.wav")
+        }
+        if inst.containsString("790") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/790.wav")
+        }
+        if inst.containsString("79") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/79.wav")
+        }
+        if inst.containsString("791") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/791.wav")
+        }
+        if inst.containsString("792") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/792.wav")
+        }
+        if inst.containsString("793") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/793.wav")
+        }
+        if inst.containsString("794") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/794.wav")
+        }
+        if inst.containsString("795") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/797.wav")
+        }
+        if inst.containsString("796") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/797.wav")
+        }
+        if inst.containsString("797") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/797.wav")
+        }
+        if inst.containsString("798") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/798.wav")
+        }
+        if inst.containsString("799") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/799.wav")
+        }
+        if inst.containsString("80") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/80.wav")
+        }
+        if inst.containsString("800") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/800.wav")
+        }
+        if inst.containsString("801") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/801.wav")
+        }
+        if inst.containsString("802") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/802.wav")
+        }
+        if inst.containsString("803") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/803.wav")
+        }
+        if inst.containsString("804") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/804.wav")
+        }
+        if inst.containsString("805") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/808.wav")
+        }
+        if inst.containsString("806") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/808.wav")
+        }
+        if inst.containsString("807") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/808.wav")
+        }
+        if inst.containsString("808") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/808.wav")
+        }
+        if inst.containsString("809") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/809.wav")
+        }
+        if inst.containsString("810") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/810.wav")
+        }
+        if inst.containsString("811") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/811.wav")
+        }
+        if inst.containsString("812") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/812.wav")
+        }
+        if inst.containsString("813") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/813.wav")
+        }
+        if inst.containsString("814") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/814.wav")
+        }
+        if inst.containsString("815") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/818.wav")
+        }
+        if inst.containsString("816") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/818.wav")
+        }
+        if inst.containsString("817") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/818.wav")
+        }
+        if inst.containsString("818") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/818.wav")
+        }
+        if inst.containsString("819") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/819.wav")
+        }
+        if inst.containsString("82") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/82.wav")
+        }
+        if inst.containsString("821") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/821.wav")
+        }
+        if inst.containsString("822") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/822.wav")
+        }
+        if inst.containsString("823") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/823.wav")
+        }
+        if inst.containsString("824") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/824.wav")
+        }
+        if inst.containsString("825") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/828.wav")
+        }
+        if inst.containsString("826") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/828.wav")
+        }
+        if inst.containsString("827") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/828.wav")
+        }
+        if inst.containsString("828") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/828.wav")
+        }
+        if inst.containsString("829") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/829.wav")
+        }
+        if inst.containsString("830") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/830.wav")
+        }
+        if inst.containsString("83") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/83.wav")
+        }
+        if inst.containsString("831") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/831.wav")
+        }
+        if inst.containsString("832") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/832.wav")
+        }
+        if inst.containsString("833") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/833.wav")
+        }
+        if inst.containsString("834") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/834.wav")
+        }
+        if inst.containsString("835") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/838.wav")
+        }
+        if inst.containsString("836") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/838.wav")
+        }
+        if inst.containsString("837") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/838.wav")
+        }
+        if inst.containsString("838") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/838.wav")
+        }
+        if inst.containsString("839") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/839.wav")
+        }
+        if inst.containsString("84") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/84.wav")
+        }
+        if inst.containsString("840") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/840.wav")
+        }
+        if inst.containsString("841") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/841.wav")
+        }
+        if inst.containsString("842") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/842.wav")
+        }
+        if inst.containsString("843") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/843.wav")
+        }
+        if inst.containsString("844") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/844.wav")
+        }
+        if inst.containsString("845") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/848.wav")
+        }
+        if inst.containsString("846") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/848.wav")
+        }
+        if inst.containsString("847") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/848.wav")
+        }
+        if inst.containsString("848") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/848.wav")
+        }
+        if inst.containsString("849") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/849.wav")
+        }
+        if inst.containsString("850") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/880.wav")
+        }
+        if inst.containsString("85") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("851") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/881.wav")
+        }
+        if inst.containsString("852") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/882.wav")
+        }
+        if inst.containsString("853") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/833.wav")
+        }
+        if inst.containsString("854") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/884.wav")
+        }
+        if inst.containsString("855") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("856") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("857") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("858") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("859") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/889.wav")
+        }
+        if inst.containsString("86") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("860") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("861") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/881.wav")
+        }
+        if inst.containsString("862") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/882.wav")
+        }
+        if inst.containsString("863") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/883.wav")
+        }
+        if inst.containsString("864") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/884.wav")
+        }
+        if inst.containsString("865") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("866") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("867") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("868") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("869") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/889.wav")
+        }
+        if inst.containsString("87") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("870") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("871") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/881.wav")
+        }
+        if inst.containsString("872") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/882.wav")
+        }
+        if inst.containsString("873") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/883.wav")
+        }
+        if inst.containsString("874") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/884.wav")
+        }
+        if inst.containsString("875") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("876") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("877") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("878") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("879") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/889.wav")
+        }
+        if inst.containsString("88") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("880") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/88.wav")
+        }
+        if inst.containsString("881") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/881.wav")
+        }
+        if inst.containsString("882") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/882.wav")
+        }
+        if inst.containsString("883") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/883.wav")
+        }
+        if inst.containsString("884") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/884.wav")
+        }
+        if inst.containsString("885") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("886") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("887") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("888") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/888.wav")
+        }
+        if inst.containsString("889") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/889.wav")
+        }
+        if inst.containsString("890") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/890.wav")
+        }
+        if inst.containsString("89") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/89.wav")
+        }
+        if inst.containsString("891") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/891.wav")
+        }
+        if inst.containsString("892") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/892.wav")
+        }
+        if inst.containsString("893") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/893.wav")
+        }
+        if inst.containsString("894") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/894.wav")
+        }
+        if inst.containsString("895") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/898.wav")
+        }
+        if inst.containsString("896") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/898.wav")
+        }
+        if inst.containsString("897") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/898.wav")
+        }
+        if inst.containsString("898") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/898.wav")
+        }
+        if inst.containsString("899") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/899.wav")
+        }
+        if inst.containsString("90") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/90.wav")
+        }
+        if inst.containsString("900") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/900.wav")
+        }
+        if inst.containsString("901") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/901.wav")
+        }
+        if inst.containsString("902") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/902.wav")
+        }
+        if inst.containsString("903") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/903.wav")
+        }
+        if inst.containsString("904") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/904.wav")
+        }
+        if inst.containsString("905") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/909.wav")
+        }
+        if inst.containsString("906") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/909.wav")
+        }
+        if inst.containsString("907") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/909.wav")
+        }
+        if inst.containsString("908") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/909.wav")
+        }
+        if inst.containsString("909") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/909.wav")
+        }
+        if inst.containsString("910") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/910.wav")
+        }
+        if inst.containsString("911") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/911.wav")
+        }
+        if inst.containsString("912") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/912.wav")
+        }
+        if inst.containsString("913") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/913.wav")
+        }
+        if inst.containsString("914") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/914.wav")
+        }
+        if inst.containsString("915") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/919.wav")
+        }
+        if inst.containsString("916") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/919.wav")
+        }
+        if inst.containsString("917") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/919.wav")
+        }
+        if inst.containsString("918") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/919.wav")
+        }
+        if inst.containsString("919") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/919.wav")
+        }
+        if inst.containsString("92") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/92.wav")
+        }
+        if inst.containsString("921") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/921.wav")
+        }
+        if inst.containsString("922") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/922.wav")
+        }
+        if inst.containsString("923") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/923.wav")
+        }
+        if inst.containsString("924") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/924.wav")
+        }
+        if inst.containsString("925") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/929.wav")
+        }
+        if inst.containsString("926") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/929.wav")
+        }
+        if inst.containsString("927") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/929.wav")
+        }
+        if inst.containsString("928") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/929.wav")
+        }
+        if inst.containsString("929") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/929.wav")
+        }
+        if inst.containsString("930") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/930.wav")
+        }
+        if inst.containsString("93") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/93.wav")
+        }
+        if inst.containsString("931") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/931.wav")
+        }
+        if inst.containsString("932") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/932.wav")
+        }
+        if inst.containsString("933") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/933.wav")
+        }
+        if inst.containsString("934") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/934.wav")
+        }
+        if inst.containsString("935") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/939.wav")
+        }
+        if inst.containsString("936") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/939.wav")
+        }
+        if inst.containsString("937") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/939.wav")
+        }
+        if inst.containsString("938") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/939.wav")
+        }
+        if inst.containsString("939") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/939.wav")
+        }
+        if inst.containsString("94") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/94.wav")
+        }
+        if inst.containsString("940") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/940.wav")
+        }
+        if inst.containsString("941") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/941.wav")
+        }
+        if inst.containsString("942") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/942.wav")
+        }
+        if inst.containsString("943") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/943.wav")
+        }
+        if inst.containsString("944") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/944.wav")
+        }
+        if inst.containsString("945") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/949.wav")
+        }
+        if inst.containsString("946") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/949.wav")
+        }
+        if inst.containsString("947") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/949.wav")
+        }
+        if inst.containsString("948") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/949.wav")
+        }
+        if inst.containsString("949") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/949.wav")
+        }
+        if inst.containsString("950") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/990.wav")
+        }
+        if inst.containsString("95") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("951") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/991.wav")
+        }
+        if inst.containsString("952") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/992.wav")
+        }
+        if inst.containsString("953") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/933.wav")
+        }
+        if inst.containsString("954") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/994.wav")
+        }
+        if inst.containsString("955") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("956") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("957") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("958") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("959") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("96") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("960") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("961") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/991.wav")
+        }
+        if inst.containsString("962") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/992.wav")
+        }
+        if inst.containsString("963") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/993.wav")
+        }
+        if inst.containsString("964") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/994.wav")
+        }
+        if inst.containsString("965") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("966") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("967") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("968") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("969") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("97") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("970") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("971") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/991.wav")
+        }
+        if inst.containsString("972") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/992.wav")
+        }
+        if inst.containsString("973") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/993.wav")
+        }
+        if inst.containsString("974") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/994.wav")
+        }
+        if inst.containsString("975") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("976") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("977") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("978") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("979") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("98") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("980") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("981") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/991.wav")
+        }
+        if inst.containsString("982") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/992.wav")
+        }
+        if inst.containsString("983") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/993.wav")
+        }
+        if inst.containsString("984") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/994.wav")
+        }
+        if inst.containsString("985") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("986") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("987") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("988") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("989") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("990") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/990.wav")
+        }
+        if inst.containsString("99") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/99.wav")
+        }
+        if inst.containsString("991") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/991.wav")
+        }
+        if inst.containsString("992") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/992.wav")
+        }
+        if inst.containsString("993") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/993.wav")
+        }
+        if inst.containsString("994") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/994.wav")
+        }
+        if inst.containsString("995") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("996") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("997") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("998") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        if inst.containsString("999") {
+            self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
+        }
+        
         
         StartPlaying()
     }
@@ -1998,7 +4413,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         print("AddAudioToQueue : \(url)")
         
         if let mp3Url = NSURL(string: url) {
-//            mp3Urls.append(mp3Url)
+            //            mp3Urls.append(mp3Url)
             if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : mp3Url]) {
                 AudioItems?.append(AudioIdem)
             }
@@ -2006,6 +4421,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     }
     
     func StartPlaying() {
+        
         //AudioItems to play multiple audio in queue
         guard let AudioItems1 = AudioItems where AudioItems1.count > 0 else {
             return
@@ -2014,24 +4430,24 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         player.mode = .NoRepeat
         player.playItems(AudioItems1, startAtIndex: 0)
         
-        //AVPlayer to play single audio 
-//        guard let mp3Url = AudioItems1.first else {
-//            return
-//        }
-//        print("playing soung for url : \(mp3Url)")
-//        do {
-//            
-//            let playerItem = AVPlayerItem(URL: mp3Url.mediumQualityURL.URL)
-//            
-//            self.audioPlayer = try AVPlayer(playerItem:playerItem)
-//            audioPlayer?.volume = 1.0
-//            audioPlayer?.play()
-//        } catch let error as NSError {
-//            self.audioPlayer = nil
-//            print(error.localizedDescription)
-//        } catch {
-//            print("AVAudioPlayer init failed")
-//        }
+        //AVPlayer to play single audio
+        //        guard let mp3Url = AudioItems1.first else {
+        //            return
+        //        }
+        //        print("playing soung for url : \(mp3Url)")
+        //        do {
+        //
+        //            let playerItem = AVPlayerItem(URL: mp3Url.mediumQualityURL.URL)
+        //
+        //            self.audioPlayer = try AVPlayer(playerItem:playerItem)
+        //            audioPlayer?.volume = 1.0
+        //            audioPlayer?.play()
+        //        } catch let error as NSError {
+        //            self.audioPlayer = nil
+        //            print(error.localizedDescription)
+        //        } catch {
+        //            print("AVAudioPlayer init failed")
+        //        }
     }
     
     
@@ -2052,10 +4468,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         {
             //(from: txtFrom.text!, to: txtTo.text!)
             let from = (txtFrom.text! == "Current Location") ? "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)" : txtFrom.text!
-            
-            mapManager.directionsUsingGoogle(from: from, to: txtTo.text!)
-            {
-                (route,encodedPolyLine ,directionInformation, boundingRegion, error) -> () in
+            mapManager.directionsUsingGoogle(from: from, to: txtTo.text!) { (route,encodedPolyLine ,directionInformation, boundingRegion, error) -> () in
                 
                 if(error != nil)
                 {
@@ -2098,7 +4511,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                         markerDest.snippet = directionInformation?.objectForKey("distance") as! NSString as String
                         markerDest.position = coordDesitination
                         
-                        let camera = GMSCameraPosition.cameraWithLatitude(coordOrigin.latitude,longitude: coordOrigin.longitude, zoom: 15)
+                        let camera = GMSCameraPosition.cameraWithLatitude(coordOrigin.latitude,longitude: coordOrigin.longitude, zoom: 10)
                         self.googleMapsView.animateToCameraPosition(camera)
                         
                         if let map = self.googleMapsView
@@ -2148,7 +4561,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
     }
     
-     func isValidPincode() -> Bool {
+    func isValidPincode() -> Bool {
         if txtFrom.text?.characters.count == 0
         {
             self .showAlert("Please enter your source address")
@@ -2173,7 +4586,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             viewController.directionInfo = self.tableData
         }
         
-     
+        
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

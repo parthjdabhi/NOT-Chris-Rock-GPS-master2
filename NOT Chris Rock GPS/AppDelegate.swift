@@ -6,7 +6,6 @@
 //  Copyright © 2016 Harloch. All rights reserved.
 //
 
-
 import UIKit
 import CoreData
 import OAuthSwift

@@ -97,11 +97,15 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             
             print(user)
             
+            //print("userDetail 1 : ",userDetail)
+            userDetail = user as! Dictionary<String,AnyObject>
+            //print("userDetail 2 : ",userDetail)
+            
             txtName?.text = user["name"] as? String ?? ""
             imgProfile?.sd_setImageWithURL(NSURL(string: user["profile_pic"] as? String ?? ""), placeholderImage: UIImage(named: "stamp-red"))
             txtEmail?.text = user["email"] as? String ?? ""
             swGender?.setSelectedIndex((((user["gender"] as? String ?? "") == genderType[0]) ? 0 : 1), animated: true)
-            //txtBirthDate?.text = user["birthday"] as? String ?? ""
+            txtBirthDate?.setDate((user["birthday"] as? String ?? "").asDateUTC ?? NSDate.changeYearsBy(-13), animated: true)
             txtFoodType?.text = user["favfood"] as? String ?? ""
             
             selectedFood = (user["favfood"] as? String ?? "").componentsSeparatedByString(", ")
@@ -159,7 +163,7 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
                               //"email" : self.txtEmail.text ?? "",
                               //"password" : self.txtPassword.text ?? "",
                               "gender" : genderType[swGender?.selectedIndex ?? 0],
-                              "birthday" : NSDate().strDateInUTC,
+                              "birthday" : txtBirthDate.date?.strDateInUTC ?? NSDate.changeYearsBy(-13).strDateInUTC,
                               "favfood" : txtFoodType.text ?? ""]
             //photo
             
