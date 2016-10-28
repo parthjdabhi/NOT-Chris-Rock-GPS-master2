@@ -1,0 +1,6 @@
+framework module SOMotionDetector {
+  umbrella header "SOMotionDetector-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -94,6 +94,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SOMotionDetector.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,12 +122,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1520003FEBEC114D6C84F832AFEDB994</key>
+		<key>0FE9BB922E68E77F4DCD7D917AD343C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>16369E59EE412C97FBC8D9C14F535BFA</key>
+		<key>12A818846B490048C3A67DCCB6AC6948</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>14688E0A54701AE1480BB13E320D40F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1520003FEBEC114D6C84F832AFEDB994</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,17 +152,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2F5E062A17243DA5A80CBF870C497F51</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>30D7FCF8072F5D59AE1C98D94F9A6EC9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3381D8A601070487CB7550C41BEF43F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,11 +187,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7863FF278BCCED797329C713E87A1DED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
@@ -197,12 +197,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8D86F56C61FCC37FC4E583FEE9D91279</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8EFE724FDDAA2478F44F082C05BA272C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E2630854674BBBE8A006FF225A1BC13</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD79D8B71698ED6A6ACEC94279C6B7A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -218,11 +233,6 @@
 			<true/>
 		</dict>
 		<key>D468777BEC2DE5127A16239373FFD11F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E988B982C9D50B2AF3C23FBF9E36EBF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

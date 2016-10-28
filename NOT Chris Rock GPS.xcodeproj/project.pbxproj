@@ -11,6 +11,10 @@
 		5E10DBF41DAE63F100B6BD4C /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */; };
 		5E10DBF51DAE63F100B6BD4C /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */; };
 		5E1174CD1DAD285F0047A304 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */; };
+		5E16D2EF1DC3701B006E596B /* foodstmt4-pt3_for.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E16D2EB1DC3701B006E596B /* foodstmt4-pt3_for.wav */; };
+		5E16D2F01DC3701B006E596B /* foodstmt4-pt1_ifound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E16D2EC1DC3701B006E596B /* foodstmt4-pt1_ifound.wav */; };
+		5E16D2F11DC3701B006E596B /* foodstmt4-pt5_checkthemout.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E16D2ED1DC3701B006E596B /* foodstmt4-pt5_checkthemout.wav */; };
+		5E16D2F21DC3701B006E596B /* foodstmt4-pt2_places.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E16D2EE1DC3701B006E596B /* foodstmt4-pt2_places.wav */; };
 		5E3426E51D9FC44600DFF2F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E31D9FC44600DFF2F9 /* Main.storyboard */; };
 		5E3426E71D9FD55300DFF2F9 /* VoiceHelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */; };
 		5E3426EA1DA0134300DFF2F9 /* NY2Brooklyn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5E3426E81DA0134300DFF2F9 /* NY2Brooklyn.gpx */; };
@@ -18,6 +22,7 @@
 		5E6745B81DB12287002681B2 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6745B71DB12287002681B2 /* Review.swift */; };
 		5E6745BB1DB14374002681B2 /* ReviewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6745B91DB14374002681B2 /* ReviewTableCell.xib */; };
 		5E6745BC1DB14374002681B2 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6745BA1DB14374002681B2 /* ReviewTableCell.swift */; };
+		5E6DF1F61DC2189100DD54FC /* FiveTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6DF1F51DC2189100DD54FC /* FiveTapGestureRecognizer.swift */; };
 		5E8D28F41DA289FC00EFAC9C /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28F31DA289FC00EFAC9C /* FiltersViewController.swift */; };
 		5E8D28F81DA28A5400EFAC9C /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28F61DA28A5400EFAC9C /* Business.swift */; };
 		5E8D28F91DA28A5400EFAC9C /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8D28F71DA28A5400EFAC9C /* Filters.swift */; };
@@ -109,6 +114,10 @@
 		5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
 		5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		5E16D2EB1DC3701B006E596B /* foodstmt4-pt3_for.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "foodstmt4-pt3_for.wav"; sourceTree = "<group>"; };
+		5E16D2EC1DC3701B006E596B /* foodstmt4-pt1_ifound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "foodstmt4-pt1_ifound.wav"; sourceTree = "<group>"; };
+		5E16D2ED1DC3701B006E596B /* foodstmt4-pt5_checkthemout.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "foodstmt4-pt5_checkthemout.wav"; sourceTree = "<group>"; };
+		5E16D2EE1DC3701B006E596B /* foodstmt4-pt2_places.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "foodstmt4-pt2_places.wav"; sourceTree = "<group>"; };
 		5E3426E41D9FC44600DFF2F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelpVC.swift; sourceTree = "<group>"; };
 		5E3426E81DA0134300DFF2F9 /* NY2Brooklyn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NY2Brooklyn.gpx; sourceTree = "<group>"; };
@@ -116,6 +125,7 @@
 		5E6745B71DB12287002681B2 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		5E6745B91DB14374002681B2 /* ReviewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTableCell.xib; sourceTree = "<group>"; };
 		5E6745BA1DB14374002681B2 /* ReviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
+		5E6DF1F51DC2189100DD54FC /* FiveTapGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveTapGestureRecognizer.swift; sourceTree = "<group>"; };
 		5E8D28F31DA289FC00EFAC9C /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		5E8D28F61DA28A5400EFAC9C /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		5E8D28F71DA28A5400EFAC9C /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -241,6 +251,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5E16D2EA1DC3700B006E596B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5E16D2EB1DC3701B006E596B /* foodstmt4-pt3_for.wav */,
+				5E16D2EC1DC3701B006E596B /* foodstmt4-pt1_ifound.wav */,
+				5E16D2ED1DC3701B006E596B /* foodstmt4-pt5_checkthemout.wav */,
+				5E16D2EE1DC3701B006E596B /* foodstmt4-pt2_places.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		5E8D28F51DA28A0500EFAC9C /* Food */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +349,7 @@
 				DA0320FC1D93099600BE0698 /* AudioRecorderViewController.xib */,
 				5E3426E61D9FD55300DFF2F9 /* VoiceHelpVC.swift */,
 				DAFB880C1D9F0DAD004DE008 /* UIViewControllerExt.swift */,
+				5E6DF1F51DC2189100DD54FC /* FiveTapGestureRecognizer.swift */,
 			);
 			name = "Audio & Recording";
 			sourceTree = "<group>";
@@ -371,6 +393,7 @@
 		DA6AE7C01D88C782001E5B65 /* NOT Chris Rock GPS */ = {
 			isa = PBXGroup;
 			children = (
+				5E16D2EA1DC3700B006E596B /* Sounds */,
 				5E8D29091DA2D9F300EFAC9C /* Mock Location Files */,
 				DA6AE7FD1D88C8D6001E5B65 /* Storyboard & Plist */,
 				DA6AE7C11D88C782001E5B65 /* AppDelegate.swift */,
@@ -621,6 +644,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E16D2EF1DC3701B006E596B /* foodstmt4-pt3_for.wav in Resources */,
 				5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */,
 				5EE5B05A1DA68F00001A19EC /* SeattleW2Florida.gpx in Resources */,
 				5E3426EB1DA0134300DFF2F9 /* NY2Brooklyn_route.gpx in Resources */,
@@ -630,10 +654,13 @@
 				DA334BEE1D8A7CE0002E4E1F /* StopButton@2x.png in Resources */,
 				5E10DBF51DAE63F100B6BD4C /* BusinessTableViewCell.xib in Resources */,
 				5EE5B0591DA68F00001A19EC /* NYC2SDiago.gpx in Resources */,
+				5E16D2F11DC3701B006E596B /* foodstmt4-pt5_checkthemout.wav in Resources */,
 				DA6AE7CF1D88C782001E5B65 /* LaunchScreen.storyboard in Resources */,
 				5E3426EA1DA0134300DFF2F9 /* NY2Brooklyn.gpx in Resources */,
 				DA6AE7CC1D88C782001E5B65 /* Assets.xcassets in Resources */,
+				5E16D2F21DC3701B006E596B /* foodstmt4-pt2_places.wav in Resources */,
 				5EA9ECDA1DA556E2007B6688 /* route@2x.png in Resources */,
+				5E16D2F01DC3701B006E596B /* foodstmt4-pt1_ifound.wav in Resources */,
 				DAFB87B41D9DF625004DE008 /* MarkerInfoView.xib in Resources */,
 				5E6745BB1DB14374002681B2 /* ReviewTableCell.xib in Resources */,
 				5EB0BCD21DA407CA005102CB /* sfo2ggb.gpx in Resources */,
@@ -856,6 +883,7 @@
 				DAFB87B31D9DF625004DE008 /* MarkerInfoView.swift in Sources */,
 				DAFB88171D9F0F4A004DE008 /* DirectionDetailTableViewCell.swift in Sources */,
 				DA6AE8061D88E1AA001E5B65 /* YelpAPIClient.swift in Sources */,
+				5E6DF1F61DC2189100DD54FC /* FiveTapGestureRecognizer.swift in Sources */,
 				5EA32C781DAF7C310090482B /* PulleyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,7 +32,7 @@ class MyVCdata {
     }
 }
 
-extension UIViewController
+extension UIViewController: UIGestureRecognizerDelegate
 {
     static var extraData = [UIViewController: MyVCdata]()
     
@@ -46,20 +46,33 @@ extension UIViewController
     }
     
     func startFiveTapGesture() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.checkFiveTapGesture))
+        let tap: FiveTapGestureRecognizer = FiveTapGestureRecognizer(target: self, action: #selector(UIViewController.checkThisTap(_:)))
         tap.cancelsTouchesInView = false
+        tap.delegate = self
         view.addGestureRecognizer(tap)
     }
     
     func checkFiveTapGesture() {
-        //print("checkFiveTapGesture")
-        checkThisTap()
+        // print("checkFiveTapGesture")
+        // checkThisTap()
+    }
+    
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        //print("classForCoder class:\(touch.view?.classForCoder)")
+        //print("class is UIButton:\(touch.view! is UIButton)")
+        //print("classForKeyedArchiver class:\(touch.view?.classForKeyedArchiver)")
+        
+        return (touch.view! is UIButton || touch.view! is UITextField || touch.view! is UITextView) ? false : true
+        
+        //return true
     }
     
     // Resent the timer because there was user interaction.
-    func checkThisTap()
+    func checkThisTap(sender:UITapGestureRecognizer)
     {
-        print("isEnableFivetapGesture : ",isEnableFivetapGesture)
+        //print("tap class:\(sender.view?.classForCoder)")
+        
+        //print("isEnableFivetapGesture : ",isEnableFivetapGesture)
         tapStack.append(NSDate())
         //print(" Count : ", tapStack.count, "First : ", tapStack.first, "Last : ", tapStack.last)
         
@@ -101,8 +114,8 @@ extension UIViewController
         startRecording()
         */
         
-        print("Class name : ",self,"  - ",NSStringFromClass(self.dynamicType))
-        print("is recording - isRecordingVoice",isRecordingVoice)
+        //print("Class name : ",self,"  - ",NSStringFromClass(self.dynamicType))
+        //print("is recording - isRecordingVoice",isRecordingVoice)
         
         if self.isKindOfClass(AudioRecorderViewController) {
             self.dismissViewControllerAnimated(true, completion: {

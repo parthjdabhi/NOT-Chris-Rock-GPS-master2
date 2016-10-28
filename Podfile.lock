@@ -44,6 +44,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SOMotionDetector (1.0.2)
   - SVProgressHUD (2.0.3)
   - SwiftyJSON (2.3.2)
   - SWRevealViewController (2.3.0)
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - Mixpanel
   - OAuthSwift (~> 0.5.0)
   - SDWebImage (~> 3.8)
+  - SOMotionDetector
   - SVProgressHUD (~> 2.0)
   - SwiftyJSON (~> 2.3)
   - SWRevealViewController (~> 2.3)
@@ -90,11 +92,12 @@ SPEC CHECKSUMS:
   Mixpanel: 45867daeaa3c60f88072a3cb1b44e0b6c5cec009
   OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SOMotionDetector: 50131192a9b9ea76747d0230a7b6f82e5124d8d4
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
 
-PODFILE CHECKSUM: 4896546c2fdb870909b1c72e0154bcf21599a9ea
+PODFILE CHECKSUM: 4b346745e731c59bca8fc3907dee86564e510724
 
 COCOAPODS: 1.0.1

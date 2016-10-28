@@ -178,14 +178,15 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainViewController.searchInTime), userInfo: nil, repeats: false)
     }
     
-    func searchInTime(){
+    func searchInTime() {
         doSearch()
     }
     
     // MARK: Search.
     private func doSearch(showLoader:Bool = true)
     {
-        doCheckFoodSoundForSearchTerm()
+        //doCheckFoodSoundForSearchTerm()
+        //StartPlaying()
         
         // Perform request to Yelp API to get the list of businessees
         guard let client = YelpClient.sharedInstance else { return }
@@ -207,8 +208,43 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
             }
             
             SVProgressHUD.dismiss()
+            self.doPlaySoundForSearchResult()
         })
         
+    }
+    
+    func doPlaySoundForSearchResult()
+    {
+        // -- Playing Sequence --
+        //foodstmt4-pt1_ifound.wav
+        //Number
+        //foodstmt4-pt2_places.wav
+        //foodstmt4-pt3_for.wav
+        //Restaurent name
+        //foodstmt4-pt5_checkthemout.wav
+        
+        let file1 = NSBundle.mainBundle().URLForResource("foodstmt4-pt1_ifound", withExtension: "wav")!
+        let file2 = NSBundle.mainBundle().URLForResource("foodstmt4-pt2_places", withExtension: "wav")!
+        let file3 = NSBundle.mainBundle().URLForResource("foodstmt4-pt3_for", withExtension: "wav")!
+        let file4 = NSBundle.mainBundle().URLForResource("foodstmt4-pt5_checkthemout", withExtension: "wav")!
+        
+        
+        self.AddAudioToQueue(ofUrl: file1.absoluteString)
+        //Number
+        doPlaySoundForBusnessCount()
+        self.AddAudioToQueue(ofUrl: file2.absoluteString)
+        self.AddAudioToQueue(ofUrl: file3.absoluteString)
+        //Restaurent name
+        doCheckFoodSoundForSearchTerm()
+        self.AddAudioToQueue(ofUrl: file4.absoluteString)
+        
+        StartPlaying()
+    }
+    
+    func doPlaySoundForBusnessCount()
+    {
+        // Number Statements
+        self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/\((self.businessList?.count ?? 0)!).wav")
     }
     
     func doCheckFoodSoundForSearchTerm()
@@ -581,7 +617,6 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         if inst.containsIgnoringCase("Papa Johns") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)Restaurants/papa-johns.wav")
         }
-        StartPlaying()
     }
     
     func AddAudioToQueue(ofUrl url:String)

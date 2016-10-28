@@ -17,6 +17,8 @@ import SVProgressHUD
 import AVFoundation
 import KDEAudioPlayer
 
+import SOMotionDetector
+
 class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, LocateOnTheMap {
     
     var searchResultController:SearchResultsController!
@@ -37,9 +39,64 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     @IBOutlet weak var googleMapsView : GMSMapView!
     @IBOutlet weak var txtTo: UITextField!
     @IBOutlet weak var txtFrom: UITextField!
+    @IBOutlet weak var lblSpeed: UILabel!
     @IBOutlet weak var btnGetDirection: UIButton!
     @IBOutlet weak var btnStartRoute: UIButton!
     @IBOutlet weak var btnRefresh: UIButton!
+    
+    
+    @IBOutlet weak var Const_P_headerviewHeight: NSLayoutConstraint!
+    //@IBOutlet weak var Const_P_lblToLeading: NSLayoutConstraint!
+    //@IBOutlet weak var Const_P_btnCLocTrailing: NSLayoutConstraint!
+    
+    @IBOutlet weak var Const_P_SRouteLead: NSLayoutConstraint!
+    @IBOutlet weak var Const_P_SRouteBottom: NSLayoutConstraint!
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+        coordinator.animateAlongsideTransition({ (UIViewControllerTransitionCoordinatorContext) -> Void in
+            
+            let orient = UIApplication.sharedApplication().statusBarOrientation
+            
+            switch orient {
+            case .Portrait:
+                print("Portrait")
+                self.ApplyportraitConstraint()
+                break
+            default:
+                print("LandScape")
+                self.applyLandScapeConstraint()
+                break
+            }
+            }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+                print("rotation completed")
+        })
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+    }
+    
+    func ApplyportraitConstraint(){
+        
+        Const_P_headerviewHeight.constant = 64
+        
+        Const_P_SRouteLead.constant = 8
+        Const_P_SRouteBottom.constant = 8
+        
+        //self.view.addConstraint(self.portrateConstraint3)
+        //self.view.removeConstraint(self.landScapeConstraint)
+    }
+    
+    func applyLandScapeConstraint(){
+        
+        Const_P_headerviewHeight.constant = 44
+        
+        Const_P_SRouteLead.constant = 0
+        Const_P_SRouteBottom.constant = (-1 * (self.btnStartRoute.frame.height))
+        
+        //self.view.removeConstraint(self.portrateConstraint3)
+        //self.view.addConstraint(self.landScapeConstraint)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +113,23 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         txtFrom.text = "Current Location"
         //txtFrom.text = "Santo Domingo"
         
+        
+        let btnCLocation = UIButton(frame: CGRectMake(0, 0, 22, 22))
+        btnCLocation.setBackgroundImage(UIImage(named: "ic_qu_direction_mylocation"), forState: .Normal)
+//        btnCLocation.per
+        btnCLocation.addTarget(self, action: #selector(GetDirectionVC.actinoSetFromCurrentLocation(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let paddingRight = UIView(frame: CGRectMake(0, 0, 24, 22))
+        paddingRight.backgroundColor = UIColor.clearColor()
+        paddingRight.addSubview(btnCLocation)
+        btnCLocation.center = paddingRight.center
+        txtFrom.rightView = paddingRight
+        txtFrom.rightViewMode = UITextFieldViewMode .Always
+        
+        //txtFrom.setRightMargin()
+        
         self.startFiveTapGesture()
+        
         
         if bizForRoute != nil {
             self.btnMenu?.setTitle("Back", forState: .Normal)
@@ -272,6 +345,14 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         self.googleMapsView.animateToCameraPosition(camera)
         
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
+        
+            print("Speed : ",CLocation?.speed)
+            
+            if let speed = CLocation?.speed {
+             self.lblSpeed.text = "Speed:\(speed) KMPH = \(speed * 3.6)"
+            }
+            print("\n")
+            
             CLocation = CLLocation(latitude: latitude, longitude: longitude)
             print("Updating Location To Detect Turns : ",LocationManager.sharedInstance.latitude," - ",LocationManager.sharedInstance.longitude)
             

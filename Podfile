@@ -51,6 +51,8 @@ target 'NOT Chris Rock GPS' do
     pod 'Alamofire', '~> 3.4'
     pod 'AlamofireSwiftyJSON', '~> 0.1'
     pod 'KDEAudioPlayer'
+    
     # pod 'PXGoogleDirections'
+    pod 'SOMotionDetector'
     
 end
