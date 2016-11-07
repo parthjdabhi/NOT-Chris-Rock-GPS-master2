@@ -485,128 +485,167 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         // General Statements
         if inst.containsIgnoringCase("Airport") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/airports.wav")
-            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Amusement Park") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/amuzement-parks.wav")
-            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("ATM") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/ATM.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("ATM", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("ATMs") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/ATMs.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Bank") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/banks.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Barbershop") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/barbershops.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("barbershops", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Bars") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/bars.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("bars", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Beauty") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/beauty-shops.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("beauty-shops", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Beer") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/beer.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("beer", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Bus Stops") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/bus-stops.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("bus-stops", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Car Rental") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/car-rental.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("car-rental", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Clothing Store") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/clothing-stores.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("clothing-stores", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Coffee Shops") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/coffeeshops.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("coffeeshops", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Convenience Stores") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/conv-stores.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("conv-stores", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Department Stores") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/department-stores.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("department-stores", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Desserts") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/desserts.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("desserts", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Drugstores") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/drugstores.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("drugstores", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Dry Cleaners") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/dry-cleaners.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("dry-cleaners", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Fast Food") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/fast-food.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("fast-food", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Fitness Centers") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/fitness-centers.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("fitness-centers", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Gas Stations") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/gas-stations.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("gas-stations", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Grocery Stores") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/groceries-stores.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("groceries-stores", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Home & Office Stores") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/home-and-office-stores.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("home-and-office-stores", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Home Services") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/home-services.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("home-services", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Hospitals") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/hospitals.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("hospitals", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Hotels") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/hotels.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("hotels", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Landmarks") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/landmarks.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("landmarks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Laundry") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/laundry.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("laundry", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Movies") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/movies.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Museums") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/museums.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Nightclubs") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/nightclubs.wav")
+//            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Parking") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/parking.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Parks") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/parks.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Pet Stores") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/pet-stores.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Pharmacies") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/pharmacies.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Post Offices") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/post-offices.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Restaurants") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/restaurants.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Sporting Goods") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/sporting-goods.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Tea & Juice") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/tea-and-juice.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Transit Stations") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/transit-stations.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Wine") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/wine.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("banks", withExtension: "wav")?.absoluteString)
         }
         
         // Directional Statements
@@ -4536,6 +4575,24 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
         guard let urlString = url else {
             return
+        }
+        
+        //var isFoundFromLocal = false
+        if (urlString.containsIgnoringCase("http://")
+            || urlString.containsIgnoringCase("https://"))
+            && urlString.containsIgnoringCase(".wav")
+        {
+            print(urlString.substringWithLastInstanceOf("/"))
+            if let soundName = urlString.substringWithLastInstanceOf("/")
+                where NSBundle.mainBundle().URLForResource(soundName, withExtension: "wav") != nil
+            {
+                print(" Local Resource : - \(NSBundle.mainBundle().URLForResource(soundName, withExtension: "wav"))")
+                if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : NSURL(string: NSBundle.mainBundle().URLForResource(soundName, withExtension: "wav")!.absoluteString)!]) {
+                    AudioItems?.append(AudioIdem)
+                }
+                return
+            }
+            
         }
         
         if let mp3Url = NSURL(string: urlString) {

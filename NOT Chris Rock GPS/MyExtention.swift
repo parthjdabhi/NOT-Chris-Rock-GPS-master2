@@ -318,6 +318,18 @@ extension String {
     }
 }
 
+extension String
+{
+    func substringWithLastInstanceOf(character: Character) -> String? {
+        if let reverseIndex = characters.reverse().indexOf("/") {
+            return self[reverseIndex.base ..< self.endIndex.advancedBy(-4)]
+        }
+        return nil
+    }
+}
+
+
+
 extension String {
     
     var convertToDictionary: [String:AnyObject]? {
