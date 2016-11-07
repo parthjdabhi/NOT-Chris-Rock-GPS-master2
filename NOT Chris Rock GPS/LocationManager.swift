@@ -14,6 +14,8 @@ import MapKit
 typealias LMReverseGeocodeCompletionHandler = ((reverseGecodeInfo:NSDictionary?,placemark:CLPlacemark?, error:String?)->Void)?
 typealias LMGeocodeCompletionHandler = ((gecodeInfo:NSDictionary?,placemark:CLPlacemark?, error:String?)->Void)?
 typealias LMLocationCompletionHandler = ((latitude:Double, longitude:Double, status:String, verboseMessage:String, error:String?)->())?
+typealias LMDidUpdateHeadingHandler = ((newHeading:CLHeading)->Void?)?
+
 
 // Todo: Keep completion handler differerent for all services, otherwise only one will work
 enum GeoCodingType{
@@ -30,6 +32,9 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     
     private var reverseGeocodingCompletionHandler:LMReverseGeocodeCompletionHandler
     private var geocodingCompletionHandler:LMGeocodeCompletionHandler
+    
+    //Heading
+    var DidUpdateHeadingHandler:LMDidUpdateHeadingHandler
     
     private var locationStatus : NSString = "Calibrating"// to pass in handler
     private var locationManager: CLLocationManager!
@@ -180,6 +185,9 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             locationManager.startMonitoringSignificantLocationChanges()
         }
         
+        //locationManager.headingAvailable
+        locationManager.startUpdatingHeading()
+        
         isRunning = true
         
     }
@@ -196,6 +204,17 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         }
         
         isRunning = false
+    }
+    
+    internal func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        if ((delegate != nil) && (delegate?.respondsToSelector(#selector(LocationManagerDelegate.locationManagerDidUpdateHeading(_:))))!){
+            delegate?.locationManagerDidUpdateHeading?(newHeading)
+        }
+        
+        if(DidUpdateHeadingHandler != nil)
+        {
+            DidUpdateHeadingHandler?(newHeading: newHeading)
+        }
     }
     
     
@@ -527,6 +546,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     optional func locationManagerStatus(status:NSString)
     optional func locationManagerReceivedError(error:NSString)
     optional func locationManagerVerboseMessage(message:NSString)
+    optional func locationManagerDidUpdateHeading(newHeading:CLHeading)
 }
 
 private class AddressParser: NSObject{

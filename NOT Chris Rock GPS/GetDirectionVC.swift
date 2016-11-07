@@ -19,7 +19,10 @@ import KDEAudioPlayer
 
 import SOMotionDetector
 
-class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, LocateOnTheMap {
+class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, LocateOnTheMap, GMSMapViewDelegate {
+    
+    // MARK: -
+    // MARK: Vars
     
     var searchResultController:SearchResultsController!
     var resultsArray = [String]()
@@ -52,6 +55,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     @IBOutlet weak var Const_P_SRouteLead: NSLayoutConstraint!
     @IBOutlet weak var Const_P_SRouteBottom: NSLayoutConstraint!
     
+    // MARK: -
+    // MARK: Orientation
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         
         coordinator.animateAlongsideTransition({ (UIViewControllerTransitionCoordinatorContext) -> Void in
@@ -98,11 +103,16 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
     }
     
+    // MARK: -
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchResultController = SearchResultsController()
         searchResultController.delegate = self
+        
+        googleMapsView.delegate = self
+        
         
         btnGetDirection.enabled = false
         btnGetDirection.backgroundColor = UIColor.darkGrayColor()
@@ -127,9 +137,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         txtFrom.rightViewMode = UITextFieldViewMode .Always
         
         //txtFrom.setRightMargin()
-        
         self.startFiveTapGesture()
-        
         
         if bizForRoute != nil {
             self.btnMenu?.setTitle("Back", forState: .Normal)
@@ -145,9 +153,9 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             }
         }
         
-        //        player = AVPlayer(URL: NSURL(string: "\(BaseUrlSounds)Directional/to-the-left2.wav")!)
-        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GetDirectionVC.playerDidFinishPlaying(_:)),
-        //                                                         name: AVPlayerItemDidPlayToEndTimeNotification, object: player!.currentItem)
+//        player = AVPlayer(URL: NSURL(string: "\(BaseUrlSounds)Directional/to-the-left2.wav")!)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GetDirectionVC.playerDidFinishPlaying(_:)),
+//                                                         name: AVPlayerItemDidPlayToEndTimeNotification, object: player!.currentItem)
         
         
         let camera = GMSCameraPosition.cameraWithLatitude(53.9,longitude: 27.5667, zoom: 6)
@@ -161,6 +169,10 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             }
         } else {
             self.googleMapsView.camera = GMSCameraPosition(target: CLocation!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        }
+        
+        LocationManager.sharedInstance.DidUpdateHeadingHandler = {(newHeading: CLHeading) -> Void in
+            print(newHeading)
         }
         
         //self.googleMapsView.delegate = self
@@ -234,7 +246,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         return MKOverlayRenderer()
     }
     
-    func removeAllPlacemarkFromMap(shouldRemoveUserLocation shouldRemoveUserLocation:Bool){
+    func removeAllPlacemarkFromMap(shouldRemoveUserLocation shouldRemoveUserLocation:Bool) {
         //        if let mapView = self.googleMapsView {
         //            for annotation in mapView.annotations{
         //                if shouldRemoveUserLocation {
@@ -252,6 +264,28 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - GMSMapViewDelegate
+    
+    func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
+        print(position.target)
+//        let camera = googleMapsView.camera
+//        let camera1 = GMSCameraPosition(target: camera.target, zoom: camera.zoom, bearing: camera.bearing + 10, viewingAngle: camera.viewingAngle)
+//        //var camera = googleMapsView.camera
+//        //camera.bearing = camera.bearing + 10
+//        googleMapsView.animateToCameraPosition(camera1)
+        
+    }
+    
+    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+        if (gesture) {
+            mapView.selectedMarker = nil
+            //self.btnDirection.hidden = true
+        }
+    }
+    
+    
+    // MARK: - IBAction
     
     @IBAction func actinoSetFromCurrentLocation(sender: AnyObject) {
         if let curLocation = CLocation
@@ -303,6 +337,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         }
     }
     
+    // MARK: -
+    // MARK: Custom Method
     
     func onEveryTwentyMinutesOfRoute()
     {
@@ -341,8 +377,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         markerNextTurn.position = nextTurnLocation.coordinate
         markerNextTurn.map = self.googleMapsView
         
-        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
-        self.googleMapsView.animateToCameraPosition(camera)
+        let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 19)
+        self.googleMapsView.camera = camera  //animateToCameraPosition(camera)
         
         LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) in
         
@@ -356,6 +392,14 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             CLocation = CLLocation(latitude: latitude, longitude: longitude)
             print("Updating Location To Detect Turns : ",LocationManager.sharedInstance.latitude," - ",LocationManager.sharedInstance.longitude)
             
+            //let FromCLocation = CLLocation(latitude: self.googleMapsView.camera.target.latitude , longitude: self.googleMapsView.camera.target.longitude)
+            let camera = self.googleMapsView.camera
+            let camera1 = GMSCameraPosition(target: CLocation!.coordinate, zoom: camera.zoom, bearing: getBearingBetweenTwoPoints(CLocation!, point2: nextTurnLocation), viewingAngle: camera.viewingAngle)
+            //var camera = googleMapsView.camera
+            //camera.bearing = camera.bearing + 10
+            self.googleMapsView.animateToCameraPosition(camera1)
+            
+            
             print("Distance : ",nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!))
             if nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!) < 10
                 && self.directionDetail.count > routePos
@@ -368,7 +412,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 self.markerNextTurn.position = nextTurnLocation.coordinate
                 self.markerNextTurn.title = dictTable.objectForKey("instructions") as! NSString as String
                 
-                let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 15)
+                let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: self.googleMapsView.camera.zoom)
                 self.googleMapsView.animateToCameraPosition(camera)
                 
                 //Turn right - /Directional/to-the-right.wav
@@ -441,9 +485,11 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         // General Statements
         if inst.containsIgnoringCase("Airport") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/airports.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("Amusement Park") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/amuzement-parks.wav")
+            //self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("airport", withExtension: "wav")?.absoluteString)
         }
         if inst.containsIgnoringCase("ATM") {
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)General-Categories/ATM.wav")
@@ -4481,16 +4527,19 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             self.AddAudioToQueue(ofUrl: "\(BaseUrlSounds)1-1000 Routespeak/999.wav")
         }
         
-        
         StartPlaying()
     }
     
-    func AddAudioToQueue(ofUrl url:String)
+    func AddAudioToQueue(ofUrl url:String?)
     {
         print("AddAudioToQueue : \(url)")
         
-        if let mp3Url = NSURL(string: url) {
-            //            mp3Urls.append(mp3Url)
+        guard let urlString = url else {
+            return
+        }
+        
+        if let mp3Url = NSURL(string: urlString) {
+            //mp3Urls.append(mp3Url)
             if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : mp3Url]) {
                 AudioItems?.append(AudioIdem)
             }
@@ -4670,3 +4719,28 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     }
 }
 
+// Extra Codes - UnUsed but ca use later
+
+//-(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+//    
+//    CLLocationDirection direction = newHeading.trueHeading;
+//    lastDriverAngleFromNorth = direction;
+//    self.driverMarker.rotation = lastDriverAngleFromNorth - mapBearing;
+//}
+//
+//#pragma mark - GMSMapViewDelegate
+//
+//- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+//    
+//    mapBearing = position.bearing;
+//    self.driverMarker.rotation = lastDriverAngleFromNorth - mapBearing;
+//}
+//
+////just do this only
+//- (void)locationManager:(CLLocationManager *)manager  didUpdateHeading:(CLHeading *)newHeading
+//{
+//    double heading = newHeading.trueHeading;
+//    marker.groundAnchor = CGPointMake(0.5, 0.5);
+//    marker.rotation = heading;
+//    marker.map = mapView;
+//}

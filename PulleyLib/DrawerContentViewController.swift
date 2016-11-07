@@ -619,11 +619,14 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func AddAudioToQueue(ofUrl url:String)
+    func AddAudioToQueue(ofUrl url:String?)
     {
         print("AddAudioToQueue : \(url)")
+        guard let urlString = url else {
+            return
+        }
         
-        if let mp3Url = NSURL(string: url) {
+        if let mp3Url = NSURL(string: urlString) {
             //            mp3Urls.append(mp3Url)
             if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : mp3Url]) {
                 AudioItems?.append(AudioIdem)
