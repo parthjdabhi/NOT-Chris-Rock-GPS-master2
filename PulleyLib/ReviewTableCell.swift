@@ -16,6 +16,10 @@ class ReviewTableCell: UITableViewCell {
   @IBOutlet weak var excerptLabel: UILabel!
   
   func initializeCell(review: Review) {
+    
+    profilePicView.setBorder(1, color: clrGreen)
+    profilePicView.setCornerRadious(profilePicView.frame.width/2)
+    
     self.review = review
     profilePicView.sd_setImageWithURL(review.userImageURL!)
     usernameLabel.text = review.username!

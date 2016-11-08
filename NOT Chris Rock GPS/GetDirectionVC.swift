@@ -47,7 +47,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     @IBOutlet weak var btnStartRoute: UIButton!
     @IBOutlet weak var btnRefresh: UIButton!
     
-    
     @IBOutlet weak var Const_P_headerviewHeight: NSLayoutConstraint!
     //@IBOutlet weak var Const_P_lblToLeading: NSLayoutConstraint!
     //@IBOutlet weak var Const_P_btnCLocTrailing: NSLayoutConstraint!
@@ -73,11 +72,10 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 self.applyLandScapeConstraint()
                 break
             }
-            }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-                print("rotation completed")
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            print("rotation completed")
         })
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
     }
     
     func ApplyportraitConstraint(){
@@ -122,6 +120,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
         txtFrom.text = "Current Location"
         //txtFrom.text = "Santo Domingo"
+        self.lblSpeed.text = ""
         
         
         let btnCLocation = UIButton(frame: CGRectMake(0, 0, 22, 22))
@@ -357,13 +356,17 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     func startObservingRoute()
     {
         //Start 20 Minute timer
-        routeTimer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: #selector(GetDirectionVC.onEveryTwentyMinutesOfRoute), userInfo: nil, repeats: true)
+        routeTimer = NSTimer.scheduledTimerWithTimeInterval(20*60, target: self, selector: #selector(GetDirectionVC.onEveryTwentyMinutesOfRoute), userInfo: nil, repeats: true)
         
         self.directionDetail = self.tableData.objectForKey("steps") as! NSArray
         print("",self.directionDetail)
         var routePos = 0
         let dictTable:NSDictionary = self.directionDetail[0] as! NSDictionary
-        print("\n\n\n",dictTable)
+        print(" startObservingRoute \n\n\n startObservingRoute",dictTable)
+        
+        
+        let instructions = (dictTable.objectForKey("html_instructions") as? NSString ?? "") as String + " (" + ((dictTable.objectForKey("duration") as? NSString ?? "") as String) + " - " + ((dictTable.objectForKey("distance") as? NSString ?? "") as String) + ")"
+        self.lblSpeed.setHTMLFromString(instructions)
         
         //cell.directionDetail.text =  dictTable["instructions"] as? String
         //let distance = dictTable["distance"] as! NSString
@@ -377,6 +380,8 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         markerNextTurn.position = nextTurnLocation.coordinate
         markerNextTurn.map = self.googleMapsView
         
+        
+        
         let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: 19)
         self.googleMapsView.camera = camera  //animateToCameraPosition(camera)
         
@@ -385,7 +390,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             print("Speed : ",CLocation?.speed)
             
             if let speed = CLocation?.speed {
-             self.lblSpeed.text = "Speed:\(speed) KMPH = \(speed * 3.6)"
+                //self.lblSpeed.text = "Speed \(speed)  KMPH \(speed * 3.6)"
             }
             print("\n")
             
@@ -411,6 +416,10 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 nextTurnLocation = CLLocation(latitude: nextTurn["lat"] as? CLLocationDegrees ?? 0, longitude: nextTurn["lng"] as? CLLocationDegrees ?? 0)
                 self.markerNextTurn.position = nextTurnLocation.coordinate
                 self.markerNextTurn.title = dictTable.objectForKey("instructions") as! NSString as String
+                
+                //html_instructions
+                let instructions = (dictTable.objectForKey("html_instructions") as? NSString ?? "") as String + " (" + ((dictTable.objectForKey("duration") as? NSString ?? "") as String) + " - " + ((dictTable.objectForKey("distance") as? NSString ?? "") as String) + ")"
+                self.lblSpeed.setHTMLFromString(instructions)
                 
                 let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: self.googleMapsView.camera.zoom)
                 self.googleMapsView.animateToCameraPosition(camera)
@@ -4649,6 +4658,12 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
         if isValidPincode()
         {
+            if CLocation?.coordinate.latitude == 0
+                && CLocation?.coordinate.longitude == 0
+            {
+                CLocation = LocationManager.sharedInstance.CLocation
+            }
+            
             //(from: txtFrom.text!, to: txtTo.text!)
             let from = (txtFrom.text! == "Current Location") ? "\(CLocation!.coordinate.latitude),\(CLocation!.coordinate.longitude)" : txtFrom.text!
             mapManager.directionsUsingGoogle(from: from, to: txtTo.text!) { (route,encodedPolyLine ,directionInformation, boundingRegion, error) -> () in
@@ -4715,7 +4730,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                             self.tableData = directionInformation!
                         }
                     }
-                    
                 }
             }
         }
@@ -4723,7 +4737,6 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
     
     func addPolyLineWithEncodedStringInMap(json: JSON)
     {
-        
         if let routes = json["routes"].array
             where routes.count > 0
         {

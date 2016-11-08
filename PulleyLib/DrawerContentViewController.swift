@@ -229,6 +229,9 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         let file4 = NSBundle.mainBundle().URLForResource("foodstmt4-pt5_checkthemout", withExtension: "wav")!
         
         
+        //Clear all pending audio items
+        AudioItems?.removeAll()
+        
         self.AddAudioToQueue(ofUrl: file1.absoluteString)
         //Number
         doPlaySoundForBusnessCount()
@@ -622,12 +625,31 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
     func AddAudioToQueue(ofUrl url:String?)
     {
         print("AddAudioToQueue : \(url)")
+        
         guard let urlString = url else {
             return
         }
         
+        //var isFoundFromLocal = false
+        if (urlString.containsIgnoringCase("http://")
+            || urlString.containsIgnoringCase("https://"))
+            && urlString.containsIgnoringCase(".wav")
+        {
+            print(urlString.substringWithLastInstanceOf("/"))
+            if let soundName = urlString.substringWithLastInstanceOf("/")
+                where NSBundle.mainBundle().URLForResource(soundName, withExtension: "wav") != nil
+            {
+                print(" Local Resource : - \(NSBundle.mainBundle().URLForResource(soundName, withExtension: "wav"))")
+                if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : NSURL(string: NSBundle.mainBundle().URLForResource(soundName, withExtension: "wav")!.absoluteString)!]) {
+                    AudioItems?.append(AudioIdem)
+                }
+                return
+            }
+            
+        }
+        
         if let mp3Url = NSURL(string: urlString) {
-            //            mp3Urls.append(mp3Url)
+            //mp3Urls.append(mp3Url)
             if let AudioIdem = AudioItem(soundURLs: [AudioQuality.Medium : mp3Url]) {
                 AudioItems?.append(AudioIdem)
             }

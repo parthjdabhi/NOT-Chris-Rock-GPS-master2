@@ -9,6 +9,10 @@
 import UIKit
 import CoreLocation
 
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
+
 class CommonUtils: NSObject {
     static let sharedUtils = CommonUtils()
     var progressView : MBProgressHUD = MBProgressHUD.init()
@@ -86,5 +90,65 @@ class MyCustomLabel: UILabel {
             self.layer.masksToBounds = false
             self.layer.shouldRasterize = true
         }
+    }
+}
+
+func updateUserLocation()
+{
+    print("updateUserLocation")
+    
+    if CLocation?.coordinate.latitude == 0
+        && CLocation?.coordinate.longitude == 0
+    {
+        CLocation = LocationManager.sharedInstance.CLocation
+    }
+    
+    if CLocation?.coordinate.latitude == 0
+        && CLocation?.coordinate.longitude == 0
+    {
+        return
+    }
+    
+    if user_id != ""
+    {
+        let Parameters:[String:AnyObject] = ["user_id" : user_id,
+                          "lat" : CLocation?.coordinate.latitude ?? 0,
+                          "lng" : CLocation?.coordinate.longitude ?? 0]
+        print(Parameters)
+        
+        Alamofire.request(.POST, url_updateLocation, parameters: Parameters)
+            .validate()
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success(let data):
+                    let json = JSON(data)
+                    print(json.dictionary)
+                    
+                    if let status = json["status"].string,
+                        result = json["result"].dictionaryObject
+                        where status == "1"
+                    {
+                        print(json["msg"].string )
+                        //SVProgressHUD.showSuccessWithStatus(json["msg"].string ?? "Login successfully")
+                        
+                        userDetail = result
+                        NSUserDefaults.standardUserDefaults().setObject(result, forKey: "userDetail")
+                        NSUserDefaults.standardUserDefaults().synchronize()
+                        
+                    }
+                    else if let msg = json["msg"].string {
+                        print(msg)
+                    }
+                case .Failure(let error):
+                    SVProgressHUD.showErrorWithStatus("Request failed!")
+                    print("Request failed with error: \(error)")
+                    //CommonUtils.sharedUtils.showAlert(self, title: "Error", message: (error?.localizedDescription)!)
+                }
+        }
+    } else {
+//        let alert = UIAlertController(title: "Error", message: "cant update!", preferredStyle: .Alert)
+//        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//        alert.addAction(action)
     }
 }

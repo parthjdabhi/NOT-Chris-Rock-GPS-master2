@@ -21,6 +21,8 @@ let url_setProfilePic   = BaseURL + "profile.php"
 let url_soundFiles      = BaseURL + "sounds.php"
 let url_saveRecording   = BaseURL + "upload_file.php"
 
+let url_updateLocation   = BaseURL + "update_location.php"
+
 let BaseUrlSounds       = "http://www.notchrisrock.com/gps/api/sounds/"
 
 let googlePlacesAPIKey  = "AIzaSyCQ9yhrhgV3OEJPzFb_87XfJzl0O3_OXRM"

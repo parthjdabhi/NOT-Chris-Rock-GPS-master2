@@ -28,7 +28,11 @@ class AppState: NSObject {
 //var userData: [String : AnyObject] = [:]
 var userDetail:Dictionary<String,AnyObject> = [:]
 var user_id:String = {
-    return userDetail["user_id"] as? String ?? ""
+    if let uid = userDetail["user_id"] as? Int {
+        return String(uid)
+    } else {
+        return userDetail["user_id"] as? String ?? ""
+    }
 }()
 
 

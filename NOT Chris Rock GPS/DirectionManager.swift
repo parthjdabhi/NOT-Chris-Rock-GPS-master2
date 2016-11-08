@@ -198,7 +198,7 @@ class DirectionManager: NSObject {
                 print(jsonResult.objectForKey("status"))
                 let routes = jsonResult.objectForKey("routes") as! NSArray
                 let status = jsonResult.objectForKey("status") as! NSString
-                if routes.count > 0{
+                if routes.count > 0 {
                     let route = routes.lastObject as! NSDictionary //first object?
                     if status.isEqualToString("OK") && route.allKeys.count > 0  {
                         let legs = route.objectForKey("legs") as! NSArray
@@ -223,7 +223,9 @@ class DirectionManager: NSObject {
                         
                         self.directionsCompletionHandler!(route: poly, encodedPolyLine:points as String, directionInformation:directionInformation, boundingRegion: poly.boundingMapRect, error: nil)
                     }
-                }else{
+                }
+                else
+                {
                     var errorMsg = self.errorDictionary[status as String]
                     if errorMsg == nil {
                         errorMsg = self.errorNoRoutesAvailable
@@ -232,8 +234,7 @@ class DirectionManager: NSObject {
                     self.directionsCompletionHandler!(route: nil, encodedPolyLine:nil, directionInformation:nil, boundingRegion: nil, error: errorMsg)
                 }
             }
-            }
-        )
+        })
     }
     
     private func decodePolyLine(encodedStr:NSString)->Array<CLLocation>{
@@ -392,6 +393,7 @@ class DirectionManager: NSObject {
             stepsDictionary.setObject(start_location, forKey: "start_location")
             stepsFinalArray.addObject(stepsDictionary)
         }
+        
         stepsDict.setObject(distance, forKey: "distance")
         stepsDict.setObject(duration, forKey: "duration")
         stepsDict.setObject(end_address, forKey: "end_address")
@@ -399,6 +401,7 @@ class DirectionManager: NSObject {
         stepsDict.setObject(start_address, forKey: "start_address")
         stepsDict.setObject(start_location, forKey: "start_location")
         stepsDict.setObject(stepsFinalArray, forKey: "steps")
+        
         return stepsDict
     }
     

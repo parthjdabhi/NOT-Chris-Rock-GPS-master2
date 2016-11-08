@@ -371,15 +371,15 @@
 		5E4E7A031DD09241005F6885 /* 13.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78981DD09241005F6885 /* 13.wav */; };
 		5E4E7A041DD09241005F6885 /* 14.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78991DD09241005F6885 /* 14.wav */; };
 		5E4E7A051DD09241005F6885 /* 15.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789A1DD09241005F6885 /* 15.wav */; };
-		5E4E7A061DD09241005F6885 /* 16a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789B1DD09241005F6885 /* 16a.wav */; };
+		5E4E7A061DD09241005F6885 /* 16.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789B1DD09241005F6885 /* 16.wav */; };
 		5E4E7A071DD09241005F6885 /* 16b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789C1DD09241005F6885 /* 16b.wav */; };
-		5E4E7A081DD09241005F6885 /* 17a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789D1DD09241005F6885 /* 17a.wav */; };
+		5E4E7A081DD09241005F6885 /* 17.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789D1DD09241005F6885 /* 17.wav */; };
 		5E4E7A091DD09241005F6885 /* 17b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789E1DD09241005F6885 /* 17b.wav */; };
-		5E4E7A0A1DD09241005F6885 /* 18a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789F1DD09241005F6885 /* 18a.wav */; };
+		5E4E7A0A1DD09241005F6885 /* 18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E789F1DD09241005F6885 /* 18.wav */; };
 		5E4E7A0B1DD09241005F6885 /* 18b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A01DD09241005F6885 /* 18b.wav */; };
-		5E4E7A0C1DD09241005F6885 /* 19a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A11DD09241005F6885 /* 19a.wav */; };
+		5E4E7A0C1DD09241005F6885 /* 19.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A11DD09241005F6885 /* 19.wav */; };
 		5E4E7A0D1DD09241005F6885 /* 19b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A21DD09241005F6885 /* 19b.wav */; };
-		5E4E7A0E1DD09241005F6885 /* 20a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A31DD09241005F6885 /* 20a.wav */; };
+		5E4E7A0E1DD09241005F6885 /* 20.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A31DD09241005F6885 /* 20.wav */; };
 		5E4E7A0F1DD09241005F6885 /* 20b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A41DD09241005F6885 /* 20b.wav */; };
 		5E4E7A101DD09241005F6885 /* stateroute.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E78A51DD09241005F6885 /* stateroute.wav */; };
 		5E6745B81DB12287002681B2 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6745B71DB12287002681B2 /* Review.swift */; };
@@ -405,6 +405,212 @@
 		5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */; };
 		5EB437621DABA2D300EB6BA8 /* ForgotPwdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB437611DABA2D300EB6BA8 /* ForgotPwdVC.swift */; };
 		5EB437641DABDA5600EB6BA8 /* BizSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB437631DABDA5600EB6BA8 /* BizSearchController.swift */; };
+		5EC0478C1DD19F1E0034EA37 /* 5-guys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046BE1DD19F1E0034EA37 /* 5-guys.wav */; };
+		5EC0478D1DD19F1E0034EA37 /* 5-guys2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046BF1DD19F1E0034EA37 /* 5-guys2.wav */; };
+		5EC0478E1DD19F1E0034EA37 /* 7-11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C01DD19F1E0034EA37 /* 7-11.wav */; };
+		5EC0478F1DD19F1E0034EA37 /* a&w.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C11DD19F1E0034EA37 /* a&w.wav */; };
+		5EC047901DD19F1E0034EA37 /* applebees.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C21DD19F1E0034EA37 /* applebees.wav */; };
+		5EC047911DD19F1E0034EA37 /* arbys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C31DD19F1E0034EA37 /* arbys.wav */; };
+		5EC047921DD19F1E0034EA37 /* backyardburgers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C41DD19F1E0034EA37 /* backyardburgers.wav */; };
+		5EC047931DD19F1E0034EA37 /* bakers-dozen-donuts.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C51DD19F1E0034EA37 /* bakers-dozen-donuts.wav */; };
+		5EC047941DD19F1E0034EA37 /* bar-b-cutie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C61DD19F1E0034EA37 /* bar-b-cutie.wav */; };
+		5EC047951DD19F1E0034EA37 /* barburrito.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C71DD19F1E0034EA37 /* barburrito.wav */; };
+		5EC047961DD19F1E0034EA37 /* baskin-robbins.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C81DD19F1E0034EA37 /* baskin-robbins.wav */; };
+		5EC047971DD19F1E0034EA37 /* beavertails.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046C91DD19F1E0034EA37 /* beavertails.wav */; };
+		5EC047981DD19F1E0034EA37 /* beavertails2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046CA1DD19F1E0034EA37 /* beavertails2.wav */; };
+		5EC047991DD19F1E0034EA37 /* ben-and-florentine.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046CB1DD19F1E0034EA37 /* ben-and-florentine.wav */; };
+		5EC0479A1DD19F1E0034EA37 /* ben-and-jerrys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046CC1DD19F1E0034EA37 /* ben-and-jerrys.wav */; };
+		5EC0479B1DD19F1E0034EA37 /* benjys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046CD1DD19F1E0034EA37 /* benjys.wav */; };
+		5EC0479C1DD19F1E0034EA37 /* big-boy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046CE1DD19F1E0034EA37 /* big-boy.wav */; };
+		5EC0479D1DD19F1E0034EA37 /* bjs.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046CF1DD19F1E0034EA37 /* bjs.wav */; };
+		5EC0479E1DD19F1E0034EA37 /* blimpie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D01DD19F1E0034EA37 /* blimpie.wav */; };
+		5EC0479F1DD19F1E0034EA37 /* blimpie2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D11DD19F1E0034EA37 /* blimpie2.wav */; };
+		5EC047A01DD19F1E0034EA37 /* blimpie3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D21DD19F1E0034EA37 /* blimpie3.wav */; };
+		5EC047A11DD19F1E0034EA37 /* bob-evans.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D31DD19F1E0034EA37 /* bob-evans.wav */; };
+		5EC047A21DD19F1E0034EA37 /* bojangles.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D41DD19F1E0034EA37 /* bojangles.wav */; };
+		5EC047A31DD19F1E0034EA37 /* bonefish-grill.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D51DD19F1E0034EA37 /* bonefish-grill.wav */; };
+		5EC047A41DD19F1E0034EA37 /* booster-juice.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D61DD19F1E0034EA37 /* booster-juice.wav */; };
+		5EC047A51DD19F1E0034EA37 /* boston-market.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D71DD19F1E0034EA37 /* boston-market.wav */; };
+		5EC047A61DD19F1E0034EA37 /* boston-pizza.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D81DD19F1E0034EA37 /* boston-pizza.wav */; };
+		5EC047A71DD19F1E0034EA37 /* burger-baron.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046D91DD19F1E0034EA37 /* burger-baron.wav */; };
+		5EC047A81DD19F1E0034EA37 /* burger-baron2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046DA1DD19F1E0034EA37 /* burger-baron2.wav */; };
+		5EC047A91DD19F1E0034EA37 /* burger-king.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046DB1DD19F1E0034EA37 /* burger-king.wav */; };
+		5EC047AA1DD19F1E0034EA37 /* burger-king2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046DC1DD19F1E0034EA37 /* burger-king2.wav */; };
+		5EC047AB1DD19F1E0034EA37 /* BW3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046DD1DD19F1E0034EA37 /* BW3.wav */; };
+		5EC047AC1DD19F1E0034EA37 /* c-lovers-fish-n-chips.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046DE1DD19F1E0034EA37 /* c-lovers-fish-n-chips.wav */; };
+		5EC047AD1DD19F1E0034EA37 /* Capt-Ds-Seafood.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046DF1DD19F1E0034EA37 /* Capt-Ds-Seafood.wav */; };
+		5EC047AE1DD19F1E0034EA37 /* captain-submarine.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E01DD19F1E0034EA37 /* captain-submarine.wav */; };
+		5EC047AF1DD19F1E0034EA37 /* capts-sub.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E11DD19F1E0034EA37 /* capts-sub.wav */; };
+		5EC047B01DD19F1E0034EA37 /* carls-jr.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E21DD19F1E0034EA37 /* carls-jr.wav */; };
+		5EC047B11DD19F1E0034EA37 /* carls-jr2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E31DD19F1E0034EA37 /* carls-jr2.wav */; };
+		5EC047B21DD19F1E0034EA37 /* carrabbas.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E41DD19F1E0034EA37 /* carrabbas.wav */; };
+		5EC047B31DD19F1E0034EA37 /* checkers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E51DD19F1E0034EA37 /* checkers.wav */; };
+		5EC047B41DD19F1E0034EA37 /* cheddars.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E61DD19F1E0034EA37 /* cheddars.wav */; };
+		5EC047B51DD19F1E0034EA37 /* cheesecake-factory.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E71DD19F1E0034EA37 /* cheesecake-factory.wav */; };
+		5EC047B61DD19F1E0034EA37 /* chez-ashton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E81DD19F1E0034EA37 /* chez-ashton.wav */; };
+		5EC047B71DD19F1E0034EA37 /* chez-ashton2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046E91DD19F1E0034EA37 /* chez-ashton2.wav */; };
+		5EC047B81DD19F1E0034EA37 /* chic-fil-a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046EA1DD19F1E0034EA37 /* chic-fil-a.wav */; };
+		5EC047B91DD19F1E0034EA37 /* chicken-cottage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046EB1DD19F1E0034EA37 /* chicken-cottage.wav */; };
+		5EC047BA1DD19F1E0034EA37 /* chicken-cottage2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046EC1DD19F1E0034EA37 /* chicken-cottage2.wav */; };
+		5EC047BB1DD19F1E0034EA37 /* chicken-delight.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046ED1DD19F1E0034EA37 /* chicken-delight.wav */; };
+		5EC047BC1DD19F1E0034EA37 /* chilis.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046EE1DD19F1E0034EA37 /* chilis.wav */; };
+		5EC047BD1DD19F1E0034EA37 /* chipotle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046EF1DD19F1E0034EA37 /* chipotle.wav */; };
+		5EC047BE1DD19F1E0034EA37 /* chuck-e-cheese.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F01DD19F1E0034EA37 /* chuck-e-cheese.wav */; };
+		5EC047BF1DD19F1E0034EA37 /* churchs-chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F11DD19F1E0034EA37 /* churchs-chicken.wav */; };
+		5EC047C01DD19F1E0034EA37 /* cicis-pizza.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F21DD19F1E0034EA37 /* cicis-pizza.wav */; };
+		5EC047C11DD19F1E0034EA37 /* cinnabun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F31DD19F1E0034EA37 /* cinnabun.wav */; };
+		5EC047C21DD19F1E0034EA37 /* cinnabun2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F41DD19F1E0034EA37 /* cinnabun2.wav */; };
+		5EC047C31DD19F1E0034EA37 /* circle-k.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F51DD19F1E0034EA37 /* circle-k.wav */; };
+		5EC047C41DD19F1E0034EA37 /* coffeetime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F61DD19F1E0034EA37 /* coffeetime.wav */; };
+		5EC047C51DD19F1E0034EA37 /* cora.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F71DD19F1E0034EA37 /* cora.wav */; };
+		5EC047C61DD19F1E0034EA37 /* countrystyle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F81DD19F1E0034EA37 /* countrystyle.wav */; };
+		5EC047C71DD19F1E0034EA37 /* cows-ice-cream.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046F91DD19F1E0034EA37 /* cows-ice-cream.wav */; };
+		5EC047C81DD19F1E0034EA37 /* cpk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046FA1DD19F1E0034EA37 /* cpk.wav */; };
+		5EC047C91DD19F1E0034EA37 /* cracker-barrel.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046FB1DD19F1E0034EA37 /* cracker-barrel.wav */; };
+		5EC047CA1DD19F1E0034EA37 /* culvers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046FC1DD19F1E0034EA37 /* culvers.wav */; };
+		5EC047CB1DD19F1E0034EA37 /* dairy-queen.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046FD1DD19F1E0034EA37 /* dairy-queen.wav */; };
+		5EC047CC1DD19F1E0034EA37 /* del-taco.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046FE1DD19F1E0034EA37 /* del-taco.wav */; };
+		5EC047CD1DD19F1E0034EA37 /* dennys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC046FF1DD19F1E0034EA37 /* dennys.wav */; };
+		5EC047CE1DD19F1E0034EA37 /* dic-anns-hamburgers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047001DD19F1E0034EA37 /* dic-anns-hamburgers.wav */; };
+		5EC047CF1DD19F1E0034EA37 /* dixie-chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047011DD19F1E0034EA37 /* dixie-chicken.wav */; };
+		5EC047D01DD19F1E0034EA37 /* dixie-chicken2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047021DD19F1E0034EA37 /* dixie-chicken2.wav */; };
+		5EC047D11DD19F1E0034EA37 /* dixie-lee-fried-chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047031DD19F1E0034EA37 /* dixie-lee-fried-chicken.wav */; };
+		5EC047D21DD19F1E0034EA37 /* dominos.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047041DD19F1E0034EA37 /* dominos.wav */; };
+		5EC047D31DD19F1E0034EA37 /* donut-diner.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047051DD19F1E0034EA37 /* donut-diner.wav */; };
+		5EC047D41DD19F1E0034EA37 /* dunkin-donuts.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047061DD19F1E0034EA37 /* dunkin-donuts.wav */; };
+		5EC047D51DD19F1E0034EA37 /* east-side-marios.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047071DD19F1E0034EA37 /* east-side-marios.wav */; };
+		5EC047D61DD19F1E0034EA37 /* eat-restaurant.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047081DD19F1E0034EA37 /* eat-restaurant.wav */; };
+		5EC047D71DD19F1E0034EA37 /* edo-japan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047091DD19F1E0034EA37 /* edo-japan.wav */; };
+		5EC047D81DD19F1E0034EA37 /* eds-easy-diner.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0470A1DD19F1E0034EA37 /* eds-easy-diner.wav */; };
+		5EC047D91DD19F1E0034EA37 /* einstein-bros-bagels.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0470B1DD19F1E0034EA37 /* einstein-bros-bagels.wav */; };
+		5EC047DA1DD19F1E0034EA37 /* extreme-pita.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0470C1DD19F1E0034EA37 /* extreme-pita.wav */; };
+		5EC047DB1DD19F1E0034EA37 /* famous-daves.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0470D1DD19F1E0034EA37 /* famous-daves.wav */; };
+		5EC047DC1DD19F1E0034EA37 /* fast-eddies.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0470E1DD19F1E0034EA37 /* fast-eddies.wav */; };
+		5EC047DD1DD19F1E0034EA37 /* firehouse-subs.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0470F1DD19F1E0034EA37 /* firehouse-subs.wav */; };
+		5EC047DE1DD19F1E0034EA37 /* friendlys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047101DD19F1E0034EA37 /* friendlys.wav */; };
+		5EC047DF1DD19F1E0034EA37 /* fryers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047111DD19F1E0034EA37 /* fryers.wav */; };
+		5EC047E01DD19F1E0034EA37 /* fryers2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047121DD19F1E0034EA37 /* fryers2.wav */; };
+		5EC047E11DD19F1E0034EA37 /* gojis.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047131DD19F1E0034EA37 /* gojis.wav */; };
+		5EC047E21DD19F1E0034EA37 /* golden-corral.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047141DD19F1E0034EA37 /* golden-corral.wav */; };
+		5EC047E31DD19F1E0034EA37 /* greco-pizza.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047151DD19F1E0034EA37 /* greco-pizza.wav */; };
+		5EC047E41DD19F1E0034EA37 /* hardees.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047161DD19F1E0034EA37 /* hardees.wav */; };
+		5EC047E51DD19F1E0034EA37 /* harveys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047171DD19F1E0034EA37 /* harveys.wav */; };
+		5EC047E61DD19F1E0034EA37 /* harveys2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047181DD19F1E0034EA37 /* harveys2.wav */; };
+		5EC047E71DD19F1E0034EA37 /* heros-cert-burgers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047191DD19F1E0034EA37 /* heros-cert-burgers.wav */; };
+		5EC047E81DD19F1E0034EA37 /* heros-cert-burgers2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0471A1DD19F1E0034EA37 /* heros-cert-burgers2.wav */; };
+		5EC047E91DD19F1E0034EA37 /* ho-lee-chow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0471B1DD19F1E0034EA37 /* ho-lee-chow.wav */; };
+		5EC047EA1DD19F1E0034EA37 /* hooters.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0471C1DD19F1E0034EA37 /* hooters.wav */; };
+		5EC047EB1DD19F1E0034EA37 /* humptys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0471D1DD19F1E0034EA37 /* humptys.wav */; };
+		5EC047EC1DD19F1E0034EA37 /* ihop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0471E1DD19F1E0034EA37 /* ihop.wav */; };
+		5EC047ED1DD19F1E0034EA37 /* in-and-out-burger.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0471F1DD19F1E0034EA37 /* in-and-out-burger.wav */; };
+		5EC047EE1DD19F1E0034EA37 /* jack-in-the-box.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047201DD19F1E0034EA37 /* jack-in-the-box.wav */; };
+		5EC047EF1DD19F1E0034EA37 /* jamba-juice.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047211DD19F1E0034EA37 /* jamba-juice.wav */; };
+		5EC047F01DD19F1E0034EA37 /* jasons-deli.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047221DD19F1E0034EA37 /* jasons-deli.wav */; };
+		5EC047F11DD19F1E0034EA37 /* jimmy-johns.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047231DD19F1E0034EA37 /* jimmy-johns.wav */; };
+		5EC047F21DD19F1E0034EA37 /* jimmy-the-greek.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047241DD19F1E0034EA37 /* jimmy-the-greek.wav */; };
+		5EC047F31DD19F1E0034EA37 /* jugo-juice.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047251DD19F1E0034EA37 /* jugo-juice.wav */; };
+		5EC047F41DD19F1E0034EA37 /* kaspas.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047261DD19F1E0034EA37 /* kaspas.wav */; };
+		5EC047F51DD19F1E0034EA37 /* kfc.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047271DD19F1E0034EA37 /* kfc.wav */; };
+		5EC047F61DD19F1E0034EA37 /* krispy-kreme-doughnuts.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047281DD19F1E0034EA37 /* krispy-kreme-doughnuts.wav */; };
+		5EC047F71DD19F1E0034EA37 /* krystal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047291DD19F1E0034EA37 /* krystal.wav */; };
+		5EC047F81DD19F1E0034EA37 /* labelle-prov.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0472A1DD19F1E0034EA37 /* labelle-prov.wav */; };
+		5EC047F91DD19F1E0034EA37 /* licks-homeburgers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0472B1DD19F1E0034EA37 /* licks-homeburgers.wav */; };
+		5EC047FA1DD19F1E0034EA37 /* little-caesars.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0472C1DD19F1E0034EA37 /* little-caesars.wav */; };
+		5EC047FB1DD19F1E0034EA37 /* little-chef.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0472D1DD19F1E0034EA37 /* little-chef.wav */; };
+		5EC047FC1DD19F1E0034EA37 /* logans-roadhouse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0472E1DD19F1E0034EA37 /* logans-roadhouse.wav */; };
+		5EC047FD1DD19F1E0034EA37 /* long-john-silvers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0472F1DD19F1E0034EA37 /* long-john-silvers.wav */; };
+		5EC047FE1DD19F1E0034EA37 /* longhorn-steakhouse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047301DD19F1E0034EA37 /* longhorn-steakhouse.wav */; };
+		5EC047FF1DD19F1E0034EA37 /* macaroni-grill.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047311DD19F1E0034EA37 /* macaroni-grill.wav */; };
+		5EC048001DD19F1E0034EA37 /* manchu-wok.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047321DD19F1E0034EA37 /* manchu-wok.wav */; };
+		5EC048011DD19F1E0034EA37 /* mary-browns.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047331DD19F1E0034EA37 /* mary-browns.wav */; };
+		5EC048021DD19F1E0034EA37 /* mary-browns2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047341DD19F1E0034EA37 /* mary-browns2.wav */; };
+		5EC048031DD19F1E0034EA37 /* mcdonalds.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047351DD19F1E0034EA37 /* mcdonalds.wav */; };
+		5EC048041DD19F1E0034EA37 /* millies-cookies.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047361DD19F1E0034EA37 /* millies-cookies.wav */; };
+		5EC048051DD19F1E0034EA37 /* moes.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047371DD19F1E0034EA37 /* moes.wav */; };
+		5EC048061DD19F1E0034EA37 /* morleys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047381DD19F1E0034EA37 /* morleys.wav */; };
+		5EC048071DD19F1E0034EA37 /* mr-greek.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047391DD19F1E0034EA37 /* mr-greek.wav */; };
+		5EC048081DD19F1E0034EA37 /* mr-mikes.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0473A1DD19F1E0034EA37 /* mr-mikes.wav */; };
+		5EC048091DD19F1E0034EA37 /* mr-sub.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0473B1DD19F1E0034EA37 /* mr-sub.wav */; };
+		5EC0480A1DD19F1E0034EA37 /* ny-fries.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0473C1DD19F1E0034EA37 /* ny-fries.wav */; };
+		5EC0480B1DD19F1E0034EA37 /* Ocharleys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0473D1DD19F1E0034EA37 /* Ocharleys.wav */; };
+		5EC0480C1DD19F1E0034EA37 /* olive-garden.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0473E1DD19F1E0034EA37 /* olive-garden.wav */; };
+		5EC0480D1DD19F1E0034EA37 /* on-the-border.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0473F1DD19F1E0034EA37 /* on-the-border.wav */; };
+		5EC0480E1DD19F1E0034EA37 /* orange-julius.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047401DD19F1E0034EA37 /* orange-julius.wav */; };
+		5EC0480F1DD19F1E0034EA37 /* outback.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047411DD19F1E0034EA37 /* outback.wav */; };
+		5EC048101DD19F1E0034EA37 /* outback2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047421DD19F1E0034EA37 /* outback2.wav */; };
+		5EC048111DD19F1E0034EA37 /* panago.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047431DD19F1E0034EA37 /* panago.wav */; };
+		5EC048121DD19F1E0034EA37 /* panda-express.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047441DD19F1E0034EA37 /* panda-express.wav */; };
+		5EC048131DD19F1E0034EA37 /* panera-bread.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047451DD19F1E0034EA37 /* panera-bread.wav */; };
+		5EC048141DD19F1E0034EA37 /* papa-johns.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047461DD19F1E0034EA37 /* papa-johns.wav */; };
+		5EC048151DD19F1E0034EA37 /* papa-murphys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047471DD19F1E0034EA37 /* papa-murphys.wav */; };
+		5EC048161DD19F1E0034EA37 /* pappadeux.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047481DD19F1E0034EA37 /* pappadeux.wav */; };
+		5EC048171DD19F1E0034EA37 /* perkins.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047491DD19F1E0034EA37 /* perkins.wav */; };
+		5EC048181DD19F1E0034EA37 /* pf-changs.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0474A1DD19F1E0034EA37 /* pf-changs.wav */; };
+		5EC048191DD19F1E0034EA37 /* pita-pit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0474B1DD19F1E0034EA37 /* pita-pit.wav */; };
+		5EC0481A1DD19F1E0034EA37 /* pizza-hut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0474C1DD19F1E0034EA37 /* pizza-hut.wav */; };
+		5EC0481B1DD19F1E0034EA37 /* pizza-pizza.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0474D1DD19F1E0034EA37 /* pizza-pizza.wav */; };
+		5EC0481C1DD19F1E0034EA37 /* pollo-loco.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0474E1DD19F1E0034EA37 /* pollo-loco.wav */; };
+		5EC0481D1DD19F1E0034EA37 /* popeyes.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0474F1DD19F1E0034EA37 /* popeyes.wav */; };
+		5EC0481E1DD19F1E0034EA37 /* pret-a-manager.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047501DD19F1E0034EA37 /* pret-a-manager.wav */; };
+		5EC0481F1DD19F1E0034EA37 /* pret-a-manager2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047511DD19F1E0034EA37 /* pret-a-manager2.wav */; };
+		5EC048201DD19F1E0034EA37 /* qdoba-mex-grill.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047521DD19F1E0034EA37 /* qdoba-mex-grill.wav */; };
+		5EC048211DD19F1E0034EA37 /* qdoba-mex-grill2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047531DD19F1E0034EA37 /* qdoba-mex-grill2.wav */; };
+		5EC048221DD19F1E0034EA37 /* quiznos.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047541DD19F1E0034EA37 /* quiznos.wav */; };
+		5EC048231DD19F1E0034EA37 /* quiznos2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047551DD19F1E0034EA37 /* quiznos2.wav */; };
+		5EC048241DD19F1E0034EA37 /* red-lobster.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047561DD19F1E0034EA37 /* red-lobster.wav */; };
+		5EC048251DD19F1E0034EA37 /* red-robin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047571DD19F1E0034EA37 /* red-robin.wav */; };
+		5EC048261DD19F1E0034EA37 /* Restaurant List.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047581DD19F1E0034EA37 /* Restaurant List.xlsx */; };
+		5EC048271DD19F1E0034EA37 /* restaurant-eggsquis.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047591DD19F1E0034EA37 /* restaurant-eggsquis.wav */; };
+		5EC048281DD19F1E0034EA37 /* rickys-all-day-grill.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0475A1DD19F1E0034EA37 /* rickys-all-day-grill.wav */; };
+		5EC048291DD19F1E0034EA37 /* robins-donuts.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0475B1DD19F1E0034EA37 /* robins-donuts.wav */; };
+		5EC0482A1DD19F1E0034EA37 /* RotisseriesMomExpress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0475C1DD19F1E0034EA37 /* RotisseriesMomExpress.wav */; };
+		5EC0482B1DD19F1E0034EA37 /* ruby-tuesday.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0475D1DD19F1E0034EA37 /* ruby-tuesday.wav */; };
+		5EC0482C1DD19F1E0034EA37 /* ruths-chris.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0475E1DD19F1E0034EA37 /* ruths-chris.wav */; };
+		5EC0482D1DD19F1E0034EA37 /* sams-chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0475F1DD19F1E0034EA37 /* sams-chicken.wav */; };
+		5EC0482E1DD19F1E0034EA37 /* sbarro.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047601DD19F1E0034EA37 /* sbarro.wav */; };
+		5EC0482F1DD19F1E0034EA37 /* shakeaway.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047611DD19F1E0034EA37 /* shakeaway.wav */; };
+		5EC048301DD19F1E0034EA37 /* sheetz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047621DD19F1E0034EA37 /* sheetz.wav */; };
+		5EC048311DD19F1E0034EA37 /* Smittys-Family-Restaurants.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047631DD19F1E0034EA37 /* Smittys-Family-Restaurants.wav */; };
+		5EC048321DD19F1E0034EA37 /* sonic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047641DD19F1E0034EA37 /* sonic.wav */; };
+		5EC048331DD19F1E0034EA37 /* southern-fried-chicken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047651DD19F1E0034EA37 /* southern-fried-chicken.wav */; };
+		5EC048341DD19F1E0034EA37 /* spudulike.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047661DD19F1E0034EA37 /* spudulike.wav */; };
+		5EC048351DD19F1E0034EA37 /* St-Hubert.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047671DD19F1E0034EA37 /* St-Hubert.wav */; };
+		5EC048361DD19F1E0034EA37 /* starbucks.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047681DD19F1E0034EA37 /* starbucks.wav */; };
+		5EC048371DD19F1E0034EA37 /* steak-n-shake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047691DD19F1E0034EA37 /* steak-n-shake.wav */; };
+		5EC048381DD19F1E0034EA37 /* subway.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0476A1DD19F1E0034EA37 /* subway.wav */; };
+		5EC048391DD19F1E0034EA37 /* subway2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0476B1DD19F1E0034EA37 /* subway2.wav */; };
+		5EC0483A1DD19F1E0034EA37 /* swiss-chalet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0476C1DD19F1E0034EA37 /* swiss-chalet.wav */; };
+		5EC0483B1DD19F1E0034EA37 /* taco-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0476D1DD19F1E0034EA37 /* taco-bell.wav */; };
+		5EC0483C1DD19F1E0034EA37 /* taco-bell2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0476E1DD19F1E0034EA37 /* taco-bell2.wav */; };
+		5EC0483D1DD19F1E0034EA37 /* taco-del-mar.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0476F1DD19F1E0034EA37 /* taco-del-mar.wav */; };
+		5EC0483E1DD19F1E0034EA37 /* tacotime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047701DD19F1E0034EA37 /* tacotime.wav */; };
+		5EC0483F1DD19F1E0034EA37 /* teriyaki-experience.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047711DD19F1E0034EA37 /* teriyaki-experience.wav */; };
+		5EC048401DD19F1E0034EA37 /* texas-roadhouse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047721DD19F1E0034EA37 /* texas-roadhouse.wav */; };
+		5EC048411DD19F1E0034EA37 /* tgif.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047731DD19F1E0034EA37 /* tgif.wav */; };
+		5EC048421DD19F1E0034EA37 /* thai-express.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047741DD19F1E0034EA37 /* thai-express.wav */; };
+		5EC048431DD19F1E0034EA37 /* thaizone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047751DD19F1E0034EA37 /* thaizone.wav */; };
+		5EC048441DD19F1E0034EA37 /* the-works.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047761DD19F1E0034EA37 /* the-works.wav */; };
+		5EC048451DD19F1E0034EA37 /* tim-hortons.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047771DD19F1E0034EA37 /* tim-hortons.wav */; };
+		5EC048461DD19F1E0034EA37 /* tortilla.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047781DD19F1E0034EA37 /* tortilla.wav */; };
+		5EC048471DD19F1E0034EA37 /* valentine.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047791DD19F1E0034EA37 /* valentine.wav */; };
+		5EC048481DD19F1E0034EA37 /* valentine2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0477A1DD19F1E0034EA37 /* valentine2.wav */; };
+		5EC048491DD19F1E0034EA37 /* vanellis.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0477B1DD19F1E0034EA37 /* vanellis.wav */; };
+		5EC0484A1DD19F1E0034EA37 /* verns-pizza.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0477C1DD19F1E0034EA37 /* verns-pizza.wav */; };
+		5EC0484B1DD19F1E0034EA37 /* wafflehouse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0477D1DD19F1E0034EA37 /* wafflehouse.wav */; };
+		5EC0484C1DD19F1E0034EA37 /* wahaca.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0477E1DD19F1E0034EA37 /* wahaca.wav */; };
+		5EC0484D1DD19F1E0034EA37 /* wasabi.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0477F1DD19F1E0034EA37 /* wasabi.wav */; };
+		5EC0484E1DD19F1E0034EA37 /* wawa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047801DD19F1E0034EA37 /* wawa.wav */; };
+		5EC0484F1DD19F1E0034EA37 /* wendys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047811DD19F1E0034EA37 /* wendys.wav */; };
+		5EC048501DD19F1E0034EA37 /* wendys2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047821DD19F1E0034EA37 /* wendys2.wav */; };
+		5EC048511DD19F1E0034EA37 /* west-cornwall-pasty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047831DD19F1E0034EA37 /* west-cornwall-pasty.wav */; };
+		5EC048521DD19F1E0034EA37 /* whataburger.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047841DD19F1E0034EA37 /* whataburger.wav */; };
+		5EC048531DD19F1E0034EA37 /* white-castle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047851DD19F1E0034EA37 /* white-castle.wav */; };
+		5EC048541DD19F1E0034EA37 /* white-spot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047861DD19F1E0034EA37 /* white-spot.wav */; };
+		5EC048551DD19F1E0034EA37 /* williams-fresh-cafe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047871DD19F1E0034EA37 /* williams-fresh-cafe.wav */; };
+		5EC048561DD19F1E0034EA37 /* wimpy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047881DD19F1E0034EA37 /* wimpy.wav */; };
+		5EC048571DD19F1E0034EA37 /* wrapchic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC047891DD19F1E0034EA37 /* wrapchic.wav */; };
+		5EC048581DD19F1E0034EA37 /* yogen-fruz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0478A1DD19F1E0034EA37 /* yogen-fruz.wav */; };
+		5EC048591DD19F1E0034EA37 /* zaxbys.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EC0478B1DD19F1E0034EA37 /* zaxbys.wav */; };
 		5EC8C38C1DB10C7C00D62672 /* BizDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC8C38B1DB10C7C00D62672 /* BizDetailVC.swift */; };
 		5EE5B0591DA68F00001A19EC /* NYC2SDiago.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5B0571DA68F00001A19EC /* NYC2SDiago.gpx */; };
 		5EE5B05A1DA68F00001A19EC /* SeattleW2Florida.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5B0581DA68F00001A19EC /* SeattleW2Florida.gpx */; };
@@ -474,8 +680,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
-		5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
+		5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessTableViewCell.swift; path = "../NOT Chris Rock GPS/BusinessTableViewCell.swift"; sourceTree = "<group>"; };
+		5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusinessTableViewCell.xib; path = "../NOT Chris Rock GPS/BusinessTableViewCell.xib"; sourceTree = "<group>"; };
 		5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		5E16D2EB1DC3701B006E596B /* foodstmt4-pt3_for.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "foodstmt4-pt3_for.wav"; sourceTree = "<group>"; };
 		5E16D2EC1DC3701B006E596B /* foodstmt4-pt1_ifound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "foodstmt4-pt1_ifound.wav"; sourceTree = "<group>"; };
@@ -837,15 +1043,15 @@
 		5E4E78981DD09241005F6885 /* 13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 13.wav; sourceTree = "<group>"; };
 		5E4E78991DD09241005F6885 /* 14.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 14.wav; sourceTree = "<group>"; };
 		5E4E789A1DD09241005F6885 /* 15.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 15.wav; sourceTree = "<group>"; };
-		5E4E789B1DD09241005F6885 /* 16a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16a.wav; sourceTree = "<group>"; };
+		5E4E789B1DD09241005F6885 /* 16.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16.wav; sourceTree = "<group>"; };
 		5E4E789C1DD09241005F6885 /* 16b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16b.wav; sourceTree = "<group>"; };
-		5E4E789D1DD09241005F6885 /* 17a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 17a.wav; sourceTree = "<group>"; };
+		5E4E789D1DD09241005F6885 /* 17.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 17.wav; sourceTree = "<group>"; };
 		5E4E789E1DD09241005F6885 /* 17b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 17b.wav; sourceTree = "<group>"; };
-		5E4E789F1DD09241005F6885 /* 18a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 18a.wav; sourceTree = "<group>"; };
+		5E4E789F1DD09241005F6885 /* 18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 18.wav; sourceTree = "<group>"; };
 		5E4E78A01DD09241005F6885 /* 18b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 18b.wav; sourceTree = "<group>"; };
-		5E4E78A11DD09241005F6885 /* 19a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 19a.wav; sourceTree = "<group>"; };
+		5E4E78A11DD09241005F6885 /* 19.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 19.wav; sourceTree = "<group>"; };
 		5E4E78A21DD09241005F6885 /* 19b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 19b.wav; sourceTree = "<group>"; };
-		5E4E78A31DD09241005F6885 /* 20a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20a.wav; sourceTree = "<group>"; };
+		5E4E78A31DD09241005F6885 /* 20.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20.wav; sourceTree = "<group>"; };
 		5E4E78A41DD09241005F6885 /* 20b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20b.wav; sourceTree = "<group>"; };
 		5E4E78A51DD09241005F6885 /* stateroute.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stateroute.wav; sourceTree = "<group>"; };
 		5E6745B71DB12287002681B2 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -871,6 +1077,212 @@
 		5EB0BCD31DA439F6005102CB /* pin_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_blue@2x.png"; sourceTree = "<group>"; };
 		5EB437611DABA2D300EB6BA8 /* ForgotPwdVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPwdVC.swift; sourceTree = "<group>"; };
 		5EB437631DABDA5600EB6BA8 /* BizSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizSearchController.swift; sourceTree = "<group>"; };
+		5EC046BE1DD19F1E0034EA37 /* 5-guys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "5-guys.wav"; sourceTree = "<group>"; };
+		5EC046BF1DD19F1E0034EA37 /* 5-guys2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "5-guys2.wav"; sourceTree = "<group>"; };
+		5EC046C01DD19F1E0034EA37 /* 7-11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "7-11.wav"; sourceTree = "<group>"; };
+		5EC046C11DD19F1E0034EA37 /* a&w.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "a&w.wav"; sourceTree = "<group>"; };
+		5EC046C21DD19F1E0034EA37 /* applebees.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = applebees.wav; sourceTree = "<group>"; };
+		5EC046C31DD19F1E0034EA37 /* arbys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arbys.wav; sourceTree = "<group>"; };
+		5EC046C41DD19F1E0034EA37 /* backyardburgers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backyardburgers.wav; sourceTree = "<group>"; };
+		5EC046C51DD19F1E0034EA37 /* bakers-dozen-donuts.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bakers-dozen-donuts.wav"; sourceTree = "<group>"; };
+		5EC046C61DD19F1E0034EA37 /* bar-b-cutie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bar-b-cutie.wav"; sourceTree = "<group>"; };
+		5EC046C71DD19F1E0034EA37 /* barburrito.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = barburrito.wav; sourceTree = "<group>"; };
+		5EC046C81DD19F1E0034EA37 /* baskin-robbins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "baskin-robbins.wav"; sourceTree = "<group>"; };
+		5EC046C91DD19F1E0034EA37 /* beavertails.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beavertails.wav; sourceTree = "<group>"; };
+		5EC046CA1DD19F1E0034EA37 /* beavertails2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beavertails2.wav; sourceTree = "<group>"; };
+		5EC046CB1DD19F1E0034EA37 /* ben-and-florentine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ben-and-florentine.wav"; sourceTree = "<group>"; };
+		5EC046CC1DD19F1E0034EA37 /* ben-and-jerrys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ben-and-jerrys.wav"; sourceTree = "<group>"; };
+		5EC046CD1DD19F1E0034EA37 /* benjys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = benjys.wav; sourceTree = "<group>"; };
+		5EC046CE1DD19F1E0034EA37 /* big-boy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "big-boy.wav"; sourceTree = "<group>"; };
+		5EC046CF1DD19F1E0034EA37 /* bjs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bjs.wav; sourceTree = "<group>"; };
+		5EC046D01DD19F1E0034EA37 /* blimpie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blimpie.wav; sourceTree = "<group>"; };
+		5EC046D11DD19F1E0034EA37 /* blimpie2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blimpie2.wav; sourceTree = "<group>"; };
+		5EC046D21DD19F1E0034EA37 /* blimpie3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blimpie3.wav; sourceTree = "<group>"; };
+		5EC046D31DD19F1E0034EA37 /* bob-evans.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bob-evans.wav"; sourceTree = "<group>"; };
+		5EC046D41DD19F1E0034EA37 /* bojangles.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bojangles.wav; sourceTree = "<group>"; };
+		5EC046D51DD19F1E0034EA37 /* bonefish-grill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bonefish-grill.wav"; sourceTree = "<group>"; };
+		5EC046D61DD19F1E0034EA37 /* booster-juice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "booster-juice.wav"; sourceTree = "<group>"; };
+		5EC046D71DD19F1E0034EA37 /* boston-market.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "boston-market.wav"; sourceTree = "<group>"; };
+		5EC046D81DD19F1E0034EA37 /* boston-pizza.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "boston-pizza.wav"; sourceTree = "<group>"; };
+		5EC046D91DD19F1E0034EA37 /* burger-baron.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "burger-baron.wav"; sourceTree = "<group>"; };
+		5EC046DA1DD19F1E0034EA37 /* burger-baron2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "burger-baron2.wav"; sourceTree = "<group>"; };
+		5EC046DB1DD19F1E0034EA37 /* burger-king.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "burger-king.wav"; sourceTree = "<group>"; };
+		5EC046DC1DD19F1E0034EA37 /* burger-king2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "burger-king2.wav"; sourceTree = "<group>"; };
+		5EC046DD1DD19F1E0034EA37 /* BW3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BW3.wav; sourceTree = "<group>"; };
+		5EC046DE1DD19F1E0034EA37 /* c-lovers-fish-n-chips.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "c-lovers-fish-n-chips.wav"; sourceTree = "<group>"; };
+		5EC046DF1DD19F1E0034EA37 /* Capt-Ds-Seafood.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Capt-Ds-Seafood.wav"; sourceTree = "<group>"; };
+		5EC046E01DD19F1E0034EA37 /* captain-submarine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "captain-submarine.wav"; sourceTree = "<group>"; };
+		5EC046E11DD19F1E0034EA37 /* capts-sub.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "capts-sub.wav"; sourceTree = "<group>"; };
+		5EC046E21DD19F1E0034EA37 /* carls-jr.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "carls-jr.wav"; sourceTree = "<group>"; };
+		5EC046E31DD19F1E0034EA37 /* carls-jr2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "carls-jr2.wav"; sourceTree = "<group>"; };
+		5EC046E41DD19F1E0034EA37 /* carrabbas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = carrabbas.wav; sourceTree = "<group>"; };
+		5EC046E51DD19F1E0034EA37 /* checkers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = checkers.wav; sourceTree = "<group>"; };
+		5EC046E61DD19F1E0034EA37 /* cheddars.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheddars.wav; sourceTree = "<group>"; };
+		5EC046E71DD19F1E0034EA37 /* cheesecake-factory.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cheesecake-factory.wav"; sourceTree = "<group>"; };
+		5EC046E81DD19F1E0034EA37 /* chez-ashton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chez-ashton.wav"; sourceTree = "<group>"; };
+		5EC046E91DD19F1E0034EA37 /* chez-ashton2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chez-ashton2.wav"; sourceTree = "<group>"; };
+		5EC046EA1DD19F1E0034EA37 /* chic-fil-a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chic-fil-a.wav"; sourceTree = "<group>"; };
+		5EC046EB1DD19F1E0034EA37 /* chicken-cottage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chicken-cottage.wav"; sourceTree = "<group>"; };
+		5EC046EC1DD19F1E0034EA37 /* chicken-cottage2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chicken-cottage2.wav"; sourceTree = "<group>"; };
+		5EC046ED1DD19F1E0034EA37 /* chicken-delight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chicken-delight.wav"; sourceTree = "<group>"; };
+		5EC046EE1DD19F1E0034EA37 /* chilis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chilis.wav; sourceTree = "<group>"; };
+		5EC046EF1DD19F1E0034EA37 /* chipotle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chipotle.wav; sourceTree = "<group>"; };
+		5EC046F01DD19F1E0034EA37 /* chuck-e-cheese.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "chuck-e-cheese.wav"; sourceTree = "<group>"; };
+		5EC046F11DD19F1E0034EA37 /* churchs-chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "churchs-chicken.wav"; sourceTree = "<group>"; };
+		5EC046F21DD19F1E0034EA37 /* cicis-pizza.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cicis-pizza.wav"; sourceTree = "<group>"; };
+		5EC046F31DD19F1E0034EA37 /* cinnabun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cinnabun.wav; sourceTree = "<group>"; };
+		5EC046F41DD19F1E0034EA37 /* cinnabun2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cinnabun2.wav; sourceTree = "<group>"; };
+		5EC046F51DD19F1E0034EA37 /* circle-k.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "circle-k.wav"; sourceTree = "<group>"; };
+		5EC046F61DD19F1E0034EA37 /* coffeetime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coffeetime.wav; sourceTree = "<group>"; };
+		5EC046F71DD19F1E0034EA37 /* cora.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cora.wav; sourceTree = "<group>"; };
+		5EC046F81DD19F1E0034EA37 /* countrystyle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countrystyle.wav; sourceTree = "<group>"; };
+		5EC046F91DD19F1E0034EA37 /* cows-ice-cream.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cows-ice-cream.wav"; sourceTree = "<group>"; };
+		5EC046FA1DD19F1E0034EA37 /* cpk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cpk.wav; sourceTree = "<group>"; };
+		5EC046FB1DD19F1E0034EA37 /* cracker-barrel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cracker-barrel.wav"; sourceTree = "<group>"; };
+		5EC046FC1DD19F1E0034EA37 /* culvers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = culvers.wav; sourceTree = "<group>"; };
+		5EC046FD1DD19F1E0034EA37 /* dairy-queen.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dairy-queen.wav"; sourceTree = "<group>"; };
+		5EC046FE1DD19F1E0034EA37 /* del-taco.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "del-taco.wav"; sourceTree = "<group>"; };
+		5EC046FF1DD19F1E0034EA37 /* dennys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dennys.wav; sourceTree = "<group>"; };
+		5EC047001DD19F1E0034EA37 /* dic-anns-hamburgers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dic-anns-hamburgers.wav"; sourceTree = "<group>"; };
+		5EC047011DD19F1E0034EA37 /* dixie-chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dixie-chicken.wav"; sourceTree = "<group>"; };
+		5EC047021DD19F1E0034EA37 /* dixie-chicken2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dixie-chicken2.wav"; sourceTree = "<group>"; };
+		5EC047031DD19F1E0034EA37 /* dixie-lee-fried-chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dixie-lee-fried-chicken.wav"; sourceTree = "<group>"; };
+		5EC047041DD19F1E0034EA37 /* dominos.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dominos.wav; sourceTree = "<group>"; };
+		5EC047051DD19F1E0034EA37 /* donut-diner.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "donut-diner.wav"; sourceTree = "<group>"; };
+		5EC047061DD19F1E0034EA37 /* dunkin-donuts.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dunkin-donuts.wav"; sourceTree = "<group>"; };
+		5EC047071DD19F1E0034EA37 /* east-side-marios.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "east-side-marios.wav"; sourceTree = "<group>"; };
+		5EC047081DD19F1E0034EA37 /* eat-restaurant.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "eat-restaurant.wav"; sourceTree = "<group>"; };
+		5EC047091DD19F1E0034EA37 /* edo-japan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "edo-japan.wav"; sourceTree = "<group>"; };
+		5EC0470A1DD19F1E0034EA37 /* eds-easy-diner.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "eds-easy-diner.wav"; sourceTree = "<group>"; };
+		5EC0470B1DD19F1E0034EA37 /* einstein-bros-bagels.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "einstein-bros-bagels.wav"; sourceTree = "<group>"; };
+		5EC0470C1DD19F1E0034EA37 /* extreme-pita.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "extreme-pita.wav"; sourceTree = "<group>"; };
+		5EC0470D1DD19F1E0034EA37 /* famous-daves.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "famous-daves.wav"; sourceTree = "<group>"; };
+		5EC0470E1DD19F1E0034EA37 /* fast-eddies.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "fast-eddies.wav"; sourceTree = "<group>"; };
+		5EC0470F1DD19F1E0034EA37 /* firehouse-subs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "firehouse-subs.wav"; sourceTree = "<group>"; };
+		5EC047101DD19F1E0034EA37 /* friendlys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = friendlys.wav; sourceTree = "<group>"; };
+		5EC047111DD19F1E0034EA37 /* fryers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fryers.wav; sourceTree = "<group>"; };
+		5EC047121DD19F1E0034EA37 /* fryers2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fryers2.wav; sourceTree = "<group>"; };
+		5EC047131DD19F1E0034EA37 /* gojis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gojis.wav; sourceTree = "<group>"; };
+		5EC047141DD19F1E0034EA37 /* golden-corral.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "golden-corral.wav"; sourceTree = "<group>"; };
+		5EC047151DD19F1E0034EA37 /* greco-pizza.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "greco-pizza.wav"; sourceTree = "<group>"; };
+		5EC047161DD19F1E0034EA37 /* hardees.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hardees.wav; sourceTree = "<group>"; };
+		5EC047171DD19F1E0034EA37 /* harveys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = harveys.wav; sourceTree = "<group>"; };
+		5EC047181DD19F1E0034EA37 /* harveys2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = harveys2.wav; sourceTree = "<group>"; };
+		5EC047191DD19F1E0034EA37 /* heros-cert-burgers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "heros-cert-burgers.wav"; sourceTree = "<group>"; };
+		5EC0471A1DD19F1E0034EA37 /* heros-cert-burgers2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "heros-cert-burgers2.wav"; sourceTree = "<group>"; };
+		5EC0471B1DD19F1E0034EA37 /* ho-lee-chow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ho-lee-chow.wav"; sourceTree = "<group>"; };
+		5EC0471C1DD19F1E0034EA37 /* hooters.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hooters.wav; sourceTree = "<group>"; };
+		5EC0471D1DD19F1E0034EA37 /* humptys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = humptys.wav; sourceTree = "<group>"; };
+		5EC0471E1DD19F1E0034EA37 /* ihop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ihop.wav; sourceTree = "<group>"; };
+		5EC0471F1DD19F1E0034EA37 /* in-and-out-burger.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "in-and-out-burger.wav"; sourceTree = "<group>"; };
+		5EC047201DD19F1E0034EA37 /* jack-in-the-box.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "jack-in-the-box.wav"; sourceTree = "<group>"; };
+		5EC047211DD19F1E0034EA37 /* jamba-juice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "jamba-juice.wav"; sourceTree = "<group>"; };
+		5EC047221DD19F1E0034EA37 /* jasons-deli.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "jasons-deli.wav"; sourceTree = "<group>"; };
+		5EC047231DD19F1E0034EA37 /* jimmy-johns.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "jimmy-johns.wav"; sourceTree = "<group>"; };
+		5EC047241DD19F1E0034EA37 /* jimmy-the-greek.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "jimmy-the-greek.wav"; sourceTree = "<group>"; };
+		5EC047251DD19F1E0034EA37 /* jugo-juice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "jugo-juice.wav"; sourceTree = "<group>"; };
+		5EC047261DD19F1E0034EA37 /* kaspas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaspas.wav; sourceTree = "<group>"; };
+		5EC047271DD19F1E0034EA37 /* kfc.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kfc.wav; sourceTree = "<group>"; };
+		5EC047281DD19F1E0034EA37 /* krispy-kreme-doughnuts.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "krispy-kreme-doughnuts.wav"; sourceTree = "<group>"; };
+		5EC047291DD19F1E0034EA37 /* krystal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = krystal.wav; sourceTree = "<group>"; };
+		5EC0472A1DD19F1E0034EA37 /* labelle-prov.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "labelle-prov.wav"; sourceTree = "<group>"; };
+		5EC0472B1DD19F1E0034EA37 /* licks-homeburgers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "licks-homeburgers.wav"; sourceTree = "<group>"; };
+		5EC0472C1DD19F1E0034EA37 /* little-caesars.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "little-caesars.wav"; sourceTree = "<group>"; };
+		5EC0472D1DD19F1E0034EA37 /* little-chef.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "little-chef.wav"; sourceTree = "<group>"; };
+		5EC0472E1DD19F1E0034EA37 /* logans-roadhouse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "logans-roadhouse.wav"; sourceTree = "<group>"; };
+		5EC0472F1DD19F1E0034EA37 /* long-john-silvers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "long-john-silvers.wav"; sourceTree = "<group>"; };
+		5EC047301DD19F1E0034EA37 /* longhorn-steakhouse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "longhorn-steakhouse.wav"; sourceTree = "<group>"; };
+		5EC047311DD19F1E0034EA37 /* macaroni-grill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "macaroni-grill.wav"; sourceTree = "<group>"; };
+		5EC047321DD19F1E0034EA37 /* manchu-wok.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "manchu-wok.wav"; sourceTree = "<group>"; };
+		5EC047331DD19F1E0034EA37 /* mary-browns.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mary-browns.wav"; sourceTree = "<group>"; };
+		5EC047341DD19F1E0034EA37 /* mary-browns2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mary-browns2.wav"; sourceTree = "<group>"; };
+		5EC047351DD19F1E0034EA37 /* mcdonalds.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mcdonalds.wav; sourceTree = "<group>"; };
+		5EC047361DD19F1E0034EA37 /* millies-cookies.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "millies-cookies.wav"; sourceTree = "<group>"; };
+		5EC047371DD19F1E0034EA37 /* moes.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = moes.wav; sourceTree = "<group>"; };
+		5EC047381DD19F1E0034EA37 /* morleys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = morleys.wav; sourceTree = "<group>"; };
+		5EC047391DD19F1E0034EA37 /* mr-greek.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mr-greek.wav"; sourceTree = "<group>"; };
+		5EC0473A1DD19F1E0034EA37 /* mr-mikes.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mr-mikes.wav"; sourceTree = "<group>"; };
+		5EC0473B1DD19F1E0034EA37 /* mr-sub.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mr-sub.wav"; sourceTree = "<group>"; };
+		5EC0473C1DD19F1E0034EA37 /* ny-fries.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ny-fries.wav"; sourceTree = "<group>"; };
+		5EC0473D1DD19F1E0034EA37 /* Ocharleys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Ocharleys.wav; sourceTree = "<group>"; };
+		5EC0473E1DD19F1E0034EA37 /* olive-garden.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "olive-garden.wav"; sourceTree = "<group>"; };
+		5EC0473F1DD19F1E0034EA37 /* on-the-border.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "on-the-border.wav"; sourceTree = "<group>"; };
+		5EC047401DD19F1E0034EA37 /* orange-julius.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "orange-julius.wav"; sourceTree = "<group>"; };
+		5EC047411DD19F1E0034EA37 /* outback.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outback.wav; sourceTree = "<group>"; };
+		5EC047421DD19F1E0034EA37 /* outback2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outback2.wav; sourceTree = "<group>"; };
+		5EC047431DD19F1E0034EA37 /* panago.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = panago.wav; sourceTree = "<group>"; };
+		5EC047441DD19F1E0034EA37 /* panda-express.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "panda-express.wav"; sourceTree = "<group>"; };
+		5EC047451DD19F1E0034EA37 /* panera-bread.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "panera-bread.wav"; sourceTree = "<group>"; };
+		5EC047461DD19F1E0034EA37 /* papa-johns.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "papa-johns.wav"; sourceTree = "<group>"; };
+		5EC047471DD19F1E0034EA37 /* papa-murphys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "papa-murphys.wav"; sourceTree = "<group>"; };
+		5EC047481DD19F1E0034EA37 /* pappadeux.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pappadeux.wav; sourceTree = "<group>"; };
+		5EC047491DD19F1E0034EA37 /* perkins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = perkins.wav; sourceTree = "<group>"; };
+		5EC0474A1DD19F1E0034EA37 /* pf-changs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pf-changs.wav"; sourceTree = "<group>"; };
+		5EC0474B1DD19F1E0034EA37 /* pita-pit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pita-pit.wav"; sourceTree = "<group>"; };
+		5EC0474C1DD19F1E0034EA37 /* pizza-hut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pizza-hut.wav"; sourceTree = "<group>"; };
+		5EC0474D1DD19F1E0034EA37 /* pizza-pizza.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pizza-pizza.wav"; sourceTree = "<group>"; };
+		5EC0474E1DD19F1E0034EA37 /* pollo-loco.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pollo-loco.wav"; sourceTree = "<group>"; };
+		5EC0474F1DD19F1E0034EA37 /* popeyes.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = popeyes.wav; sourceTree = "<group>"; };
+		5EC047501DD19F1E0034EA37 /* pret-a-manager.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pret-a-manager.wav"; sourceTree = "<group>"; };
+		5EC047511DD19F1E0034EA37 /* pret-a-manager2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pret-a-manager2.wav"; sourceTree = "<group>"; };
+		5EC047521DD19F1E0034EA37 /* qdoba-mex-grill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "qdoba-mex-grill.wav"; sourceTree = "<group>"; };
+		5EC047531DD19F1E0034EA37 /* qdoba-mex-grill2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "qdoba-mex-grill2.wav"; sourceTree = "<group>"; };
+		5EC047541DD19F1E0034EA37 /* quiznos.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = quiznos.wav; sourceTree = "<group>"; };
+		5EC047551DD19F1E0034EA37 /* quiznos2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = quiznos2.wav; sourceTree = "<group>"; };
+		5EC047561DD19F1E0034EA37 /* red-lobster.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "red-lobster.wav"; sourceTree = "<group>"; };
+		5EC047571DD19F1E0034EA37 /* red-robin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "red-robin.wav"; sourceTree = "<group>"; };
+		5EC047581DD19F1E0034EA37 /* Restaurant List.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Restaurant List.xlsx"; sourceTree = "<group>"; };
+		5EC047591DD19F1E0034EA37 /* restaurant-eggsquis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "restaurant-eggsquis.wav"; sourceTree = "<group>"; };
+		5EC0475A1DD19F1E0034EA37 /* rickys-all-day-grill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "rickys-all-day-grill.wav"; sourceTree = "<group>"; };
+		5EC0475B1DD19F1E0034EA37 /* robins-donuts.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "robins-donuts.wav"; sourceTree = "<group>"; };
+		5EC0475C1DD19F1E0034EA37 /* RotisseriesMomExpress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RotisseriesMomExpress.wav; sourceTree = "<group>"; };
+		5EC0475D1DD19F1E0034EA37 /* ruby-tuesday.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ruby-tuesday.wav"; sourceTree = "<group>"; };
+		5EC0475E1DD19F1E0034EA37 /* ruths-chris.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ruths-chris.wav"; sourceTree = "<group>"; };
+		5EC0475F1DD19F1E0034EA37 /* sams-chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sams-chicken.wav"; sourceTree = "<group>"; };
+		5EC047601DD19F1E0034EA37 /* sbarro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sbarro.wav; sourceTree = "<group>"; };
+		5EC047611DD19F1E0034EA37 /* shakeaway.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shakeaway.wav; sourceTree = "<group>"; };
+		5EC047621DD19F1E0034EA37 /* sheetz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sheetz.wav; sourceTree = "<group>"; };
+		5EC047631DD19F1E0034EA37 /* Smittys-Family-Restaurants.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Smittys-Family-Restaurants.wav"; sourceTree = "<group>"; };
+		5EC047641DD19F1E0034EA37 /* sonic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sonic.wav; sourceTree = "<group>"; };
+		5EC047651DD19F1E0034EA37 /* southern-fried-chicken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "southern-fried-chicken.wav"; sourceTree = "<group>"; };
+		5EC047661DD19F1E0034EA37 /* spudulike.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spudulike.wav; sourceTree = "<group>"; };
+		5EC047671DD19F1E0034EA37 /* St-Hubert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "St-Hubert.wav"; sourceTree = "<group>"; };
+		5EC047681DD19F1E0034EA37 /* starbucks.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = starbucks.wav; sourceTree = "<group>"; };
+		5EC047691DD19F1E0034EA37 /* steak-n-shake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "steak-n-shake.wav"; sourceTree = "<group>"; };
+		5EC0476A1DD19F1E0034EA37 /* subway.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = subway.wav; sourceTree = "<group>"; };
+		5EC0476B1DD19F1E0034EA37 /* subway2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = subway2.wav; sourceTree = "<group>"; };
+		5EC0476C1DD19F1E0034EA37 /* swiss-chalet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "swiss-chalet.wav"; sourceTree = "<group>"; };
+		5EC0476D1DD19F1E0034EA37 /* taco-bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "taco-bell.wav"; sourceTree = "<group>"; };
+		5EC0476E1DD19F1E0034EA37 /* taco-bell2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "taco-bell2.wav"; sourceTree = "<group>"; };
+		5EC0476F1DD19F1E0034EA37 /* taco-del-mar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "taco-del-mar.wav"; sourceTree = "<group>"; };
+		5EC047701DD19F1E0034EA37 /* tacotime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tacotime.wav; sourceTree = "<group>"; };
+		5EC047711DD19F1E0034EA37 /* teriyaki-experience.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "teriyaki-experience.wav"; sourceTree = "<group>"; };
+		5EC047721DD19F1E0034EA37 /* texas-roadhouse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "texas-roadhouse.wav"; sourceTree = "<group>"; };
+		5EC047731DD19F1E0034EA37 /* tgif.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tgif.wav; sourceTree = "<group>"; };
+		5EC047741DD19F1E0034EA37 /* thai-express.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thai-express.wav"; sourceTree = "<group>"; };
+		5EC047751DD19F1E0034EA37 /* thaizone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = thaizone.wav; sourceTree = "<group>"; };
+		5EC047761DD19F1E0034EA37 /* the-works.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "the-works.wav"; sourceTree = "<group>"; };
+		5EC047771DD19F1E0034EA37 /* tim-hortons.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tim-hortons.wav"; sourceTree = "<group>"; };
+		5EC047781DD19F1E0034EA37 /* tortilla.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tortilla.wav; sourceTree = "<group>"; };
+		5EC047791DD19F1E0034EA37 /* valentine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = valentine.wav; sourceTree = "<group>"; };
+		5EC0477A1DD19F1E0034EA37 /* valentine2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = valentine2.wav; sourceTree = "<group>"; };
+		5EC0477B1DD19F1E0034EA37 /* vanellis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = vanellis.wav; sourceTree = "<group>"; };
+		5EC0477C1DD19F1E0034EA37 /* verns-pizza.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "verns-pizza.wav"; sourceTree = "<group>"; };
+		5EC0477D1DD19F1E0034EA37 /* wafflehouse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wafflehouse.wav; sourceTree = "<group>"; };
+		5EC0477E1DD19F1E0034EA37 /* wahaca.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wahaca.wav; sourceTree = "<group>"; };
+		5EC0477F1DD19F1E0034EA37 /* wasabi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wasabi.wav; sourceTree = "<group>"; };
+		5EC047801DD19F1E0034EA37 /* wawa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wawa.wav; sourceTree = "<group>"; };
+		5EC047811DD19F1E0034EA37 /* wendys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wendys.wav; sourceTree = "<group>"; };
+		5EC047821DD19F1E0034EA37 /* wendys2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wendys2.wav; sourceTree = "<group>"; };
+		5EC047831DD19F1E0034EA37 /* west-cornwall-pasty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "west-cornwall-pasty.wav"; sourceTree = "<group>"; };
+		5EC047841DD19F1E0034EA37 /* whataburger.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = whataburger.wav; sourceTree = "<group>"; };
+		5EC047851DD19F1E0034EA37 /* white-castle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "white-castle.wav"; sourceTree = "<group>"; };
+		5EC047861DD19F1E0034EA37 /* white-spot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "white-spot.wav"; sourceTree = "<group>"; };
+		5EC047871DD19F1E0034EA37 /* williams-fresh-cafe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "williams-fresh-cafe.wav"; sourceTree = "<group>"; };
+		5EC047881DD19F1E0034EA37 /* wimpy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wimpy.wav; sourceTree = "<group>"; };
+		5EC047891DD19F1E0034EA37 /* wrapchic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrapchic.wav; sourceTree = "<group>"; };
+		5EC0478A1DD19F1E0034EA37 /* yogen-fruz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "yogen-fruz.wav"; sourceTree = "<group>"; };
+		5EC0478B1DD19F1E0034EA37 /* zaxbys.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zaxbys.wav; sourceTree = "<group>"; };
 		5EC8C38B1DB10C7C00D62672 /* BizDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizDetailVC.swift; sourceTree = SOURCE_ROOT; };
 		5EDD29531DA7B68C000CBFDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5EE5B0571DA68F00001A19EC /* NYC2SDiago.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NYC2SDiago.gpx; sourceTree = "<group>"; };
@@ -981,6 +1393,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4E772A1DD091ED005F6885 /* Food Statements */,
+				5EC046BD1DD19F1E0034EA37 /* Restaurants */,
 				5E4E772B1DD09241005F6885 /* Directional */,
 				5E4E774F1DD09241005F6885 /* Distance-Statements */,
 				5E4E776C1DD09241005F6885 /* FoodFinder-Statements */,
@@ -988,31 +1401,7 @@
 				5E4E77F61DD09241005F6885 /* Prepositions */,
 				5E4E785D1DD09241005F6885 /* TrafficMonitor-LITE */,
 				5E4E787D1DD09241005F6885 /* Trunk */,
-				5E4E788C1DD09241005F6885 /* 1.wav */,
-				5E4E788D1DD09241005F6885 /* 2.wav */,
-				5E4E788E1DD09241005F6885 /* 3.wav */,
-				5E4E788F1DD09241005F6885 /* 4.wav */,
-				5E4E78901DD09241005F6885 /* 5.wav */,
-				5E4E78911DD09241005F6885 /* 6.wav */,
-				5E4E78921DD09241005F6885 /* 7.wav */,
-				5E4E78931DD09241005F6885 /* 8.wav */,
-				5E4E78941DD09241005F6885 /* 9.wav */,
-				5E4E78951DD09241005F6885 /* 10.wav */,
-				5E4E78961DD09241005F6885 /* 11.wav */,
-				5E4E78971DD09241005F6885 /* 12.wav */,
-				5E4E78981DD09241005F6885 /* 13.wav */,
-				5E4E78991DD09241005F6885 /* 14.wav */,
-				5E4E789A1DD09241005F6885 /* 15.wav */,
-				5E4E789B1DD09241005F6885 /* 16a.wav */,
-				5E4E789C1DD09241005F6885 /* 16b.wav */,
-				5E4E789D1DD09241005F6885 /* 17a.wav */,
-				5E4E789E1DD09241005F6885 /* 17b.wav */,
-				5E4E789F1DD09241005F6885 /* 18a.wav */,
-				5E4E78A01DD09241005F6885 /* 18b.wav */,
-				5E4E78A11DD09241005F6885 /* 19a.wav */,
-				5E4E78A21DD09241005F6885 /* 19b.wav */,
-				5E4E78A31DD09241005F6885 /* 20a.wav */,
-				5E4E78A41DD09241005F6885 /* 20b.wav */,
+				5EC046BC1DD19C120034EA37 /* Numbers */,
 				5E4E78A51DD09241005F6885 /* stateroute.wav */,
 			);
 			name = Sounds;
@@ -1552,6 +1941,251 @@
 			path = PulleyLib;
 			sourceTree = "<group>";
 		};
+		5EC046BC1DD19C120034EA37 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				5E4E788C1DD09241005F6885 /* 1.wav */,
+				5E4E788D1DD09241005F6885 /* 2.wav */,
+				5E4E788E1DD09241005F6885 /* 3.wav */,
+				5E4E788F1DD09241005F6885 /* 4.wav */,
+				5E4E78901DD09241005F6885 /* 5.wav */,
+				5E4E78911DD09241005F6885 /* 6.wav */,
+				5E4E78921DD09241005F6885 /* 7.wav */,
+				5E4E78931DD09241005F6885 /* 8.wav */,
+				5E4E78941DD09241005F6885 /* 9.wav */,
+				5E4E78951DD09241005F6885 /* 10.wav */,
+				5E4E78961DD09241005F6885 /* 11.wav */,
+				5E4E78971DD09241005F6885 /* 12.wav */,
+				5E4E78981DD09241005F6885 /* 13.wav */,
+				5E4E78991DD09241005F6885 /* 14.wav */,
+				5E4E789A1DD09241005F6885 /* 15.wav */,
+				5E4E789B1DD09241005F6885 /* 16.wav */,
+				5E4E789C1DD09241005F6885 /* 16b.wav */,
+				5E4E789D1DD09241005F6885 /* 17.wav */,
+				5E4E789E1DD09241005F6885 /* 17b.wav */,
+				5E4E789F1DD09241005F6885 /* 18.wav */,
+				5E4E78A01DD09241005F6885 /* 18b.wav */,
+				5E4E78A11DD09241005F6885 /* 19.wav */,
+				5E4E78A21DD09241005F6885 /* 19b.wav */,
+				5E4E78A31DD09241005F6885 /* 20.wav */,
+				5E4E78A41DD09241005F6885 /* 20b.wav */,
+			);
+			name = Numbers;
+			sourceTree = "<group>";
+		};
+		5EC046BD1DD19F1E0034EA37 /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				5EC046BE1DD19F1E0034EA37 /* 5-guys.wav */,
+				5EC046BF1DD19F1E0034EA37 /* 5-guys2.wav */,
+				5EC046C01DD19F1E0034EA37 /* 7-11.wav */,
+				5EC046C11DD19F1E0034EA37 /* a&w.wav */,
+				5EC046C21DD19F1E0034EA37 /* applebees.wav */,
+				5EC046C31DD19F1E0034EA37 /* arbys.wav */,
+				5EC046C41DD19F1E0034EA37 /* backyardburgers.wav */,
+				5EC046C51DD19F1E0034EA37 /* bakers-dozen-donuts.wav */,
+				5EC046C61DD19F1E0034EA37 /* bar-b-cutie.wav */,
+				5EC046C71DD19F1E0034EA37 /* barburrito.wav */,
+				5EC046C81DD19F1E0034EA37 /* baskin-robbins.wav */,
+				5EC046C91DD19F1E0034EA37 /* beavertails.wav */,
+				5EC046CA1DD19F1E0034EA37 /* beavertails2.wav */,
+				5EC046CB1DD19F1E0034EA37 /* ben-and-florentine.wav */,
+				5EC046CC1DD19F1E0034EA37 /* ben-and-jerrys.wav */,
+				5EC046CD1DD19F1E0034EA37 /* benjys.wav */,
+				5EC046CE1DD19F1E0034EA37 /* big-boy.wav */,
+				5EC046CF1DD19F1E0034EA37 /* bjs.wav */,
+				5EC046D01DD19F1E0034EA37 /* blimpie.wav */,
+				5EC046D11DD19F1E0034EA37 /* blimpie2.wav */,
+				5EC046D21DD19F1E0034EA37 /* blimpie3.wav */,
+				5EC046D31DD19F1E0034EA37 /* bob-evans.wav */,
+				5EC046D41DD19F1E0034EA37 /* bojangles.wav */,
+				5EC046D51DD19F1E0034EA37 /* bonefish-grill.wav */,
+				5EC046D61DD19F1E0034EA37 /* booster-juice.wav */,
+				5EC046D71DD19F1E0034EA37 /* boston-market.wav */,
+				5EC046D81DD19F1E0034EA37 /* boston-pizza.wav */,
+				5EC046D91DD19F1E0034EA37 /* burger-baron.wav */,
+				5EC046DA1DD19F1E0034EA37 /* burger-baron2.wav */,
+				5EC046DB1DD19F1E0034EA37 /* burger-king.wav */,
+				5EC046DC1DD19F1E0034EA37 /* burger-king2.wav */,
+				5EC046DD1DD19F1E0034EA37 /* BW3.wav */,
+				5EC046DE1DD19F1E0034EA37 /* c-lovers-fish-n-chips.wav */,
+				5EC046DF1DD19F1E0034EA37 /* Capt-Ds-Seafood.wav */,
+				5EC046E01DD19F1E0034EA37 /* captain-submarine.wav */,
+				5EC046E11DD19F1E0034EA37 /* capts-sub.wav */,
+				5EC046E21DD19F1E0034EA37 /* carls-jr.wav */,
+				5EC046E31DD19F1E0034EA37 /* carls-jr2.wav */,
+				5EC046E41DD19F1E0034EA37 /* carrabbas.wav */,
+				5EC046E51DD19F1E0034EA37 /* checkers.wav */,
+				5EC046E61DD19F1E0034EA37 /* cheddars.wav */,
+				5EC046E71DD19F1E0034EA37 /* cheesecake-factory.wav */,
+				5EC046E81DD19F1E0034EA37 /* chez-ashton.wav */,
+				5EC046E91DD19F1E0034EA37 /* chez-ashton2.wav */,
+				5EC046EA1DD19F1E0034EA37 /* chic-fil-a.wav */,
+				5EC046EB1DD19F1E0034EA37 /* chicken-cottage.wav */,
+				5EC046EC1DD19F1E0034EA37 /* chicken-cottage2.wav */,
+				5EC046ED1DD19F1E0034EA37 /* chicken-delight.wav */,
+				5EC046EE1DD19F1E0034EA37 /* chilis.wav */,
+				5EC046EF1DD19F1E0034EA37 /* chipotle.wav */,
+				5EC046F01DD19F1E0034EA37 /* chuck-e-cheese.wav */,
+				5EC046F11DD19F1E0034EA37 /* churchs-chicken.wav */,
+				5EC046F21DD19F1E0034EA37 /* cicis-pizza.wav */,
+				5EC046F31DD19F1E0034EA37 /* cinnabun.wav */,
+				5EC046F41DD19F1E0034EA37 /* cinnabun2.wav */,
+				5EC046F51DD19F1E0034EA37 /* circle-k.wav */,
+				5EC046F61DD19F1E0034EA37 /* coffeetime.wav */,
+				5EC046F71DD19F1E0034EA37 /* cora.wav */,
+				5EC046F81DD19F1E0034EA37 /* countrystyle.wav */,
+				5EC046F91DD19F1E0034EA37 /* cows-ice-cream.wav */,
+				5EC046FA1DD19F1E0034EA37 /* cpk.wav */,
+				5EC046FB1DD19F1E0034EA37 /* cracker-barrel.wav */,
+				5EC046FC1DD19F1E0034EA37 /* culvers.wav */,
+				5EC046FD1DD19F1E0034EA37 /* dairy-queen.wav */,
+				5EC046FE1DD19F1E0034EA37 /* del-taco.wav */,
+				5EC046FF1DD19F1E0034EA37 /* dennys.wav */,
+				5EC047001DD19F1E0034EA37 /* dic-anns-hamburgers.wav */,
+				5EC047011DD19F1E0034EA37 /* dixie-chicken.wav */,
+				5EC047021DD19F1E0034EA37 /* dixie-chicken2.wav */,
+				5EC047031DD19F1E0034EA37 /* dixie-lee-fried-chicken.wav */,
+				5EC047041DD19F1E0034EA37 /* dominos.wav */,
+				5EC047051DD19F1E0034EA37 /* donut-diner.wav */,
+				5EC047061DD19F1E0034EA37 /* dunkin-donuts.wav */,
+				5EC047071DD19F1E0034EA37 /* east-side-marios.wav */,
+				5EC047081DD19F1E0034EA37 /* eat-restaurant.wav */,
+				5EC047091DD19F1E0034EA37 /* edo-japan.wav */,
+				5EC0470A1DD19F1E0034EA37 /* eds-easy-diner.wav */,
+				5EC0470B1DD19F1E0034EA37 /* einstein-bros-bagels.wav */,
+				5EC0470C1DD19F1E0034EA37 /* extreme-pita.wav */,
+				5EC0470D1DD19F1E0034EA37 /* famous-daves.wav */,
+				5EC0470E1DD19F1E0034EA37 /* fast-eddies.wav */,
+				5EC0470F1DD19F1E0034EA37 /* firehouse-subs.wav */,
+				5EC047101DD19F1E0034EA37 /* friendlys.wav */,
+				5EC047111DD19F1E0034EA37 /* fryers.wav */,
+				5EC047121DD19F1E0034EA37 /* fryers2.wav */,
+				5EC047131DD19F1E0034EA37 /* gojis.wav */,
+				5EC047141DD19F1E0034EA37 /* golden-corral.wav */,
+				5EC047151DD19F1E0034EA37 /* greco-pizza.wav */,
+				5EC047161DD19F1E0034EA37 /* hardees.wav */,
+				5EC047171DD19F1E0034EA37 /* harveys.wav */,
+				5EC047181DD19F1E0034EA37 /* harveys2.wav */,
+				5EC047191DD19F1E0034EA37 /* heros-cert-burgers.wav */,
+				5EC0471A1DD19F1E0034EA37 /* heros-cert-burgers2.wav */,
+				5EC0471B1DD19F1E0034EA37 /* ho-lee-chow.wav */,
+				5EC0471C1DD19F1E0034EA37 /* hooters.wav */,
+				5EC0471D1DD19F1E0034EA37 /* humptys.wav */,
+				5EC0471E1DD19F1E0034EA37 /* ihop.wav */,
+				5EC0471F1DD19F1E0034EA37 /* in-and-out-burger.wav */,
+				5EC047201DD19F1E0034EA37 /* jack-in-the-box.wav */,
+				5EC047211DD19F1E0034EA37 /* jamba-juice.wav */,
+				5EC047221DD19F1E0034EA37 /* jasons-deli.wav */,
+				5EC047231DD19F1E0034EA37 /* jimmy-johns.wav */,
+				5EC047241DD19F1E0034EA37 /* jimmy-the-greek.wav */,
+				5EC047251DD19F1E0034EA37 /* jugo-juice.wav */,
+				5EC047261DD19F1E0034EA37 /* kaspas.wav */,
+				5EC047271DD19F1E0034EA37 /* kfc.wav */,
+				5EC047281DD19F1E0034EA37 /* krispy-kreme-doughnuts.wav */,
+				5EC047291DD19F1E0034EA37 /* krystal.wav */,
+				5EC0472A1DD19F1E0034EA37 /* labelle-prov.wav */,
+				5EC0472B1DD19F1E0034EA37 /* licks-homeburgers.wav */,
+				5EC0472C1DD19F1E0034EA37 /* little-caesars.wav */,
+				5EC0472D1DD19F1E0034EA37 /* little-chef.wav */,
+				5EC0472E1DD19F1E0034EA37 /* logans-roadhouse.wav */,
+				5EC0472F1DD19F1E0034EA37 /* long-john-silvers.wav */,
+				5EC047301DD19F1E0034EA37 /* longhorn-steakhouse.wav */,
+				5EC047311DD19F1E0034EA37 /* macaroni-grill.wav */,
+				5EC047321DD19F1E0034EA37 /* manchu-wok.wav */,
+				5EC047331DD19F1E0034EA37 /* mary-browns.wav */,
+				5EC047341DD19F1E0034EA37 /* mary-browns2.wav */,
+				5EC047351DD19F1E0034EA37 /* mcdonalds.wav */,
+				5EC047361DD19F1E0034EA37 /* millies-cookies.wav */,
+				5EC047371DD19F1E0034EA37 /* moes.wav */,
+				5EC047381DD19F1E0034EA37 /* morleys.wav */,
+				5EC047391DD19F1E0034EA37 /* mr-greek.wav */,
+				5EC0473A1DD19F1E0034EA37 /* mr-mikes.wav */,
+				5EC0473B1DD19F1E0034EA37 /* mr-sub.wav */,
+				5EC0473C1DD19F1E0034EA37 /* ny-fries.wav */,
+				5EC0473D1DD19F1E0034EA37 /* Ocharleys.wav */,
+				5EC0473E1DD19F1E0034EA37 /* olive-garden.wav */,
+				5EC0473F1DD19F1E0034EA37 /* on-the-border.wav */,
+				5EC047401DD19F1E0034EA37 /* orange-julius.wav */,
+				5EC047411DD19F1E0034EA37 /* outback.wav */,
+				5EC047421DD19F1E0034EA37 /* outback2.wav */,
+				5EC047431DD19F1E0034EA37 /* panago.wav */,
+				5EC047441DD19F1E0034EA37 /* panda-express.wav */,
+				5EC047451DD19F1E0034EA37 /* panera-bread.wav */,
+				5EC047461DD19F1E0034EA37 /* papa-johns.wav */,
+				5EC047471DD19F1E0034EA37 /* papa-murphys.wav */,
+				5EC047481DD19F1E0034EA37 /* pappadeux.wav */,
+				5EC047491DD19F1E0034EA37 /* perkins.wav */,
+				5EC0474A1DD19F1E0034EA37 /* pf-changs.wav */,
+				5EC0474B1DD19F1E0034EA37 /* pita-pit.wav */,
+				5EC0474C1DD19F1E0034EA37 /* pizza-hut.wav */,
+				5EC0474D1DD19F1E0034EA37 /* pizza-pizza.wav */,
+				5EC0474E1DD19F1E0034EA37 /* pollo-loco.wav */,
+				5EC0474F1DD19F1E0034EA37 /* popeyes.wav */,
+				5EC047501DD19F1E0034EA37 /* pret-a-manager.wav */,
+				5EC047511DD19F1E0034EA37 /* pret-a-manager2.wav */,
+				5EC047521DD19F1E0034EA37 /* qdoba-mex-grill.wav */,
+				5EC047531DD19F1E0034EA37 /* qdoba-mex-grill2.wav */,
+				5EC047541DD19F1E0034EA37 /* quiznos.wav */,
+				5EC047551DD19F1E0034EA37 /* quiznos2.wav */,
+				5EC047561DD19F1E0034EA37 /* red-lobster.wav */,
+				5EC047571DD19F1E0034EA37 /* red-robin.wav */,
+				5EC047581DD19F1E0034EA37 /* Restaurant List.xlsx */,
+				5EC047591DD19F1E0034EA37 /* restaurant-eggsquis.wav */,
+				5EC0475A1DD19F1E0034EA37 /* rickys-all-day-grill.wav */,
+				5EC0475B1DD19F1E0034EA37 /* robins-donuts.wav */,
+				5EC0475C1DD19F1E0034EA37 /* RotisseriesMomExpress.wav */,
+				5EC0475D1DD19F1E0034EA37 /* ruby-tuesday.wav */,
+				5EC0475E1DD19F1E0034EA37 /* ruths-chris.wav */,
+				5EC0475F1DD19F1E0034EA37 /* sams-chicken.wav */,
+				5EC047601DD19F1E0034EA37 /* sbarro.wav */,
+				5EC047611DD19F1E0034EA37 /* shakeaway.wav */,
+				5EC047621DD19F1E0034EA37 /* sheetz.wav */,
+				5EC047631DD19F1E0034EA37 /* Smittys-Family-Restaurants.wav */,
+				5EC047641DD19F1E0034EA37 /* sonic.wav */,
+				5EC047651DD19F1E0034EA37 /* southern-fried-chicken.wav */,
+				5EC047661DD19F1E0034EA37 /* spudulike.wav */,
+				5EC047671DD19F1E0034EA37 /* St-Hubert.wav */,
+				5EC047681DD19F1E0034EA37 /* starbucks.wav */,
+				5EC047691DD19F1E0034EA37 /* steak-n-shake.wav */,
+				5EC0476A1DD19F1E0034EA37 /* subway.wav */,
+				5EC0476B1DD19F1E0034EA37 /* subway2.wav */,
+				5EC0476C1DD19F1E0034EA37 /* swiss-chalet.wav */,
+				5EC0476D1DD19F1E0034EA37 /* taco-bell.wav */,
+				5EC0476E1DD19F1E0034EA37 /* taco-bell2.wav */,
+				5EC0476F1DD19F1E0034EA37 /* taco-del-mar.wav */,
+				5EC047701DD19F1E0034EA37 /* tacotime.wav */,
+				5EC047711DD19F1E0034EA37 /* teriyaki-experience.wav */,
+				5EC047721DD19F1E0034EA37 /* texas-roadhouse.wav */,
+				5EC047731DD19F1E0034EA37 /* tgif.wav */,
+				5EC047741DD19F1E0034EA37 /* thai-express.wav */,
+				5EC047751DD19F1E0034EA37 /* thaizone.wav */,
+				5EC047761DD19F1E0034EA37 /* the-works.wav */,
+				5EC047771DD19F1E0034EA37 /* tim-hortons.wav */,
+				5EC047781DD19F1E0034EA37 /* tortilla.wav */,
+				5EC047791DD19F1E0034EA37 /* valentine.wav */,
+				5EC0477A1DD19F1E0034EA37 /* valentine2.wav */,
+				5EC0477B1DD19F1E0034EA37 /* vanellis.wav */,
+				5EC0477C1DD19F1E0034EA37 /* verns-pizza.wav */,
+				5EC0477D1DD19F1E0034EA37 /* wafflehouse.wav */,
+				5EC0477E1DD19F1E0034EA37 /* wahaca.wav */,
+				5EC0477F1DD19F1E0034EA37 /* wasabi.wav */,
+				5EC047801DD19F1E0034EA37 /* wawa.wav */,
+				5EC047811DD19F1E0034EA37 /* wendys.wav */,
+				5EC047821DD19F1E0034EA37 /* wendys2.wav */,
+				5EC047831DD19F1E0034EA37 /* west-cornwall-pasty.wav */,
+				5EC047841DD19F1E0034EA37 /* whataburger.wav */,
+				5EC047851DD19F1E0034EA37 /* white-castle.wav */,
+				5EC047861DD19F1E0034EA37 /* white-spot.wav */,
+				5EC047871DD19F1E0034EA37 /* williams-fresh-cafe.wav */,
+				5EC047881DD19F1E0034EA37 /* wimpy.wav */,
+				5EC047891DD19F1E0034EA37 /* wrapchic.wav */,
+				5EC0478A1DD19F1E0034EA37 /* yogen-fruz.wav */,
+				5EC0478B1DD19F1E0034EA37 /* zaxbys.wav */,
+			);
+			path = Restaurants;
+			sourceTree = "<group>";
+		};
 		5EDB5CF21DAF8EC90039CDD4 /* BottomDrawerVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1561,6 +2195,8 @@
 				5EC8C38B1DB10C7C00D62672 /* BizDetailVC.swift */,
 				5E6745B91DB14374002681B2 /* ReviewTableCell.xib */,
 				5E6745BA1DB14374002681B2 /* ReviewTableCell.swift */,
+				5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */,
+				5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */,
 			);
 			name = BottomDrawerVC;
 			path = PulleyLib;
@@ -1628,8 +2264,6 @@
 				5E8D29051DA28A7500EFAC9C /* Custom Views */,
 				DA8B38651D8B8B9E009A6812 /* Login/Registration/Settings */,
 				5E1174CC1DAD285F0047A304 /* EditProfileVC.swift */,
-				5E10DBF21DAE63F100B6BD4C /* BusinessTableViewCell.swift */,
-				5E10DBF31DAE63F100B6BD4C /* BusinessTableViewCell.xib */,
 				5E8D28F51DA28A0500EFAC9C /* Food */,
 				DAFB88101D9F0F3C004DE008 /* Direction */,
 				DA6AE8121D89E446001E5B65 /* GooglePlaces & Maps */,
@@ -1870,22 +2504,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E4E791D1DD09241005F6885 /* mexican.wav in Resources */,
+				5EC047D01DD19F1E0034EA37 /* dixie-chicken2.wav in Resources */,
 				5E4E79CB1DD09241005F6885 /* via.wav in Resources */,
+				5EC0480A1DD19F1E0034EA37 /* ny-fries.wav in Resources */,
 				5E4E796A1DD09241005F6885 /* tea-and-juice.wav in Resources */,
 				5E4E79B01DD09241005F6885 /* outside.wav in Resources */,
 				5E4E79B91DD09241005F6885 /* plus2.wav in Resources */,
 				5E4E792C1DD09241005F6885 /* spanish.wav in Resources */,
+				5EC047AD1DD19F1E0034EA37 /* Capt-Ds-Seafood.wav in Resources */,
 				5E4E78E41DD09241005F6885 /* yards2.wav in Resources */,
 				5E4E79501DD09241005F6885 /* department-stores.wav in Resources */,
 				5E4E78D81DD09241005F6885 /* miles2.wav in Resources */,
 				5E4E79471DD09241005F6885 /* barbershops.wav in Resources */,
+				5EC047F01DD19F1E0034EA37 /* jasons-deli.wav in Resources */,
+				5EC047FD1DD19F1E0034EA37 /* long-john-silvers.wav in Resources */,
 				5E4E79F31DD09241005F6885 /* trunk4.wav in Resources */,
+				5EC048021DD19F1E0034EA37 /* mary-browns2.wav in Resources */,
 				5E4E79361DD09241005F6885 /* yelp-1-star.wav in Resources */,
 				5E4E79B71DD09241005F6885 /* per2.wav in Resources */,
 				5E4E799D1DD09241005F6885 /* in2.wav in Resources */,
 				5E4E78D31DD09241005F6885 /* meters.wav in Resources */,
 				5E4E79731DD09241005F6885 /* after.wav in Resources */,
 				5E4E79B61DD09241005F6885 /* per.wav in Resources */,
+				5EC048161DD19F1E0034EA37 /* pappadeux.wav in Resources */,
 				5E4E78C01DD09241005F6885 /* then-merge-left.wav in Resources */,
 				5E4E79781DD09241005F6885 /* among2.wav in Resources */,
 				5E4E78A91DD09241005F6885 /* check-yoself-speed-warning.wav in Resources */,
@@ -1895,66 +2536,114 @@
 				5E4E798B1DD09241005F6885 /* between.wav in Resources */,
 				5E4E79751DD09241005F6885 /* along.wav in Resources */,
 				5E4E79161DD09241005F6885 /* japanese.wav in Resources */,
+				5EC0479F1DD19F1E0034EA37 /* blimpie2.wav in Resources */,
 				5E4E797F1DD09241005F6885 /* before.wav in Resources */,
+				5EC047D11DD19F1E0034EA37 /* dixie-lee-fried-chicken.wav in Resources */,
+				5EC048101DD19F1E0034EA37 /* outback2.wav in Resources */,
 				5E4E795E1DD09241005F6885 /* landmarks.wav in Resources */,
 				5E4E79301DD09241005F6885 /* thai.wav in Resources */,
+				5EC0483D1DD19F1E0034EA37 /* taco-del-mar.wav in Resources */,
 				5E4E793F1DD09241005F6885 /* yelp-half-star.wav in Resources */,
 				5E4E795A1DD09241005F6885 /* home-and-office-stores.wav in Resources */,
+				5EC047951DD19F1E0034EA37 /* barburrito.wav in Resources */,
 				5E4E79411DD09241005F6885 /* airports.wav in Resources */,
 				5E4E79F71DD09241005F6885 /* 1.wav in Resources */,
+				5EC047961DD19F1E0034EA37 /* baskin-robbins.wav in Resources */,
 				5E4E792A1DD09241005F6885 /* soul-food.wav in Resources */,
 				5E4E78BF1DD09241005F6885 /* then-destination-on-the-right.wav in Resources */,
+				5EC047DA1DD19F1E0034EA37 /* extreme-pita.wav in Resources */,
 				5E4E78DD1DD09241005F6885 /* minute1.wav in Resources */,
 				5E4E7A041DD09241005F6885 /* 14.wav in Resources */,
+				5EC047A21DD19F1E0034EA37 /* bojangles.wav in Resources */,
 				5E4E78A71DD09241005F6885 /* and-destination-on-the-left.wav in Resources */,
 				5E4E79A41DD09241005F6885 /* near.wav in Resources */,
 				5E4E78FB1DD09241005F6885 /* egyptian.wav in Resources */,
+				5EC047F71DD19F1E0034EA37 /* krystal.wav in Resources */,
+				5EC048061DD19F1E0034EA37 /* morleys.wav in Resources */,
 				5E4E78E01DD09241005F6885 /* minutes2.wav in Resources */,
 				5E4E79FD1DD09241005F6885 /* 7.wav in Resources */,
+				5EC048421DD19F1E0034EA37 /* thai-express.wav in Resources */,
 				5E4E79BF1DD09241005F6885 /* to.wav in Resources */,
 				5E4E79BE1DD09241005F6885 /* through2.wav in Resources */,
 				5E4E78AB1DD09241005F6885 /* destination-on-the-left.wav in Resources */,
 				5E4E79821DD09241005F6885 /* behind2.wav in Resources */,
+				5EC0478E1DD19F1E0034EA37 /* 7-11.wav in Resources */,
 				5E4E78AC1DD09241005F6885 /* destination-on-the-right.wav in Resources */,
 				5E4E79EF1DD09241005F6885 /* trunk22.wav in Resources */,
 				5E4E79291DD09241005F6885 /* smoothies-and-juices.wav in Resources */,
+				5EC047AC1DD19F1E0034EA37 /* c-lovers-fish-n-chips.wav in Resources */,
 				5E4E79E61DD09241005F6885 /* stmt8-pt3.wav in Resources */,
+				5EC0484A1DD19F1E0034EA37 /* verns-pizza.wav in Resources */,
+				5EC048481DD19F1E0034EA37 /* valentine2.wav in Resources */,
 				5E4E79041DD09241005F6885 /* FOODFINDER-STATEMENTS.docx in Resources */,
 				5E4E78DF1DD09241005F6885 /* minutes1.wav in Resources */,
+				5EC047D31DD19F1E0034EA37 /* donut-diner.wav in Resources */,
 				5E4E79691DD09241005F6885 /* sporting-goods.wav in Resources */,
+				5EC0484B1DD19F1E0034EA37 /* wafflehouse.wav in Resources */,
+				5EC047901DD19F1E0034EA37 /* applebees.wav in Resources */,
+				5EC048391DD19F1E0034EA37 /* subway2.wav in Resources */,
+				5EC048521DD19F1E0034EA37 /* whataburger.wav in Resources */,
 				5E4E78B01DD09241005F6885 /* faster-route-found.wav in Resources */,
 				5E4E78B21DD09241005F6885 /* let-get-something-some-icecream.wav in Resources */,
+				5EC0480C1DD19F1E0034EA37 /* olive-garden.wav in Resources */,
 				5E4E794D1DD09241005F6885 /* clothing-stores.wav in Resources */,
+				5EC048171DD19F1E0034EA37 /* perkins.wav in Resources */,
 				5E4E78C31DD09241005F6885 /* to-the-left2.wav in Resources */,
+				5EC048541DD19F1E0034EA37 /* white-spot.wav in Resources */,
+				5EC047C11DD19F1E0034EA37 /* cinnabun.wav in Resources */,
 				5E4E79141DD09241005F6885 /* italian.wav in Resources */,
 				5E4E79931DD09241005F6885 /* down2.wav in Resources */,
 				5E4E79BA1DD09241005F6885 /* PREPOSITIONAL-STATEMENTS.docx in Resources */,
+				5EC047A91DD19F1E0034EA37 /* burger-king.wav in Resources */,
 				5E4E78B11DD09241005F6885 /* hazard-ahead.wav in Resources */,
 				5E4E797A1DD09241005F6885 /* around2.wav in Resources */,
 				5E4E7A071DD09241005F6885 /* 16b.wav in Resources */,
+				5EC047C21DD19F1E0034EA37 /* cinnabun2.wav in Resources */,
 				5E4E796B1DD09241005F6885 /* transit-stations.wav in Resources */,
 				5E4E79D51DD09241005F6885 /* statement10.wav in Resources */,
 				5EB0BCD41DA439F6005102CB /* pin_blue@2x.png in Resources */,
 				5E4E78EB1DD09241005F6885 /* bbq.wav in Resources */,
 				5EE5B05A1DA68F00001A19EC /* SeattleW2Florida.gpx in Resources */,
+				5EC048381DD19F1E0034EA37 /* subway.wav in Resources */,
 				5E4E78ED1DD09241005F6885 /* breakfast.wav in Resources */,
+				5EC0481B1DD19F1E0034EA37 /* pizza-pizza.wav in Resources */,
 				5E4E78E31DD09241005F6885 /* yards.wav in Resources */,
+				5EC047CC1DD19F1E0034EA37 /* del-taco.wav in Resources */,
 				5E4E79A61DD09241005F6885 /* of.wav in Resources */,
+				5EC048571DD19F1E0034EA37 /* wrapchic.wav in Resources */,
 				5E4E78F81DD09241005F6885 /* diners.wav in Resources */,
+				5EC047C61DD19F1E0034EA37 /* countrystyle.wav in Resources */,
+				5EC0484C1DD19F1E0034EA37 /* wahaca.wav in Resources */,
 				5E4E797E1DD09241005F6885 /* at2.wav in Resources */,
+				5EC047AF1DD19F1E0034EA37 /* capts-sub.wav in Resources */,
 				5E4E79F51DD09241005F6885 /* trunk7.wav in Resources */,
+				5EC047CA1DD19F1E0034EA37 /* culvers.wav in Resources */,
 				5E4E78C21DD09241005F6885 /* to-the-left.wav in Resources */,
+				5EC048121DD19F1E0034EA37 /* panda-express.wav in Resources */,
 				5E4E796E1DD09241005F6885 /* about2.wav in Resources */,
 				5E4E79F01DD09241005F6885 /* trunk28.wav in Resources */,
+				5EC047C41DD19F1E0034EA37 /* coffeetime.wav in Resources */,
+				5EC048251DD19F1E0034EA37 /* red-robin.wav in Resources */,
 				5E4E79AE1DD09241005F6885 /* opposite.wav in Resources */,
 				5E4E79601DD09241005F6885 /* movies.wav in Resources */,
+				5EC047E41DD19F1E0034EA37 /* hardees.wav in Resources */,
+				5EC048591DD19F1E0034EA37 /* zaxbys.wav in Resources */,
+				5EC047C71DD19F1E0034EA37 /* cows-ice-cream.wav in Resources */,
+				5EC047B11DD19F1E0034EA37 /* carls-jr2.wav in Resources */,
 				5E4E792B1DD09241005F6885 /* soup.wav in Resources */,
+				5EC0484D1DD19F1E0034EA37 /* wasabi.wav in Resources */,
+				5EC048551DD19F1E0034EA37 /* williams-fresh-cafe.wav in Resources */,
+				5EC047E71DD19F1E0034EA37 /* heros-cert-burgers.wav in Resources */,
 				5E4E79FF1DD09241005F6885 /* 9.wav in Resources */,
 				5E4E78F71DD09241005F6885 /* desserts.wav in Resources */,
+				5EC048111DD19F1E0034EA37 /* panago.wav in Resources */,
 				5E4E78AD1DD09241005F6885 /* dont-text-or-drive-2.wav in Resources */,
 				5E4E79F81DD09241005F6885 /* 2.wav in Resources */,
 				5E4E78E11DD09241005F6885 /* yard.wav in Resources */,
-				5E4E7A061DD09241005F6885 /* 16a.wav in Resources */,
+				5EC047BD1DD19F1E0034EA37 /* chipotle.wav in Resources */,
+				5E4E7A061DD09241005F6885 /* 16.wav in Resources */,
+				5EC048051DD19F1E0034EA37 /* moes.wav in Resources */,
+				5EC047D51DD19F1E0034EA37 /* east-side-marios.wav in Resources */,
 				5E4E79CF1DD09241005F6885 /* within.wav in Resources */,
 				5E4E79EB1DD09241005F6885 /* trunk10.wav in Resources */,
 				5E4E79851DD09241005F6885 /* beneath.wav in Resources */,
@@ -1967,7 +2656,9 @@
 				5E4E78AF1DD09241005F6885 /* faster-route-found-2.wav in Resources */,
 				5E4E79091DD09241005F6885 /* grocery-items.wav in Resources */,
 				5E4E79871DD09241005F6885 /* beside.wav in Resources */,
+				5EC047CD1DD19F1E0034EA37 /* dennys.wav in Resources */,
 				5E4E79771DD09241005F6885 /* among.wav in Resources */,
+				5EC0482F1DD19F1E0034EA37 /* shakeaway.wav in Resources */,
 				5E3426E51D9FC44600DFF2F9 /* Main.storyboard in Resources */,
 				5E4E79811DD09241005F6885 /* behind.wav in Resources */,
 				5E4E78F11DD09241005F6885 /* chicken.wav in Resources */,
@@ -1976,60 +2667,97 @@
 				5E4E79541DD09241005F6885 /* fast-food.wav in Resources */,
 				5E4E79C11DD09241005F6885 /* toward.wav in Resources */,
 				5E4E794B1DD09241005F6885 /* bus-stops.wav in Resources */,
+				5EC047B41DD19F1E0034EA37 /* cheddars.wav in Resources */,
 				5E4E799E1DD09241005F6885 /* inside.wav in Resources */,
 				5E4E79B81DD09241005F6885 /* plus.wav in Resources */,
+				5EC0484F1DD19F1E0034EA37 /* wendys.wav in Resources */,
 				5E4E79831DD09241005F6885 /* below.wav in Resources */,
 				5E4E79A51DD09241005F6885 /* near2.wav in Resources */,
 				5E4E79901DD09241005F6885 /* by.wav in Resources */,
 				5E4E798C1DD09241005F6885 /* between2.wav in Resources */,
 				5E4E79971DD09241005F6885 /* for2.wav in Resources */,
+				5EC048311DD19F1E0034EA37 /* Smittys-Family-Restaurants.wav in Resources */,
+				5EC047EB1DD19F1E0034EA37 /* humptys.wav in Resources */,
 				5E4E79D71DD09241005F6885 /* statement12.wav in Resources */,
 				5E4E79171DD09241005F6885 /* korean.wav in Resources */,
 				5E4E79511DD09241005F6885 /* desserts.wav in Resources */,
+				5EC047CF1DD19F1E0034EA37 /* dixie-chicken.wav in Resources */,
 				5E4E78B91DD09241005F6885 /* reached-destination.wav in Resources */,
 				5E4E78F01DD09241005F6885 /* cheesesteak.wav in Resources */,
+				5EC047A81DD19F1E0034EA37 /* burger-baron2.wav in Resources */,
+				5EC048341DD19F1E0034EA37 /* spudulike.wav in Resources */,
+				5EC0479E1DD19F1E0034EA37 /* blimpie.wav in Resources */,
+				5EC047931DD19F1E0034EA37 /* bakers-dozen-donuts.wav in Resources */,
 				5E4E79C01DD09241005F6885 /* to2.wav in Resources */,
 				5E4E78C61DD09241005F6885 /* traffic-ahead.wav in Resources */,
+				5EC0479D1DD19F1E0034EA37 /* bjs.wav in Resources */,
+				5EC047BF1DD19F1E0034EA37 /* churchs-chicken.wav in Resources */,
 				5E4E7A021DD09241005F6885 /* 12.wav in Resources */,
 				5E4E79F61DD09241005F6885 /* trunk8.wav in Resources */,
+				5EC047B21DD19F1E0034EA37 /* carrabbas.wav in Resources */,
 				5E4E78A81DD09241005F6885 /* and-destination-on-the-right.wav in Resources */,
 				5E4E78C81DD09241005F6885 /* wise-words.wav in Resources */,
 				5E4E7A0F1DD09241005F6885 /* 20b.wav in Resources */,
+				5EC048531DD19F1E0034EA37 /* white-castle.wav in Resources */,
 				5E4E790D1DD09241005F6885 /* hoagies.wav in Resources */,
-				5E4E7A081DD09241005F6885 /* 17a.wav in Resources */,
+				5E4E7A081DD09241005F6885 /* 17.wav in Resources */,
 				5E4E78BC1DD09241005F6885 /* speed-trap-ahead.wav in Resources */,
 				5E4E79271DD09241005F6885 /* seafood.wav in Resources */,
 				5E4E79E91DD09241005F6885 /* trunk.wav in Resources */,
 				5E4E79D21DD09241005F6885 /* without2.wav in Resources */,
+				5EC048371DD19F1E0034EA37 /* steak-n-shake.wav in Resources */,
 				5E4E78D91DD09241005F6885 /* milimeter.wav in Resources */,
 				5E4E78CB1DD09241005F6885 /* feet2.wav in Resources */,
 				5E4E79DC1DD09241005F6885 /* stmt4-pt1.wav in Resources */,
 				DA334BEF1D8A7CE0002E4E1F /* PlayButton@2x.png in Resources */,
 				5E4E78D41DD09241005F6885 /* meters2.wav in Resources */,
 				5E4E78D21DD09241005F6885 /* meter2.wav in Resources */,
+				5EC048431DD19F1E0034EA37 /* thaizone.wav in Resources */,
 				5E4E79551DD09241005F6885 /* fitness-centers.wav in Resources */,
+				5EC047DB1DD19F1E0034EA37 /* famous-daves.wav in Resources */,
+				5EC048241DD19F1E0034EA37 /* red-lobster.wav in Resources */,
+				5EC047ED1DD19F1E0034EA37 /* in-and-out-burger.wav in Resources */,
 				5E4E79D91DD09241005F6885 /* stmt2-pt2.wav in Resources */,
 				5E4E79991DD09241005F6885 /* from.wav in Resources */,
 				5E4E790E1DD09241005F6885 /* hot-dog.wav in Resources */,
 				5E4E79451DD09241005F6885 /* bakeries.wav in Resources */,
+				5EC047EC1DD19F1E0034EA37 /* ihop.wav in Resources */,
 				5E4E78F41DD09241005F6885 /* colombian.wav in Resources */,
 				DA0320FE1D93099600BE0698 /* AudioRecorderViewController.xib in Resources */,
 				5E4E790C1DD09241005F6885 /* hamburgers.wav in Resources */,
+				5EC047921DD19F1E0034EA37 /* backyardburgers.wav in Resources */,
 				5E4E79CA1DD09241005F6885 /* upon2.wav in Resources */,
+				5EC047971DD19F1E0034EA37 /* beavertails.wav in Resources */,
 				5E4E79711DD09241005F6885 /* across.wav in Resources */,
 				DA334BEE1D8A7CE0002E4E1F /* StopButton@2x.png in Resources */,
 				5E4E79DF1DD09241005F6885 /* stmt5-pt2.wav in Resources */,
+				5EC047D91DD19F1E0034EA37 /* einstein-bros-bagels.wav in Resources */,
+				5EC047BA1DD19F1E0034EA37 /* chicken-cottage2.wav in Resources */,
+				5EC047D41DD19F1E0034EA37 /* dunkin-donuts.wav in Resources */,
 				5E4E791A1DD09241005F6885 /* low-price.wav in Resources */,
+				5EC048471DD19F1E0034EA37 /* valentine.wav in Resources */,
 				5E4E78CD1DD09241005F6885 /* foot2.wav in Resources */,
 				5E4E79FB1DD09241005F6885 /* 5.wav in Resources */,
+				5EC0479C1DD19F1E0034EA37 /* big-boy.wav in Resources */,
 				5E4E79701DD09241005F6885 /* above2.wav in Resources */,
+				5EC047F11DD19F1E0034EA37 /* jimmy-johns.wav in Resources */,
+				5EC047F41DD19F1E0034EA37 /* kaspas.wav in Resources */,
 				5E4E79371DD09241005F6885 /* yelp-1andHalf-star.wav in Resources */,
+				5EC047FB1DD19F1E0034EA37 /* little-chef.wav in Resources */,
 				5E4E79431DD09241005F6885 /* ATM.wav in Resources */,
 				5E4E79E21DD09241005F6885 /* stmt7-pt1.wav in Resources */,
+				5EC0482D1DD19F1E0034EA37 /* sams-chicken.wav in Resources */,
 				5E4E79E51DD09241005F6885 /* stmt8-pt2.wav in Resources */,
 				5E4E78BB1DD09241005F6885 /* slow-moving-traffic-ahead.wav in Resources */,
+				5EC0483B1DD19F1E0034EA37 /* taco-bell.wav in Resources */,
+				5EC047B81DD19F1E0034EA37 /* chic-fil-a.wav in Resources */,
+				5EC047FA1DD19F1E0034EA37 /* little-caesars.wav in Resources */,
+				5EC048501DD19F1E0034EA37 /* wendys2.wav in Resources */,
+				5EC047911DD19F1E0034EA37 /* arbys.wav in Resources */,
+				5EC047991DD19F1E0034EA37 /* ben-and-florentine.wav in Resources */,
 				5E4E79661DD09241005F6885 /* pharmacies.wav in Resources */,
 				5E4E78C11DD09241005F6885 /* then-merge-right.wav in Resources */,
+				5EC047B71DD19F1E0034EA37 /* chez-ashton2.wav in Resources */,
 				5E4E79351DD09241005F6885 /* wraps.wav in Resources */,
 				5E4E78B61DD09241005F6885 /* moderate-traffic-ahead.wav in Resources */,
 				5E4E78FD1DD09241005F6885 /* ethiopian.wav in Resources */,
@@ -2039,39 +2767,59 @@
 				5E4E7A001DD09241005F6885 /* 10.wav in Resources */,
 				5E4E78F21DD09241005F6885 /* chinese.wav in Resources */,
 				5E4E79281DD09241005F6885 /* shakes.wav in Resources */,
+				5EC048291DD19F1E0034EA37 /* robins-donuts.wav in Resources */,
 				5E4E78B31DD09241005F6885 /* let-get-something-to-eat.wav in Resources */,
+				5EC0483E1DD19F1E0034EA37 /* tacotime.wav in Resources */,
+				5EC047B91DD19F1E0034EA37 /* chicken-cottage.wav in Resources */,
+				5EC047B51DD19F1E0034EA37 /* cheesecake-factory.wav in Resources */,
 				5E4E78D51DD09241005F6885 /* mile.wav in Resources */,
 				5E4E79671DD09241005F6885 /* post-offices.wav in Resources */,
 				5E4E78BD1DD09241005F6885 /* stmt-avoid-tolls.wav in Resources */,
 				5E4E79251DD09241005F6885 /* salads.wav in Resources */,
 				5E4E7A031DD09241005F6885 /* 13.wav in Resources */,
+				5EC0481D1DD19F1E0034EA37 /* popeyes.wav in Resources */,
+				5EC048081DD19F1E0034EA37 /* mr-mikes.wav in Resources */,
 				5E4E79761DD09241005F6885 /* along2.wav in Resources */,
+				5EC047D81DD19F1E0034EA37 /* eds-easy-diner.wav in Resources */,
+				5EC048071DD19F1E0034EA37 /* mr-greek.wav in Resources */,
 				5E4E798F1DD09241005F6885 /* beyond2.wav in Resources */,
 				5E4E79C51DD09241005F6885 /* under.wav in Resources */,
 				5E4E799A1DD09241005F6885 /* from2.wav in Resources */,
+				5EC0480E1DD19F1E0034EA37 /* orange-julius.wav in Resources */,
 				5E4E79861DD09241005F6885 /* beneath2.wav in Resources */,
 				5E4E78D01DD09241005F6885 /* kilometers2.wav in Resources */,
 				5E4E79651DD09241005F6885 /* pet-stores.wav in Resources */,
+				5EC047E51DD19F1E0034EA37 /* harveys.wav in Resources */,
 				5E4E79CC1DD09241005F6885 /* via2.wav in Resources */,
 				5E4E78D11DD09241005F6885 /* meter.wav in Resources */,
+				5EC048361DD19F1E0034EA37 /* starbucks.wav in Resources */,
 				5E4E78D71DD09241005F6885 /* miles.wav in Resources */,
 				5E4E79D11DD09241005F6885 /* without.wav in Resources */,
 				5E4E794E1DD09241005F6885 /* coffeeshops.wav in Resources */,
 				5E4E79C21DD09241005F6885 /* toward2.wav in Resources */,
 				5E4E79591DD09241005F6885 /* groceries-stores.wav in Resources */,
 				5E4E79121DD09241005F6885 /* indonesian.wav in Resources */,
+				5EC047E21DD19F1E0034EA37 /* golden-corral.wav in Resources */,
+				5EC0481F1DD19F1E0034EA37 /* pret-a-manager2.wav in Resources */,
+				5EC047EF1DD19F1E0034EA37 /* jamba-juice.wav in Resources */,
 				5E4E792E1DD09241005F6885 /* subs.wav in Resources */,
 				5E4E798A1DD09241005F6885 /* besides2.wav in Resources */,
+				5EC048581DD19F1E0034EA37 /* yogen-fruz.wav in Resources */,
+				5EC047A11DD19F1E0034EA37 /* bob-evans.wav in Resources */,
 				5E4E79C61DD09241005F6885 /* under2.wav in Resources */,
 				5E10DBF51DAE63F100B6BD4C /* BusinessTableViewCell.xib in Resources */,
+				5EC048511DD19F1E0034EA37 /* west-cornwall-pasty.wav in Resources */,
 				5EE5B0591DA68F00001A19EC /* NYC2SDiago.gpx in Resources */,
 				5E4E78CC1DD09241005F6885 /* foot.wav in Resources */,
 				5E4E79151DD09241005F6885 /* jamaican.wav in Resources */,
+				5EC047DD1DD19F1E0034EA37 /* firehouse-subs.wav in Resources */,
 				5E4E791B1DD09241005F6885 /* lunch.wav in Resources */,
+				5EC048151DD19F1E0034EA37 /* papa-murphys.wav in Resources */,
 				5E4E79521DD09241005F6885 /* drugstores.wav in Resources */,
 				5E4E79B11DD09241005F6885 /* outside2.wav in Resources */,
+				5EC047FE1DD19F1E0034EA37 /* longhorn-steakhouse.wav in Resources */,
 				5E4E78A61DD09241005F6885 /* accident-ahead.wav in Resources */,
-				5E4E7A0C1DD09241005F6885 /* 19a.wav in Resources */,
+				5E4E7A0C1DD09241005F6885 /* 19.wav in Resources */,
 				5E4E79DD1DD09241005F6885 /* stmt4-pt2.wav in Resources */,
 				5E4E79181DD09241005F6885 /* kosher.wav in Resources */,
 				5E4E796D1DD09241005F6885 /* about.wav in Resources */,
@@ -2079,7 +2827,9 @@
 				5E4E7A091DD09241005F6885 /* 17b.wav in Resources */,
 				5E4E79E41DD09241005F6885 /* stmt8-pt1.wav in Resources */,
 				5E4E79E01DD09241005F6885 /* stmt5-pt3.wav in Resources */,
+				5EC048191DD19F1E0034EA37 /* pita-pit.wav in Resources */,
 				5E4E79C71DD09241005F6885 /* underneath.wav in Resources */,
+				5EC0481E1DD19F1E0034EA37 /* pret-a-manager.wav in Resources */,
 				5E4E79631DD09241005F6885 /* parking.wav in Resources */,
 				5E4E791F1DD09241005F6885 /* noodles.wav in Resources */,
 				5E4E79911DD09241005F6885 /* by2.wav in Resources */,
@@ -2090,25 +2840,35 @@
 				5E4E79231DD09241005F6885 /* pricey.wav in Resources */,
 				5E4E78E91DD09241005F6885 /* bagels.wav in Resources */,
 				5E4E78CE1DD09241005F6885 /* kilometer.wav in Resources */,
-				5E4E7A0A1DD09241005F6885 /* 18a.wav in Resources */,
+				5E4E7A0A1DD09241005F6885 /* 18.wav in Resources */,
+				5EC047B01DD19F1E0034EA37 /* carls-jr.wav in Resources */,
 				5E4E78C71DD09241005F6885 /* traffic-jam-ahead.wav in Resources */,
 				5E4E79491DD09241005F6885 /* beauty-shops.wav in Resources */,
 				5E4E7A0B1DD09241005F6885 /* 18b.wav in Resources */,
+				5EC047C81DD19F1E0034EA37 /* cpk.wav in Resources */,
 				5E4E78F31DD09241005F6885 /* coffee.wav in Resources */,
 				5E4E79221DD09241005F6885 /* portuguese.wav in Resources */,
 				5E4E78B51DD09241005F6885 /* lets-go.wav in Resources */,
+				5EC0483A1DD19F1E0034EA37 /* swiss-chalet.wav in Resources */,
 				5E4E79CE1DD09241005F6885 /* with2.wav in Resources */,
 				5E4E78EA1DD09241005F6885 /* bakeries.wav in Resources */,
+				5EC0479B1DD19F1E0034EA37 /* benjys.wav in Resources */,
 				5E4E79481DD09241005F6885 /* bars.wav in Resources */,
 				5E4E795D1DD09241005F6885 /* hotels.wav in Resources */,
 				5E4E79531DD09241005F6885 /* dry-cleaners.wav in Resources */,
 				5E4E79131DD09241005F6885 /* irish.wav in Resources */,
+				5EC048321DD19F1E0034EA37 /* sonic.wav in Resources */,
+				5EC047F51DD19F1E0034EA37 /* kfc.wav in Resources */,
 				5E4E78E81DD09241005F6885 /* asian.wav in Resources */,
+				5EC047B61DD19F1E0034EA37 /* chez-ashton.wav in Resources */,
+				5EC0482C1DD19F1E0034EA37 /* ruths-chris.wav in Resources */,
 				5E4E79B21DD09241005F6885 /* over.wav in Resources */,
+				5EC0478D1DD19F1E0034EA37 /* 5-guys2.wav in Resources */,
 				5E4E795F1DD09241005F6885 /* laundry.wav in Resources */,
 				5E4E78EF1DD09241005F6885 /* caribbean.wav in Resources */,
 				5E4E79031DD09241005F6885 /* food-trucks.wav in Resources */,
 				5E4E78FF1DD09241005F6885 /* expensive.wav in Resources */,
+				5EC048401DD19F1E0034EA37 /* texas-roadhouse.wav in Resources */,
 				5E4E796F1DD09241005F6885 /* above.wav in Resources */,
 				5E4E790F1DD09241005F6885 /* hot-dogs.wav in Resources */,
 				5E4E7A101DD09241005F6885 /* stateroute.wav in Resources */,
@@ -2119,90 +2879,137 @@
 				5E4E79841DD09241005F6885 /* below2.wav in Resources */,
 				5E4E79261DD09241005F6885 /* sandwiches.wav in Resources */,
 				5E16D2F11DC3701B006E596B /* foodstmt4-pt5_checkthemout.wav in Resources */,
+				5EC047CE1DD19F1E0034EA37 /* dic-anns-hamburgers.wav in Resources */,
+				5EC047D61DD19F1E0034EA37 /* eat-restaurant.wav in Resources */,
+				5EC047A31DD19F1E0034EA37 /* bonefish-grill.wav in Resources */,
+				5EC047DE1DD19F1E0034EA37 /* friendlys.wav in Resources */,
 				5E4E78DA1DD09241005F6885 /* milimeter2.wav in Resources */,
 				5E4E79621DD09241005F6885 /* nightclubs.wav in Resources */,
+				5EC048491DD19F1E0034EA37 /* vanellis.wav in Resources */,
 				5E4E79101DD09241005F6885 /* ice-cream.wav in Resources */,
+				5EC0480F1DD19F1E0034EA37 /* outback.wav in Resources */,
+				5EC0482E1DD19F1E0034EA37 /* sbarro.wav in Resources */,
 				5E4E7A0D1DD09241005F6885 /* 19b.wav in Resources */,
 				5E4E78DC1DD09241005F6885 /* milimeters2.wav in Resources */,
+				5EC047981DD19F1E0034EA37 /* beavertails2.wav in Resources */,
 				5E4E793D1DD09241005F6885 /* yelp-4andHalf-stars.wav in Resources */,
+				5EC048461DD19F1E0034EA37 /* tortilla.wav in Resources */,
+				5EC0478F1DD19F1E0034EA37 /* a&w.wav in Resources */,
 				5E4E79B41DD09241005F6885 /* past.wav in Resources */,
 				5E4E790A1DD09241005F6885 /* grocery.wav in Resources */,
 				5E4E79B31DD09241005F6885 /* over2.wav in Resources */,
+				5EC048331DD19F1E0034EA37 /* southern-fried-chicken.wav in Resources */,
 				5E4E79EE1DD09241005F6885 /* trunk16.wav in Resources */,
 				5E4E79681DD09241005F6885 /* restaurants.wav in Resources */,
 				5E4E79EC1DD09241005F6885 /* trunk12.wav in Resources */,
+				5EC047E11DD19F1E0034EA37 /* gojis.wav in Resources */,
 				5E4E79801DD09241005F6885 /* before2.wav in Resources */,
 				5E4E79461DD09241005F6885 /* banks.wav in Resources */,
 				5E4E78C41DD09241005F6885 /* to-the-right.wav in Resources */,
+				5EC0483F1DD19F1E0034EA37 /* teriyaki-experience.wav in Resources */,
 				5E4E799C1DD09241005F6885 /* in.wav in Resources */,
 				5E4E790B1DD09241005F6885 /* halal.wav in Resources */,
+				5EC047BB1DD19F1E0034EA37 /* chicken-delight.wav in Resources */,
 				5E4E791C1DD09241005F6885 /* mediterranean.wav in Resources */,
+				5EC048211DD19F1E0034EA37 /* qdoba-mex-grill2.wav in Resources */,
 				5E4E79A71DD09241005F6885 /* of2.wav in Resources */,
 				5E4E78B81DD09241005F6885 /* push-safe-place-button.wav in Resources */,
 				5E4E78BE1DD09241005F6885 /* then-destination-on-the-left.wav in Resources */,
+				5EC047941DD19F1E0034EA37 /* bar-b-cutie.wav in Resources */,
 				5E4E78B71DD09241005F6885 /* police-warning.wav in Resources */,
 				5E4E79C81DD09241005F6885 /* underneath2.wav in Resources */,
+				5EC047E81DD19F1E0034EA37 /* heros-cert-burgers2.wav in Resources */,
 				5E4E7A011DD09241005F6885 /* 11.wav in Resources */,
 				DA6AE7CF1D88C782001E5B65 /* LaunchScreen.storyboard in Resources */,
 				5E4E795B1DD09241005F6885 /* home-services.wav in Resources */,
+				5EC047DF1DD19F1E0034EA37 /* fryers.wav in Resources */,
 				5E4E79D41DD09241005F6885 /* stmt1-pt2.wav in Resources */,
+				5EC047AB1DD19F1E0034EA37 /* BW3.wav in Resources */,
 				5E4E797D1DD09241005F6885 /* at.wav in Resources */,
 				5E4E79891DD09241005F6885 /* besides.wav in Resources */,
 				5E4E79DB1DD09241005F6885 /* stmt3.wav in Resources */,
+				5EC048351DD19F1E0034EA37 /* St-Hubert.wav in Resources */,
 				5E4E797C1DD09241005F6885 /* as2.wav in Resources */,
+				5EC047EA1DD19F1E0034EA37 /* hooters.wav in Resources */,
 				5E4E79061DD09241005F6885 /* frozen-yogurt.wav in Resources */,
 				5E4E78E71DD09241005F6885 /* argentinian.wav in Resources */,
 				5E4E79071DD09241005F6885 /* gluten-free.wav in Resources */,
 				5E4E79D01DD09241005F6885 /* within2.wav in Resources */,
+				5EC047F81DD19F1E0034EA37 /* labelle-prov.wav in Resources */,
 				5E4E78E51DD09241005F6885 /* african.wav in Resources */,
 				5E4E79E81DD09241005F6885 /* TrafficMonitor-LITE.docx in Resources */,
 				5E4E79BD1DD09241005F6885 /* through.wav in Resources */,
+				5EC047AA1DD19F1E0034EA37 /* burger-king2.wav in Resources */,
+				5EC0482A1DD19F1E0034EA37 /* RotisseriesMomExpress.wav in Resources */,
 				5E4E79DA1DD09241005F6885 /* stmt2-pt3.wav in Resources */,
 				5E3426EA1DA0134300DFF2F9 /* NY2Brooklyn.gpx in Resources */,
 				5E4E792F1DD09241005F6885 /* sushi.wav in Resources */,
+				5EC048221DD19F1E0034EA37 /* quiznos.wav in Resources */,
 				5E4E79011DD09241005F6885 /* filipino.wav in Resources */,
 				5E4E79881DD09241005F6885 /* beside2.wav in Resources */,
 				5E4E78AE1DD09241005F6885 /* dont-text-or-drive.wav in Resources */,
+				5EC048261DD19F1E0034EA37 /* Restaurant List.xlsx in Resources */,
 				5E4E79401DD09241005F6885 /* airports-2.wav in Resources */,
+				5EC047C51DD19F1E0034EA37 /* cora.wav in Resources */,
 				5E4E79F91DD09241005F6885 /* 3.wav in Resources */,
 				5E4E798D1DD09241005F6885 /* between3.wav in Resources */,
 				5E4E79561DD09241005F6885 /* fuel-stations-UK-CAN.wav in Resources */,
 				5E4E79E11DD09241005F6885 /* stmt6.wav in Resources */,
+				5EC048011DD19F1E0034EA37 /* mary-browns.wav in Resources */,
 				5E4E79E31DD09241005F6885 /* stmt7-pt2.wav in Resources */,
+				5EC048281DD19F1E0034EA37 /* rickys-all-day-grill.wav in Resources */,
 				5E4E79B51DD09241005F6885 /* past2.wav in Resources */,
 				5E4E78E21DD09241005F6885 /* yard2.wav in Resources */,
+				5EC047EE1DD19F1E0034EA37 /* jack-in-the-box.wav in Resources */,
 				5E4E797B1DD09241005F6885 /* as.wav in Resources */,
 				5E4E79D81DD09241005F6885 /* stmt2-pt1.wav in Resources */,
+				5EC048131DD19F1E0034EA37 /* panera-bread.wav in Resources */,
+				5EC0478C1DD19F1E0034EA37 /* 5-guys.wav in Resources */,
+				5EC0480D1DD19F1E0034EA37 /* on-the-border.wav in Resources */,
 				5E4E78BA1DD09241005F6885 /* rerouting-recalculating.wav in Resources */,
+				5EC047BE1DD19F1E0034EA37 /* chuck-e-cheese.wav in Resources */,
 				5E4E79021DD09241005F6885 /* find-dining.wav in Resources */,
 				5E4E79081DD09241005F6885 /* greek.wav in Resources */,
+				5EC047FC1DD19F1E0034EA37 /* logans-roadhouse.wav in Resources */,
 				5E4E793A1DD09241005F6885 /* yelp-3-stars.wav in Resources */,
 				5E4E79201DD09241005F6885 /* pasta.wav in Resources */,
 				DA6AE7CC1D88C782001E5B65 /* Assets.xcassets in Resources */,
+				5EC0483C1DD19F1E0034EA37 /* taco-bell2.wav in Resources */,
 				5E4E79241DD09241005F6885 /* ribs.wav in Resources */,
+				5EC047F31DD19F1E0034EA37 /* jugo-juice.wav in Resources */,
 				5E4E78EC1DD09241005F6885 /* brazilian.wav in Resources */,
+				5EC047E01DD19F1E0034EA37 /* fryers2.wav in Resources */,
 				5E4E79BB1DD09241005F6885 /* round.wav in Resources */,
 				5E4E79F21DD09241005F6885 /* trunk33.wav in Resources */,
 				5E4E79AA1DD09241005F6885 /* on.wav in Resources */,
 				5E4E78FA1DD09241005F6885 /* ecuadorian.wav in Resources */,
+				5EC048201DD19F1E0034EA37 /* qdoba-mex-grill.wav in Resources */,
 				5E4E79A31DD09241005F6885 /* like2.wav in Resources */,
 				5E16D2F21DC3701B006E596B /* foodstmt4-pt2_places.wav in Resources */,
+				5EC047A01DD19F1E0034EA37 /* blimpie3.wav in Resources */,
 				5E4E79FA1DD09241005F6885 /* 4.wav in Resources */,
 				5E4E793E1DD09241005F6885 /* yelp-5-stars.wav in Resources */,
 				5E4E79AC1DD09241005F6885 /* onto.wav in Resources */,
 				5E4E79A11DD09241005F6885 /* into2.wav in Resources */,
 				5E4E79321DD09241005F6885 /* vegetarian.wav in Resources */,
 				5E4E79AB1DD09241005F6885 /* on2.wav in Resources */,
+				5EC047F91DD19F1E0034EA37 /* licks-homeburgers.wav in Resources */,
+				5EC047C91DD19F1E0034EA37 /* cracker-barrel.wav in Resources */,
 				5E4E78DE1DD09241005F6885 /* minute2.wav in Resources */,
 				5E4E79D61DD09241005F6885 /* statement11.wav in Resources */,
 				5EA9ECDA1DA556E2007B6688 /* route@2x.png in Resources */,
 				5E4E78CA1DD09241005F6885 /* feet.wav in Resources */,
 				5E4E79AF1DD09241005F6885 /* opposite2.wav in Resources */,
+				5EC047BC1DD19F1E0034EA37 /* chilis.wav in Resources */,
+				5EC047AE1DD19F1E0034EA37 /* captain-submarine.wav in Resources */,
 				5E4E79741DD09241005F6885 /* after2.wav in Resources */,
 				5E4E78F51DD09241005F6885 /* cuban.wav in Resources */,
+				5EC047A51DD19F1E0034EA37 /* boston-market.wav in Resources */,
 				5E4E78DB1DD09241005F6885 /* milimeters.wav in Resources */,
 				5E16D2F01DC3701B006E596B /* foodstmt4-pt1_ifound.wav in Resources */,
+				5EC048561DD19F1E0034EA37 /* wimpy.wav in Resources */,
 				DAFB87B41D9DF625004DE008 /* MarkerInfoView.xib in Resources */,
+				5EC048031DD19F1E0034EA37 /* mcdonalds.wav in Resources */,
 				5E4E78C51DD09241005F6885 /* to-the-right2.wav in Resources */,
 				5E4E79961DD09241005F6885 /* for.wav in Resources */,
 				5E4E793B1DD09241005F6885 /* yelp-3andHalf-stars.wav in Resources */,
@@ -2212,44 +3019,77 @@
 				5E4E79721DD09241005F6885 /* across2.wav in Resources */,
 				5E4E79641DD09241005F6885 /* parks.wav in Resources */,
 				5E4E79001DD09241005F6885 /* fast-food.wav in Resources */,
+				5EC047E31DD19F1E0034EA37 /* greco-pizza.wav in Resources */,
+				5EC048141DD19F1E0034EA37 /* papa-johns.wav in Resources */,
 				5E4E79381DD09241005F6885 /* yelp-2-stars.wav in Resources */,
 				5E4E794F1DD09241005F6885 /* conv-stores.wav in Resources */,
+				5EC048041DD19F1E0034EA37 /* millies-cookies.wav in Resources */,
+				5EC048091DD19F1E0034EA37 /* mr-sub.wav in Resources */,
+				5EC048301DD19F1E0034EA37 /* sheetz.wav in Resources */,
+				5EC047A41DD19F1E0034EA37 /* booster-juice.wav in Resources */,
 				5E4E79981DD09241005F6885 /* for3.wav in Resources */,
 				5E4E78C91DD09241005F6885 /* DISTANCE-STATEMENTS.docx in Resources */,
 				5E4E796C1DD09241005F6885 /* wine.wav in Resources */,
 				5E4E79A01DD09241005F6885 /* into.wav in Resources */,
+				5EC0482B1DD19F1E0034EA37 /* ruby-tuesday.wav in Resources */,
+				5EC047DC1DD19F1E0034EA37 /* fast-eddies.wav in Resources */,
 				5E4E78E61DD09241005F6885 /* american.wav in Resources */,
+				5EC048411DD19F1E0034EA37 /* tgif.wav in Resources */,
+				5EC047CB1DD19F1E0034EA37 /* dairy-queen.wav in Resources */,
 				5E4E79DE1DD09241005F6885 /* stmt5-pt1.wav in Resources */,
+				5EC047B31DD19F1E0034EA37 /* checkers.wav in Resources */,
 				5E4E79211DD09241005F6885 /* pizza.wav in Resources */,
+				5EC047E91DD19F1E0034EA37 /* ho-lee-chow.wav in Resources */,
+				5EC047F61DD19F1E0034EA37 /* krispy-kreme-doughnuts.wav in Resources */,
 				5EB0BCD21DA407CA005102CB /* sfo2ggb.gpx in Resources */,
-				5E4E7A0E1DD09241005F6885 /* 20a.wav in Resources */,
+				5E4E7A0E1DD09241005F6885 /* 20.wav in Resources */,
 				5E4E79421DD09241005F6885 /* amuzement-parks.wav in Resources */,
 				5E4E791E1DD09241005F6885 /* mid-priced.wav in Resources */,
 				5E4E79341DD09241005F6885 /* wings.wav in Resources */,
+				5EC048231DD19F1E0034EA37 /* quiznos2.wav in Resources */,
 				5E4E795C1DD09241005F6885 /* hospitals.wav in Resources */,
+				5EC048271DD19F1E0034EA37 /* restaurant-eggsquis.wav in Resources */,
 				5E4E799B1DD09241005F6885 /* from3.wav in Resources */,
+				5EC047A61DD19F1E0034EA37 /* boston-pizza.wav in Resources */,
+				5EC0481C1DD19F1E0034EA37 /* pollo-loco.wav in Resources */,
 				5E4E79BC1DD09241005F6885 /* round2.wav in Resources */,
 				5E4E79581DD09241005F6885 /* GENERAL_CATEGORIES-STATEMENTS.docx in Resources */,
+				5EC048451DD19F1E0034EA37 /* tim-hortons.wav in Resources */,
 				5E4E79EA1DD09241005F6885 /* trunk1.wav in Resources */,
 				5E4E79F41DD09241005F6885 /* trunk6.wav in Resources */,
 				5E4E78EE1DD09241005F6885 /* cajun.wav in Resources */,
+				5EC047E61DD19F1E0034EA37 /* harveys2.wav in Resources */,
+				5EC047D71DD19F1E0034EA37 /* edo-japan.wav in Resources */,
 				5E4E79D31DD09241005F6885 /* stmt1-pt1.wav in Resources */,
+				5EC048181DD19F1E0034EA37 /* pf-changs.wav in Resources */,
+				5EC047C31DD19F1E0034EA37 /* circle-k.wav in Resources */,
 				5E4E79A91DD09241005F6885 /* off2.wav in Resources */,
+				5EC048001DD19F1E0034EA37 /* manchu-wok.wav in Resources */,
 				5E4E79051DD09241005F6885 /* french.wav in Resources */,
+				5EC047D21DD19F1E0034EA37 /* dominos.wav in Resources */,
 				5E4E79611DD09241005F6885 /* museums.wav in Resources */,
 				5E4E79AD1DD09241005F6885 /* onto2.wav in Resources */,
 				5E4E78FC1DD09241005F6885 /* el-salvadoran.wav in Resources */,
 				5E4E79111DD09241005F6885 /* indian.wav in Resources */,
+				5EC047C01DD19F1E0034EA37 /* cicis-pizza.wav in Resources */,
 				5E4E78F91DD09241005F6885 /* dominican.wav in Resources */,
+				5EC047F21DD19F1E0034EA37 /* jimmy-the-greek.wav in Resources */,
 				5E4E78CF1DD09241005F6885 /* kilometers.wav in Resources */,
 				5E4E79571DD09241005F6885 /* gas-stations.wav in Resources */,
 				5E4E78B41DD09241005F6885 /* let-hit-the-road.wav in Resources */,
 				5E4E79A81DD09241005F6885 /* off.wav in Resources */,
 				5E4E79C41DD09241005F6885 /* towards2.wav in Resources */,
 				5E4E78FE1DD09241005F6885 /* ethnic.wav in Resources */,
+				5EC048441DD19F1E0034EA37 /* the-works.wav in Resources */,
 				5E4E78AA1DD09241005F6885 /* closure-ahead.wav in Resources */,
+				5EC047FF1DD19F1E0034EA37 /* macaroni-grill.wav in Resources */,
+				5EC047A71DD19F1E0034EA37 /* burger-baron.wav in Resources */,
+				5EC0484E1DD19F1E0034EA37 /* wawa.wav in Resources */,
+				5EC0479A1DD19F1E0034EA37 /* ben-and-jerrys.wav in Resources */,
+				5EC0480B1DD19F1E0034EA37 /* Ocharleys.wav in Resources */,
 				5E4E79FE1DD09241005F6885 /* 8.wav in Resources */,
 				5E4E79951DD09241005F6885 /* following2.wav in Resources */,
+				5EC0481A1DD19F1E0034EA37 /* pizza-hut.wav in Resources */,
 				5E4E79921DD09241005F6885 /* down.wav in Resources */,
 				5E4E78D61DD09241005F6885 /* mile2.wav in Resources */,
 			);

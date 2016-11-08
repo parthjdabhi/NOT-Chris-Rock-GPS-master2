@@ -270,6 +270,19 @@ extension UITextField {
     
 }
 
+extension UILabel {
+    func setHTMLFromString(text: String) {
+        let modifiedFont = NSString(format:"<span style=\"font-family: \(self.font!.fontName); font-size: \(self.font!.pointSize)\">%@</span>", text) as String
+        
+        let attrStr = try! NSAttributedString(
+            data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
+            documentAttributes: nil)
+        
+        self.attributedText = attrStr
+    }
+}
+
 
 //UIButton_Blcok
 import ObjectiveC
@@ -285,6 +298,7 @@ class ActionBlockWrapper : NSObject {
         self.block = block
     }
 }
+
 
 extension UIButton {
     func block_setAction(block: BlockButtonActionBlock) {

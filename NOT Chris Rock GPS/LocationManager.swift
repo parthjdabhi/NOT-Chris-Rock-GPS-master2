@@ -266,6 +266,14 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             firstLocationUpdateBlock?(latitude: latitude, longitude: longitude, status: locationStatus as String,verboseMessage:verbose, error: nil)
         }
         
+        if(hasLastKnownLocation == false)
+        {
+            //Update User Loaction
+            updateUserLocation()
+        }
+        
+        
+        
         lastKnownLatitude = coordLatLon.latitude
         lastKnownLongitude = coordLatLon.longitude
         
