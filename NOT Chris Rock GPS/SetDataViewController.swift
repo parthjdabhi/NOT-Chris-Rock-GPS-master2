@@ -223,7 +223,7 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
     // MARK - TableView Delegate & DataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodTypes.count
+        return foodCategories.count
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40
@@ -235,7 +235,7 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
         cell.detailTextLabel?.text = "location"
         
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 14.0)
-        cell.textLabel?.text = foodTypes[indexPath.row]
+        cell.textLabel?.text = foodCategories[indexPath.row]["name"]
         
         //cell.selectionStyle = .None
         
@@ -251,13 +251,21 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        if selectedFood.count >= 4 {
+        let isFoodSelected:Bool = selectedFood.contains(foodCategories[indexPath.row]["code"] ?? "-")
+        
+        //(selectedFood.contains(foodTypes[indexPath.row])
+        if selectedFood.count >= 4
+            && isFoodSelected == false
+        {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             SVProgressHUD.showInfoWithStatus("You can't select  more than four diffrent food!")
             return
         }
-        selectedFood.append(foodTypes[indexPath.row])
-        txtFoodType.text = selectedFood.joinWithSeparator(", ")
+        
+        if isFoodSelected == false {
+            selectedFood.append(foodCategories[indexPath.row]["code"] ?? "-")
+            txtFoodType.text = selectedFood.joinWithSeparator(", ")
+        }
         
         //        let cell = tableView.cellForRowAtIndexPath(indexPath)
         //        if cell!.selected == true {
@@ -269,7 +277,7 @@ class SetDataViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
     {
-        if let index = selectedFood.indexOf(foodTypes[indexPath.row]) {
+        if let index = selectedFood.indexOf(foodCategories[indexPath.row]["code"] ?? "-") {
             selectedFood.removeAtIndex(index)
             txtFoodType.text = selectedFood.joinWithSeparator(", ")
         }

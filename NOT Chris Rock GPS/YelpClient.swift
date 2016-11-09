@@ -56,7 +56,10 @@ class YelpClient : OAuthSwiftClient {
         
         if categories != nil && categories!.count > 0 {
             parameters["category_filter"] = (categories!).joinWithSeparator(",")
+        } else {
+            parameters["category_filter"] = "food"
         }
+        //filter - Food (food, All)
         
         if deals != nil {
             parameters["deals_filter"] = deals!

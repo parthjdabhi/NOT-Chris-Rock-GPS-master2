@@ -28,7 +28,7 @@ class Review: NSObject {
     
     username = dictionary["user"]!["name"] as? String
     
-    var userImageString = dictionary["user"]!["image_url"] as? String
+    let userImageString = dictionary["user"]!["image_url"] as? String
     if userImageString != nil {
       let replaced = (userImageString! as NSString).stringByReplacingOccurrencesOfString("http://", withString: "https://")
       userImageURL = NSURL(string: replaced)

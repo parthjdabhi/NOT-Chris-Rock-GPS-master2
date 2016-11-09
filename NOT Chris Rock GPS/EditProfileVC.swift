@@ -110,10 +110,16 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             
             selectedFood = (user["favfood"] as? String ?? "").componentsSeparatedByString(", ")
             for food in (user["favfood"] as? String ?? "").componentsSeparatedByString(", ") {
-                if let index = foodTypes.indexOf(food) {
-                    let indexPath:NSIndexPath = NSIndexPath(forRow: index, inSection: 0)
-                    self.tblFavFood.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+                
+                for (index, element) in foodCategories.enumerate() {
+                    if element["code"] != nil
+                        && element["code"] == food
+                    {
+                        let indexPath:NSIndexPath = NSIndexPath(forRow: index, inSection: 0)
+                        self.tblFavFood.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+                    }
                 }
+                
             }
         }
     }
@@ -238,7 +244,7 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     // MARK - TableView Delegate & DataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodTypes.count
+        return foodCategories.count
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40
@@ -257,7 +263,7 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         cell.detailTextLabel?.text = "location"
         
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 14.0)
-        cell.textLabel?.text = foodTypes[indexPath.row]
+        cell.textLabel?.text = foodCategories[indexPath.row]["name"]
         
         //cell.selectionStyle = .None
         
@@ -273,16 +279,26 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        let isFoodSelected:Bool = selectedFood.contains(foodCategories[indexPath.row]["code"] ?? "-")
+//            foodCategories.filter { (cFood) -> Bool in
+//                                    if let fCode = cFood["code"] {
+//                                        return fCode == (foodCategories[indexPath.row]["code"] ?? "-")
+//                                    } else {
+//                                        return false
+//                                    }
+//                                 }.count != 0
+        
+        //(selectedFood.contains(foodTypes[indexPath.row])
         if selectedFood.count >= 4
-            && (selectedFood.contains(foodTypes[indexPath.row]) == false)
+            && isFoodSelected == false
         {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             SVProgressHUD.showInfoWithStatus("You can't select  more than four diffrent food!")
             return
         }
         
-        if selectedFood.contains(foodTypes[indexPath.row]) == false {
-            selectedFood.append(foodTypes[indexPath.row])
+        if isFoodSelected == false {
+            selectedFood.append(foodCategories[indexPath.row]["code"] ?? "-")
             txtFoodType.text = selectedFood.joinWithSeparator(", ")
         }
         
@@ -296,7 +312,17 @@ class EditProfileVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
     {
-        if let index = selectedFood.indexOf(foodTypes[indexPath.row]) {
+        
+//        for (index, element) in foodCategories.enumerate() {
+//            if element["code"] != nil
+//                && element["code"] == food
+//            {
+//                let indexPath:NSIndexPath = NSIndexPath(forRow: index, inSection: 0)
+//                self.tblFavFood.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+//            }
+//        }
+        
+        if let index = selectedFood.indexOf(foodCategories[indexPath.row]["code"] ?? "-") {
             selectedFood.removeAtIndex(index)
             txtFoodType.text = selectedFood.joinWithSeparator(", ")
         }

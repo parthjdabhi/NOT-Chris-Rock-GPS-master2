@@ -187,7 +187,7 @@ extension UITextField {
     
     public func setLeftImage(padding:CGFloat = 20,imageName:String) {
         
-        var envelopeView: UIImageView = UIImageView(frame: CGRectMake(padding, 0, 30, 30))
+        let envelopeView: UIImageView = UIImageView(frame: CGRectMake(padding, 0, 30, 30))
         envelopeView.image = UIImage(named: "icon_user")
         envelopeView.contentMode = .ScaleAspectFit
         
@@ -303,7 +303,7 @@ class ActionBlockWrapper : NSObject {
 extension UIButton {
     func block_setAction(block: BlockButtonActionBlock) {
         objc_setAssociatedObject(self, &ActionBlockKey, ActionBlockWrapper(block: block), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        addTarget(self, action: "block_handleAction:", forControlEvents: .TouchUpInside)
+        addTarget(self, action: #selector(UIButton.block_handleAction(_:)), forControlEvents: .TouchUpInside)
     }
     
     func block_handleAction(sender: UIButton) {
