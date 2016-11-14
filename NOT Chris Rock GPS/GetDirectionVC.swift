@@ -65,10 +65,12 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             switch orient {
             case .Portrait:
                 print("Portrait")
+                self.lblSpeed.layoutIfNeeded()
                 self.ApplyportraitConstraint()
                 break
             default:
                 print("LandScape")
+                self.lblSpeed.layoutIfNeeded()
                 self.applyLandScapeConstraint()
                 break
             }
@@ -366,7 +368,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
         
         
         let instructions = (dictTable.objectForKey("html_instructions") as? NSString ?? "") as String + " (" + ((dictTable.objectForKey("duration") as? NSString ?? "") as String) + " - " + ((dictTable.objectForKey("distance") as? NSString ?? "") as String) + ")"
-        self.lblSpeed.setHTMLFromString(instructions)
+        self.lblSpeed.setHTMLFromString(instructions.stringByReplacingOccurrencesOfString("\n", withString: " "))
         
         //cell.directionDetail.text =  dictTable["instructions"] as? String
         //let distance = dictTable["distance"] as! NSString
@@ -405,7 +407,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
             self.googleMapsView.animateToCameraPosition(camera1)
             
             
-            print("Distance : ",nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!))
+            print("Distance -",routePos,", ",self.directionDetail.count,"- : ",nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!))
             if nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!) < 10
                 && self.directionDetail.count > routePos
             {
@@ -419,7 +421,7 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 
                 //html_instructions
                 let instructions = (dictTable.objectForKey("html_instructions") as? NSString ?? "") as String + " (" + ((dictTable.objectForKey("duration") as? NSString ?? "") as String) + " - " + ((dictTable.objectForKey("distance") as? NSString ?? "") as String) + ")"
-                self.lblSpeed.setHTMLFromString(instructions)
+                self.lblSpeed.setHTMLFromString(instructions.stringByReplacingOccurrencesOfString("\n", withString: " "))
                 
                 let camera = GMSCameraPosition.cameraWithLatitude(LocationManager.sharedInstance.latitude,longitude: LocationManager.sharedInstance.longitude, zoom: self.googleMapsView.camera.zoom)
                 self.googleMapsView.animateToCameraPosition(camera)
@@ -431,6 +433,14 @@ class GetDirectionVC: UIViewController,UITextFieldDelegate,UISearchBarDelegate, 
                 
                 // To play sound on base of instruction
                 self.playSoundForInstruction(dictTable.objectForKey("instructions") as? NSString as? String)
+            }
+            else if nextTurnLocation.distanceFromLocation(LocationManager.sharedInstance.CLocation!) < 10
+                && self.directionDetail.count == routePos+1
+            {
+                //Finish tracking
+                //Reach at destination
+                
+                self.stopObservingRoute()
             }
         }
     }

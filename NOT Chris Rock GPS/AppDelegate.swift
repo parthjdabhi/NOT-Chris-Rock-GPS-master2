@@ -65,14 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LocationManagerDelegate {
             self.window!.rootViewController = navigationController
             self.window!.makeKeyAndVisible()
             
-            //            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            //            //let rootViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SWRevealViewController") as? UIViewController
-            //            //let navigationController = UINavigationController(rootViewController: rootViewController!)
-            //            let navigationController = mainStoryboard.instantiateViewControllerWithIdentifier("navHome") as? UINavigationController
-            //            navigationController?.navigationBarHidden = true
-            //            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            //            self.window!.rootViewController = navigationController
-            //            self.window!.makeKeyAndVisible()
+//            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            //let rootViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SWRevealViewController") as? UIViewController
+//            //let navigationController = UINavigationController(rootViewController: rootViewController!)
+//            let navigationController = mainStoryboard.instantiateViewControllerWithIdentifier("navHome") as? UINavigationController
+//            navigationController?.navigationBarHidden = true
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//            self.window!.rootViewController = navigationController
+//            self.window!.makeKeyAndVisible()
         }
         
         //Location Manager

@@ -210,7 +210,8 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
             
             if business.count == 0 {
                 SVProgressHUD.showInfoWithStatus("No results found!")
-                //self.doPlaySoundForSearchResult()
+                
+                self.doPlaySoundForSearchResult()
                 //7) When a search does not show a restaurant that was SPECIFICALLY searched for, play food-stmt6.wav.
                 
             } else {
@@ -238,7 +239,13 @@ class DrawerContentViewController: UIViewController, UITableViewDelegate, UITabl
         //foodstmt4-pt5_checkthemout.wav
         
         
-        if self.businessList?.count == 1 {
+        if self.businessList?.count == 0 {
+            //Audio: Audio For No Business found
+            self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("foodstmt4-pt2_places", withExtension: "wav")!.absoluteString)
+            
+            StartPlaying()
+            
+        } else if self.businessList?.count == 1 {
             //Audio: i Founds
             self.AddAudioToQueue(ofUrl: NSBundle.mainBundle().URLForResource("foodstmt4-pt1_ifound", withExtension: "wav")!.absoluteString)
             
